@@ -1,0 +1,41 @@
+<def name="most-wanted">
+	<element name="pickup_job" friendlyname="Pickup Job">
+		<data name="position" type="coord3d" default="0,0,0" />
+		<data name="rotation" type="coord3d" default="0,0,0" />
+		<object model="3632" position="0,0,0" editorOnly="true" alpha="0"/>
+	</element>
+	<element name="delivery_job_start" friendlyname="Delivery Job Start">
+		<data name="position" type="coord3d" default="0,0,0" />
+		<data name="rotation" type="coord3d" default="0,0,0" />
+		<!-- used to match end points -->
+		<data name="job_id" type="number" default="0" />
+		<object model="3496" position="0,0,0" editorOnly="true" alpha="0"/>
+	</element>
+	<element name="delivery_job_end" friendlyname="Delivery Job End">
+		<data name="position" type="coord3d" default="0,0,0" />
+		<data name="rotation" type="coord3d" default="0,0,0" />
+		<!-- used to match start points -->
+		<data name="job_id" type="number" default="0" />
+		<object model="1255" position="0,0,0" editorOnly="true" alpha="0"/>
+	</element>
+	<element name="contact_job" friendlyname="Contact Job">
+		<data name="position" type="coord3d" default="0,0,0" />
+		<data name="rotation" type="coord3d" default="0,0,0" />
+		<object model="4" position="0,0,0" editorOnly="true" alpha="0"/>
+	</element>
+	<element name="destruction_job" friendlyname="Destruction Job">
+		<data name="position" type="coord3d" default="0,0,0" />
+		<data name="rotation" type="coord3d" default="0,0,0" />
+		<object model="3632" position="0,0,0" editorOnly="true" alpha="0"/>
+	</element>
+	<element name="extortion_job" friendlyname="Extortion Job">
+		<data name="position" type="coord3d" default="0,0,0" />
+		<data name="rotation" type="coord3d" default="0,0,0" />
+		<object model="3031" position="0,0,0" editorOnly="true" alpha="0"/>
+	</element>
+	<element name="group_job" friendlyname="Group Job">
+		<data name="position" type="coord3d" default="0,0,0" />
+		<data name="rotation" type="coord3d" default="0,0,0" />
+		<object model="2932" position="0,0,0" editorOnly="true" alpha="0"/>
+	</element>
+</def>
