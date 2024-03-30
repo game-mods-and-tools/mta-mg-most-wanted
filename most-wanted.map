@@ -1,0 +1,760 @@
+<map edf:definitions="race,editor_main,most-wanted">
+    <checkpoint id="checkpoint () (1)" type="checkpoint" color="#00F9" size="2.25" nextid="checkpoint () (2)" posX="-8192" posY="-2244.3203" posZ="29.50715" rotX="0" rotY="0" rotZ="0"></checkpoint>
+    <checkpoint id="checkpoint () (2)" type="checkpoint" color="#00F9" size="2.25" nextid="checkpoint () (3)" posX="-8192" posY="-2244.3203" posZ="29.50715" rotX="0" rotY="0" rotZ="0"></checkpoint>
+    <checkpoint id="checkpoint () (3)" type="checkpoint" color="#00F9" size="2.25" nextid="checkpoint () (4)" posX="-8191111111112" posY="-2244.3203" posZ="29.50715" rotX="0" rotY="0" rotZ="0"></checkpoint>
+    <checkpoint id="checkpoint () (4)" type="checkpoint" color="#00F9" size="2.25" nextid="checkpoint () (5)" posX="-8191111111112" posY="-2244.3203" posZ="29.50715" rotX="0" rotY="0" rotZ="0"></checkpoint>
+    <checkpoint id="checkpoint () (5)" type="checkpoint" color="#00F9" size="2.25" posX="-8192" posY="-2244.3203" posZ="29.50715" rotX="0" rotY="0" rotZ="0"></checkpoint>
+    <object id="object (vgsSairportland06) (1)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="623.45453" posY="-1340.1481" posZ="34.03399" rotX="90" rotY="8.049" rotZ="359.951"></object>
+    <vehicle id="vehicle (Police LS) (1)" sirens="false" landingGearDown="false" locked="false" plate="4AUVP42" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9867" posY="-1345.4927" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (2)" sirens="false" landingGearDown="false" locked="false" plate="56FVW7N" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1339.8534" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (3)" sirens="false" landingGearDown="false" locked="false" plate="AFDHH2L" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1324.5662" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (4)" sirens="false" landingGearDown="false" locked="false" plate="AUO178T" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1283.6743" posY="-1297.0137" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
+    <vehicle id="vehicle (Police LS) (5)" sirens="false" landingGearDown="false" locked="false" plate="DA3CMJB" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4686" posY="-1315.9053" posZ="13.13175" rotX="0" rotY="0" rotZ="180"></vehicle>
+    <vehicle id="vehicle (Police LS) (6)" sirens="false" landingGearDown="false" locked="false" plate="99E4KQS" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4688" posY="-1368.983" posZ="13.13175" rotX="0" rotY="0" rotZ="180"></vehicle>
+    <vehicle id="vehicle (Police LS) (7)" sirens="false" landingGearDown="false" locked="false" plate="KF3GWT9" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1304.405" posY="-1375.9607" posZ="13.54635" rotX="0" rotY="0" rotZ="180"></vehicle>
+    <vehicle id="vehicle (Police LS) (8)" sirens="false" landingGearDown="false" locked="false" plate="4PH60OI" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1315.9628" posY="-1373.4989" posZ="13.54635" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (9)" sirens="false" landingGearDown="false" locked="false" plate="ANBX0V9" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1315.9629" posY="-1380.5161" posZ="13.54635" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (10)" sirens="false" landingGearDown="false" locked="false" plate="219Z785" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1361.0815" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (11)" sirens="false" landingGearDown="false" locked="false" plate="IWDXMJV" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1372.3806" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (12)" sirens="false" landingGearDown="false" locked="false" plate="LY6LCPK" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4688" posY="-1357.285" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
+    <vehicle id="vehicle (Police LS) (13)" sirens="false" landingGearDown="false" locked="false" plate="HAWMJCB" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1291.1558" posY="-1390.3364" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (14)" sirens="false" landingGearDown="false" locked="false" plate="2UHUB8F" paintjob="3" dimension="0" interior="0" health="1000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1275.5226" posY="-1309.2051" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
+    <object id="object (vgsSairportland06) (2)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="579.75293" posY="-1303.2791" posZ="34.03399" rotX="90" rotY="90" rotZ="0"></object>
+    <object id="object (vgsSairportland06) (3)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="587.80188" posY="-1229.1281" posZ="34.03399" rotX="90" rotY="90" rotZ="0"></object>
+    <object id="object (vgsSairportland06) (4)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="656.15198" posY="-1163.8218" posZ="34.03399" rotX="90" rotY="8.213" rotZ="35.787"></object>
+    <object id="object (vgsSairportland06) (5)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="696.73645" posY="-1105.1637" posZ="34.03399" rotX="90" rotY="6.379" rotZ="51.616"></object>
+    <object id="object (vgsSairportland06) (6)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="727.06757" posY="-1036.9095" posZ="34.03399" rotX="90" rotY="5.796" rotZ="40.195"></object>
+    <object id="object (vgsSairportland06) (7)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="773.85779" posY="-1010.7941" posZ="34.03399" rotX="90" rotY="5.089" rotZ="2.899"></object>
+    <object id="object (vgsSairportland06) (8)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="816.86658" posY="-995.10132" posZ="34.03399" rotX="90" rotY="4.793" rotZ="23.188"></object>
+    <object id="object (vgsSairportland06) (9)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="842.6864" posY="-967.5271" posZ="34.03399" rotX="90" rotY="4.419" rotZ="39.557"></object>
+    <object id="object (vgsSairportland06) (10)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="873.25366" posY="-933.49591" posZ="34.03399" rotX="90" rotY="3.989" rotZ="33.984"></object>
+    <object id="object (vgsSairportland06) (11)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="913.88226" posY="-887.21423" posZ="34.03399" rotX="90" rotY="3.783" rotZ="2.186"></object>
+    <object id="object (vgsSairportland06) (12)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="989.61774" posY="-886.58002" posZ="34.03399" rotX="90" rotY="3.779" rotZ="2.181"></object>
+    <object id="object (vgsSairportland06) (13)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1080.2949" posY="-860.14069" posZ="34.03399" rotX="90" rotY="3.654" rotZ="8.306"></object>
+    <object id="object (vgsSairportland06) (14)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1125.0804" posY="-848.90002" posZ="34.03399" rotX="90" rotY="3.259" rotZ="2.699"></object>
+    <object id="object (vgsSairportland06) (15)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1192.2141" posY="-864.03284" posZ="34.03399" rotX="90" rotY="3.181" rotZ="344.773"></object>
+    <object id="object (vgsSairportland06) (16)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1254.616" posY="-858.44604" posZ="34.03399" rotX="90" rotY="3.091" rotZ="6.862"></object>
+    <object id="object (vgsSairportland06) (17)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1315.3523" posY="-851.49548" posZ="34.03399" rotX="90" rotY="3.026" rotZ="352.922"></object>
+    <object id="object (vgsSairportland06) (18)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1367.4205" posY="-856.33044" posZ="34.03399" rotX="90" rotY="2.948" rotZ="332.992"></object>
+    <object id="object (vgsSairportland06) (19)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1415.1475" posY="-907.94843" posZ="34.03399" rotX="90" rotY="2.859" rotZ="347.076"></object>
+    <object id="object (vgsSairportland06) (20)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1480.5715" posY="-920.81781" posZ="34.03399" rotX="90" rotY="2.665" rotZ="351.266"></object>
+    <object id="object (vgsSairportland06) (21)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1535.4702" posY="-919.18182" posZ="34.03399" rotX="90" rotY="2.693" rotZ="351.235"></object>
+    <object id="object (vgsSairportland06) (22)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1588.3566" posY="-927.21625" posZ="34.03399" rotX="90" rotY="2.651" rotZ="335.274"></object>
+    <object id="object (vgsSairportland06) (23)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1635.5743" posY="-949.6897" posZ="34.03399" rotX="90" rotY="2.591" rotZ="323.334"></object>
+    <object id="object (vgsSairportland06) (24)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1539.9302" posY="-993.14795" posZ="34.03399" rotX="90" rotY="2.618" rotZ="311.307"></object>
+    <object id="object (vgsSairportland06) (25)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1694.4752" posY="-958.6084" posZ="34.03399" rotX="90" rotY="2.585" rotZ="21.339"></object>
+    <object id="object (vgsSairportland06) (26)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1758.7203" posY="-947.61841" posZ="34.03399" rotX="90" rotY="2.504" rotZ="347.413"></object>
+    <object id="object (vgsSairportland06) (27)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1837.4124" posY="-977.88306" posZ="34.03399" rotX="90" rotY="2.469" rotZ="331.44"></object>
+    <object id="object (vgsSairportland06) (28)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1917.4231" posY="-1009.4081" posZ="34.03399" rotX="90" rotY="2.42" rotZ="343.482"></object>
+    <object id="object (vgsSairportland06) (29)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1983.0313" posY="-1002.546" posZ="34.03399" rotX="90" rotY="2.385" rotZ="339.514"></object>
+    <object id="object (vgsSairportland06) (30)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2058.325" posY="-1013.5359" posZ="34.03399" rotX="90" rotY="2.356" rotZ="347.539"></object>
+    <object id="object (vgsSairportland06) (31)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2104.9756" posY="-1035.8921" posZ="34.03399" rotX="90" rotY="2.272" rotZ="319.615"></object>
+    <object id="object (vgsSairportland06) (32)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2145.9136" posY="-1061.7708" posZ="34.03399" rotX="90" rotY="2.269" rotZ="319.614"></object>
+    <object id="object (vgsSairportland06) (33)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2194.584" posY="-1085.6301" posZ="34.03399" rotX="90" rotY="2.269" rotZ="319.614"></object>
+    <object id="object (vgsSairportland06) (34)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2197.8494" posY="-1116.7572" posZ="34.03399" rotX="84" rotY="270" rotZ="325.883"></object>
+    <object id="object (vgsSairportland06) (35)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2185.6799" posY="-1159.7217" posZ="34.03399" rotX="83.996" rotY="270" rotZ="359.882"></object>
+    <object id="object (vgsSairportland06) (36)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2184.6846" posY="-1211.3326" posZ="34.03399" rotX="90" rotY="352.105" rotZ="271.774"></object>
+    <object id="object (vgsSairportland06) (37)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2123.8967" posY="-1268.2356" posZ="34.03399" rotX="90" rotY="354.232" rotZ="185.768"></object>
+    <object id="object (vgsSairportland06) (38)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2180.2324" posY="-1255.4171" posZ="34.03399" rotX="90" rotY="352.929" rotZ="252.943"></object>
+    <object id="object (vgsSairportland06) (39)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2085.0225" posY="-1310.9423" posZ="34.03399" rotX="90" rotY="355.217" rotZ="268.778"></object>
+    <object id="object (vgsSairportland06) (40)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2034.1559" posY="-1348.6224" posZ="34.03399" rotX="90" rotY="355.803" rotZ="188.187"></object>
+    <object id="object (vgsSairportland06) (41)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2042.1172" posY="-1435.0684" posZ="34.03399" rotX="90" rotY="356.495" rotZ="87.49"></object>
+    <object id="object (vgsSairportland06) (42)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2019.1421" posY="-1505.652" posZ="31.21093" rotX="90" rotY="356.495" rotZ="87.49"></object>
+    <object id="object (vgsSairportland06) (43)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1946.2371" posY="-1520.3425" posZ="31.21093" rotX="90" rotY="356.747" rotZ="7.238"></object>
+    <object id="object (vgsSairportland06) (44)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1865.7471" posY="-1557.7795" posZ="31.21093" rotX="90" rotY="356.857" rotZ="29.12"></object>
+    <object id="object (vgsSairportland06) (45)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1837.7893" posY="-1644.2473" posZ="31.21093" rotX="90" rotY="357.023" rotZ="94.949"></object>
+    <object id="object (vgsSairportland06) (46)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1837.7891" posY="-1729.5283" posZ="31.21093" rotX="90" rotY="357.222" rotZ="92.745"></object>
+    <object id="object (vgsSairportland06) (47)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1836.2854" posY="-1805.2495" posZ="31.21093" rotX="90" rotY="357.22" rotZ="92.741"></object>
+    <object id="object (vgsSairportland06) (48)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1868.4517" posY="-1862.0122" posZ="31.21093" rotX="90" rotY="357.22" rotZ="92.741"></object>
+    <object id="object (vgsSairportland06) (49)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1834.1702" posY="-1906.746" posZ="31.21093" rotX="90" rotY="357.22" rotZ="92.741"></object>
+    <object id="object (vgsSairportland06) (50)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1812.131" posY="-1951.517" posZ="31.21093" rotX="90" rotY="357.296" rotZ="56.666"></object>
+    <object id="object (vgsSairportland06) (51)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1768.9374" posY="-2014.1323" posZ="31.21093" rotX="90" rotY="357.389" rotZ="356.565"></object>
+    <object id="object (vgsSairportland06) (52)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1716.501" posY="-2014.1318" posZ="31.21093" rotX="90" rotY="357.385" rotZ="356.561"></object>
+    <object id="object (vgsSairportland06) (53)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1678.939" posY="-1977.5723" posZ="31.21093" rotX="90" rotY="357.5" rotZ="278.447"></object>
+    <object id="object (vgsSairportland06) (54)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1665.0084" posY="-1921.9957" posZ="31.21093" rotX="90" rotY="357.632" rotZ="180.307"></object>
+    <object id="object (vgsSairportland06) (55)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1587.0763" posY="-1921.9961" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
+    <object id="object (vgsSairportland06) (56)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1485.719" posY="-1921.9961" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
+    <object id="object (vgsSairportland06) (57)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1389.4475" posY="-1906.6647" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
+    <object id="object (vgsSairportland06) (58)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1282.186" posY="-1887.8251" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
+    <object id="object (vgsSairportland06) (59)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1151.6259" posY="-1887.8252" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
+    <object id="object (vgsSairportland06) (60)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1060.9419" posY="-1887.8252" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
+    <object id="object (vgsSairportland06) (61)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="994.50848" posY="-1874.0121" posZ="31.21093" rotX="90" rotY="357.661" rotZ="154.268"></object>
+    <object id="object (vgsSairportland06) (62)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="902.00409" posY="-1843.1129" posZ="31.21093" rotX="90" rotY="357.696" rotZ="168.228"></object>
+    <object id="object (vgsSairportland06) (63)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="826.77655" posY="-1831.3641" posZ="31.21093" rotX="90" rotY="357.724" rotZ="176.197"></object>
+    <object id="object (vgsSairportland06) (64)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="794.3739" posY="-1768.6306" posZ="31.21093" rotX="90" rotY="357.81" rotZ="102.103"></object>
+    <object id="object (vgsSairportland06) (65)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="794.37402" posY="-1701.7548" posZ="31.21093" rotX="90" rotY="357.874" rotZ="94.036"></object>
+    <object id="object (vgsSairportland06) (66)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="781.86566" posY="-1644.4536" posZ="31.21093" rotX="90" rotY="357.902" rotZ="97.999"></object>
+    <object id="object (vgsSairportland06) (67)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="758.13092" posY="-1582.9799" posZ="31.21093" rotX="90" rotY="358.032" rotZ="283.868"></object>
+    <object id="object (vgsSairportland06) (68)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="748.70349" posY="-1523.1353" posZ="31.21093" rotX="90" rotY="358.074" rotZ="259.819"></object>
+    <object id="object (vgsSairportland06) (69)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="747.76172" posY="-1456.9443" posZ="31.21093" rotX="90" rotY="358.11" rotZ="299.773"></object>
+    <object id="object (vgsSairportland06) (70)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="716.60986" posY="-1396.4735" posZ="31.21093" rotX="90" rotY="358.134" rotZ="283.75"></object>
+    <object id="object (vgsSairportland06) (71)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="688.23242" posY="-1337.8604" posZ="31.21093" rotX="90" rotY="358.231" rotZ="359.651"></object>
+    <spawnpoint id="spawnpoint (Sultan) (1)" vehicle="560" interior="0" posX="1366.1172" posY="-1056.4863" posZ="26.06527" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (2)" vehicle="560" alpha="255" interior="0" posX="902.86426" posY="-1408.0869" posZ="12.96572" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (3)" vehicle="560" alpha="255" interior="0" posX="1075.6761" posY="-1849.7654" posZ="13.19596" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (4)" vehicle="560" alpha="255" interior="0" posX="1590.0328" posY="-1870.0452" posZ="13.18779" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (5)" vehicle="560" alpha="255" interior="0" posX="1446.1174" posY="-1589.5724" posZ="13.18779" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (6)" vehicle="560" alpha="255" interior="0" posX="1989.4413" posY="-1355.5913" posZ="23.59637" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (7)" vehicle="560" alpha="255" interior="0" posX="1778.3417" posY="-1911.4208" posZ="13.19308" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (8)" vehicle="560" alpha="255" interior="0" posX="2148.8562" posY="-1138.3427" posZ="25.30913" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (9)" vehicle="560" alpha="255" interior="0" posX="2161.3813" posY="-1187.4773" posZ="23.6241" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (10)" vehicle="560" alpha="255" interior="0" posX="1972.5343" posY="-1150.3129" posZ="25.63331" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (11)" vehicle="560" alpha="255" interior="0" posX="1616.6515" posY="-1128.1105" posZ="23.71123" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (12)" vehicle="560" alpha="255" interior="0" posX="1649.0891" posY="-1084.8328" posZ="23.71123" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (13)" vehicle="560" alpha="255" interior="0" posX="1657.5747" posY="-1107.2936" posZ="23.71123" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (14)" vehicle="560" alpha="255" interior="0" posX="956.47437" posY="-1271.7316" posZ="15.21893" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (15)" vehicle="560" alpha="255" interior="0" posX="746.98309" posY="-1084.0486" posZ="22.34857" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (16)" vehicle="560" alpha="255" interior="0" posX="1014.6071" posY="-1347.1576" posZ="13.17292" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (17)" vehicle="560" alpha="255" interior="0" posX="1006.0946" posY="-1367.5226" posZ="13.13343" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (18)" vehicle="560" alpha="255" interior="0" posX="1086.8654" posY="-1382.3994" posZ="13.58623" rotX="0" rotY="0" rotZ="180"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (19)" vehicle="560" alpha="255" interior="0" posX="1044.1494" posY="-1548.5878" posZ="13.35294" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (20)" vehicle="560" alpha="255" interior="0" posX="888.21991" posY="-1669.2089" posZ="13.35185" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (21)" vehicle="560" alpha="255" interior="0" posX="1194.1062" posY="-1558.1064" posZ="13.18779" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (22)" vehicle="560" alpha="255" interior="0" posX="807.91724" posY="-1755.1489" posZ="13.1921" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (23)" vehicle="560" alpha="255" interior="0" posX="1062.2948" posY="-1746.1979" posZ="13.25942" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (24)" vehicle="560" alpha="255" interior="0" posX="1062.1354" posY="-1766.7155" posZ="13.18191" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (25)" vehicle="560" alpha="255" interior="0" posX="1097.9585" posY="-1757.9858" posZ="13.16022" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (26)" vehicle="560" alpha="255" interior="0" posX="1108.1145" posY="-1026.1976" posZ="31.73764" rotX="0" rotY="0" rotZ="172"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (27)" vehicle="560" alpha="255" interior="0" posX="1155.936" posY="-928.89581" posZ="42.84" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (28)" vehicle="560" alpha="255" interior="0" posX="1211.6537" posY="-893.15424" posZ="42.72593" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (29)" vehicle="560" alpha="255" interior="0" posX="1338.1517" posY="-914.45831" posZ="35.76318" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (30)" vehicle="560" alpha="255" interior="0" posX="2148.0562" posY="-1194.2301" posZ="23.63551" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (31)" vehicle="560" alpha="255" interior="0" posX="1836.318" posY="-1854.1555" posZ="13.19472" rotX="0" rotY="0" rotZ="180"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (32)" vehicle="560" alpha="255" interior="0" posX="1823.8751" posY="-1767.3052" posZ="13.18779" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (33)" vehicle="560" alpha="255" interior="0" posX="1768.0762" posY="-1691.9006" posZ="13.23431" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (34)" vehicle="560" alpha="255" interior="0" posX="1866.7468" posY="-1459.9817" posZ="13.18779" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (35)" vehicle="560" alpha="255" interior="0" posX="1797.4344" posY="-1441.6246" posZ="13.22611" rotX="0" rotY="0" rotZ="180"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (36)" vehicle="560" alpha="255" interior="0" posX="1462.1577" posY="-1494.3695" posZ="13.35185" rotX="0" rotY="0" rotZ="135.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (37)" vehicle="560" alpha="255" interior="0" posX="1607.8719" posY="-1552.7169" posZ="13.38916" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (38)" vehicle="560" alpha="255" interior="0" posX="1645.1581" posY="-1524.1667" posZ="13.35988" rotX="0" rotY="0" rotZ="256"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (39)" vehicle="560" alpha="255" interior="0" posX="1715.118" posY="-1474.3107" posZ="13.35185" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (40)" vehicle="560" alpha="255" interior="0" posX="1717.2325" posY="-1312.8831" posZ="13.18779" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (41)" vehicle="560" alpha="255" interior="0" posX="1661.4392" posY="-1135.7025" posZ="23.71123" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (42)" vehicle="560" alpha="255" interior="0" posX="1563.2095" posY="-1012.6183" posZ="23.71123" rotX="0" rotY="0" rotZ="180"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (43)" vehicle="560" alpha="255" interior="0" posX="1570.0817" posY="-1034.3051" posZ="23.71902" rotX="0" rotY="0" rotZ="321.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (44)" vehicle="560" alpha="255" interior="0" posX="1395.6324" posY="-940.36749" posZ="34.33237" rotX="0" rotY="0" rotZ="82"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (45)" vehicle="560" alpha="255" interior="0" posX="809.71753" posY="-1040.7476" posZ="24.71217" rotX="0" rotY="0" rotZ="107.996"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (46)" vehicle="560" alpha="255" interior="0" posX="782.26178" posY="-1336.1216" posZ="13.34309" rotX="0" rotY="0" rotZ="107.996"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (47)" vehicle="560" alpha="255" interior="0" posX="1008.7522" posY="-1086.8314" posZ="23.6331" rotX="0" rotY="0" rotZ="164"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (48)" vehicle="560" alpha="255" interior="0" posX="1012.7324" posY="-1095.7961" posZ="23.6331" rotX="0" rotY="0" rotZ="69.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (49)" vehicle="560" alpha="255" interior="0" posX="1274.7489" posY="-1098.6732" posZ="25.77222" rotX="0" rotY="0" rotZ="131.994"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (50)" vehicle="560" alpha="255" interior="0" posX="1788.4886" posY="-1060.7283" posZ="23.76591" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (51)" vehicle="560" alpha="255" interior="0" posX="1753.6914" posY="-1084.9819" posZ="23.76591" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (52)" vehicle="560" alpha="255" interior="0" posX="1678.8878" posY="-1012.147" posZ="23.70341" rotX="0" rotY="0" rotZ="198"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (53)" vehicle="560" alpha="255" interior="0" posX="1970.4806" posY="-1276.2554" posZ="23.78935" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (54)" vehicle="560" alpha="255" interior="0" posX="1969.0214" posY="-1120.9465" posZ="25.55061" rotX="0" rotY="0" rotZ="180"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (55)" vehicle="560" alpha="255" interior="0" posX="2161.71" posY="-1120.0083" posZ="25.19366" rotX="0" rotY="0" rotZ="261.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (56)" vehicle="560" alpha="255" interior="0" posX="1885.9988" posY="-1085.1615" posZ="23.72499" rotX="0" rotY="0" rotZ="111.991"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (57)" vehicle="560" alpha="255" interior="0" posX="1712.5161" posY="-1287.0273" posZ="13.18779" rotX="0" rotY="0" rotZ="180"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (58)" vehicle="560" alpha="255" interior="0" posX="1640.1097" posY="-1452.7939" posZ="13.35185" rotX="0" rotY="0" rotZ="281.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (59)" vehicle="560" alpha="255" interior="0" posX="1291.5645" posY="-1866.9482" posZ="13.35185" rotX="0" rotY="0" rotZ="357.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (60)" vehicle="560" alpha="255" interior="0" posX="1173.1412" posY="-1830.6285" posZ="13.20341" rotX="0" rotY="0" rotZ="180"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (61)" vehicle="560" alpha="255" interior="0" posX="1062.4297" posY="-1772.6836" posZ="13.16005" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (62)" vehicle="560" alpha="255" interior="0" posX="924.39063" posY="-1800.8225" posZ="13.4323" rotX="0" rotY="0" rotZ="70"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (63)" vehicle="560" alpha="255" interior="0" posX="857.77557" posY="-1661.5726" posZ="13.35676" rotX="0" rotY="0" rotZ="261.999"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (64)" vehicle="560" alpha="255" interior="0" posX="870.42609" posY="-1678.7007" posZ="13.35185" rotX="0" rotY="0" rotZ="180"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (65)" vehicle="560" alpha="255" interior="0" posX="782.0083" posY="-1619.7184" posZ="13.18779" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (66)" vehicle="560" alpha="255" interior="0" posX="782.60071" posY="-1605.3386" posZ="13.18779" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (67)" vehicle="560" alpha="255" interior="0" posX="849.02777" posY="-1620.8568" posZ="13.34365" rotX="0" rotY="0" rotZ="12"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (68)" vehicle="560" alpha="255" interior="0" posX="920.0813" posY="-1504.1539" posZ="13.17586" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (69)" vehicle="560" alpha="255" interior="0" posX="939.75586" posY="-1390.2407" posZ="13.25716" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (70)" vehicle="560" alpha="255" interior="0" posX="956.77777" posY="-1476.2577" posZ="13.35185" rotX="0" rotY="0" rotZ="202"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (71)" vehicle="560" alpha="255" interior="0" posX="992.71521" posY="-1435.5811" posZ="13.35185" rotX="0" rotY="0" rotZ="186"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (72)" vehicle="560" alpha="255" interior="0" posX="1000.6923" posY="-1436.4705" posZ="13.35185" rotX="0" rotY="0" rotZ="171.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (73)" vehicle="560" alpha="255" interior="0" posX="974.20758" posY="-1305.3008" posZ="13.18779" rotX="0" rotY="0" rotZ="185.999"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (74)" vehicle="560" alpha="255" interior="0" posX="943.43213" posY="-1327.9884" posZ="13.18779" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (75)" vehicle="560" alpha="255" interior="0" posX="802.76459" posY="-1262.4816" posZ="13.45928" rotX="0" rotY="0" rotZ="12"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (76)" vehicle="560" alpha="255" interior="0" posX="783.02454" posY="-1341.8319" posZ="13.33651" rotX="0" rotY="0" rotZ="95.997"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (77)" vehicle="560" alpha="255" interior="0" posX="806.3244" posY="-1494.2291" posZ="13.37376" rotX="0" rotY="0" rotZ="81.993"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (78)" vehicle="560" alpha="255" interior="0" posX="1807.5643" posY="-1716.5426" posZ="13.35182" rotX="0" rotY="0" rotZ="111.993"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (79)" vehicle="560" alpha="255" interior="0" posX="1806.9302" posY="-1707.2017" posZ="13.35108" rotX="0" rotY="0" rotZ="123.991"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (80)" vehicle="560" alpha="255" interior="0" posX="1692.0679" posY="-1748.6757" posZ="13.19542" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (81)" vehicle="560" alpha="255" interior="0" posX="1834.598" posY="-1870.9711" posZ="13.18779" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (82)" vehicle="560" alpha="255" interior="0" posX="1787.4688" posY="-1930.4053" posZ="13.19246" rotX="0" rotY="0" rotZ="350"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (83)" vehicle="560" alpha="255" interior="0" posX="1803.3752" posY="-1913.6531" posZ="13.20064" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (84)" vehicle="560" alpha="255" interior="0" posX="1779.2963" posY="-1904.5488" posZ="13.19378" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (85)" vehicle="560" alpha="255" interior="0" posX="1776.3303" posY="-1811.246" posZ="13.35685" rotX="0" rotY="0" rotZ="104"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (86)" vehicle="560" alpha="255" interior="0" posX="1765.9476" posY="-1812.6295" posZ="13.35849" rotX="0" rotY="0" rotZ="247.997"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (87)" vehicle="560" alpha="255" interior="0" posX="1735.7167" posY="-1746.9539" posZ="13.33661" rotX="0" rotY="0" rotZ="355.994"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (88)" vehicle="560" alpha="255" interior="0" posX="1632.0408" posY="-1686.8168" posZ="13.17309" rotX="0" rotY="0" rotZ="180"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (89)" vehicle="560" alpha="255" interior="0" posX="1604.4508" posY="-1469.1083" posZ="13.37277" rotX="0" rotY="0" rotZ="350"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (90)" vehicle="560" alpha="255" interior="0" posX="1469.7258" posY="-1296.6169" posZ="13.24452" rotX="0" rotY="0" rotZ="89.997"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (91)" vehicle="560" alpha="255" interior="0" posX="1440.2124" posY="-1331.1621" posZ="13.36601" rotX="0" rotY="0" rotZ="276"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (92)" vehicle="560" alpha="255" interior="0" posX="1456.7655" posY="-1459.2749" posZ="13.1669" rotX="0" rotY="0" rotZ="359.999"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (93)" vehicle="560" alpha="255" interior="0" posX="1586.1287" posY="-1411.8296" posZ="13.41382" rotX="0" rotY="0" rotZ="261.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (94)" vehicle="560" alpha="255" interior="0" posX="1586.5049" posY="-1417.1656" posZ="13.41382" rotX="0" rotY="0" rotZ="283.991"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (95)" vehicle="560" alpha="255" interior="0" posX="1692.1757" posY="-1443.5769" posZ="13.18779" rotX="0" rotY="0" rotZ="269.986"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (96)" vehicle="560" alpha="255" interior="0" posX="1704.0107" posY="-1521.8596" posZ="13.18779" rotX="0" rotY="0" rotZ="87.984"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (97)" vehicle="560" alpha="255" interior="0" posX="2018.7014" posY="-1277.4279" posZ="23.78995" rotX="0" rotY="0" rotZ="37.979"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (98)" vehicle="560" alpha="255" interior="0" posX="2084.0508" posY="-1261.7672" posZ="23.79763" rotX="0" rotY="0" rotZ="85.974"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (99)" vehicle="560" alpha="255" interior="0" posX="2160.8943" posY="-1163.1387" posZ="23.62098" rotX="0" rotY="0" rotZ="85.974"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (100)" vehicle="560" alpha="255" interior="0" posX="2054.1604" posY="-1105.7822" posZ="24.21983" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (101)" vehicle="560" alpha="255" interior="0" posX="1640.7406" posY="-1037.8966" posZ="23.70341" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (102)" vehicle="560" alpha="255" interior="0" posX="1428.9657" posY="-1050.6414" posZ="22.96904" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (103)" vehicle="560" alpha="255" interior="0" posX="1453.8057" posY="-928.99695" posZ="37.04396" rotX="0" rotY="0" rotZ="160"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (104)" vehicle="560" alpha="255" interior="0" posX="1264.193" posY="-952.68628" posZ="41.12661" rotX="0" rotY="0" rotZ="1.996"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (105)" vehicle="560" alpha="255" interior="0" posX="1137.8726" posY="-1026.1666" posZ="31.6956" rotX="0" rotY="0" rotZ="192"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (106)" vehicle="560" alpha="255" interior="0" posX="1071.1565" posY="-1058.9264" posZ="29.94815" rotX="0" rotY="0" rotZ="259.997"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (107)" vehicle="560" alpha="255" interior="0" posX="1012.3428" posY="-1028.7175" posZ="31.90654" rotX="0" rotY="0" rotZ="185.997"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (108)" vehicle="560" alpha="255" interior="0" posX="978.83038" posY="-1036.7109" posZ="30.01525" rotX="0" rotY="0" rotZ="89.993"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (109)" vehicle="560" alpha="255" interior="0" posX="764.59143" posY="-1035.3801" posZ="23.78946" rotX="0" rotY="0" rotZ="191.989"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (110)" vehicle="560" alpha="255" interior="0" posX="625.57281" posY="-1304.3259" posZ="14.17405" rotX="0" rotY="0" rotZ="185.986"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (111)" vehicle="560" alpha="255" interior="0" posX="693.43939" posY="-1180.863" posZ="15.27493" rotX="0" rotY="0" rotZ="63.979"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (112)" vehicle="560" alpha="255" interior="0" posX="690.36304" posY="-1185.443" posZ="15.17246" rotX="0" rotY="0" rotZ="55.975"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (113)" vehicle="560" alpha="255" interior="0" posX="1014.4713" posY="-1353.0725" posZ="13.17404" rotX="0" rotY="0" rotZ="85.975"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (114)" vehicle="560" alpha="255" interior="0" posX="1005.5239" posY="-1459.2014" posZ="13.35185" rotX="0" rotY="0" rotZ="357.974"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (115)" vehicle="560" alpha="255" interior="0" posX="1045.3412" posY="-1468.4414" posZ="13.48334" rotX="0" rotY="0" rotZ="197.973"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (116)" vehicle="560" alpha="255" interior="0" posX="1369.2434" posY="-1885.3937" posZ="13.32634" rotX="0" rotY="0" rotZ="349.968"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (117)" vehicle="560" alpha="255" interior="0" posX="1377.3044" posY="-1886.337" posZ="13.28553" rotX="0" rotY="0" rotZ="3.964"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (118)" vehicle="560" alpha="255" interior="0" posX="1526.4198" posY="-1845.1697" posZ="13.35185" rotX="0" rotY="0" rotZ="351.964"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (119)" vehicle="560" alpha="255" interior="0" posX="1521.2815" posY="-1845.5316" posZ="13.35185" rotX="0" rotY="0" rotZ="3.961"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (120)" vehicle="560" alpha="255" interior="0" posX="1567.1514" posY="-1851.395" posZ="13.18779" rotX="0" rotY="0" rotZ="175.964"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (121)" vehicle="560" alpha="255" interior="0" posX="1746.7841" posY="-1586.0828" posZ="13.34594" rotX="0" rotY="0" rotZ="177.963"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (122)" vehicle="560" alpha="255" interior="0" posX="1771.2668" posY="-1603.5732" posZ="13.18009" rotX="0" rotY="0" rotZ="71.962"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (123)" vehicle="560" alpha="255" interior="0" posX="1752.1228" posY="-1618.3699" posZ="13.19617" rotX="0" rotY="0" rotZ="3.96"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (124)" vehicle="560" alpha="255" interior="0" posX="1655.4427" posY="-1578.3799" posZ="13.18779" rotX="0" rotY="0" rotZ="181.955"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (125)" vehicle="560" alpha="255" interior="0" posX="1812.8907" posY="-1281.215" posZ="13.43987" rotX="0" rotY="0" rotZ="5.95"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (126)" vehicle="560" alpha="255" interior="0" posX="1807.9846" posY="-1283.4441" posZ="13.4217" rotX="0" rotY="0" rotZ="21.949"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (127)" vehicle="560" alpha="255" interior="0" posX="1853.3658" posY="-1277.8315" posZ="13.19537" rotX="0" rotY="0" rotZ="357.945"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (128)" vehicle="560" alpha="255" interior="0" posX="1834.79" posY="-1310.8644" posZ="13.39554" rotX="0" rotY="0" rotZ="185.94"></spawnpoint>
+    <group_job id="group_job (2)" interior="0" posX="1607.6338" posY="-1247.5283" posZ="17.93935" rotX="0" rotY="0" rotZ="0"></group_job>
+    <group_job id="group_job (1)" interior="0" posX="1210.4604" posY="-1103.3693" posZ="25.56826" rotX="0" rotY="0" rotZ="0"></group_job>
+    <group_job id="group_job (3)" interior="0" posX="739.75482" posY="-1265.5411" posZ="14.00661" rotX="0" rotY="0" rotZ="0"></group_job>
+    <group_job id="group_job (4)" interior="0" posX="1564.8672" posY="-1623.8679" posZ="13.83473" rotX="0" rotY="0" rotZ="0"></group_job>
+    <group_job id="group_job (5)" interior="0" posX="1129.7338" posY="-1455.6295" posZ="16.2488" rotX="0" rotY="0" rotZ="0"></group_job>
+    <group_job id="group_job (6)" interior="0" posX="1203.0193" posY="-1737.3202" posZ="14.03353" rotX="0" rotY="0" rotZ="0"></group_job>
+    <pickup_job id="pickup_job (1)" interior="0" posX="803.75385" posY="-1793.6652" posZ="12.56942" rotX="0" rotY="0" rotZ="267.997"></pickup_job>
+    <pickup_job id="pickup_job (2)" alpha="255" interior="0" posX="892.02148" posY="-1797.6959" posZ="13.33566" rotX="0" rotY="0" rotZ="286"></pickup_job>
+    <pickup_job id="pickup_job (3)" alpha="255" interior="0" posX="985.06934" posY="-1758.2363" posZ="13.31711" rotX="0" rotY="0" rotZ="62"></pickup_job>
+    <pickup_job id="pickup_job (4)" alpha="255" interior="0" posX="959.11816" posY="-1829.168" posZ="12.24298" rotX="0" rotY="0" rotZ="64"></pickup_job>
+    <pickup_job id="pickup_job (5)" alpha="255" interior="0" posX="897.97754" posY="-1823.8428" posZ="11.77182" rotX="0" rotY="0" rotZ="70"></pickup_job>
+    <pickup_job id="pickup_job (6)" alpha="255" interior="0" posX="1123.1406" posY="-1859.6807" posZ="13.19847" rotX="0" rotY="0" rotZ="286"></pickup_job>
+    <pickup_job id="pickup_job (7)" alpha="255" interior="0" posX="1225.988" posY="-1887.8168" posZ="13.1961" rotX="0" rotY="0" rotZ="300"></pickup_job>
+    <pickup_job id="pickup_job (8)" alpha="255" interior="0" posX="1374.5061" posY="-1898.7457" posZ="13.13608" rotX="0" rotY="0" rotZ="298"></pickup_job>
+    <pickup_job id="pickup_job (9)" alpha="255" interior="0" posX="1509.0068" posY="-1845.5205" posZ="13.1961" rotX="0" rotY="0" rotZ="296"></pickup_job>
+    <pickup_job id="pickup_job (10)" alpha="255" interior="0" posX="1614.5518" posY="-1891.3535" posZ="13.1961" rotX="0" rotY="0" rotZ="252"></pickup_job>
+    <pickup_job id="pickup_job (11)" alpha="255" interior="0" posX="1604.0281" posY="-1830.7189" posZ="13.15447" rotX="0" rotY="0" rotZ="236"></pickup_job>
+    <pickup_job id="pickup_job (12)" alpha="255" interior="0" posX="1770.9346" posY="-1861.0957" posZ="13.22716" rotX="0" rotY="0" rotZ="294"></pickup_job>
+    <pickup_job id="pickup_job (13)" alpha="255" interior="0" posX="1858.7513" posY="-1863.5293" posZ="13.22132" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (14)" alpha="255" interior="0" posX="1784.415" posY="-1701.5283" posZ="13.15242" rotX="0" rotY="0" rotZ="254"></pickup_job>
+    <pickup_job id="pickup_job (15)" alpha="255" interior="0" posX="1701.4297" posY="-1709.416" posZ="13.18807" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (16)" alpha="255" interior="0" posX="1486.9956" posY="-1704.7964" posZ="13.6961" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (17)" alpha="255" interior="0" posX="1370.5381" posY="-1771.9141" posZ="13.18524" rotX="0" rotY="0" rotZ="266"></pickup_job>
+    <pickup_job id="pickup_job (18)" alpha="255" interior="0" posX="1320.7897" posY="-1794.9668" posZ="13.1961" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (19)" alpha="255" interior="0" posX="1319.6312" posY="-1635.2062" posZ="13.1961" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (20)" alpha="255" interior="0" posX="1422.498" posY="-1622.9531" posZ="13.1961" rotX="0" rotY="0" rotZ="194"></pickup_job>
+    <pickup_job id="pickup_job (21)" alpha="255" interior="0" posX="1730.2725" posY="-1607.4932" posZ="13.1961" rotX="0" rotY="0" rotZ="320"></pickup_job>
+    <pickup_job id="pickup_job (22)" alpha="255" interior="0" posX="1826.1582" posY="-1538.3564" posZ="13.1961" rotX="0" rotY="0" rotZ="162"></pickup_job>
+    <pickup_job id="pickup_job (23)" alpha="255" interior="0" posX="1873.2285" posY="-1371.0148" posZ="13.18958" rotX="0" rotY="0" rotZ="58"></pickup_job>
+    <pickup_job id="pickup_job (24)" alpha="255" interior="0" posX="1841.2834" posY="-1417.1318" posZ="13.21173" rotX="0" rotY="0" rotZ="154"></pickup_job>
+    <pickup_job id="pickup_job (25)" alpha="255" interior="0" posX="2003.752" posY="-1306.1113" posZ="20.51359" rotX="0" rotY="0" rotZ="62"></pickup_job>
+    <pickup_job id="pickup_job (26)" alpha="255" interior="0" posX="2121.6084" posY="-1261.9772" posZ="23.64141" rotX="0" rotY="0" rotZ="268"></pickup_job>
+    <pickup_job id="pickup_job (27)" alpha="255" interior="0" posX="2112.123" posY="-1215.2219" posZ="23.61687" rotX="0" rotY="0" rotZ="88"></pickup_job>
+    <pickup_job id="pickup_job (28)" alpha="255" interior="0" posX="2137.5742" posY="-1084.0732" posZ="24.05122" rotX="0" rotY="0" rotZ="52"></pickup_job>
+    <pickup_job id="pickup_job (29)" alpha="255" interior="0" posX="2087.1223" posY="-1140.6188" posZ="24.82366" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (30)" alpha="255" interior="0" posX="2012.4355" posY="-1027.2871" posZ="24.57546" rotX="0" rotY="0" rotZ="20"></pickup_job>
+    <pickup_job id="pickup_job (31)" alpha="255" interior="0" posX="1932.3857" posY="-1091.2528" posZ="24.46796" rotX="0" rotY="0" rotZ="280"></pickup_job>
+    <pickup_job id="pickup_job (32)" alpha="255" interior="0" posX="1957.7175" posY="-1228.1528" posZ="19.55289" rotX="0" rotY="0" rotZ="340"></pickup_job>
+    <pickup_job id="pickup_job (33)" alpha="255" interior="0" posX="2003.8818" posY="-1091.739" posZ="24.40305" rotX="0" rotY="0" rotZ="68"></pickup_job>
+    <pickup_job id="pickup_job (34)" alpha="255" interior="0" posX="1788.3135" posY="-1029.9297" posZ="23.61016" rotX="0" rotY="0" rotZ="48"></pickup_job>
+    <pickup_job id="pickup_job (35)" alpha="255" interior="0" posX="1800.0869" posY="-1145.5602" posZ="23.56829" rotX="0" rotY="0" rotZ="296"></pickup_job>
+    <pickup_job id="pickup_job (36)" alpha="255" interior="0" posX="1828.3132" posY="-1087.9349" posZ="23.55546" rotX="0" rotY="0" rotZ="8"></pickup_job>
+    <pickup_job id="pickup_job (37)" alpha="255" interior="0" posX="1654.0996" posY="-1072.4492" posZ="23.55545" rotX="0" rotY="0" rotZ="276"></pickup_job>
+    <pickup_job id="pickup_job (38)" alpha="255" interior="0" posX="1524.5117" posY="-1015.0146" posZ="23.61477" rotX="0" rotY="0" rotZ="103.997"></pickup_job>
+    <pickup_job id="pickup_job (39)" alpha="255" interior="0" posX="1546.2211" posY="-1166.6703" posZ="23.72735" rotX="0" rotY="0" rotZ="318"></pickup_job>
+    <pickup_job id="pickup_job (40)" alpha="255" interior="0" posX="1672.459" posY="-1166.6908" posZ="23.52108" rotX="0" rotY="0" rotZ="262"></pickup_job>
+    <pickup_job id="pickup_job (41)" alpha="255" interior="0" posX="1425.0303" posY="-1059.1621" posZ="22.81329" rotX="0" rotY="0" rotZ="210"></pickup_job>
+    <pickup_job id="pickup_job (42)" alpha="255" interior="0" posX="1334.4012" posY="-1061.083" posZ="27.87033" rotX="0" rotY="0" rotZ="166"></pickup_job>
+    <pickup_job id="pickup_job (43)" alpha="255" interior="0" posX="1378.1848" posY="-1115.748" posZ="24.06329" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (44)" alpha="255" interior="0" posX="1183.9189" posY="-1128.6025" posZ="23.60461" rotX="0" rotY="0" rotZ="160"></pickup_job>
+    <pickup_job id="pickup_job (45)" alpha="255" interior="0" posX="1178.0356" posY="-1106.3335" posZ="24.99512" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (46)" alpha="255" interior="0" posX="1136.4672" posY="-1003.5162" posZ="29.33418" rotX="0" rotY="0" rotZ="101.997"></pickup_job>
+    <pickup_job id="pickup_job (47)" alpha="255" interior="0" posX="1194.8387" posY="-1022.9287" posZ="32.1961" rotX="0" rotY="0" rotZ="74"></pickup_job>
+    <pickup_job id="pickup_job (48)" alpha="255" interior="0" posX="1286.6045" posY="-1021.1602" posZ="30.94274" rotX="0" rotY="0" rotZ="184"></pickup_job>
+    <pickup_job id="pickup_job (49)" alpha="255" interior="0" posX="1267.63" posY="-875.0354" posZ="42.35761" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (50)" alpha="255" interior="0" posX="1123.5703" posY="-868.11816" posZ="42.82892" rotX="0" rotY="0" rotZ="264"></pickup_job>
+    <pickup_job id="pickup_job (51)" alpha="255" interior="0" posX="963.0835" posY="-930.88605" posZ="41.91321" rotX="0" rotY="0" rotZ="103.997"></pickup_job>
+    <pickup_job id="pickup_job (52)" alpha="255" interior="0" posX="927.65137" posY="-998.13745" posZ="37.83399" rotX="0" rotY="0" rotZ="300"></pickup_job>
+    <pickup_job id="pickup_job (53)" alpha="255" interior="0" posX="874.52344" posY="-977.61426" posZ="35.31524" rotX="0" rotY="0" rotZ="114"></pickup_job>
+    <pickup_job id="pickup_job (54)" alpha="255" interior="0" posX="830.03864" posY="-998.41345" posZ="27.42058" rotX="0" rotY="0" rotZ="47.998"></pickup_job>
+    <pickup_job id="pickup_job (55)" alpha="255" interior="0" posX="811.33301" posY="-1057.9271" posZ="24.59746" rotX="0" rotY="0" rotZ="288"></pickup_job>
+    <pickup_job id="pickup_job (56)" alpha="255" interior="0" posX="722.08057" posY="-1126.2324" posZ="17.69496" rotX="0" rotY="0" rotZ="342"></pickup_job>
+    <pickup_job id="pickup_job (57)" alpha="255" interior="0" posX="775.2168" posY="-1125.6421" posZ="23.30293" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (58)" alpha="255" interior="0" posX="740.27441" posY="-1414.2666" posZ="13.16755" rotX="0" rotY="0" rotZ="282"></pickup_job>
+    <pickup_job id="pickup_job (59)" alpha="255" interior="0" posX="863.02612" posY="-1376.7643" posZ="13.21175" rotX="0" rotY="0" rotZ="295.997"></pickup_job>
+    <pickup_job id="pickup_job (60)" alpha="255" interior="0" posX="899.11133" posY="-1363.0641" posZ="13.39525" rotX="0" rotY="0" rotZ="276"></pickup_job>
+    <pickup_job id="pickup_job (61)" alpha="255" interior="0" posX="972.56763" posY="-1388.9579" posZ="13.20726" rotX="0" rotY="0" rotZ="82"></pickup_job>
+    <pickup_job id="pickup_job (62)" alpha="255" interior="0" posX="1028.3926" posY="-1442.1309" posZ="13.20386" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (63)" alpha="255" interior="0" posX="1029.4982" posY="-1363.7246" posZ="13.22065" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (64)" alpha="255" interior="0" posX="1069.5988" posY="-1343.6863" posZ="13.1961" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (65)" alpha="255" interior="0" posX="1140.0371" posY="-1358.1377" posZ="13.39189" rotX="0" rotY="0" rotZ="178"></pickup_job>
+    <pickup_job id="pickup_job (66)" alpha="255" interior="0" posX="900.65918" posY="-1477.3447" posZ="13.19331" rotX="0" rotY="0" rotZ="172"></pickup_job>
+    <pickup_job id="pickup_job (67)" alpha="255" interior="0" posX="818.85254" posY="-1475.3701" posZ="12.84861" rotX="0" rotY="0" rotZ="130"></pickup_job>
+    <pickup_job id="pickup_job (68)" alpha="255" interior="0" posX="853.58203" posY="-1513.0518" posZ="12.66189" rotX="0" rotY="0" rotZ="178"></pickup_job>
+    <pickup_job id="pickup_job (69)" alpha="255" interior="0" posX="815.87793" posY="-1551.2041" posZ="13.20123" rotX="0" rotY="0" rotZ="270"></pickup_job>
+    <pickup_job id="pickup_job (70)" alpha="255" interior="0" posX="770.2373" posY="-1428.8662" posZ="13.18969" rotX="0" rotY="0" rotZ="310"></pickup_job>
+    <pickup_job id="pickup_job (71)" alpha="255" interior="0" posX="819.99609" posY="-1590.5059" posZ="13.20368" rotX="0" rotY="0" rotZ="48"></pickup_job>
+    <pickup_job id="pickup_job (72)" alpha="255" interior="0" posX="802.44531" posY="-1732.9043" posZ="13.1961" rotX="0" rotY="0" rotZ="182"></pickup_job>
+    <pickup_job id="pickup_job (73)" alpha="255" interior="0" posX="892.72168" posY="-1645.0254" posZ="13.1961" rotX="0" rotY="0" rotZ="86"></pickup_job>
+    <pickup_job id="pickup_job (74)" alpha="255" interior="0" posX="953.20703" posY="-1656.8594" posZ="13.18479" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (75)" alpha="255" interior="0" posX="1026.0035" posY="-1775.9398" posZ="13.24029" rotX="0" rotY="0" rotZ="152"></pickup_job>
+    <pickup_job id="pickup_job (76)" alpha="255" interior="0" posX="1158.6875" posY="-1675.335" posZ="13.60235" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (77)" alpha="255" interior="0" posX="1097.127" posY="-1607.5234" posZ="13.27781" rotX="0" rotY="0" rotZ="88"></pickup_job>
+    <pickup_job id="pickup_job (78)" alpha="255" interior="0" posX="1080.057" posY="-1629.2396" posZ="13.22405" rotX="0" rotY="0" rotZ="266"></pickup_job>
+    <pickup_job id="pickup_job (79)" alpha="255" interior="0" posX="1156.2803" posY="-1603.5605" posZ="13.49373" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (80)" alpha="255" interior="0" posX="1079.4189" posY="-1566.5137" posZ="13.1961" rotX="0" rotY="0" rotZ="82"></pickup_job>
+    <pickup_job id="pickup_job (81)" alpha="255" interior="0" posX="970.25" posY="-1523.9639" posZ="13.20606" rotX="0" rotY="0" rotZ="86"></pickup_job>
+    <pickup_job id="pickup_job (82)" alpha="255" interior="0" posX="1049.4108" posY="-1272.7383" posZ="13.08196" rotX="0" rotY="0" rotZ="174"></pickup_job>
+    <pickup_job id="pickup_job (83)" alpha="255" interior="0" posX="987.3877" posY="-1299.1406" posZ="13.03204" rotX="0" rotY="0" rotZ="84"></pickup_job>
+    <pickup_job id="pickup_job (84)" alpha="255" interior="0" posX="955.86914" posY="-1332.9687" posZ="13.1784" rotX="0" rotY="0" rotZ="282"></pickup_job>
+    <pickup_job id="pickup_job (85)" alpha="255" interior="0" posX="948.74414" posY="-1235.4902" posZ="16.3316" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (86)" alpha="255" interior="0" posX="977.78711" posY="-1105.377" posZ="23.4771" rotX="0" rotY="0" rotZ="276"></pickup_job>
+    <pickup_job id="pickup_job (87)" alpha="255" interior="0" posX="955.64746" posY="-1010.9902" posZ="33.49948" rotX="0" rotY="0" rotZ="190"></pickup_job>
+    <pickup_job id="pickup_job (88)" alpha="255" interior="0" posX="1072.2355" posY="-1028.5356" posZ="31.61898" rotX="0" rotY="0" rotZ="137.999"></pickup_job>
+    <pickup_job id="pickup_job (89)" alpha="255" interior="0" posX="1068.293" posY="-1220.7881" posZ="16.53985" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (90)" alpha="255" interior="0" posX="987.16705" posY="-1227.1642" posZ="16.57686" rotX="0" rotY="0" rotZ="282"></pickup_job>
+    <pickup_job id="pickup_job (91)" alpha="255" interior="0" posX="1128.8154" posY="-1274.8916" posZ="13.1961" rotX="0" rotY="0" rotZ="80"></pickup_job>
+    <pickup_job id="pickup_job (92)" alpha="255" interior="0" posX="1331.3535" posY="-1235.2168" posZ="13.1961" rotX="0" rotY="0" rotZ="184"></pickup_job>
+    <pickup_job id="pickup_job (93)" alpha="255" interior="0" posX="1321.2061" posY="-1181.1338" posZ="23.24266" rotX="0" rotY="0" rotZ="284"></pickup_job>
+    <pickup_job id="pickup_job (94)" alpha="255" interior="0" posX="1249.998" posY="-1185.5195" posZ="23.22735" rotX="0" rotY="0" rotZ="202"></pickup_job>
+    <pickup_job id="pickup_job (95)" alpha="255" interior="0" posX="1304.1689" posY="-1136.2266" posZ="23.30548" rotX="0" rotY="0" rotZ="106"></pickup_job>
+    <pickup_job id="pickup_job (96)" alpha="255" interior="0" posX="1470.1074" posY="-1143.4922" posZ="24.06292" rotX="0" rotY="0" rotZ="198"></pickup_job>
+    <pickup_job id="pickup_job (97)" alpha="255" interior="0" posX="1428.916" posY="-1325.4834" posZ="13.21296" rotX="0" rotY="0" rotZ="96"></pickup_job>
+    <pickup_job id="pickup_job (98)" interior="0" posX="1494.4326" posY="-1243.7051" posZ="14.22336" rotX="0" rotY="0" rotZ="280"></pickup_job>
+    <pickup_job id="pickup_job (99)" alpha="255" interior="0" posX="1691.9365" posY="-1203.3613" posZ="19.54766" rotX="0" rotY="0" rotZ="84"></pickup_job>
+    <pickup_job id="pickup_job (100)" alpha="255" interior="0" posX="1620.6318" posY="-1139.8945" posZ="23.55548" rotX="0" rotY="0" rotZ="334"></pickup_job>
+    <pickup_job id="pickup_job (101)" alpha="255" interior="0" posX="1550.4952" posY="-1112.1373" posZ="23.72735" rotX="0" rotY="0" rotZ="280"></pickup_job>
+    <pickup_job id="pickup_job (102)" alpha="255" interior="0" posX="1634.0619" posY="-995.58295" posZ="23.72392" rotX="0" rotY="0" rotZ="46"></pickup_job>
+    <pickup_job id="pickup_job (103)" alpha="255" interior="0" posX="1726.9806" posY="-1270.0547" posZ="13.19415" rotX="0" rotY="0" rotZ="188"></pickup_job>
+    <pickup_job id="pickup_job (104)" alpha="255" interior="0" posX="1811.0313" posY="-1311.9844" posZ="13.28276" rotX="0" rotY="0" rotZ="72"></pickup_job>
+    <pickup_job id="pickup_job (105)" alpha="255" interior="0" posX="1901.6484" posY="-1348.0996" posZ="13.2054" rotX="0" rotY="0" rotZ="266"></pickup_job>
+    <pickup_job id="pickup_job (106)" alpha="255" interior="0" posX="1976.5625" posY="-1156.6299" posZ="20.59363" rotX="0" rotY="0" rotZ="108"></pickup_job>
+    <pickup_job id="pickup_job (107)" alpha="255" interior="0" posX="1940.9111" posY="-1143.7773" posZ="25.15619" rotX="0" rotY="0" rotZ="280"></pickup_job>
+    <pickup_job id="pickup_job (108)" alpha="255" interior="0" posX="2002.7627" posY="-1127.3535" posZ="25.08168" rotX="0" rotY="0" rotZ="84"></pickup_job>
+    <pickup_job id="pickup_job (109)" alpha="255" interior="0" posX="2105.3271" posY="-1235.9121" posZ="24.07222" rotX="0" rotY="0" rotZ="266"></pickup_job>
+    <pickup_job id="pickup_job (110)" alpha="255" interior="0" posX="2048.5459" posY="-1071.0674" posZ="24.49086" rotX="0" rotY="0" rotZ="62"></pickup_job>
+    <pickup_job id="pickup_job (111)" alpha="255" interior="0" posX="2004.9164" posY="-1068.3555" posZ="24.26235" rotX="0" rotY="0" rotZ="268"></pickup_job>
+    <pickup_job id="pickup_job (112)" alpha="255" interior="0" posX="1856.5127" posY="-1075.626" posZ="23.47735" rotX="0" rotY="0" rotZ="184"></pickup_job>
+    <pickup_job id="pickup_job (113)" alpha="255" interior="0" posX="1776.2021" posY="-1186.2139" posZ="23.51307" rotX="0" rotY="0" rotZ="204"></pickup_job>
+    <pickup_job id="pickup_job (114)" alpha="255" interior="0" posX="1784.3982" posY="-1254.1836" posZ="13.287" rotX="0" rotY="0" rotZ="132"></pickup_job>
+    <pickup_job id="pickup_job (115)" alpha="255" interior="0" posX="1730.7471" posY="-1328.7598" posZ="13.23516" rotX="0" rotY="0" rotZ="348"></pickup_job>
+    <pickup_job id="pickup_job (116)" alpha="255" interior="0" posX="1709.6797" posY="-1462.4756" posZ="13.1961" rotX="0" rotY="0" rotZ="358"></pickup_job>
+    <pickup_job id="pickup_job (117)" alpha="255" interior="0" posX="1693.0625" posY="-1496.2148" posZ="13.1961" rotX="0" rotY="0" rotZ="166"></pickup_job>
+    <pickup_job id="pickup_job (118)" alpha="255" interior="0" posX="1648.2383" posY="-1460.9944" posZ="13.1961" rotX="0" rotY="0" rotZ="250"></pickup_job>
+    <pickup_job id="pickup_job (119)" alpha="255" interior="0" posX="1552.627" posY="-1388.9926" posZ="13.67266" rotX="0" rotY="0" rotZ="90"></pickup_job>
+    <pickup_job id="pickup_job (120)" alpha="255" interior="0" posX="1513.5342" posY="-1336.8809" posZ="13.60343" rotX="0" rotY="0" rotZ="338"></pickup_job>
+    <pickup_job id="pickup_job (121)" alpha="255" interior="0" posX="1522.4785" posY="-1265.4625" posZ="14.15711" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (122)" alpha="255" interior="0" posX="1586.5361" posY="-1287.5328" posZ="17.20796" rotX="0" rotY="0" rotZ="56"></pickup_job>
+    <pickup_job id="pickup_job (123)" alpha="255" interior="0" posX="1279.4209" posY="-1539.6934" posZ="13.183" rotX="0" rotY="0" rotZ="182"></pickup_job>
+    <pickup_job id="pickup_job (124)" alpha="255" interior="0" posX="1230.8848" posY="-1523.9932" posZ="13.1961" rotX="0" rotY="0" rotZ="274"></pickup_job>
+    <pickup_job id="pickup_job (125)" alpha="255" interior="0" posX="1238.7178" posY="-1456.5527" posZ="13.1961" rotX="0" rotY="0" rotZ="178"></pickup_job>
+    <pickup_job id="pickup_job (126)" alpha="255" interior="0" posX="1190.3457" posY="-1465.4121" posZ="13.1961" rotX="0" rotY="0" rotZ="194"></pickup_job>
+    <pickup_job id="pickup_job (127)" alpha="255" interior="0" posX="1218.4023" posY="-1476.6328" posZ="13.1961" rotX="0" rotY="0" rotZ="80"></pickup_job>
+    <pickup_job id="pickup_job (128)" alpha="255" interior="0" posX="1174.126" posY="-1067.5176" posZ="28.46092" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (129)" alpha="255" interior="0" posX="1147.7086" posY="-1100.8262" posZ="25.36295" rotX="0" rotY="0" rotZ="190"></pickup_job>
+    <pickup_job id="pickup_job (130)" alpha="255" interior="0" posX="1118.8438" posY="-1065.9873" posZ="29.11916" rotX="0" rotY="0" rotZ="180"></pickup_job>
+    <pickup_job id="pickup_job (131)" alpha="255" interior="0" posX="956.20898" posY="-1047.499" posZ="29.89141" rotX="0" rotY="0" rotZ="180"></pickup_job>
+    <pickup_job id="pickup_job (132)" alpha="255" interior="0" posX="823.23633" posY="-1031.2305" posZ="24.79723" rotX="0" rotY="0" rotZ="128"></pickup_job>
+    <pickup_job id="pickup_job (133)" alpha="255" interior="0" posX="790.68903" posY="-1118.9229" posZ="23.47735" rotX="0" rotY="0" rotZ="188"></pickup_job>
+    <pickup_job id="pickup_job (134)" alpha="255" interior="0" posX="901.88477" posY="-1155.6367" posZ="23.47735" rotX="0" rotY="0" rotZ="274"></pickup_job>
+    <pickup_job id="pickup_job (135)" alpha="255" interior="0" posX="873.50488" posY="-1338.3574" posZ="13.1961" rotX="0" rotY="0" rotZ="296"></pickup_job>
+    <pickup_job id="pickup_job (136)" alpha="255" interior="0" posX="804.31543" posY="-1370.8408" posZ="13.19757" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (137)" alpha="255" interior="0" posX="852.63965" posY="-1442.6553" posZ="13.22753" rotX="0" rotY="0" rotZ="72"></pickup_job>
+    <pickup_job id="pickup_job (138)" alpha="255" interior="0" posX="883.4541" posY="-1389.8807" posZ="12.95055" rotX="0" rotY="0" rotZ="106"></pickup_job>
+    <pickup_job id="pickup_job (139)" alpha="255" interior="0" posX="1088.8613" posY="-1198.6699" posZ="17.58524" rotX="0" rotY="0" rotZ="110"></pickup_job>
+    <pickup_job id="pickup_job (140)" alpha="255" interior="0" posX="1154.9531" posY="-1206.168" posZ="18.93526" rotX="0" rotY="0" rotZ="96"></pickup_job>
+    <pickup_job id="pickup_job (141)" alpha="255" interior="0" posX="1183.8105" posY="-1270.2383" posZ="13.49214" rotX="0" rotY="0" rotZ="86"></pickup_job>
+    <pickup_job id="pickup_job (142)" alpha="255" interior="0" posX="1222.1455" posY="-1165.3115" posZ="22.87142" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (143)" alpha="255" interior="0" posX="1070.0986" posY="-1107.9404" posZ="24.04129" rotX="0" rotY="0" rotZ="262"></pickup_job>
+    <pickup_job id="pickup_job (144)" alpha="255" interior="0" posX="1507.9617" posY="-1645.1476" posZ="13.48607" rotX="0" rotY="0" rotZ="328"></pickup_job>
+    <pickup_job id="pickup_job (145)" alpha="255" interior="0" posX="1458.0938" posY="-1610.5811" posZ="13.6961" rotX="0" rotY="0" rotZ="270"></pickup_job>
+    <pickup_job id="pickup_job (146)" alpha="255" interior="0" posX="1498.6289" posY="-1587.1892" posZ="13.03204" rotX="0" rotY="0" rotZ="92"></pickup_job>
+    <pickup_job id="pickup_job (147)" alpha="255" interior="0" posX="1555.5752" posY="-1772.1914" posZ="13.1961" rotX="0" rotY="0" rotZ="110"></pickup_job>
+    <pickup_job id="pickup_job (148)" alpha="255" interior="0" posX="1654.588" posY="-1830.6099" posZ="13.19177" rotX="0" rotY="0" rotZ="349.996"></pickup_job>
+    <pickup_job id="pickup_job (149)" alpha="255" interior="0" posX="1649.1689" posY="-1904.1982" posZ="13.1961" rotX="0" rotY="0" rotZ="302"></pickup_job>
+    <pickup_job id="pickup_job (150)" alpha="255" interior="0" posX="1689.7139" posY="-1890.6309" posZ="13.18687" rotX="0" rotY="0" rotZ="192"></pickup_job>
+    <pickup_job id="pickup_job (151)" alpha="255" interior="0" posX="1815.1777" posY="-1904.0693" posZ="13.22129" rotX="0" rotY="0" rotZ="188"></pickup_job>
+    <pickup_job id="pickup_job (152)" alpha="255" interior="0" posX="1741.4492" posY="-1774.8193" posZ="13.27232" rotX="0" rotY="0" rotZ="182"></pickup_job>
+    <pickup_job id="pickup_job (153)" alpha="255" interior="0" posX="1663.4912" posY="-1608.6221" posZ="13.1961" rotX="0" rotY="0" rotZ="274"></pickup_job>
+    <pickup_job id="pickup_job (154)" alpha="255" interior="0" posX="1610.5967" posY="-1585.2871" posZ="13.36798" rotX="0" rotY="0" rotZ="108"></pickup_job>
+    <pickup_job id="pickup_job (155)" alpha="255" interior="0" posX="1606.7021" posY="-1699.9629" posZ="13.1961" rotX="0" rotY="0" rotZ="172"></pickup_job>
+    <pickup_job id="pickup_job (156)" alpha="255" interior="0" posX="1706.5369" posY="-1577.9443" posZ="13.1961" rotX="0" rotY="0" rotZ="174"></pickup_job>
+    <pickup_job id="pickup_job (157)" alpha="255" interior="0" posX="1864.1807" posY="-1604.4287" posZ="13.1961" rotX="0" rotY="0" rotZ="88"></pickup_job>
+    <pickup_job id="pickup_job (158)" alpha="255" interior="0" posX="1957.3301" posY="-1473.6748" posZ="13.19444" rotX="0" rotY="0" rotZ="260"></pickup_job>
+    <pickup_job id="pickup_job (159)" alpha="255" interior="0" posX="1992.6094" posY="-1360.1719" posZ="23.58347" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (160)" alpha="255" interior="0" posX="1911.085" posY="-1438.4941" posZ="13.19838" rotX="0" rotY="0" rotZ="94"></pickup_job>
+    <pickup_job id="pickup_job (161)" alpha="255" interior="0" posX="2033.3965" posY="-1285.4961" posZ="20.60585" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (162)" alpha="255" interior="0" posX="2045.9248" posY="-1207.9092" posZ="22.98777" rotX="0" rotY="0" rotZ="326"></pickup_job>
+    <pickup_job id="pickup_job (163)" alpha="255" interior="0" posX="2078.9063" posY="-1171.6357" posZ="23.48512" rotX="0" rotY="0" rotZ="12"></pickup_job>
+    <pickup_job id="pickup_job (164)" alpha="255" interior="0" posX="2143.2637" posY="-1164.8773" posZ="23.64141" rotX="0" rotY="0" rotZ="159.999"></pickup_job>
+    <pickup_job id="pickup_job (165)" alpha="255" interior="0" posX="2097.7788" posY="-1054.6709" posZ="27.90669" rotX="0" rotY="0" rotZ="52"></pickup_job>
+    <pickup_job id="pickup_job (166)" alpha="255" interior="0" posX="2093.6934" posY="-1077.2725" posZ="25.67371" rotX="0" rotY="0" rotZ="320"></pickup_job>
+    <pickup_job id="pickup_job (167)" alpha="255" interior="0" posX="1909.8154" posY="-1125.7158" posZ="24.37997" rotX="0" rotY="0" rotZ="82"></pickup_job>
+    <pickup_job id="pickup_job (168)" alpha="255" interior="0" posX="1831.3008" posY="-1176.1517" posZ="23.28285" rotX="0" rotY="0" rotZ="86"></pickup_job>
+    <pickup_job id="pickup_job (169)" alpha="255" interior="0" posX="1910.2949" posY="-1266.6162" posZ="13.67356" rotX="0" rotY="0" rotZ="280"></pickup_job>
+    <pickup_job id="pickup_job (170)" alpha="255" interior="0" posX="1708.9506" posY="-1186.5088" posZ="23.47735" rotX="0" rotY="0" rotZ="178"></pickup_job>
+    <pickup_job id="pickup_job (171)" alpha="255" interior="0" posX="1582.9882" posY="-1166.7252" posZ="23.72735" rotX="0" rotY="0" rotZ="282"></pickup_job>
+    <pickup_job id="pickup_job (172)" alpha="255" interior="0" posX="1509.1943" posY="-1183.832" posZ="23.65559" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (173)" alpha="255" interior="0" posX="1495.8486" posY="-1108.7588" posZ="23.65651" rotX="0" rotY="0" rotZ="84"></pickup_job>
+    <pickup_job id="pickup_job (174)" alpha="255" interior="0" posX="1480.5879" posY="-1025.0195" posZ="23.46456" rotX="0" rotY="0" rotZ="78"></pickup_job>
+    <pickup_job id="pickup_job (175)" alpha="255" interior="0" posX="1723.7393" posY="-1111.0957" posZ="23.72735" rotX="0" rotY="0" rotZ="194"></pickup_job>
+    <pickup_job id="pickup_job (176)" alpha="255" interior="0" posX="1247.8591" posY="-894.99274" posZ="42.35761" rotX="0" rotY="0" rotZ="274"></pickup_job>
+    <pickup_job id="pickup_job (177)" alpha="255" interior="0" posX="1328.3956" posY="-878.14502" posZ="39.05293" rotX="0" rotY="0" rotZ="197.999"></pickup_job>
+    <pickup_job id="pickup_job (178)" alpha="255" interior="0" posX="1420.7855" posY="-922.41907" posZ="35.52168" rotX="0" rotY="0" rotZ="111.998"></pickup_job>
+    <pickup_job id="pickup_job (179)" alpha="255" interior="0" posX="1439.6255" posY="-964.17029" posZ="35.74809" rotX="0" rotY="0" rotZ="261.995"></pickup_job>
+    <pickup_job id="pickup_job (180)" alpha="255" interior="0" posX="1581.1323" posY="-989.64868" posZ="37.82093" rotX="0" rotY="0" rotZ="293.991"></pickup_job>
+    <extortion_job id="extortion_job (1)" interior="0" posX="1315.5323" posY="-909.59064" posZ="38.90516" rotX="0" rotY="0" rotZ="278"></extortion_job>
+    <extortion_job id="extortion_job (2)" alpha="255" interior="0" posX="1199.2084" posY="-922.21722" posZ="43.63179" rotX="0" rotY="0" rotZ="277.998"></extortion_job>
+    <extortion_job id="extortion_job (3)" alpha="255" interior="0" posX="1171.308" posY="-961.59924" posZ="43.39972" rotX="0" rotY="0" rotZ="157.998"></extortion_job>
+    <extortion_job id="extortion_job (4)" alpha="255" interior="0" posX="1087.51" posY="-927.15686" posZ="43.78344" rotX="0" rotY="0" rotZ="271.989"></extortion_job>
+    <extortion_job id="extortion_job (5)" alpha="255" interior="0" posX="997.06183" posY="-922.15485" posZ="42.78344" rotX="0" rotY="0" rotZ="271.994"></extortion_job>
+    <pickup_job id="pickup_job (181)" interior="0" posX="1043.6044" posY="-925.59442" posZ="42.00373" rotX="0" rotY="0" rotZ="296"></pickup_job>
+    <pickup_job id="pickup_job (182)" interior="0" posX="1032.5853" posY="-948.30786" posZ="42.21529" rotX="0" rotY="0" rotZ="103.997"></pickup_job>
+    <pickup_job id="pickup_job (183)" interior="0" posX="1034.2729" posY="-980.8963" posZ="42.27168" rotX="0" rotY="0" rotZ="292"></pickup_job>
+    <extortion_job id="extortion_job (6)" interior="0" posX="779.38495" posY="-1038.2394" posZ="24.92888" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (7)" interior="0" posX="695.55554" posY="-1165.4965" posZ="16.09259" rotX="0" rotY="0" rotZ="142"></extortion_job>
+    <pickup_job id="pickup_job (184)" interior="0" posX="656.37579" posY="-1178.3665" posZ="16.6964" rotX="0" rotY="0" rotZ="134"></pickup_job>
+    <extortion_job id="extortion_job (8)" interior="0" posX="618.53577" posY="-1328.6396" posZ="14.27284" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (9)" interior="0" posX="903.90881" posY="-1333.636" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (10)" interior="0" posX="923.59558" posY="-1354.2147" posZ="13.98142" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (185)" interior="0" posX="950.73499" posY="-1366.0692" posZ="12.81855" rotX="0" rotY="0" rotZ="178"></pickup_job>
+    <extortion_job id="extortion_job (11)" interior="0" posX="816.86816" posY="-1390.8234" posZ="14.05898" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (12)" interior="0" posX="816.31848" posY="-1616.9774" posZ="14.47313" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (186)" interior="0" posX="764.59619" posY="-1564.7302" posZ="13.02168" rotX="0" rotY="0" rotZ="168"></pickup_job>
+    <extortion_job id="extortion_job (13)" interior="0" posX="876.38629" posY="-1569.8357" posZ="14.14284" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (187)" interior="0" posX="940.91193" posY="-1752.0936" posZ="13.02168" rotX="0" rotY="0" rotZ="68"></pickup_job>
+    <pickup_job id="pickup_job (188)" interior="0" posX="940.3479" posY="-1646.8409" posZ="13.02154" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (189)" interior="0" posX="1081.0338" posY="-1817.0205" posZ="13.09775" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (190)" interior="0" posX="1029.8871" posY="-1735.6359" posZ="13.02168" rotX="0" rotY="0" rotZ="180"></pickup_job>
+    <extortion_job id="extortion_job (14)" interior="0" posX="1079.7153" posY="-1702.7632" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (15)" interior="0" posX="1067.3284" posY="-1873.1307" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (191)" interior="0" posX="1178.9641" posY="-1858.1904" posZ="13.03328" rotX="0" rotY="0" rotZ="288"></pickup_job>
+    <pickup_job id="pickup_job (192)" interior="0" posX="1214.7715" posY="-1821.8756" posZ="13.06871" rotX="0" rotY="0" rotZ="78"></pickup_job>
+    <pickup_job id="pickup_job (193)" interior="0" posX="1276.4335" posY="-1787.9249" posZ="13.0774" rotX="0" rotY="0" rotZ="96"></pickup_job>
+    <pickup_job id="pickup_job (194)" interior="0" posX="1299.2762" posY="-1877.8374" posZ="13.02732" rotX="0" rotY="0" rotZ="278"></pickup_job>
+    <pickup_job id="pickup_job (195)" interior="0" posX="1334.618" posY="-1845.3826" posZ="13.02168" rotX="0" rotY="0" rotZ="76"></pickup_job>
+    <pickup_job id="pickup_job (196)" interior="0" posX="1380.4016" posY="-1860.5433" posZ="13.02168" rotX="0" rotY="0" rotZ="128"></pickup_job>
+    <extortion_job id="extortion_job (16)" interior="0" posX="1408.3839" posY="-1879.6718" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (197)" interior="0" posX="1426.4543" posY="-1844.0145" posZ="13.02168" rotX="0" rotY="0" rotZ="260"></pickup_job>
+    <pickup_job id="pickup_job (198)" interior="0" posX="1441.2633" posY="-1865.6848" posZ="13.01388" rotX="0" rotY="0" rotZ="88"></pickup_job>
+    <pickup_job id="pickup_job (199)" interior="0" posX="1518.2789" posY="-1864.9513" posZ="13.02168" rotX="0" rotY="0" rotZ="88"></pickup_job>
+    <extortion_job id="extortion_job (17)" interior="0" posX="1568.1084" posY="-1886.0002" posZ="14.16171" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (18)" interior="0" posX="1575.1344" posY="-1839.101" posZ="14.13639" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (200)" interior="0" posX="1604.4957" posY="-1864.1681" posZ="13.0074" rotX="0" rotY="0" rotZ="96"></pickup_job>
+    <extortion_job id="extortion_job (19)" interior="0" posX="1683.4036" posY="-1829.0361" posZ="14.14828" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (20)" interior="0" posX="1828.8256" posY="-1844.0474" posZ="14.18188" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (201)" interior="0" posX="1805.246" posY="-1642.0698" posZ="12.9989" rotX="0" rotY="0" rotZ="188"></pickup_job>
+    <pickup_job id="pickup_job (202)" interior="0" posX="1812.3275" posY="-1747.2323" posZ="13.02168" rotX="0" rotY="0" rotZ="204"></pickup_job>
+    <extortion_job id="extortion_job (21)" interior="0" posX="1721.1561" posY="-1737.0736" posZ="13.98657" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (203)" interior="0" posX="1755.1417" posY="-1714.7378" posZ="13.01934" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (204)" interior="0" posX="1762.389" posY="-1661.0179" posZ="13.0356" rotX="0" rotY="0" rotZ="30"></pickup_job>
+    <pickup_job id="pickup_job (205)" interior="0" posX="1650.421" posY="-1742.2533" posZ="13.02168" rotX="0" rotY="0" rotZ="276"></pickup_job>
+    <pickup_job id="pickup_job (206)" interior="0" posX="1633.7186" posY="-1663.9686" posZ="13.06597" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <extortion_job id="extortion_job (22)" interior="0" posX="1686.2573" posY="-1586.7993" posZ="14.14692" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (207)" interior="0" posX="1670.7205" posY="-1584.6632" posZ="13.02168" rotX="0" rotY="0" rotZ="86"></pickup_job>
+    <pickup_job id="pickup_job (208)" interior="0" posX="1645.4011" posY="-1552.5901" posZ="13.03481" rotX="0" rotY="0" rotZ="236"></pickup_job>
+    <pickup_job id="pickup_job (209)" interior="0" posX="1716.8719" posY="-1547.3235" posZ="13.02168" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (210)" interior="0" posX="1664.5115" posY="-1498.5236" posZ="13.02168" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <extortion_job id="extortion_job (23)" interior="0" posX="1665.0735" posY="-1411.1687" posZ="14.22784" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (211)" interior="0" posX="1811.1274" posY="-1430.9615" posZ="12.90449" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (212)" interior="0" posX="1749.2397" posY="-1433.2533" posZ="13.02168" rotX="0" rotY="0" rotZ="96"></pickup_job>
+    <extortion_job id="extortion_job (24)" interior="0" posX="1840.7205" posY="-1444.5708" posZ="14.16326" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (213)" interior="0" posX="1859.7687" posY="-1326.8073" posZ="13.02236" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <extortion_job id="extortion_job (25)" interior="0" posX="1883.4471" posY="-1268.5237" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (26)" interior="0" posX="1791.2273" posY="-1168.3298" posZ="24.43188" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (214)" interior="0" posX="1865.6656" posY="-1203.2784" posZ="20.99901" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <extortion_job id="extortion_job (27)" interior="0" posX="2027.9099" posY="-1078.6401" posZ="25.23409" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (215)" interior="0" posX="2076.2903" posY="-1084.4478" posZ="24.46918" rotX="0" rotY="0" rotZ="53.997"></pickup_job>
+    <pickup_job id="pickup_job (216)" interior="0" posX="1966.1007" posY="-1415.0688" posZ="13.04761" rotX="0" rotY="0" rotZ="48"></pickup_job>
+    <extortion_job id="extortion_job (28)" interior="0" posX="1858.0481" posY="-1113.6819" posZ="24.44721" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (29)" interior="0" posX="1699.8326" posY="-1167.054" posZ="24.43188" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (30)" interior="0" posX="1632.1075" posY="-1166.4257" posZ="24.68188" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (31)" interior="0" posX="1270.1301" posY="-1012.286" posZ="34.43317" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (32)" interior="0" posX="1041.3397" posY="-1031.8376" posZ="32.65064" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (33)" interior="0" posX="1023.5929" posY="-1127.6797" posZ="24.47615" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (34)" interior="0" posX="1101.603" posY="-1154.0784" posZ="24.26001" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (35)" interior="0" posX="1004.8574" posY="-1154.0801" posZ="24.27782" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (36)" interior="0" posX="1068.3147" posY="-1200.1516" posZ="19.42344" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (37)" interior="0" posX="1027.2528" posY="-1226.9923" posZ="17.54126" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (38)" interior="0" posX="1038.6492" posY="-1335.3523" posZ="14.15315" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (39)" interior="0" posX="1093.4025" posY="-1275.5863" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (40)" interior="0" posX="1362.3794" posY="-1280.3148" posZ="13.98657" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (41)" interior="0" posX="1306.575" posY="-1154.2118" posZ="24.26001" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (42)" interior="0" posX="1223.4401" posY="-1135.7924" posZ="24.51278" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (43)" interior="0" posX="1145.6472" posY="-1135.9287" posZ="24.26001" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (217)" interior="0" posX="1079.6517" posY="-1157.0856" posZ="23.30293" rotX="0" rotY="0" rotZ="268"></pickup_job>
+    <pickup_job id="pickup_job (218)" interior="0" posX="1047.2646" posY="-1187.5504" posZ="20.52424" rotX="0" rotY="0" rotZ="178"></pickup_job>
+    <pickup_job id="pickup_job (219)" interior="0" posX="1101.5588" posY="-1134.6759" posZ="23.30293" rotX="0" rotY="0" rotZ="94"></pickup_job>
+    <extortion_job id="extortion_job (44)" interior="0" posX="956.5354" posY="-1154.9248" posZ="24.43572" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (45)" interior="0" posX="917.37958" posY="-1294.5273" posZ="14.22892" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (220)" interior="0" posX="864.15533" posY="-1240.9586" posZ="14.36083" rotX="0" rotY="0" rotZ="196"></pickup_job>
+    <pickup_job id="pickup_job (221)" interior="0" posX="912.68884" posY="-1231.7101" posZ="16.45137" rotX="0" rotY="0" rotZ="278"></pickup_job>
+    <extortion_job id="extortion_job (46)" interior="0" posX="913.89868" posY="-1251.8021" posZ="16.26782" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (47)" interior="0" posX="947.62024" posY="-1294.3452" posZ="14.94163" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (48)" interior="0" posX="1003.4343" posY="-1301.2937" posZ="13.98657" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (222)" interior="0" posX="1021.4816" posY="-1414.321" posZ="12.67095" rotX="0" rotY="0" rotZ="284"></pickup_job>
+    <pickup_job id="pickup_job (223)" interior="0" posX="908.54932" posY="-1542.076" posZ="13.02949" rotX="0" rotY="0" rotZ="196"></pickup_job>
+    <pickup_job id="pickup_job (224)" interior="0" posX="940.68256" posY="-1481.3708" posZ="13.0148" rotX="0" rotY="0" rotZ="82"></pickup_job>
+    <extortion_job id="extortion_job (49)" interior="0" posX="1018.3176" posY="-1507.2617" posZ="14.13746" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (225)" interior="0" posX="1011.8664" posY="-1482.9031" posZ="13.08704" rotX="0" rotY="0" rotZ="110"></pickup_job>
+    <pickup_job id="pickup_job (226)" interior="0" posX="816.55719" posY="-1670.395" posZ="13.02168" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <extortion_job id="extortion_job (50)" interior="0" posX="819.47272" posY="-1761.5704" posZ="14.15351" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (51)" interior="0" posX="934.33484" posY="-1719.1671" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (227)" interior="0" posX="883.9809" posY="-1752.2267" posZ="13.02946" rotX="0" rotY="0" rotZ="118"></pickup_job>
+    <pickup_job id="pickup_job (228)" interior="0" posX="1189.7196" posY="-1539.012" posZ="13.02168" rotX="0" rotY="0" rotZ="167.997"></pickup_job>
+    <extortion_job id="extortion_job (52)" interior="0" posX="1160.0219" posY="-1581.9675" posZ="14.14705" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (53)" interior="0" posX="1246.7783" posY="-1564.6772" posZ="14.18938" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (54)" interior="0" posX="1318.1432" posY="-1711.365" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (55)" interior="0" posX="1351.0013" posY="-1754.8097" posZ="13.95772" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (56)" interior="0" posX="1265.9006" posY="-1857.3715" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (229)" interior="0" posX="1408.5527" posY="-1776.3998" posZ="13.02168" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (230)" interior="0" posX="1356.5823" posY="-1629.3086" posZ="13.09199" rotX="0" rotY="0" rotZ="242"></pickup_job>
+    <pickup_job id="pickup_job (231)" interior="0" posX="1382.6501" posY="-1657.8462" posZ="12.96991" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (232)" interior="0" posX="1377.9846" posY="-1595.7791" posZ="13.02168" rotX="0" rotY="0" rotZ="280"></pickup_job>
+    <extortion_job id="extortion_job (57)" interior="0" posX="1334.9341" posY="-1513.8816" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (233)" interior="0" posX="1314.5938" posY="-1450.343" posZ="13.02168" rotX="0" rotY="0" rotZ="106"></pickup_job>
+    <pickup_job id="pickup_job (234)" interior="0" posX="1380.3031" posY="-1494.2356" posZ="13.02168" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (235)" interior="0" posX="1367.7219" posY="-1366.4912" posZ="13.07762" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <extortion_job id="extortion_job (58)" interior="0" posX="1361.4359" posY="-1440.3789" posZ="14.14284" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (59)" interior="0" posX="1407.0116" posY="-1390.2566" posZ="14.15844" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (236)" interior="0" posX="1431.6537" posY="-1447.7664" posZ="13.02949" rotX="0" rotY="0" rotZ="272"></pickup_job>
+    <extortion_job id="extortion_job (60)" interior="0" posX="1449.0629" posY="-1394.0398" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (237)" interior="0" posX="1448.6908" posY="-1365.6917" posZ="13.02168" rotX="0" rotY="0" rotZ="178"></pickup_job>
+    <pickup_job id="pickup_job (238)" interior="0" posX="1462.6748" posY="-1351.6838" posZ="13.02168" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (239)" interior="0" posX="1574.55" posY="-1330.8831" posZ="15.95918" rotX="0" rotY="0" rotZ="252"></pickup_job>
+    <pickup_job id="pickup_job (240)" interior="0" posX="1118.0762" posY="-1163.7953" posZ="23.1336" rotX="0" rotY="0" rotZ="196"></pickup_job>
+    <delivery_job_end id="delivery_job_end (1)" job_id="0" interior="0" posX="737.25519" posY="-1349.8281" posZ="13.08061" rotX="0" rotY="0" rotZ="12"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (2)" job_id="0" interior="0" posX="779.18176" posY="-1017.7247" posZ="25.93327" rotX="0" rotY="0" rotZ="159.999"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (3)" job_id="0" interior="0" posX="1096.4163" posY="-1794.838" posZ="13.1783" rotX="0" rotY="0" rotZ="175.995"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (4)" job_id="0" interior="0" posX="1982.7949" posY="-1278.5312" posZ="23.39421" rotX="0" rotY="0" rotZ="86"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (5)" job_id="0" interior="0" posX="1811.8959" posY="-1036.5964" posZ="23.65202" rotX="0" rotY="0" rotZ="226"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (6)" job_id="0" interior="0" posX="1691.4395" posY="-1533.7832" posZ="13.12077" rotX="0" rotY="0" rotZ="348"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (7)" job_id="0" interior="0" posX="1171.5676" posY="-1646.0425" posZ="13.5739" rotX="0" rotY="0" rotZ="85.995"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (8)" job_id="0" interior="0" posX="1043.1233" posY="-1098.5487" posZ="23.40202" rotX="0" rotY="0" rotZ="176"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (9)" job_id="0" interior="0" posX="827.85498" posY="-1550.6957" posZ="13.07538" rotX="0" rotY="0" rotZ="98"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (10)" job_id="0" interior="0" posX="1649.5977" posY="-1202.8561" posZ="19.35341" rotX="0" rotY="0" rotZ="260"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (11)" job_id="0" interior="0" posX="1747.7126" posY="-1563.9343" posZ="13.10216" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (12)" job_id="0" interior="0" posX="1277.1877" posY="-1176.4978" posZ="23.28106" rotX="0" rotY="0" rotZ="93.999"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (13)" job_id="0" interior="0" posX="1139.1643" posY="-1760.0027" posZ="13.16757" rotX="0" rotY="0" rotZ="92"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (14)" job_id="0" interior="0" posX="1772.3933" posY="-1701.9561" posZ="13.07669" rotX="0" rotY="0" rotZ="97.998"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (15)" job_id="0" interior="0" posX="2098.2905" posY="-1262.1125" posZ="23.55827" rotX="0" rotY="0" rotZ="92"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (16)" job_id="0" interior="0" posX="1121.3448" posY="-1666.2998" posZ="13.26911" rotX="0" rotY="0" rotZ="28"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (17)" job_id="0" interior="0" posX="973.04865" posY="-1258.6011" posZ="16.3144" rotX="0" rotY="0" rotZ="268"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (1)" job_id="0" interior="0" posX="844.77429" posY="-1200.3474" posZ="15.97656" rotX="0" rotY="0" rotZ="214"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (2)" job_id="0" interior="0" posX="814.73969" posY="-1004.3494" posZ="26.75781" rotX="0" rotY="0" rotZ="217.996"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (3)" job_id="0" interior="0" posX="1649.8525" posY="-1493.8346" posZ="12.54688" rotX="0" rotY="0" rotZ="270"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (4)" job_id="0" interior="0" posX="1025.1691" posY="-1031.3961" posZ="30.98347" rotX="0" rotY="0" rotZ="171.996"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (5)" job_id="0" interior="0" posX="2055.1948" posY="-1049.5839" posZ="25.45846" rotX="0" rotY="0" rotZ="130"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (6)" job_id="0" interior="0" posX="1097.8478" posY="-1330.1499" posZ="12.14501" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (7)" job_id="0" interior="0" posX="1720.5088" posY="-1701.0137" posZ="12.5" rotX="0" rotY="0" rotZ="94"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (8)" job_id="0" interior="0" posX="1149.2466" posY="-1860.1764" posZ="12.54688" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (9)" job_id="0" interior="0" posX="2025.72" posY="-1296.6885" posZ="19.92475" rotX="0" rotY="0" rotZ="270"></delivery_job_start>
+    <extortion_job id="extortion_job (61)" interior="0" posX="1996.6281" posY="-1279.6365" posZ="24.42407" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (241)" interior="0" posX="1590.2981" posY="-1207.9166" posZ="19.41937" rotX="0" rotY="0" rotZ="262"></pickup_job>
+    <delivery_job_start id="delivery_job_start (10)" job_id="0" interior="0" posX="2148.4666" posY="-1243.2125" posZ="23.73405" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <extortion_job id="extortion_job (62)" interior="0" posX="2053.1311" posY="-1090.6183" posZ="25.35436" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <delivery_job_end id="delivery_job_end (18)" job_id="0" interior="0" posX="2120.0359" posY="-1186.2234" posZ="23.63392" rotX="0" rotY="0" rotZ="180"></delivery_job_end>
+    <pickup_job id="pickup_job (242)" interior="0" posX="2141.8081" posY="-1191.7841" posZ="23.46699" rotX="0" rotY="0" rotZ="186"></pickup_job>
+    <delivery_job_end id="delivery_job_end (19)" job_id="0" interior="0" posX="2115.9771" posY="-1060.7579" posZ="25.1962" rotX="0" rotY="0" rotZ="266"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (11)" job_id="0" interior="0" posX="1862.3853" posY="-1034.4353" posZ="22.9352" rotX="0" rotY="0" rotZ="186"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (20)" job_id="0" interior="0" posX="2013.3801" posY="-1094.8892" posZ="24.26731" rotX="0" rotY="0" rotZ="238"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (12)" job_id="0" interior="0" posX="1828.4558" posY="-1126.3031" posZ="22.91506" rotX="0" rotY="0" rotZ="94"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (21)" job_id="0" interior="0" posX="1786.8004" posY="-1216.972" posZ="16.53171" rotX="0" rotY="0" rotZ="176"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (22)" job_id="0" interior="0" posX="1665.6003" posY="-1002.0677" posZ="23.62945" rotX="0" rotY="0" rotZ="302"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (23)" job_id="0" interior="0" posX="1612.3911" posY="-998.76312" posZ="23.65202" rotX="0" rotY="0" rotZ="274"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (13)" job_id="0" interior="0" posX="1523.8812" posY="-1182.0914" posZ="23.01547" rotX="0" rotY="0" rotZ="88"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (14)" job_id="0" interior="0" posX="1383.7633" posY="-1017.2423" posZ="25.60989" rotX="0" rotY="0" rotZ="106"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (24)" job_id="0" interior="0" posX="1310.51" posY="-863.48572" posZ="39.15202" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (15)" job_id="0" interior="0" posX="1299.1294" posY="-884.68225" posZ="41.88281" rotX="0" rotY="0" rotZ="96"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (16)" job_id="0" interior="0" posX="1182.448" posY="-909.84131" posZ="42.30194" rotX="0" rotY="0" rotZ="98"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (25)" job_id="0" interior="0" posX="1141.7487" posY="-895.48334" posZ="42.75359" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (17)" job_id="0" interior="0" posX="1239.3339" posY="-950.2373" posZ="41.68643" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (26)" job_id="0" interior="0" posX="1003.7857" posY="-905.7514" posZ="41.7646" rotX="0" rotY="0" rotZ="90"></delivery_job_end>
+    <extortion_job id="extortion_job (63)" interior="0" posX="1104.3112" posY="-927.29547" posZ="43.78344" rotX="0" rotY="0" rotZ="270"></extortion_job>
+    <delivery_job_start id="delivery_job_start (18)" job_id="0" interior="0" posX="1047.7158" posY="-944.97577" posZ="41.85532" rotX="0" rotY="0" rotZ="190"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (27)" job_id="0" interior="0" posX="951.84802" posY="-917.50397" posZ="44.64614" rotX="0" rotY="0" rotZ="320"></delivery_job_end>
+    <pickup_job id="pickup_job (243)" interior="0" posX="910.81317" posY="-920.36707" posZ="42.07636" rotX="0" rotY="0" rotZ="92"></pickup_job>
+    <delivery_job_start id="delivery_job_start (19)" job_id="0" interior="0" posX="912.10565" posY="-999.9173" posZ="37.07379" rotX="0" rotY="0" rotZ="356"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (28)" job_id="0" interior="0" posX="855.56177" posY="-1062.653" posZ="24.67546" rotX="0" rotY="0" rotZ="302"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (29)" job_id="0" interior="0" posX="930.13599" posY="-1066.4148" posZ="23.86296" rotX="0" rotY="0" rotZ="180"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (30)" job_id="0" alpha="255" interior="0" posX="930.73798" posY="-1082.3485" posZ="23.86296" rotX="0" rotY="0" rotZ="179.995"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (31)" job_id="0" alpha="255" interior="0" posX="883.60083" posY="-1075.0135" posZ="23.87077" rotX="0" rotY="0" rotZ="43.995"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (32)" job_id="0" interior="0" posX="831.88452" posY="-1102.0203" posZ="23.87077" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (33)" job_id="0" interior="0" posX="930.66406" posY="-1112.0806" posZ="23.74509" rotX="0" rotY="0" rotZ="86"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (20)" job_id="0" interior="0" posX="639.48071" posY="-1229.7181" posZ="17.18426" rotX="0" rotY="0" rotZ="44"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (21)" job_id="0" interior="0" posX="791.25739" posY="-1101.8561" posZ="22.97867" rotX="0" rotY="0" rotZ="274"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (34)" job_id="0" interior="0" posX="767.75415" posY="-1110.5181" posZ="23.70452" rotX="0" rotY="0" rotZ="200"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (35)" job_id="0" interior="0" posX="959.89667" posY="-1189.2258" posZ="16.51921" rotX="0" rotY="0" rotZ="188"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (22)" job_id="0" interior="0" posX="981.48792" posY="-1157.9109" posZ="22.86006" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (23)" job_id="0" interior="0" posX="1000.3705" posY="-1214.2162" posZ="15.9375" rotX="0" rotY="0" rotZ="176"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (36)" job_id="0" interior="0" posX="1086.7661" posY="-1229.3909" posZ="15.39421" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (37)" job_id="0" interior="0" posX="1124.1487" posY="-1328.7478" posZ="12.86747" rotX="0" rotY="0" rotZ="86"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (24)" job_id="0" interior="0" posX="1049.9987" posY="-1416.5658" posZ="12.54688" rotX="0" rotY="0" rotZ="314"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (38)" job_id="0" interior="0" posX="851.26666" posY="-1293.4487" posZ="13.17931" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (25)" job_id="0" interior="0" posX="855.53973" posY="-1362.1685" posZ="12.57193" rotX="0" rotY="0" rotZ="182"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (26)" job_id="0" interior="0" posX="878.68555" posY="-1454.4512" posZ="12.58355" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (27)" job_id="0" interior="0" posX="778.88202" posY="-1573.1091" posZ="12.5391" rotX="0" rotY="0" rotZ="86"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (39)" job_id="0" interior="0" posX="956.74261" posY="-1531.5685" posZ="13.14675" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (28)" job_id="0" interior="0" posX="792.08258" posY="-1628.6761" posZ="12.38281" rotX="0" rotY="0" rotZ="140"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (40)" job_id="0" interior="0" posX="992.73602" posY="-1533.0651" posZ="13.14852" rotX="0" rotY="0" rotZ="186"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (29)" job_id="0" interior="0" posX="963.375" posY="-1618.9968" posZ="12.54868" rotX="0" rotY="0" rotZ="176"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (30)" job_id="0" interior="0" posX="859.41821" posY="-1795.7589" posZ="12.81984" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (41)" job_id="0" interior="0" posX="1127.4376" posY="-1878.1187" posZ="13.11978" rotX="0" rotY="0" rotZ="274"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (31)" job_id="0" interior="0" posX="1097.8424" posY="-1877.9181" posZ="12.54688" rotX="0" rotY="0" rotZ="190"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (32)" job_id="0" interior="0" posX="1000.4133" posY="-1852.7087" posZ="11.82031" rotX="0" rotY="0" rotZ="284"></delivery_job_start>
+    <pickup_job id="pickup_job (244)" interior="0" posX="1022.5995" posY="-1877.51" posZ="12.33613" rotX="0" rotY="0" rotZ="240"></pickup_job>
+    <delivery_job_end id="delivery_job_end (42)" job_id="0" interior="0" posX="1234.817" posY="-1611.0564" posZ="13.12077" rotX="0" rotY="0" rotZ="266"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (33)" job_id="0" interior="0" posX="1193.1218" posY="-1665.3226" posZ="12.65948" rotX="0" rotY="0" rotZ="178"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (43)" job_id="0" interior="0" posX="1338.978" posY="-1771.2146" posZ="13.11787" rotX="0" rotY="0" rotZ="58"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (34)" job_id="0" interior="0" posX="1319.0865" posY="-1779.3082" posZ="12.54688" rotX="0" rotY="0" rotZ="92"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (35)" job_id="0" interior="0" posX="1333.8408" posY="-1861.9021" posZ="12.54688" rotX="0" rotY="0" rotZ="340"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (44)" job_id="0" interior="0" posX="1391.5273" posY="-1897.8558" posZ="13.07192" rotX="0" rotY="0" rotZ="180"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (36)" job_id="0" interior="0" posX="1396.6007" posY="-1852.6854" posZ="12.54688" rotX="0" rotY="0" rotZ="88"></delivery_job_start>
+    <pickup_job id="pickup_job (245)" interior="0" posX="1371.3669" posY="-1823.0812" posZ="13.05069" rotX="0" rotY="0" rotZ="268"></pickup_job>
+    <delivery_job_end id="delivery_job_end (45)" job_id="0" interior="0" posX="1450.5942" posY="-1843.3032" posZ="13.12077" rotX="0" rotY="0" rotZ="96"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (37)" job_id="0" interior="0" posX="1575.9829" posY="-1810.3027" posZ="12.52935" rotX="0" rotY="0" rotZ="92"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (46)" job_id="0" interior="0" posX="1600.718" posY="-1791.5771" posZ="12.94333" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (47)" job_id="0" interior="0" posX="1654.2703" posY="-1807.1135" posZ="13.11781" rotX="0" rotY="0" rotZ="164"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (38)" job_id="0" interior="0" posX="1671.9753" posY="-1860.8441" posZ="12.53125" rotX="0" rotY="0" rotZ="214"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (39)" job_id="0" interior="0" posX="1655.2026" posY="-1864.4425" posZ="12.53425" rotX="0" rotY="0" rotZ="182"></delivery_job_start>
+    <pickup_job id="pickup_job (246)" interior="0" posX="1681.7974" posY="-1847.8749" posZ="13.00696" rotX="0" rotY="0" rotZ="164"></pickup_job>
+    <delivery_job_end id="delivery_job_end (48)" job_id="0" interior="0" posX="1691.0729" posY="-1979.2487" posZ="13.69109" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (40)" job_id="0" interior="0" posX="1757.0437" posY="-1894.6613" posZ="12.55629" rotX="0" rotY="0" rotZ="272"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (49)" job_id="0" interior="0" posX="1842.9531" posY="-1830.4584" posZ="13.15928" rotX="0" rotY="0" rotZ="90"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (50)" job_id="0" interior="0" posX="1777.5315" posY="-1932.9657" posZ="12.96013" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <extortion_job id="extortion_job (64)" interior="0" posX="1831.5724" posY="-1683.5228" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <delivery_job_end id="delivery_job_end (51)" job_id="0" interior="0" posX="1722.5979" posY="-1622.8684" posZ="13.12077" rotX="0" rotY="0" rotZ="96"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (41)" job_id="0" interior="0" posX="1809.0389" posY="-1600.1089" posZ="12.54688" rotX="0" rotY="0" rotZ="212"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (42)" job_id="0" interior="0" posX="1636.6594" posY="-1584.7578" posZ="12.62837" rotX="0" rotY="0" rotZ="184"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (52)" job_id="0" interior="0" posX="1535.2554" posY="-1474.767" posZ="9.0739" rotX="0" rotY="0" rotZ="84"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (43)" job_id="0" interior="0" posX="1577.7885" posY="-1448.3984" posZ="12.54688" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <pickup_job id="pickup_job (247)" interior="0" posX="1622.7504" posY="-1448.483" posZ="13.02168" rotX="0" rotY="0" rotZ="278"></pickup_job>
+    <delivery_job_start id="delivery_job_start (44)" job_id="0" interior="0" posX="1447.6394" posY="-1419.5675" posZ="12.54561" rotX="0" rotY="0" rotZ="262"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (53)" job_id="0" interior="0" posX="1571.2046" posY="-1478.6543" posZ="13.127" rotX="0" rotY="0" rotZ="236"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (54)" job_id="0" interior="0" posX="1597.4814" posY="-1552.9393" posZ="13.15981" rotX="0" rotY="0" rotZ="92"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (45)" job_id="0" interior="0" posX="1576.3624" posY="-1586.0708" posZ="12.54688" rotX="0" rotY="0" rotZ="174"></delivery_job_start>
+    <pickup_job id="pickup_job (248)" interior="0" posX="1531.5231" posY="-1504.6388" posZ="13.02949" rotX="0" rotY="0" rotZ="262"></pickup_job>
+    <pickup_job id="pickup_job (249)" interior="0" posX="1510.2068" posY="-1485.9801" posZ="13.02573" rotX="0" rotY="0" rotZ="92"></pickup_job>
+    <pickup_job id="pickup_job (250)" interior="0" posX="1460.6785" posY="-1486.351" posZ="13.02168" rotX="0" rotY="0" rotZ="344"></pickup_job>
+    <delivery_job_start id="delivery_job_start (46)" job_id="0" interior="0" posX="1460.2649" posY="-1506.4521" posZ="12.54688" rotX="0" rotY="0" rotZ="58"></delivery_job_start>
+    <pickup_job id="pickup_job (251)" interior="0" posX="1437.4994" posY="-1501.6155" posZ="13.01389" rotX="0" rotY="0" rotZ="200"></pickup_job>
+    <delivery_job_start id="delivery_job_start (47)" job_id="0" interior="0" posX="1479.7147" posY="-1622.7524" posZ="13.04688" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (55)" job_id="0" interior="0" posX="1445.0067" posY="-1705.8524" posZ="13.62077" rotX="0" rotY="0" rotZ="214"></delivery_job_end>
+    <extortion_job id="extortion_job (65)" interior="0" posX="1415.8528" posY="-1703.4376" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <delivery_job_end id="delivery_job_end (56)" job_id="0" interior="0" posX="1358.8455" posY="-1719.0166" posZ="8.1513" rotX="0" rotY="0" rotZ="88"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (57)" job_id="0" interior="0" posX="1415.4034" posY="-1327.4656" posZ="13.12859" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (58)" job_id="0" interior="0" posX="1422.2257" posY="-1352.6683" posZ="13.14323" rotX="0" rotY="0" rotZ="92"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (48)" job_id="0" interior="0" posX="1421.2856" posY="-1231.5236" posZ="12.54688" rotX="0" rotY="0" rotZ="178"></delivery_job_start>
+    <extortion_job id="extortion_job (66)" interior="0" posX="1447.7957" posY="-1283.144" posZ="14.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <delivery_job_start id="delivery_job_start (49)" job_id="0" interior="0" posX="1447.087" posY="-1303.4191" posZ="12.54688" rotX="0" rotY="0" rotZ="272"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (50)" job_id="0" interior="0" posX="1501.3834" posY="-1380.4181" posZ="13.03208" rotX="0" rotY="0" rotZ="272"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (51)" job_id="0" interior="0" posX="1295.0095" posY="-1250.7667" posZ="12.54687" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (52)" job_id="0" interior="0" posX="1142.5417" posY="-1250.6368" posZ="13.81355" rotX="0" rotY="0" rotZ="272"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (53)" job_id="0" interior="0" posX="1097.001" posY="-1185.8053" posZ="17.32811" rotX="0" rotY="0" rotZ="182"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (59)" job_id="0" interior="0" posX="1013.6694" posY="-1007.1205" posZ="31.67546" rotX="0" rotY="0" rotZ="276"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (54)" job_id="0" interior="0" posX="1220.5094" posY="-977.89722" posZ="42.47656" rotX="0" rotY="0" rotZ="180"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (60)" job_id="0" interior="0" posX="1205.2278" posY="-984.04791" posZ="43.05046" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <pickup_job id="pickup_job (252)" interior="0" posX="1222.2563" posY="-996.80151" posZ="34.45323" rotX="0" rotY="0" rotZ="98"></pickup_job>
+    <delivery_job_start id="delivery_job_start (55)" job_id="0" interior="0" posX="1027.5488" posY="-1053.4833" posZ="30.64833" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (61)" job_id="0" interior="0" posX="1047.4003" posY="-1073.4379" posZ="28.11516" rotX="0" rotY="0" rotZ="270"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (62)" job_id="0" interior="0" posX="1033.974" posY="-1118.5864" posZ="23.46657" rotX="0" rotY="0" rotZ="274"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (56)" job_id="0" interior="0" posX="1030.6783" posY="-1156.1764" posZ="22.82813" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (57)" job_id="0" interior="0" posX="1122.1125" posY="-1133.4106" posZ="22.82813" rotX="0" rotY="0" rotZ="180"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (58)" job_id="0" interior="0" posX="984.78345" posY="-1334.6647" posZ="12.53908" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (63)" job_id="0" interior="0" posX="1021.5519" posY="-1251.1509" posZ="14.75359" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (59)" job_id="0" interior="0" posX="1069.1886" posY="-1260.6401" posZ="13.38201" rotX="0" rotY="0" rotZ="84"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (60)" job_id="0" interior="0" posX="1072.7788" posY="-1291.3717" posZ="12.54688" rotX="0" rotY="0" rotZ="50"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (61)" job_id="0" interior="0" posX="1045.1763" posY="-1349.5735" posZ="12.55805" rotX="0" rotY="0" rotZ="268"></delivery_job_start>
+    <extortion_job id="extortion_job (67)" interior="0" posX="1046.3534" posY="-1371.3328" posZ="14.17987" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <delivery_job_start id="delivery_job_start (62)" job_id="0" interior="0" posX="967.45453" posY="-1367.0433" posZ="12.34375" rotX="0" rotY="0" rotZ="88"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (64)" job_id="0" interior="0" posX="983.39709" posY="-1435.0725" posZ="13.12077" rotX="0" rotY="0" rotZ="272"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (65)" job_id="0" interior="0" posX="1020.7437" posY="-1460.1763" posZ="13.12501" rotX="0" rotY="0" rotZ="92"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (63)" job_id="0" interior="0" posX="929.93195" posY="-1500.7711" posZ="12.5487" rotX="0" rotY="0" rotZ="40"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (66)" job_id="0" interior="0" posX="848.86755" posY="-1475.8665" posZ="12.65409" rotX="0" rotY="0" rotZ="270"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (64)" job_id="0" interior="0" posX="837.47925" posY="-1503.2858" posZ="11.88854" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (65)" job_id="0" interior="0" posX="775.09778" posY="-1511.5516" posZ="12.55469" rotX="0" rotY="0" rotZ="254"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (66)" job_id="0" interior="0" posX="840.47974" posY="-1626.0397" posZ="12.54688" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (67)" job_id="0" interior="0" posX="855.13495" posY="-1641.3936" posZ="13.12859" rotX="0" rotY="0" rotZ="316"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (67)" job_id="0" interior="0" posX="957.72266" posY="-1806.3992" posZ="13.16614" rotX="0" rotY="0" rotZ="354"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (68)" job_id="0" interior="0" posX="1290.3843" posY="-1600.1798" posZ="12.54688" rotX="0" rotY="0" rotZ="272"></delivery_job_start>
+    <pickup_job id="pickup_job (253)" interior="0" posX="1286.1404" posY="-1583.2096" posZ="13.02168" rotX="0" rotY="0" rotZ="222"></pickup_job>
+    <pickup_job id="pickup_job (254)" interior="0" posX="1390.0645" posY="-1574.5679" posZ="13.03402" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <delivery_job_start id="delivery_job_start (69)" job_id="0" interior="0" posX="1405.1675" posY="-1501.0338" posZ="12.56368" rotX="0" rotY="0" rotZ="164"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (68)" job_id="0" interior="0" posX="1400.5968" posY="-1465.573" posZ="8.24577" rotX="0" rotY="0" rotZ="174"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (70)" job_id="0" interior="0" posX="1389.2928" posY="-1439.663" posZ="12.55469" rotX="0" rotY="0" rotZ="268"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (69)" job_id="0" interior="0" posX="1184.9708" posY="-1323.9823" posZ="13.14717" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (70)" job_id="0" interior="0" posX="1132.4789" posY="-1414.6489" posZ="13.18853" rotX="0" rotY="0" rotZ="86"></delivery_job_end>
+    <extortion_job id="extortion_job (68)" interior="0" posX="1119.6587" posY="-1373.1913" posZ="14.58813" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <delivery_job_start id="delivery_job_start (71)" job_id="0" interior="0" posX="1273.0929" posY="-1156.1914" posZ="22.82813" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <extortion_job id="extortion_job (69)" interior="0" posX="1269.8894" posY="-1125.4164" posZ="24.7138" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <delivery_job_start id="delivery_job_start (72)" job_id="0" interior="0" posX="1244.6761" posY="-1107.5872" posZ="24.55265" rotX="0" rotY="0" rotZ="274"></delivery_job_start>
+    <pickup_job id="pickup_job (255)" interior="0" posX="1401.6344" posY="-1023.3798" posZ="24.09313" rotX="0" rotY="0" rotZ="64"></pickup_job>
+    <delivery_job_start id="delivery_job_start (73)" job_id="0" interior="0" posX="597.40863" posY="-1246.5135" posZ="17.23668" rotX="0" rotY="0" rotZ="14"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (74)" job_id="0" interior="0" posX="820.86884" posY="-1336.2706" posZ="12.54688" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (75)" job_id="0" interior="0" posX="1804.095" posY="-1255.6871" posZ="12.63281" rotX="0" rotY="0" rotZ="190"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (76)" job_id="0" interior="0" posX="1934.1975" posY="-1125.6074" posZ="24.34704" rotX="0" rotY="0" rotZ="188"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (71)" job_id="0" interior="0" posX="1929.4058" posY="-1199.6392" posZ="19.59733" rotX="0" rotY="0" rotZ="2"></delivery_job_end>
+    <extortion_job id="extortion_job (70)" interior="0" posX="2078.645" posY="-1202.3042" posZ="24.51856" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <delivery_job_start id="delivery_job_start (77)" job_id="0" interior="0" posX="2186.2483" posY="-1102.1743" posZ="23.93236" rotX="0" rotY="0" rotZ="158"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (78)" job_id="0" interior="0" posX="1743.3333" posY="-1008.5577" posZ="22.96094" rotX="0" rotY="0" rotZ="168"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (79)" job_id="0" interior="0" posX="1786.8801" posY="-1114.7072" posZ="23.07813" rotX="0" rotY="0" rotZ="98"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (80)" job_id="0" interior="0" posX="1371.8812" posY="-1089.8542" posZ="23.58993" rotX="0" rotY="0" rotZ="96"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (81)" job_id="0" interior="0" posX="984.49573" posY="-1134.0034" posZ="22.82813" rotX="0" rotY="0" rotZ="180"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (82)" job_id="0" interior="0" posX="952.32477" posY="-984.39294" posZ="38.03818" rotX="0" rotY="0" rotZ="324"></delivery_job_start>
+    <pickup_job id="pickup_job (256)" interior="0" posX="1120.6675" posY="-1200.2819" posZ="16.9926" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <delivery_job_start id="delivery_job_start (83)" job_id="0" interior="0" posX="1112.1573" posY="-1250.3756" posZ="14.82031" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (84)" job_id="0" interior="0" posX="1147.0774" posY="-1315.4398" posZ="12.66843" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (85)" job_id="0" interior="0" posX="1044.3436" posY="-1385.8136" posZ="12.67706" rotX="0" rotY="0" rotZ="220"></delivery_job_start>
+    <pickup_job id="pickup_job (257)" interior="0" posX="980.92853" posY="-1414.3367" posZ="12.72109" rotX="0" rotY="0" rotZ="286"></pickup_job>
+    <pickup_job id="pickup_job (258)" interior="0" posX="955.43103" posY="-1424.7455" posZ="13.02168" rotX="0" rotY="0" rotZ="226"></pickup_job>
+    <pickup_job id="pickup_job (259)" interior="0" posX="926.0686" posY="-1445.3175" posZ="12.7551" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (260)" interior="0" posX="881.1225" posY="-1415.5948" posZ="12.84259" rotX="0" rotY="0" rotZ="298"></pickup_job>
+    <delivery_job_start id="delivery_job_start (86)" job_id="0" interior="0" posX="810.04718" posY="-1448.5209" posZ="12.42846" rotX="0" rotY="0" rotZ="82"></delivery_job_start>
+    <pickup_job id="pickup_job (261)" interior="0" posX="785.47339" posY="-1465.4535" posZ="13.02168" rotX="0" rotY="0" rotZ="174"></pickup_job>
+    <delivery_job_end id="delivery_job_end (72)" job_id="0" interior="0" posX="853.95789" posY="-1528.2109" posZ="12.76809" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <delivery_job_start id="delivery_job_start (87)" job_id="0" interior="0" posX="796.92261" posY="-1580.6113" posZ="12.54688" rotX="0" rotY="0" rotZ="174"></delivery_job_start>
+    <pickup_job id="pickup_job (262)" interior="0" posX="881.69025" posY="-1599.8879" posZ="13.02168" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (263)" interior="0" posX="954.44189" posY="-1582.6322" posZ="13.02168" rotX="0" rotY="0" rotZ="326"></pickup_job>
+    <pickup_job id="pickup_job (264)" interior="0" posX="911.68597" posY="-1617.0811" posZ="13.02168" rotX="0" rotY="0" rotZ="174"></pickup_job>
+    <delivery_job_end id="delivery_job_end (73)" job_id="0" interior="0" posX="965.43781" posY="-1719.1256" posZ="13.12853" rotX="0" rotY="0" rotZ="26"></delivery_job_end>
+    <pickup_job id="pickup_job (265)" interior="0" posX="999.41864" posY="-1818.8241" posZ="13.41941" rotX="0" rotY="0" rotZ="270"></pickup_job>
+    <pickup_job id="pickup_job (266)" interior="0" posX="1044.6313" posY="-1797.7389" posZ="13.31833" rotX="0" rotY="0" rotZ="16"></pickup_job>
+    <pickup_job id="pickup_job (267)" interior="0" posX="1044.1765" posY="-1676.2994" posZ="13.02168" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <extortion_job id="extortion_job (71)" interior="0" posX="1029.0203" posY="-1581.1538" posZ="14.10848" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <delivery_job_end id="delivery_job_end (74)" job_id="0" interior="0" posX="982.37531" posY="-1608.0026" posZ="13.0971" rotX="0" rotY="0" rotZ="86"></delivery_job_end>
+    <pickup_job id="pickup_job (268)" interior="0" posX="987.7406" posY="-1585.6019" posZ="12.97244" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <extortion_job id="extortion_job (72)" interior="0" posX="1150.2366" posY="-1511.0065" posZ="16.40063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (73)" interior="0" posX="1102.1777" posY="-1502.7114" posZ="16.40063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (269)" interior="0" posX="1118.3152" posY="-1521.4392" posZ="15.27168" rotX="0" rotY="0" rotZ="228"></pickup_job>
+    <pickup_job id="pickup_job (270)" interior="0" posX="1136.0182" posY="-1564.1051" posZ="13.02579" rotX="0" rotY="0" rotZ="74"></pickup_job>
+    <delivery_job_start id="delivery_job_start (88)" job_id="0" interior="0" posX="1142.1488" posY="-1644.5137" posZ="12.95313" rotX="0" rotY="0" rotZ="268"></delivery_job_start>
+    <pickup_job id="pickup_job (271)" interior="0" posX="1139.5789" posY="-1609.1326" posZ="13.42568" rotX="0" rotY="0" rotZ="150"></pickup_job>
+    <delivery_job_start id="delivery_job_start (89)" job_id="0" interior="0" posX="1160.0503" posY="-1696.2784" posZ="12.95313" rotX="0" rotY="0" rotZ="106"></delivery_job_start>
+    <pickup_job id="pickup_job (272)" interior="0" posX="1268.3899" posY="-1824.019" posZ="12.85649" rotX="0" rotY="0" rotZ="150"></pickup_job>
+    <pickup_job id="pickup_job (273)" interior="0" posX="1481.7445" posY="-1879.6047" posZ="13.02168" rotX="0" rotY="0" rotZ="298"></pickup_job>
+    <pickup_job id="pickup_job (274)" interior="0" posX="1528.067" posY="-1826.7858" posZ="13.02168" rotX="0" rotY="0" rotZ="88"></pickup_job>
+    <pickup_job id="pickup_job (275)" interior="0" posX="1568.6974" posY="-1721.2531" posZ="13.02168" rotX="0" rotY="0" rotZ="78"></pickup_job>
+    <delivery_job_end id="delivery_job_end (75)" job_id="0" interior="0" posX="1629.9486" posY="-1765.6958" posZ="3.52702" rotX="0" rotY="0" rotZ="112"></delivery_job_end>
+    <pickup_job id="pickup_job (276)" interior="0" posX="1505.3422" posY="-1745.2451" posZ="13.02168" rotX="0" rotY="0" rotZ="262"></pickup_job>
+    <pickup_job id="pickup_job (277)" interior="0" posX="1406.8403" posY="-1726.0006" posZ="13.02168" rotX="0" rotY="0" rotZ="100"></pickup_job>
+    <pickup_job id="pickup_job (278)" interior="0" posX="1367.0061" posY="-1739.1191" posZ="13.02168" rotX="0" rotY="0" rotZ="256"></pickup_job>
+    <delivery_job_start id="delivery_job_start (90)" job_id="0" interior="0" posX="1347.968" posY="-1703.776" posZ="12.59639" rotX="0" rotY="0" rotZ="262"></delivery_job_start>
+    <delivery_job_end id="delivery_job_end (76)" job_id="0" interior="0" posX="1344.0018" posY="-1671.0592" posZ="13.15834" rotX="0" rotY="0" rotZ="0"></delivery_job_end>
+    <pickup_job id="pickup_job (279)" interior="0" posX="1327.3693" posY="-1563.5389" posZ="13.02168" rotX="0" rotY="0" rotZ="48"></pickup_job>
+    <pickup_job id="pickup_job (280)" interior="0" posX="1298.5986" posY="-1490.4221" posZ="13.02168" rotX="0" rotY="0" rotZ="132"></pickup_job>
+    <delivery_job_start id="delivery_job_start (91)" job_id="0" interior="0" posX="1264.7893" posY="-1441.4131" posZ="12.49499" rotX="0" rotY="0" rotZ="180"></delivery_job_start>
+    <pickup_job id="pickup_job (281)" interior="0" posX="1083.3597" posY="-1354.7935" posZ="13.02287" rotX="0" rotY="0" rotZ="168"></pickup_job>
+    <pickup_job id="pickup_job (282)" interior="0" posX="1036.2551" posY="-1312.7944" posZ="13.02168" rotX="0" rotY="0" rotZ="80"></pickup_job>
+    <pickup_job id="pickup_job (283)" interior="0" posX="891.68579" posY="-1312.6384" posZ="13.02168" rotX="0" rotY="0" rotZ="98"></pickup_job>
+    <pickup_job id="pickup_job (284)" interior="0" posX="803.65729" posY="-1187.2322" posZ="20.21533" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (285)" interior="0" posX="1056.7617" posY="-1134.1758" posZ="23.30293" rotX="0" rotY="0" rotZ="84"></pickup_job>
+    <delivery_job_end id="delivery_job_end (77)" job_id="0" interior="0" posX="926.09161" posY="-927.81476" posZ="42.17546" rotX="0" rotY="0" rotZ="188"></delivery_job_end>
+    <extortion_job id="extortion_job (74)" interior="0" posX="844.13245" posY="-1009.3154" posZ="29.36218" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (286)" interior="0" posX="760.67804" posY="-1067.6351" posZ="23.77243" rotX="0" rotY="0" rotZ="300"></pickup_job>
+    <pickup_job id="pickup_job (287)" interior="0" posX="662.57501" posY="-1207.8793" posZ="17.88105" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (288)" interior="0" posX="622.06641" posY="-1277.9908" posZ="16.15225" rotX="0" rotY="0" rotZ="234"></pickup_job>
+    <delivery_job_end id="delivery_job_end (78)" job_id="0" interior="0" posX="599.35956" posY="-1285.6285" posZ="15.26932" rotX="0" rotY="0" rotZ="300"></delivery_job_end>
+    <pickup_job id="pickup_job (289)" interior="0" posX="613.11725" posY="-1306.6383" posZ="13.92337" rotX="0" rotY="0" rotZ="284"></pickup_job>
+    <pickup_job id="pickup_job (290)" interior="0" posX="758.96191" posY="-1367.0808" posZ="12.99229" rotX="0" rotY="0" rotZ="190"></pickup_job>
+    <group_job id="group_job (7)" interior="0" posX="2126.9072" posY="-1138.7362" posZ="25.73217" rotX="0" rotY="0" rotZ="0"></group_job>
+</map>

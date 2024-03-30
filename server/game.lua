@@ -1,0 +1,182 @@
+-- global for debug purposes atm
+players = {}
+jobs = {}
+
+local playersByClient = {}
+local police = {}
+local criminals = {}
+
+local money = 0
+
+addEvent("onRaceStateChanging")
+addEventHandler("onRaceStateChanging", getRootElement(), function(state)
+	if state == "GridCountdown" then
+		for _, player in pairs(getElementsByType("player")) do
+			local p = Player:new(player)
+			players[#players + 1] = p
+			playersByClient[player] = p
+		end
+
+		setTimer(function()
+			cleanupStuff()
+			distributeRoles()
+			setupJobs()
+			setupListeners()
+			startGameLoop()
+		end, 1000, 1)
+	end
+end)
+
+function startGameLoop()
+	setTimer(function()
+		trySpawnJob()
+		updateJobProgress()
+	end, 10, 0)
+end
+
+local lastJobId = 0
+local availableJobs = 0
+function trySpawnJob()
+	if availableJobs > math.min(50, #jobs) then return end
+
+	lastJobId = lastJobId + 1
+	local nextJob = jobs[lastJobId]
+
+	if nextJob:isComplete() then
+		nextJob:enable(criminals)
+		availableJobs = availableJobs + 1
+	end
+
+	if lastJobId == #jobs then
+		lastJobId = 0
+	end
+end
+
+function updateJobProgress()
+	for _, job in ipairs(jobs) do
+		job:tick()
+
+		if job:justCompleted() then
+			job:finish(criminals)
+			availableJobs = availableJobs - 1
+			money = money + job:money()
+			print("money", money)
+		end
+	end
+end
+
+function setupJobs()
+	local jobElements = {}
+
+	for _, job in ipairs({
+		g_PICKUP_JOB,
+		g_GROUP_JOB,
+		g_DELIVERY_JOB,
+		g_EXTORTION_JOB
+	}) do
+		for _, element in ipairs(getElementsByType(job.elementType, resourceRoot)) do
+			jobElements[#jobElements + 1] = { element = element, job = job }
+		end
+	end
+
+	shuffle(jobElements)
+
+	for id, element in ipairs(jobElements) do
+		local job = nil
+		if element.job == g_DELIVERY_JOB then
+			job = DeliveryJob:new(id, element.job.type, getElementPosition(element.element))
+		elseif element.job == g_GROUP_JOB then
+			job = GroupJob:new(id, element.job.type, getElementPosition(element.element))
+		elseif element.job == g_EXTORTION_JOB then
+			job = ExtortionJob:new(id, element.job.type, getElementPosition(element.element))
+		else
+			job = Job:new(id, element.job.type, getElementPosition(element.element))
+		end
+
+		jobs[#jobs + 1] = job
+
+		local col = createColCircle(job.pos.x, job.pos.y, g_JOBS_BY_TYPE[job.type].zoneRadius)
+		addEventHandler("onColShapeHit", col, function(element)
+			local player, vehicle = toPlayer(element)
+			if not player then return end
+			if not vehicle then return end -- in case of spectator?
+
+			player = playersByClient[player]
+
+			if not player then return end
+			if player.role ~= g_CRIMINAL_ROLE then return end
+
+			local _, _, z = getElementPosition(vehicle)
+			if math.abs(z - job.pos.z) > 5 then return end
+
+			if not job:isAvailable() then return end
+
+			job:assign(player, criminals)
+		end)
+		addEventHandler("onColShapeLeave", col, function(element)
+			local player = toPlayer(element)
+			if not player then return end
+
+			player = playersByClient[player]
+
+			if not player then return end
+			if not job:isAssignedTo(player) then return end
+			-- can't check Z but don't care?
+
+			job:unassign(player, criminals)
+		end)
+	end
+end
+
+function setupListeners()
+	addEvent(g_FINISH_JOB, true)
+	addEventHandler(g_FINISH_JOB, getRootElement(), function(id)
+		jobs[id]:finish(criminals)
+		availableJobs = availableJobs - 1
+		money = money + jobs[id]:money()
+		print("money", money)
+	end)
+end
+
+function distributeRoles()
+	shuffle(players)
+
+	local policeCount = math.max(math.floor(#players / 10), 0) -- change from 0 to 1
+	local totalPolice = 0
+
+	for i = 1, policeCount do
+		police[#police + 1] = players[i].player
+		local success = players[i]:setRole(g_COP_ROLE)
+		if not success then break end
+		totalPolice = totalPolice + 1
+	end
+	for i = totalPolice + 1, #players do
+		criminals[#criminals + 1] = players[i].player
+		players[i]:setRole(g_CRIMINAL_ROLE)
+	end
+end
+
+function cleanupStuff()
+	-- attempt to remove player blips, doesnt work probably
+	for _, blip in pairs(getElementsByType("blip")) do
+		destroyElement(blip)
+	end
+end
+
+function shuffle(a)
+	for i = #a, 2, -1 do
+		local j = math.random(i)
+		a[i], a[j] = a[j], a[i]
+	end
+end
+
+function toPlayer(element)
+	if getElementType(element) ~= "vehicle" then return false end
+	return getVehicleOccupant(element), element
+end
+
+-- debugging
+
+addCommandHandler("d", function(ply, arg, ...)
+	loadstring(...)()
+end)
