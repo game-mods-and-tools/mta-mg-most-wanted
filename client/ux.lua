@@ -4,6 +4,10 @@ local honkProgress = 0
 local deliveryPoint = nil
 local timer = nil
 
+function honk()
+	honkProgress = math.min(honkProgress + 0.1, 1)
+end
+
 addEvent(g_SHOW_JOB, true)
 addEventHandler(g_SHOW_JOB, resourceRoot, function(id, type, pos)
 	local job = g_JOBS_BY_TYPE[type]
@@ -36,6 +40,8 @@ addEventHandler(g_STOP_JOB, resourceRoot, function(id)
 	if isTimer(timer) then
 		killTimer(timer)
 	end
+	timer = nil
+	unbindKey("horn", "down", honk)
 end)
 
 addEvent(g_JOB_STATUS_UPDATE, true)
@@ -58,17 +64,10 @@ addEventHandler(g_JOB_STATUS_UPDATE, resourceRoot, function(id, type, data)
 		addEventHandler("onClientColShapeHit", col, finishDelivery)
 	elseif type == g_EXTORTION_JOB.type then
 		outputChatBox("START HONKING!!!")
-		function honk()
-			honkProgress = math.min(honkProgress + 0.1, 1)
-		end
 		bindKey("horn", "down", honk)
 		timer = setTimer(function()
 			if honkProgress >= 1 then
-				unbindKey("horn", "down", honk)
-				if isTimer(timer) then
-					killTimer(timer)
-					triggerServerEvent(g_FINISH_JOB, resourceRoot, id)
-				end
+				triggerServerEvent(g_FINISH_JOB, resourceRoot, id)
 			end
 
 			-- 5 honks a second at least?
@@ -87,6 +86,8 @@ addEventHandler(g_FINISH_JOB, resourceRoot, function(id)
 	if isTimer(timer) then
 		killTimer(timer)
 	end
+	timer = nil
+	unbindKey("horn", "down", honk)
 end)
 
 addEventHandler("onClientResourceStart", resourceRoot, function()

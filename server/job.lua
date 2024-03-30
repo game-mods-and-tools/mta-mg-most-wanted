@@ -46,6 +46,7 @@ function Job:unassign(player, players)
 	self.players[player.player] = false
 
 	self.progress = 0
+	triggerClientEvent(player.player, g_STOP_JOB, resourceRoot, self.id)
 	self:enable(players)
 end
 
@@ -160,20 +161,17 @@ function GroupJob:isAvailable()
 end
 
 -- also 2 stages but 2nd stage is honking at same location
-ExtortionJob = DeliveryJob:new()
+ExtortionJob = Job:new()
 
 function ExtortionJob:assign(player, players)
 	self.players[player.player] = true
-	self.bonus = 0
 
 	triggerClientEvent(player, g_JOB_STATUS_UPDATE, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z } })
 	self:disable(players)
 end
 
-function ExtortionJob:unassign(player, players)
-	self.players[player.player] = false
-
-	self:enable(players)
+function ExtortionJob:tick()
+	-- manually completed by clients
 end
 
 function ExtortionJob:finish(players)
