@@ -28,6 +28,11 @@ function Player:setRole(role)
 			setVehicleHandling(vehicle, "collisionDamageMultiplier", 0)
 			setVehicleColor(vehicle, 0, 0, 0, 255, 255, 255, 0, 0, 0)
 
+			bindKey(self.player, "vehicle_secondary_fire", "down", function()
+				giveWeapon(self.player, 31, 9999, true) -- uzi
+				setPedDoingGangDriveby(self.player, not isPedDoingGangDriveby(self.player))
+			end)
+
 			-- lazy keep sirens on, let them be toggled off for at most 3 seconds
 			-- for stealth gameplay
 			setTimer(function()
