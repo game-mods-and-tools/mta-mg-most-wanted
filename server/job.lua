@@ -130,6 +130,18 @@ function DeliveryJob:tick()
 	return false
 end
 
+function DeliveryJob:finish(criminals, police)
+	self.progress = 1
+	self.deliverer.delivering = false
+
+	local players = self:activePlayers()
+	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, players)
+	triggerClientEvent(police, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, players)
+
+	self:disable(criminals)
+	self.players = {}
+end
+
 -- sit and wait... in a group job
 GroupJob = Job:new()
 
