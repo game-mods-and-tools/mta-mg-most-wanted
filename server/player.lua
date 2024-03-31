@@ -1,5 +1,8 @@
 Player = {}
 
+local policeTeam = createTeam("Cops")
+local criminalTeam = createTeam("Criminals")
+
 function Player:new(player)
 	local o = {}
 	setmetatable(o, self)
@@ -43,6 +46,8 @@ function Player:setRole(role)
 
 			destroyElement(copCar)
 			triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
+			
+			setPlayerTeam(self.player, policeTeam)
 			return true
 		end
 
@@ -50,6 +55,8 @@ function Player:setRole(role)
 	else
 		self.role = role
 		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
+		
+		setPlayerTeam(self.player, criminalTeam)
 	end
 
 	return true
