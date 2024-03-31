@@ -9,6 +9,8 @@ local criminals = {}
 local lastJobId = 0
 local availableJobs = 0
 local totalJobProgress = 0
+local escapeQuota = 0
+local randomMoneyScaler = 1
 
 local endGame = false
 
@@ -48,7 +50,6 @@ function trySpawnJob()
 	local nextJob = jobs[lastJobId]
 
 	if nextJob:isComplete() then
-		print("Spawning job", lastJobId)
 		nextJob:enable(criminals)
 		availableJobs = availableJobs + 1
 	end
@@ -77,7 +78,7 @@ function preGameSetup()
 	-- randomly select cops and criminals
 	shuffle(players)
 
-	local policeCount = math.max(math.floor(#players / 10), 0) -- change from 0 to 1
+	local policeCount = math.max(math.floor(#players / 4), 1) -- change from 0 to 1
 	local totalPolice = 0
 
 	for i = 1, policeCount do
@@ -103,6 +104,11 @@ function preGameSetup()
 			jobElements[#jobElements + 1] = { element = element, job = job }
 		end
 	end
+	
+	-- set up player based limits
+	randomMoneyScaler = math.random(3718, 5231) -- random numbers used to scale quota for big $$$
+	escapeQuota = #criminals * 5
+	sendGameStateUpdate()
 
 	-- shuffle jobs into order they will spawn in
 	shuffle(jobElements)
@@ -166,7 +172,15 @@ function finishJob(job)
 	job:finish(criminals)
 	availableJobs = availableJobs - 1
 	totalJobProgress = totalJobProgress + job:money()
+	sendGameStateUpdate()
 	print("Job", job.id, "finished. progress", totalJobProgress)
+end
+
+function sendGameStateUpdate()
+	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, {
+		money = totalJobProgress * randomMoneyScaler,
+		moneyQuota = escapeQuota * randomMoneyScaler
+	})
 end
 
 function shuffle(a)
