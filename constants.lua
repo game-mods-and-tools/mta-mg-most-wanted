@@ -47,7 +47,7 @@ g_EXTORTION_JOB = {
 	blip = 55,
 	color = { r = 0, g = 255, b = 0, a = 100 },
 	jobWeight = 1.2,
-	progressRate = 0.1, -- per honk
+	progressRate = 0.01, -- per interval
 	decayRate = 0.05, -- per interval
 	interval = 100 -- in ms
 }

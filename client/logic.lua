@@ -1,9 +1,13 @@
 local honkProgress = 0
+local honking = false
 local timer = nil
 
-function honk()
-	honkProgress = math.min(honkProgress +  g_EXTORTION_JOB.progressRate, 1)
-end
+bindKey("horn", "down", function()
+	honking = true
+end)
+bindKey("horn", "up", function()
+	honking = false
+end)
 
 addEvent(g_STOP_JOB_EVENT, true)
 addEventHandler(g_STOP_JOB_EVENT, resourceRoot, function(id)
@@ -31,13 +35,16 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 		addEventHandler("onClientColShapeHit", col, finishDelivery)
 	elseif type == g_EXTORTION_JOB.type then
 		honkProgress = 0
-		bindKey("horn", "down", honk)
 		timer = setTimer(function()
 			if honkProgress >= 1 then
 				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 			end
 
-			honkProgress = math.max(honkProgress - g_EXTORTION_JOB.decayRate, 0)
+			if honking then
+				honkProgress = math.min(honkProgress + g_EXTORTION_JOB.progressRate, 1)
+			else
+				honkProgress = math.max(honkProgress - g_EXTORTION_JOB.decayRate, 0)
+			end
 
 			triggerEvent(g_SHOW_PROGRESS_BAR_EVENT, resourceRoot)
 			triggerEvent(g_UPDATE_PROGRESS_BAR_EVENT, resourceRoot, { progress = honkProgress })
@@ -63,5 +70,4 @@ function cleanupJobs()
 		killTimer(timer)
 	end
 	timer = nil
-	unbindKey("horn", "down", honk)
 end
