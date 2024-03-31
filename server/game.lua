@@ -51,7 +51,7 @@ end
 
 function trySpawnJob()
 	-- if availableJobs > #criminals * 3 then return end
-	if availableJobs > #jobs then return end
+	if availableJobs > math.floor(#jobs / 1.5) then return end
 
 	lastJobId = lastJobId + 1
 	local nextJob = jobs[lastJobId]
@@ -205,11 +205,6 @@ function toPlayer(element)
 end
 
 -- debugging
-addCommandHandler("r", function(ply, arg, ...)
-	print(arg, ...)
-	loadstring(...)()
-end)
-
 addCommandHandler("ug", function(ply, arg, var, val)
 	print(arg, var, val)
 	_G[var] = tonumber(val)
@@ -218,4 +213,9 @@ end)
 addCommandHandler("fj", function(ply, arg, job)
 	print(arg, job)
 	finishJob(jobs[tonumber(job)])
+end)
+
+addCommandHandler("p", function(ply, arg, var)
+	print(arg, var)
+	print(_G[var])
 end)
