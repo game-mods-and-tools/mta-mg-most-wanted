@@ -87,9 +87,17 @@ addEventHandler(g_RESUME_JOB_EVENT, resourceRoot, function(count)
 end)
 
 addEvent(g_FINISH_JOB_EVENT, true)
-addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, criminals)
+addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCriminals)
 	if role == g_CRIMINAL_ROLE then
 		playSound("client/lodsofemone.wav")
+
+		for _, player in pairs(reportedCriminals) do
+			if player == localPlayer then
+				showText[crimeReported] = true
+				setTimer(function() showText[crimeReported] = false end, 3000, 1)
+				break
+			end
+		end
 
 		if type == g_PICKUP_JOB.type then
 			showText[pickupJobInfo] = false
@@ -103,14 +111,16 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, criminals)
 		end
 	elseif role == g_POLICE_ROLE then
 		-- lets police track criminals when they finish a job
-		for _, criminal in pairs(criminals) do
+		for _, criminal in pairs(reportedCriminals) do
 			local blip = createBlipAttachedTo(criminal, 0, 2, 255, 0, 0, 255, 6, 80085)
 			setTimer(function() destroyElement(blip) end, 5000, 1)
 		end
-	end
 
-	showText[crimeReported] = true
-	setTimer(function() showText[crimeReported] = false end, 3000, 1)
+		if #criminals > 0 then
+			showText[crimeReported] = true
+			setTimer(function() showText[crimeReported] = false end, 3000, 1)
+		end
+	end
 end)
 
 addEvent(g_SHOW_DELIVERY_TARGET_EVENT)
