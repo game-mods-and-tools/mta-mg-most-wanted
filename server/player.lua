@@ -15,7 +15,7 @@ end
 -- return if role successfully set
 -- may not be set if there are no more cop cars to replace
 function Player:setRole(role)
-	if role == g_COP_ROLE then
+	if role == g_POLICE_ROLE then
 		for _, copCar in pairs(getElementsByType("vehicle")) do
 			-- at least 1 cop car to use
 			self.role = role
@@ -26,6 +26,14 @@ function Player:setRole(role)
 			setElementPosition(vehicle, getElementPosition(copCar))
 			setElementRotation(vehicle, getElementRotation(copCar))
 			setVehicleHandling(vehicle, "collisionDamageMultiplier", 0)
+
+			-- lazy keep sirens on, let them be toggled off for at most 3 seconds
+			-- for stealth gameplay
+			setTimer(function()
+				if not getVehicleSirensOn(vehicle) then
+					setVehicleSirensOn(vehicle, true)
+				end
+			end, 3000, 0)
 
 			destroyElement(copCar)
 			triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
