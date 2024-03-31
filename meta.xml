@@ -7,7 +7,9 @@
 	<script src="server/player.lua" type="server"></script>
 	<script src="server/game.lua" type="server"></script>
 
-    <script src="client/ux.lua" type="client"></script>
+	<script src="client/constants.lua" type="client"></script>
+    <script src="client/logic.lua" type="client"></script>
+	<script src="client/ux.lua" type="client"></script>
 
     <info gamemodes="race" type="map" name="Most Wanted" author="Big Pig" version="0.0.1" edf:definition="most-wanted.edf"></info>
     <map src="most-wanted.map" dimension="0"></map>

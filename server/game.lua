@@ -6,7 +6,11 @@ local playersByClient = {}
 local police = {}
 local criminals = {}
 
-local money = 0
+local lastJobId = 0
+local availableJobs = 0
+local totalJobProgress = 0
+
+local endGame = false
 
 addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
@@ -18,10 +22,7 @@ addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 		end
 
 		setTimer(function()
-			cleanupStuff()
-			distributeRoles()
-			setupJobs()
-			setupListeners()
+			preGameSetup()
 			startGameLoop()
 		end, 1000, 1)
 	end
@@ -31,18 +32,23 @@ function startGameLoop()
 	setTimer(function()
 		trySpawnJob()
 		updateJobProgress()
-	end, 10, 0)
+		updateGameState()
+	end, 1000 / g_SERVER_TICK_RATE, 0)
 end
 
-local lastJobId = 0
-local availableJobs = 0
+function updateGameState()
+	-- send some global ui updates or something
+end
+
 function trySpawnJob()
-	if availableJobs > math.min(50, #jobs) then return end
+	if availableJobs > math.floor(#jobs / 2) then return end
+	-- if availableJobs > #criminals * 2 then return end
 
 	lastJobId = lastJobId + 1
 	local nextJob = jobs[lastJobId]
 
 	if nextJob:isComplete() then
+		print("Spawning job", lastJobId)
 		nextJob:enable(criminals)
 		availableJobs = availableJobs + 1
 	end
@@ -54,19 +60,38 @@ end
 
 function updateJobProgress()
 	for _, job in ipairs(jobs) do
-		job:tick()
+		local completed = job:tick()
 
-		if job:justCompleted() then
-			job:finish(criminals)
-			availableJobs = availableJobs - 1
-			money = money + job:money()
-			print("money", money)
+		if completed then
+			finishJob(job)
 		end
 	end
 end
 
-function setupJobs()
-	local jobElements = {}
+function preGameSetup()
+	-- attempt to remove player blips, doesnt work probably
+	for _, blip in pairs(getElementsByType("blip")) do
+		destroyElement(blip)
+	end
+
+	-- randomly select cops and criminals
+	shuffle(players)
+
+	local policeCount = math.max(math.floor(#players / 10), 0) -- change from 0 to 1
+	local totalPolice = 0
+
+	for i = 1, policeCount do
+		police[#police + 1] = players[i].player
+		local success = players[i]:setRole(g_COP_ROLE)
+		if not success then break end
+		totalPolice = totalPolice + 1
+	end
+	for i = totalPolice + 1, #players do
+		criminals[#criminals + 1] = players[i].player
+		players[i]:setRole(g_CRIMINAL_ROLE)
+	end
+
+		local jobElements = {}
 
 	for _, job in ipairs({
 		g_PICKUP_JOB,
@@ -79,6 +104,7 @@ function setupJobs()
 		end
 	end
 
+	-- shuffle jobs into order they will spawn in
 	shuffle(jobElements)
 
 	for id, element in ipairs(jobElements) do
@@ -112,6 +138,7 @@ function setupJobs()
 			if not job:isAvailable() then return end
 
 			job:assign(player, criminals)
+			print("assigned job", id, "to", getPlayerName(player.player))
 		end)
 		addEventHandler("onColShapeLeave", col, function(element)
 			local player = toPlayer(element)
@@ -124,43 +151,22 @@ function setupJobs()
 			-- can't check Z but don't care?
 
 			job:unassign(player, criminals)
+			print("unassigned job", id, "from", getPlayerName(player.player))
 		end)
 	end
-end
 
-function setupListeners()
-	addEvent(g_FINISH_JOB, true)
-	addEventHandler(g_FINISH_JOB, getRootElement(), function(id)
-		jobs[id]:finish(criminals)
-		availableJobs = availableJobs - 1
-		money = money + jobs[id]:money()
-		print("money", money)
+	-- start listening for client side completion of jobs (honk job, delivery job)
+	addEvent(g_FINISH_JOB_EVENT, true)
+	addEventHandler(g_FINISH_JOB_EVENT, getRootElement(), function(id)
+		finishJob(jobs[id])
 	end)
 end
 
-function distributeRoles()
-	shuffle(players)
-
-	local policeCount = math.max(math.floor(#players / 10), 0) -- change from 0 to 1
-	local totalPolice = 0
-
-	for i = 1, policeCount do
-		police[#police + 1] = players[i].player
-		local success = players[i]:setRole(g_COP_ROLE)
-		if not success then break end
-		totalPolice = totalPolice + 1
-	end
-	for i = totalPolice + 1, #players do
-		criminals[#criminals + 1] = players[i].player
-		players[i]:setRole(g_CRIMINAL_ROLE)
-	end
-end
-
-function cleanupStuff()
-	-- attempt to remove player blips, doesnt work probably
-	for _, blip in pairs(getElementsByType("blip")) do
-		destroyElement(blip)
-	end
+function finishJob(job)
+	job:finish(criminals)
+	availableJobs = availableJobs - 1
+	totalJobProgress = totalJobProgress + job:money()
+	print("Job", job.id, "finished. progress", totalJobProgress)
 end
 
 function shuffle(a)
