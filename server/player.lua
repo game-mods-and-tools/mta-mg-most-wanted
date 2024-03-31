@@ -26,6 +26,7 @@ function Player:setRole(role)
 			setElementPosition(vehicle, getElementPosition(copCar))
 			setElementRotation(vehicle, getElementRotation(copCar))
 			setVehicleHandling(vehicle, "collisionDamageMultiplier", 0)
+			setVehicleColor(vehicle, 0, 0, 0, 255, 255, 255, 0, 0, 0)
 
 			-- lazy keep sirens on, let them be toggled off for at most 3 seconds
 			-- for stealth gameplay

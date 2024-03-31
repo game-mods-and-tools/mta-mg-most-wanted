@@ -44,7 +44,7 @@ function maybeUpdateGameState()
 		triggerClientEvent(getRootElement(), g_ENDGAME_START_EVENT, resourceRoot)
 
 		for _, criminal in ipairs(criminals) do
-			createBlipAttachedTo(criminal, 59)
+			createBlipAttachedTo(criminal, 0, 2, 223, 179, 0, 255, 6, 80085)
 		end
 	end
 end
