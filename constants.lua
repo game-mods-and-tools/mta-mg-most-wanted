@@ -1,9 +1,9 @@
 g_SHOW_PERK_SELECTION_AND_EXPLANATION = "show perks and explanations"
 g_START_PERK_SELECTION_AND_EXPLANATION_TIMER = "will close the perk window in some time" -- time
 g_CLOSE_PERK_SELECTION_AND_EXPLANATION = "close the ui"
-g_FUGITIVE_PERK = { id = "fugitive perk id", name = "Fugitive", description = "fug desc" }
-g_MECHANIC_PERK = { id = "mechanic perk id", name = "Mechanic", description = "mech desc" }
-g_HOTSHOT_PERK = { id = "hotshot perk id", name = "Hotshot", description = "hot desc" }
+g_FUGITIVE_PERK = { id = "fugitive perk id", name = "Fugitive", description = "After earning $500, you receive a single use nitro." }
+g_MECHANIC_PERK = { id = "mechanic perk id", name = "Mechanic", description = "When not on a job, stand still to slowly regain health." }
+g_HOTSHOT_PERK = { id = "hotshot perk id", name = "Hotshot", description = "Slightly higher top speed." }
 g_PLAYER_SELECTED_PERK_EVENT = "select perk event" -- player, perk
 
 g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
@@ -23,8 +23,8 @@ g_PICKUP_JOB = {
 	type = "pickup job",
 	detectionRadius = 200,
 	zoneRadius = 5,
-	blip = 63,
-	color = { r = 0, g = 0, b = 255 },
+	blip = 52,
+	color = { r = 0, g = 0, b = 255, a = 100 },
 	jobWeight = 1,
 	progressRate = 0.2
 }
@@ -34,7 +34,7 @@ g_DELIVERY_JOB = {
 	detectionRadius = 200,
 	zoneRadius = 5,
 	blip = 51,
-	color = { r = 255, g = 255, b = 0 },
+	color = { r = 255, g = 0, b = 0, a = 100 },
 	jobWeight = 1 -- and bonus
 }
 g_EXTORTION_JOB = {
@@ -42,8 +42,8 @@ g_EXTORTION_JOB = {
 	type = "extortion job",
 	detectionRadius = 200,
 	zoneRadius = 5,
-	blip = 52,
-	color = { r = 0, g = 255, b = 0 },
+	blip = 55,
+	color = { r = 0, g = 255, b = 0, a = 100 },
 	jobWeight = 1.2,
 	progressRate = 0.1, -- per honk
 	decayRate = 0.05, -- per interval
@@ -52,11 +52,11 @@ g_EXTORTION_JOB = {
 g_GROUP_JOB = {
 	elementType = "group_job",
 	type = "group job",
-	detectionRadius = 800,
-	zoneRadius = 10,
-	blip = 58,
-	color = { r = 255, g = 255, b = 255 },
-	jobWeight = 5,
+	detectionRadius = 1000,
+	zoneRadius = 22,
+	blip = 6,
+	color = { r = 255, g = 255, b = 255, a = 100 },
+	jobWeight = 3,
 	progressRate = 0.1,
 	decayRate = 0.05,
 }
@@ -68,3 +68,4 @@ g_JOBS_BY_TYPE = {
 }
 
 g_SERVER_TICK_RATE = 5 -- ticks per second, limited by other things
+g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate"

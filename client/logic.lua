@@ -30,14 +30,14 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 		end
 		addEventHandler("onClientColShapeHit", col, finishDelivery)
 	elseif type == g_EXTORTION_JOB.type then
-		honkProgress = g_EXTORTION_JOB.progressRate
+		honkProgress = 0
 		bindKey("horn", "down", honk)
 		timer = setTimer(function()
 			if honkProgress >= 1 then
 				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 			end
 
-			honkProgress = math.max(honkProgress - g_EXTORTION_JOB.decayRate, g_EXTORTION_JOB.progressRate)
+			honkProgress = math.max(honkProgress - g_EXTORTION_JOB.decayRate, 0)
 
 			triggerEvent(g_SHOW_PROGRESS_BAR_EVENT, resourceRoot)
 			triggerEvent(g_UPDATE_PROGRESS_BAR_EVENT, resourceRoot, { progress = honkProgress })

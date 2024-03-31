@@ -31,6 +31,7 @@ function Job:assign(player, players)
 	self.players[player.player] = true
 
 	self:disable(players)
+	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 end
 
 function Job:isAssignedTo(player)
@@ -41,7 +42,7 @@ function Job:unassign(player, players)
 	self.players[player.player] = false
 
 	self.progress = 0
-	triggerClientEvent(player.player, g_STOP_JOB_EVENT, resourceRoot, self.id)
+	triggerClientEvent(player.player, g_STOP_JOB_EVENT, resourceRoot, self.id, self.type)
 	self:enable(players)
 end
 
@@ -57,7 +58,7 @@ end
 function Job:finish(players)
 	self.progress = 1
 	self:disable(players)
-	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id)
+	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type)
 	self.players = {}
 end
 
@@ -110,6 +111,7 @@ function DeliveryJob:assign(player, players)
 
 	self.bonus = math.min(0.5, getDistanceBetweenPoints3D(self.pos.x, self.pos.y, self.pos.z, x, y, z) / 1200)
 
+	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z }, bonus = bonus })
 	self:disable(players)
 end
@@ -127,7 +129,7 @@ function DeliveryJob:finish(players)
 	self.progress = 1
 	self.deliverer.delivering = false
 
-	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id)
+	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type)
 	self.players = {}
 end
 
@@ -136,12 +138,14 @@ GroupJob = Job:new()
 
 function GroupJob:assign(player)
 	self.players[player.player] = true
+
+	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 end
 
 function GroupJob:unassign(player)
 	self.players[player.player] = false
 
-	triggerClientEvent(player.player, g_STOP_JOB_EVENT, resourceRoot, self.id)
+	triggerClientEvent(player.player, g_STOP_JOB_EVENT, resourceRoot, self.id, self.type)
 end
 
 function GroupJob:tick()
@@ -170,6 +174,7 @@ ExtortionJob = Job:new()
 function ExtortionJob:assign(player, players)
 	self.players[player.player] = true
 
+	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z } })
 	self:disable(players)
 end
@@ -181,6 +186,6 @@ end
 function ExtortionJob:finish(players)
 	self.progress = 1
 
-	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id)
+	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type)
 	self.players = {}
 end
