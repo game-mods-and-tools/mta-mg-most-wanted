@@ -58,7 +58,7 @@ g_GROUP_JOB = {
 	zoneRadius = 22,
 	blip = 6,
 	color = { r = 255, g = 255, b = 255, a = 100 },
-	jobWeight = 3,
+	jobWeight = 5,
 	progressRate = 0.1,
 	decayRate = 0.05,
 	minPlayers = 2
