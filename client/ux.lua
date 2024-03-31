@@ -100,7 +100,7 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, criminals)
 			showText[groupJobInfo] = false
 			showText[groupJobNeedsPeople] = false
 		end
-	else
+	elseif role == g_POLICE_ROLE then
 		-- lets police track criminals when they finish a job
 		for _, criminal in pairs(criminals) do
 			local blip = createBlipAttachedTo(criminal, 19)
@@ -147,7 +147,7 @@ addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 	if role == g_CRIMINAL_ROLE then
 		showText[criminalRoleInfo] = true
 		setTimer(function() showText[criminalRoleInfo] = false end, 5000, 1)
-	else
+	elseif role == g_POLICE_ROLE then
 		showText[copRoleInfo] = true
 		setTimer(function() showText[copRoleInfo] = false end, 5000, 1)
 	end
@@ -237,7 +237,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			if role == g_CRIMINAL_ROLE then
 				dxDrawBorderedText(0.5,"The money quota has been reached!", screenWidth / 2 - screenWidth / 6, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"Evade the#33A5FF police#C8C8C8 until an #2AE500Escape Route#C8C8C8 is ready!", screenWidth / 2 - screenWidth / 4.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-			else
+			elseif role == g_POLICE_ROLE then
 				dxDrawBorderedText(0.5,"The#838383 criminals#C8C8C8 are trying to escape the city!", screenWidth / 2 - screenWidth / 5, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2 - screenWidth / 4.3, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end

@@ -85,13 +85,13 @@ function preGameSetup()
 	-- randomly select cops and criminals
 	shuffle(players)
 
-	-- local policeCount = math.max(math.floor(#players / 4), 1)
-	local policeCount = math.max(math.floor(#players / 4), 0)
+	local policeCount = math.max(math.floor(#players / 4), 1)
+	-- local policeCount = math.max(math.floor(#players / 4), 0)
 	local totalPolice = 0
 
 	for i = 1, policeCount do
 		police[#police + 1] = players[i].player
-		local success = players[i]:setRole(g_COP_ROLE)
+		local success = players[i]:setRole(g_POLICE_ROLE)
 		if not success then break end
 		totalPolice = totalPolice + 1
 	end
