@@ -86,7 +86,10 @@ function preGameSetup()
 	shuffle(players)
 
 	-- local policeCount = math.max(math.floor(#players / 4), 1)
-	local policeCount = math.max(math.floor(#players / 4), 0)
+	local policeCount = math.max(math.floor(#players / 8), 0)
+	if #players == 1 then
+		policeCount = 0
+	end
 	local totalPolice = 0
 
 	for i = 1, policeCount do
@@ -114,8 +117,8 @@ function preGameSetup()
 	end
 
 	-- set up player based limits
-	randomMoneyScaler = math.random(3718, 5231) -- random numbers used to scale quota for big $$$
-	moneyEscapeQuota = #criminals * 5
+	randomMoneyScaler = 1000 -- random numbers used to scale quota for big $$$
+	moneyEscapeQuota = #criminals * 10
 	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, {
 		money = 0,
 		moneyQuota = moneyEscapeQuota * randomMoneyScaler
