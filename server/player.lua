@@ -28,14 +28,14 @@ function Player:setRole(role)
 			setVehicleHandling(vehicle, "collisionDamageMultiplier", 0)
 
 			destroyElement(copCar)
-			triggerClientEvent(self.player, g_SELECT_PLAYER_ROLE, resourceRoot, role)
+			triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 			return true
 		end
 
 		return false
 	else
 		self.role = role
-		triggerClientEvent(self.player, g_SELECT_PLAYER_ROLE, resourceRoot, role)
+		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 	end
 
 	return true

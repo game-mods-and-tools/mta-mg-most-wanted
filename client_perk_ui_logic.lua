@@ -18,12 +18,12 @@ addEventHandler(g_SHOW_PERK_SELECTION_AND_EXPLANATION, resourceRoot, function()
 		local button = createPerkButton(perkAndExplanationUi, perk, i)
 		addEventHandler("onClientGUIClick", button, function()
 			c("onClientGUIClick " .. perk.name)
-			triggerServerEvent(g_PLAYER_SELECTED_PERK, resourceRoot, perk.id)
+			triggerServerEvent(g_PLAYER_SELECTED_PERK_EVENT, resourceRoot, perk.id)
 		end, false)
 	end
 
 	-- default select fugitive perk
-	triggerServerEvent(g_PLAYER_SELECTED_PERK, resourceRoot, g_FUGITIVE_PERK.id)
+	triggerServerEvent(g_PLAYER_SELECTED_PERK_EVENT, resourceRoot, g_FUGITIVE_PERK.id)
 end)
 
 function createPerkButton(parentElement, perk, position)

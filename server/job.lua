@@ -11,17 +11,12 @@ function Job:new(id, type, x, y, z)
 	o.pos = { x = x, y = y, z = z }
 	o.progress = 1
 	o.players = {}
-	o.reward = 100
 
 	return o
 end
 
 function Job:money()
-	return self.reward
-end
-
-function Job:justCompleted()
-	return self:isComplete() and #self:activePlayers() > 0
+	return g_JOBS_BY_TYPE[self.type].jobWeight
 end
 
 function Job:isComplete()
@@ -46,23 +41,23 @@ function Job:unassign(player, players)
 	self.players[player.player] = false
 
 	self.progress = 0
-	triggerClientEvent(player.player, g_STOP_JOB, resourceRoot, self.id)
+	triggerClientEvent(player.player, g_STOP_JOB_EVENT, resourceRoot, self.id)
 	self:enable(players)
 end
 
 function Job:enable(players)
 	self.progress = 0
-	triggerClientEvent(players, g_SHOW_JOB, resourceRoot, self.id, self.type, self.pos)
+	triggerClientEvent(players, g_SHOW_JOB_EVENT, resourceRoot, self.id, self.type, self.pos)
 end
 
 function Job:disable(players)
-	triggerClientEvent(players, g_HIDE_JOB, resourceRoot, self.id)
+	triggerClientEvent(players, g_HIDE_JOB_EVENT, resourceRoot, self.id)
 end
 
 function Job:finish(players)
 	self.progress = 1
 	self:disable(players)
-	triggerClientEvent(self:activePlayers(), g_FINISH_JOB, resourceRoot, self.id)
+	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id)
 	self.players = {}
 end
 
@@ -81,21 +76,24 @@ end
 function Job:tick()
 	local players = self:activePlayers()
 
-	if self:isComplete() then return end
+	if self:isComplete() then return false end
 	if #players == 0 then
 		self.progress = 0 -- fully reset progress if no one is working on it
+		return false
 	end
 
 	-- these take 10 intervals of sitting still
-	self.progress = math.min(self.progress + 0.1, 1)
-	triggerClientEvent(players, g_JOB_STATUS_UPDATE, resourceRoot, self.id, self.type, { progress = self.progress })
+	self.progress = math.min(self.progress + g_JOBS_BY_TYPE[self.type].progressRate / g_SERVER_TICK_RATE, 1)
+	triggerClientEvent(players, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { progress = self.progress })
+
+	return self.progress == 1
 end
 
 -- a job with "2" stages that can only be accepted with 1 person
 DeliveryJob = Job:new()
 
 function DeliveryJob:money()
-	return self.reward + self.bonus
+	return g_JOBS_BY_TYPE[self.type].jobWeight + self.bonus
 end
 
 function DeliveryJob:assign(player, players)
@@ -110,9 +108,9 @@ function DeliveryJob:assign(player, players)
 
 	local x, y, z = getElementPosition(endpoint)
 
-	self.bonus = math.floor(getDistanceBetweenPoints3D(self.pos.x, self.pos.y, self.pos.z, x, y, z) / 24)
+	self.bonus = math.min(0.5, getDistanceBetweenPoints3D(self.pos.x, self.pos.y, self.pos.z, x, y, z) / 1200)
 
-	triggerClientEvent(player, g_JOB_STATUS_UPDATE, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z } })
+	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z }, bonus = bonus })
 	self:disable(players)
 end
 
@@ -122,13 +120,14 @@ end
 
 function DeliveryJob:tick()
 	-- does nothing since we just need the player to reach a destination
+	return false
 end
 
 function DeliveryJob:finish(players)
 	self.progress = 1
 	self.deliverer.delivering = false
-	self:disable(players)
-	triggerClientEvent(self:activePlayers(), g_FINISH_JOB, resourceRoot, self.id)
+
+	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id)
 	self.players = {}
 end
 
@@ -141,19 +140,24 @@ end
 
 function GroupJob:unassign(player)
 	self.players[player.player] = false
+
+	triggerClientEvent(player.player, g_STOP_JOB_EVENT, resourceRoot, self.id)
 end
 
 function GroupJob:tick()
 	local players = self:activePlayers()
 
-	if self:isComplete() then return end
+	if self:isComplete() then return false end
 	if #players == 0 then
-		self.progress = math.max(self.progress - 0.05, 0) -- decay
+		self.progress = math.max(self.progress - g_JOBS_BY_TYPE[self.type].decayRate / g_SERVER_TICK_RATE, 0) -- decay
+		return false
 	end
 
 	-- slower than normal job but scales with players
-	self.progress = math.min(self.progress + 0.02 * #players, 1)
-	triggerClientEvent(players, g_JOB_STATUS_UPDATE, resourceRoot, self.id, self.type, { progress = self.progress })
+	self.progress = math.min(self.progress + g_JOBS_BY_TYPE[self.type].progressRate / g_SERVER_TICK_RATE * #players, 1)
+	triggerClientEvent(players, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { progress = self.progress, playerCount = #players })
+
+	return self.progress == 1
 end
 
 function GroupJob:isAvailable()
@@ -166,18 +170,17 @@ ExtortionJob = Job:new()
 function ExtortionJob:assign(player, players)
 	self.players[player.player] = true
 
-	triggerClientEvent(player, g_JOB_STATUS_UPDATE, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z } })
+	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z } })
 	self:disable(players)
 end
 
 function ExtortionJob:tick()
-	-- manually completed by clients
+	return false
 end
 
 function ExtortionJob:finish(players)
 	self.progress = 1
 
-	self:disable(players)
-	triggerClientEvent(self:activePlayers(), g_FINISH_JOB, resourceRoot, self.id)
+	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id)
 	self.players = {}
 end
