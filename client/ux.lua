@@ -17,6 +17,7 @@ local groupJobInfo = "groupJobInfo"
 local copRoleInfo = "copeRoleInfo"
 local criminalRoleInfo = "criminalRoleInfo"
 local abandonedJob = "abandonedJob"
+local endGameInfo = "endGameInfo"
 
 addEvent(g_SHOW_JOB_EVENT, true)
 addEventHandler(g_SHOW_JOB_EVENT, resourceRoot, function(id, type, pos)
@@ -59,7 +60,7 @@ end)
 addEvent(g_STOP_JOB_EVENT, true)
 addEventHandler(g_STOP_JOB_EVENT, resourceRoot, function(id, type)
 	showText[abandonedJob] = true
-	setTimer(function() showText[abandonedJob] = false end, 3000, 1)
+	setTimer(function() showText[abandonedJob] = false end, 1000, 1)
 
 	if type == g_PICKUP_JOB.type then
 		showText[pickupJobInfo] = false
@@ -124,10 +125,10 @@ addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 
 	if role == g_CRIMINAL_ROLE then
 		showText[criminalRoleInfo] = true
-		setTimer(function() showText[criminalRoleInfo] = false end, 8000, 1)
+		setTimer(function() showText[criminalRoleInfo] = false end, 5000, 1)
 	else
 		showText[copRoleInfo] = true
-		setTimer(function() showText[copRoleInfo] = false end, 8000, 1)
+		setTimer(function() showText[copRoleInfo] = false end, 5000, 1)
 	end
 end)
 
@@ -135,6 +136,12 @@ addEvent(g_GAME_STATE_UPDATE_EVENT, true)
 addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(data)
 	money.total = math.floor(data.money)
 	money.quota = math.floor(data.moneyQuota)
+end)
+
+addEvent(g_ENDGAME_START_EVENT, true)
+addEventHandler(g_ENDGAME_START_EVENT, resourceRoot, function()
+	showText[endGameInfo] = true
+	setTimer(function() showText[endGameInfo] = false end, 3000, 1)
 end)
 
 addEventHandler("onClientResourceStart", resourceRoot, function()
@@ -159,7 +166,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			dxDrawBorderedText(2,"$" .. money.quota, screenWidth * 0.72, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
 			dxDrawBorderedText(2,"TOTAL MONEY", screenWidth * 0.72, screenHeight * 0.22 + 55, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
 			dxDrawBorderedText(2,"$" .. money.total, screenWidth * 0.72, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"MONEY", screenWidth * 0.72, screenHeight * 0.22 + 110, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			-- dxDrawBorderedText(2,"MONEY", screenWidth * 0.72, screenHeight * 0.22 + 110, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
 			-- dxDrawBorderedText(2,"$" .. money.personal, screenWidth * 0.72, screenHeight * 0.22 + 130, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
 		end
 
@@ -194,7 +201,6 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		-- end
 
 
-
 		----idk
 		--dxDrawBorderedText(0.5,"PRESS THE NUMBER TO SELECT A PERK", screenWidth / 2 - screenWidth / 6, screenHeight * 0.55,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.3, "sans", center, top, false, false, false, true)
 		--
@@ -207,17 +213,16 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		--guiCreateStaticImage(screenWidth / 2 - 40 + screenWidth / 6, screenHeight * 0.6, 64, 64, "client/hotshot.png", false)
 		--dxDrawBorderedText(0.5,"3", screenWidth / 2 + screenWidth / 6 - 15, screenHeight * 0.6 + 80,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
 
+		if showText[endGameInfo] then
+			if role == g_CRIMINAL_ROLE then
+				dxDrawBorderedText(0.5,"The money quota has been reached!", screenWidth / 2 - screenWidth / 6, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Evade the#33A5FF police#C8C8C8 until an #2AE500Escape Route#C8C8C8 is ready!", screenWidth / 2 - screenWidth / 4.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			else
+				dxDrawBorderedText(0.5,"The#838383 criminals#C8C8C8 are trying to escape the city!", screenWidth / 2 - screenWidth / 5, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2 - screenWidth / 4.3, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			end
+		end
 
-
-		----quota reached: criminals
-		--dxDrawBorderedText(0.5,"The money quota has been reached!", screenWidth / 2 - screenWidth / 6, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-		--dxDrawBorderedText(0.5,"Evade the#33A5FF police#C8C8C8 until an #2AE500Escape Route#C8C8C8 is ready!", screenWidth / 2 - screenWidth / 4.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-		--
-		----quota reached: police
-		--dxDrawBorderedText(0.5,"The#838383 criminals#C8C8C8 are trying to escape the city!", screenWidth / 2 - screenWidth / 5, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-		--dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2 - screenWidth / 4.3, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-		--
-		--
 		--escape route ready
 		--dxDrawBorderedText(0.5,"Received several possible#2AE500 Escape Routes#C8C8C8!", screenWidth / 2 - screenWidth / 5.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		--

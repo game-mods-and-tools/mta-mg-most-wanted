@@ -6,13 +6,12 @@ local playersByClient = {}
 local police = {}
 local criminals = {}
 
-local lastJobId = 0
-local availableJobs = 0
-local totalJobProgress = 0
-local escapeQuota = 0
-local randomMoneyScaler = 1
-
-local endGame = false
+lastJobId = 0
+availableJobs = 0
+totalMoneyProgress = 0
+moneyEscapeQuota = 0
+randomMoneyScaler = 1
+endGame = false
 
 addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
@@ -34,12 +33,19 @@ function startGameLoop()
 	setTimer(function()
 		trySpawnJob()
 		updateJobProgress()
-		updateGameState()
+		maybeUpdateGameState()
 	end, 1000 / g_SERVER_TICK_RATE, 0)
 end
 
-function updateGameState()
-	-- send some global ui updates or something
+function maybeUpdateGameState()
+	if totalMoneyProgress > moneyEscapeQuota and not endGame then -- >=
+		endGame = true
+		triggerClientEvent(getRootElement(), g_ENDGAME_START_EVENT, resourceRoot)
+
+		for _, criminal in ipairs(criminals) do
+			createBlipAttachedTo(criminal, 59)
+		end
+	end
 end
 
 function trySpawnJob()
@@ -104,11 +110,14 @@ function preGameSetup()
 			jobElements[#jobElements + 1] = { element = element, job = job }
 		end
 	end
-	
+
 	-- set up player based limits
 	randomMoneyScaler = math.random(3718, 5231) -- random numbers used to scale quota for big $$$
-	escapeQuota = #criminals * 5
-	sendGameStateUpdate()
+	moneyEscapeQuota = #criminals * 5
+	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, {
+		money = 0,
+		moneyQuota = moneyEscapeQuota * randomMoneyScaler
+	})
 
 	-- shuffle jobs into order they will spawn in
 	shuffle(jobElements)
@@ -171,16 +180,13 @@ end
 function finishJob(job)
 	job:finish(criminals)
 	availableJobs = availableJobs - 1
-	totalJobProgress = totalJobProgress + job:money()
-	sendGameStateUpdate()
-	print("Job", job.id, "finished. progress", totalJobProgress)
-end
+	totalMoneyProgress = totalMoneyProgress + job:money()
 
-function sendGameStateUpdate()
 	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, {
-		money = totalJobProgress * randomMoneyScaler,
-		moneyQuota = escapeQuota * randomMoneyScaler
+		money = totalMoneyProgress * randomMoneyScaler,
+		moneyQuota = moneyEscapeQuota * randomMoneyScaler
 	})
+	print("Job", job.id, "finished. progress", totalMoneyProgress)
 end
 
 function shuffle(a)
@@ -199,4 +205,8 @@ end
 
 addCommandHandler("d", function(ply, arg, ...)
 	loadstring(...)()
+end)
+
+addCommandHandler("s", function(ply, arg, var, val)
+	_G[var] = tonumber(val)
 end)
