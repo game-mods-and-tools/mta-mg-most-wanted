@@ -42,6 +42,14 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			triggerEvent(g_SHOW_PROGRESS_BAR_EVENT, resourceRoot)
 			triggerEvent(g_UPDATE_PROGRESS_BAR_EVENT, resourceRoot, { progress = honkProgress })
 		end, g_EXTORTION_JOB.interval, 0)
+	elseif type == g_GROUP_JOB.type then
+		if data.playerCount < g_GROUP_JOB.minPlayers then
+			triggerEvent(g_PAUSE_JOB_EVENT, resourceRoot, data.playerCount)
+		else
+			triggerEvent(g_RESUME_JOB_EVENT, resourceRoot, data.playerCount)
+		end
+		triggerEvent(g_SHOW_PROGRESS_BAR_EVENT, resourceRoot)
+		triggerEvent(g_UPDATE_PROGRESS_BAR_EVENT, resourceRoot, data)
 	elseif data.progress then
 		triggerEvent(g_SHOW_PROGRESS_BAR_EVENT, resourceRoot)
 		triggerEvent(g_UPDATE_PROGRESS_BAR_EVENT, resourceRoot, data)
