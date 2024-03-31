@@ -55,10 +55,14 @@ function Job:disable(players)
 	triggerClientEvent(players, g_HIDE_JOB_EVENT, resourceRoot, self.id)
 end
 
-function Job:finish(players)
+function Job:finish(criminals, police)
 	self.progress = 1
-	self:disable(players)
-	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type)
+
+	local players = self:activePlayers()
+	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, players)
+	triggerClientEvent(police, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, players)
+
+	self:disable(criminals)
 	self.players = {}
 end
 
@@ -113,6 +117,7 @@ function DeliveryJob:assign(player, players)
 
 	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z }, bonus = bonus })
+
 	self:disable(players)
 end
 
@@ -123,14 +128,6 @@ end
 function DeliveryJob:tick()
 	-- does nothing since we just need the player to reach a destination
 	return false
-end
-
-function DeliveryJob:finish(players)
-	self.progress = 1
-	self.deliverer.delivering = false
-
-	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type)
-	self.players = {}
 end
 
 -- sit and wait... in a group job
@@ -181,11 +178,4 @@ end
 
 function ExtortionJob:tick()
 	return false
-end
-
-function ExtortionJob:finish(players)
-	self.progress = 1
-
-	triggerClientEvent(self:activePlayers(), g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type)
-	self.players = {}
 end

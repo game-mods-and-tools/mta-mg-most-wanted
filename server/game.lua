@@ -38,7 +38,8 @@ function startGameLoop()
 end
 
 function maybeUpdateGameState()
-	if totalMoneyProgress > moneyEscapeQuota and not endGame then -- >=
+	-- if totalMoneyProgress >= moneyEscapeQuota and not endGame then
+	if not endGame and totalMoneyProgress > moneyEscapeQuota then
 		endGame = true
 		triggerClientEvent(getRootElement(), g_ENDGAME_START_EVENT, resourceRoot)
 
@@ -49,8 +50,8 @@ function maybeUpdateGameState()
 end
 
 function trySpawnJob()
-	if availableJobs > math.floor(#jobs / 2) then return end
-	-- if availableJobs > #criminals * 2 then return end
+	-- if availableJobs > #criminals * 3 then return end
+	if availableJobs > #jobs then return end
 
 	lastJobId = lastJobId + 1
 	local nextJob = jobs[lastJobId]
@@ -84,7 +85,8 @@ function preGameSetup()
 	-- randomly select cops and criminals
 	shuffle(players)
 
-	local policeCount = math.max(math.floor(#players / 4), 0) -- change from 0 to 1
+	-- local policeCount = math.max(math.floor(#players / 4), 1)
+	local policeCount = math.max(math.floor(#players / 4), 0)
 	local totalPolice = 0
 
 	for i = 1, policeCount do
@@ -178,7 +180,8 @@ function preGameSetup()
 end
 
 function finishJob(job)
-	job:finish(criminals)
+	job:finish(criminals, police)
+
 	availableJobs = availableJobs - 1
 	totalMoneyProgress = totalMoneyProgress + job:money()
 
@@ -202,11 +205,17 @@ function toPlayer(element)
 end
 
 -- debugging
-
-addCommandHandler("d", function(ply, arg, ...)
+addCommandHandler("r", function(ply, arg, ...)
+	print(arg, ...)
 	loadstring(...)()
 end)
 
-addCommandHandler("s", function(ply, arg, var, val)
+addCommandHandler("ug", function(ply, arg, var, val)
+	print(arg, var, val)
 	_G[var] = tonumber(val)
+end)
+
+addCommandHandler("fj", function(ply, arg, job)
+	print(arg, job)
+	finishJob(jobs[tonumber(job)])
 end)
