@@ -59,8 +59,16 @@ function Job:finish(criminals, police)
 	self.progress = 1
 
 	local players = self:activePlayers()
-	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, players)
-	triggerClientEvent(police, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, players)
+	local reportedPlayers = {}
+	for _, player in ipairs(players) do
+		if math.random() > 0.5 then
+			reportedPlayers[#reportedPlayers + 1] = player
+		end
+	end
+
+	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
+	triggerClientEvent(police, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
+
 
 	self:disable(criminals)
 	self.players = {}
@@ -135,8 +143,15 @@ function DeliveryJob:finish(criminals, police)
 	self.deliverer.delivering = false
 
 	local players = self:activePlayers()
-	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, players)
-	triggerClientEvent(police, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, players)
+	local reportedPlayers = {}
+	for _, player in ipairs(players) do
+		if math.random() > 0.5 then
+			reportedPlayers[#reportedPlayers + 1] = player
+		end
+	end
+
+	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
+	triggerClientEvent(police, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
 
 	self:disable(criminals)
 	self.players = {}
