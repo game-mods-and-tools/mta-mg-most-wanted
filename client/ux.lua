@@ -14,6 +14,7 @@ local pickupJobInfo = "pickupJobInfo"
 local deliveryJobInfo = "deliveryJobInfo"
 local extortionJobInfo = "extortionJobInfo"
 local groupJobInfo = "groupJobInfo"
+local groupJobNeedsPeople = "groupJobNeedsPeople" -- value is the current people
 local copRoleInfo = "copeRoleInfo"
 local criminalRoleInfo = "criminalRoleInfo"
 local abandonedJob = "abandonedJob"
@@ -70,7 +71,18 @@ addEventHandler(g_STOP_JOB_EVENT, resourceRoot, function(id, type)
 		showText[extortionJobInfo] = false
 	elseif type == g_GROUP_JOB.type then
 		showText[groupJobInfo] = false
+		showText[groupJobNeedsPeople] = false
 	end
+end)
+
+addEvent(g_PAUSE_JOB_EVENT)
+addEventHandler(g_PAUSE_JOB_EVENT, resourceRoot, function(count)
+	showText[groupJobNeedsPeople] = count
+end)
+
+addEvent(g_RESUME_JOB_EVENT)
+addEventHandler(g_RESUME_JOB_EVENT, resourceRoot, function(count)
+	showText[groupJobNeedsPeople] = false
 end)
 
 addEvent(g_FINISH_JOB_EVENT, true)
@@ -85,6 +97,7 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type)
 		showText[extortionJobInfo] = false
 	elseif type == g_GROUP_JOB.type then
 		showText[groupJobInfo] = false
+		showText[groupJobNeedsPeople] = false
 	end
 end)
 
@@ -178,9 +191,9 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			dxDrawBorderedText(0.5,"Wait in place. The money is coming.", screenWidth / 2 - screenWidth / 6, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[extortionJobInfo] then
 			dxDrawBorderedText(0.5,"Intimidate by honking until you get the money.", screenWidth / 2 - screenWidth / 5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+		elseif showText[groupJobNeedsPeople] then
+			dxDrawBorderedText(0.5,"You will need " .. (g_GROUP_JOB.minPlayers - showText[groupJobNeedsPeople]) .. " more associate(s) to start this heist.", screenWidth / 2 - screenWidth / 5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[groupJobInfo] then
-			-- min player warning?
-			-- dxDrawBorderedText(0.5,"You will need <> more associates to start this heist.", screenWidth / 2 - screenWidth / 5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			dxDrawBorderedText(0.5,"The heist has started!", screenWidth / 2 - screenWidth / 10, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			dxDrawBorderedText(0.5,"Stay in the area to receive money until everything is gone!", screenWidth / 2 - screenWidth / 4, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[deliveryJobInfo] then
