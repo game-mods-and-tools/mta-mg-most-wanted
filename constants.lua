@@ -68,7 +68,7 @@ g_GROUP_JOB = {
 	jobWeight = 5,
 	progressRate = 0.1,
 	decayRate = 0.05,
-	minPlayers = 2
+	minPlayers = 3
 }
 g_JOBS_BY_TYPE = {
 	[g_PICKUP_JOB.type] = g_PICKUP_JOB,
