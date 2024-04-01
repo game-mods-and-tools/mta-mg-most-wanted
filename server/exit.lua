@@ -1,50 +1,47 @@
 Exit = {}
 
-function Exit:new(vans, barricades, walls, exits)
+function Exit:new(group)
 	local o = {}
 	setmetatable(o, self)
 
 	self.__index = self
 
 	o.vans = {}
-	for _, v in ipairs(vans) do
-		local van = createVehicle(427, getElementPosition(v))
-		-- do not set rotation in ctor because...
-		setElementRotation(van, getElementData(v, "rotX"), getElementData(v, "rotY"), getElementData(v, "rotZ"))
-		o.vans[#o.vans + 1] = van
-	end
-
 	o.barricades = {}
-	for _, b in ipairs(barricades) do
-		local barricade = createObject(981, getElementPosition(b))
-		setElementRotation(barricade, getElementData(b, "rotX"), getElementData(b, "rotY"), getElementData(b, "rotZ"))
-		o.barricades[#o.barricades + 1] = barricade
-	end
-
 	o.walls = {}
-	for _, w in ipairs(walls) do
-		local wall = createObject(8172, getElementPosition(w))
-		setElementRotation(wall, getElementData(w, "rotX"), getElementData(w, "rotY"), getElementData(w, "rotZ"))
-		o.walls[#o.walls + 1] = wall
-	end
-
 	o.blips = {}
 	o.markers = {}
-	o.exits = exits
+	o.exits = {}
 
-	for _, e in ipairs(exits) do
-		local x, y, z = getElementPosition(e)
-		local col = createColCircle(x, y, 10)
-		addEventHandler("onColShapeHit", col, function(element)
-			if not o.active then return end
+	for _, e in ipairs(getElementChildren(group)) do
+		local type = getElementType(e)
+		if type == "exit_barriade" then
+			local barricade = createObject(981, getElementPosition(e))
+			setElementRotation(barricade, getElementData(e, "rotX"), getElementData(e, "rotY"), getElementData(e, "rotZ"))
+			o.barricades[#o.barricades + 1] = barricade
+		elseif type == "exit_wall" then
+			local wall = createObject(8172, getElementPosition(e))
+			setElementRotation(wall, getElementData(e, "rotX"), getElementData(e, "rotY"), getElementData(e, "rotZ"))
+			o.walls[#o.walls + 1] = wall
+		elseif type == "swat_van" then
+			local van = createVehicle(427, getElementPosition(e))
+			setElementRotation(van, getElementData(e, "rotX"), getElementData(e, "rotY"), getElementData(e, "rotZ"))
+			o.vans[#o.vans + 1] = van
+		elseif type == "exit_point" then
+			local x, y, z = getElementPosition(e)
+			local col = createColCircle(x, y, 10)
+			addEventHandler("onColShapeHit", col, function(element)
+				if not o.active then return end
 
-			local player, vehicle = toPlayer(element)
-			if not player then return end
-			if not vehicle then return end -- in case of spectator?
-			if player.role ~= g_CRIMINAL_ROLE then return end
+				local player, vehicle = toPlayer(element)
+				if not player then return end
+				if not vehicle then return end -- in case of spectator?
+				if player.role ~= g_CRIMINAL_ROLE then return end
 
-			triggerEvent("onPlayerReachCheckpointInternal", player.player, 1)
-		end)
+				triggerEvent("onPlayerReachCheckpointInternal", player.player, 1)
+			end)
+			o.exits[#o.exits + 1] = e
+		end
 	end
 
 	o:disable()
