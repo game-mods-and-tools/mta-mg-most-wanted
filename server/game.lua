@@ -130,13 +130,11 @@ function preGameSetup()
 	end
 
 	-- set up exit points and shuffle
-	for _, group in ipairs(getElementsByType("exit_group"), resourceRoot) do
-		local vans = getElementChildren(group, "swat_van")
-		local barricades = getElementChildren(group, "exit_barricade")
-		local walls = getElementChildren(group, "exit_wall")
-		local exitPoints = getElementChildren(group, "exit_point")
-
-		exits[#exits + 1] = Exit:new(vans, barricades, walls, exitPoints)
+	for _, group in ipairs(getElementsByType("exit_group", resourceRoot)) do
+		-- not sure what the duplicates are
+		if #getElementChildren(group) > 0 then
+			exits[#exits + 1] = Exit:new(group)
+		end
 	end
 
 	shuffle(exits)
