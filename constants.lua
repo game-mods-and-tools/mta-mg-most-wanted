@@ -43,7 +43,7 @@ g_DELIVERY_JOB = {
 	detectionRadius = 200,
 	zoneRadius = 5,
 	blip = 51,
-	color = { r = 255, g = 0, b = 0, a = 100 },
+	color = { r = 30, g = 170, b = 0, a = 100 },
 	jobWeight = 1 -- and bonus
 }
 g_EXTORTION_JOB = {
@@ -52,9 +52,9 @@ g_EXTORTION_JOB = {
 	detectionRadius = 200,
 	zoneRadius = 5,
 	blip = 55,
-	color = { r = 0, g = 255, b = 0, a = 100 },
+	color = { r = 0, g = 0, b = 160, a = 100 },
 	jobWeight = 1.2,
-	progressRate = 0.01, -- per interval
+	progressRate = 0.03, -- per interval
 	decayRate = 0.05, -- per interval
 	interval = 100 -- in ms
 }
