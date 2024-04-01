@@ -1,6 +1,6 @@
 Player = {}
 
-local policeTeam = createTeam("Cops")
+local policeTeam = createTeam(g_POLICE_TEAM_NAME)
 local criminalTeam = createTeam("Criminals")
 
 function Player:new(player)
@@ -35,14 +35,6 @@ function Player:setRole(role)
 				giveWeapon(self.player, 31, 9999, true) -- uzi
 				setPedDoingGangDriveby(self.player, not isPedDoingGangDriveby(self.player))
 			end)
-
-			-- lazy keep sirens on, let them be toggled off for at most 3 seconds
-			-- for stealth gameplay
-			setTimer(function()
-				if not getVehicleSirensOn(vehicle) then
-					setVehicleSirensOn(vehicle, true)
-				end
-			end, 3000, 0)
 
 			destroyElement(copCar)
 			triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)

@@ -30,6 +30,8 @@ addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 end)
 
 function startGameLoop()
+	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, gameState)
+
 	setTimer(function()
 		trySpawnJob()
 		updateJobProgress()
@@ -97,7 +99,7 @@ function preGameSetup()
 	shuffle(players)
 
 	-- local policeCount = math.max(math.floor(#players / 4), 1)
-	local policeCount = math.max(math.floor(#players / 8), 0)
+	local policeCount = math.max(math.floor(#players / 8), 1)
 	if #players == 1 then
 		policeCount = 0
 	end

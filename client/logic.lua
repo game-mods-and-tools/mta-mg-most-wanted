@@ -63,6 +63,24 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 	end
 end)
 
+addEvent(g_GAME_STATE_UPDATE_EVENT, true)
+addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
+	if state == g_COREGAME_STATE then
+		local team = getPlayerTeam(localPlayer)
+		local policeTeam = getTeamFromName(g_POLICE_TEAM_NAME)
+
+		if team == policeTeam then
+			return
+		end
+
+		local cops = getPlayersInTeam(policeTeam)
+		for _, cop in ipairs(cops) do
+			local vehicle = getPedOccupiedVehicle(cop)
+			setVehicleSirensOn(vehicle, true)
+		end
+	end
+end)
+
 function cleanupJobs()
 	triggerEvent(g_HIDE_PROGRESS_BAR_EVENT	, resourceRoot)
 	honkProgress = 0
