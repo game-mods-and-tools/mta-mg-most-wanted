@@ -174,7 +174,7 @@ addEvent(g_GAME_STATE_UPDATE_EVENT, true)
 addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	if state == g_ENDGAME_STATE then
 		showText[endGameInfo] = true
-		setTimer(function() showText[endGameInfo] = false end, 3000, 1)
+		setTimer(function() showText[endGameInfo] = false end, 5000, 1)
 	elseif state == g_ENDENDGAME_STATE then
 		showText[endEndGameInfo] = true
 		playSound("client/pag.mp3")
@@ -224,6 +224,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				dxDrawBorderedText(0.5,"The#C87D00 criminals#C8C8C8 are trying to escape the city!", screenWidth / 2 - 380, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2 - 440, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
+			return
 		end
 
 		-- hud
