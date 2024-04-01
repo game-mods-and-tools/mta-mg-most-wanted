@@ -211,7 +211,13 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				--		dxDrawBorderedText(0.5,"#DFB300Criminals#D2D2D2 are planning to go on a crime spree.", screenWidth / 2 - 40, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"Criminals are planning to go on a crime spree.", screenWidth / 2 - 350, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"Once they've stolen enough, they will attempt to skip town.", screenWidth / 2 - 440, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5,"Deploy your firearm by pressing the secondary fire key.", screenWidth / 2 - 400, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+				local vehicleSecondaryFireKey = "vehicle_secondary_fire"
+				for key in pairs(getBoundKeys("vehicle_secondary_fire")) do
+					vehicleSecondaryFireKey = key
+					break
+				end
+				local guessedOffset = dxGetTextSize(vehicleSecondaryFireKey, 0, 2.5) / 2
+				dxDrawBorderedText(0.5,"Deploy your firearm by pressing " .. vehicleSecondaryFireKey, screenWidth / 2 - 240 - guessedOffset, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"Use any force necessary to eliminate them!", screenWidth / 2 - 330, screenHeight * 0.35 + 170,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 			end
 			return -- dont want to show anything else
