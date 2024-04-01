@@ -215,6 +215,15 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				dxDrawBorderedText(0.5,"Use any force necessary to eliminate them!", screenWidth / 2 - 330, screenHeight * 0.35 + 170,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 			end
 			return -- dont want to show anything else
+		elseif showText[endGameInfo] then
+			if role == g_CRIMINAL_ROLE then
+				dxDrawBorderedText(0.5,"QUOTA REACHED!!!", screenWidth / 2 - 250, screenHeight * 0.25,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 4, "arial", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Evade the#33A5FF police#C8C8C8 until an #FFDC00escape route#C8C8C8 is ready!", screenWidth / 2 - 380, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"There's also still more crimes to commit.", screenWidth / 2 - 340, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			elseif role == g_POLICE_ROLE then
+				dxDrawBorderedText(0.5,"The#C87D00 criminals#C8C8C8 are trying to escape the city!", screenWidth / 2 - 380, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2 - 440, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			end
 		end
 
 		-- hud
@@ -250,17 +259,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			dxDrawBorderedText(0.5,"A heist is being organised somewhere!", screenWidth / 2 - 320, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 		end
 
-		-- bottom middle ui
-		if showText[endGameInfo] then
-			if role == g_CRIMINAL_ROLE then
-				dxDrawBorderedText(0.5,"QUOTA REACHED!!!", screenWidth / 2 - 250, screenHeight * 0.25,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 4, "arial", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5,"Evade the#33A5FF police#C8C8C8 until an #FFDC00escape route#C8C8C8 is ready!", screenWidth / 2 - 380, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5,"There's also still more crimes to commit.", screenWidth / 2 - 340, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-			elseif role == g_POLICE_ROLE then
-				dxDrawBorderedText(0.5,"The#C87D00 criminals#C8C8C8 are trying to escape the city!", screenWidth / 2 - 380, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2 - 440, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-			end
-		elseif showText[endEndGameInfo] then
+		if showText[endEndGameInfo] then
 			local timeLeft, _, totalTime = getTimerDetails(endEndGameScrollTimer)
 			if timeLeft then
 				if role == g_CRIMINAL_ROLE then
