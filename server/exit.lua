@@ -36,14 +36,14 @@ function Exit:new(vans, barricades, walls, exits)
 		local x, y, z = getElementPosition(e)
 		local col = createColCircle(x, y, 10)
 		addEventHandler("onColShapeHit", col, function(element)
+			if not o.active then return end
+
 			local player, vehicle = toPlayer(element)
 			if not player then return end
 			if not vehicle then return end -- in case of spectator?
+			if player.role ~= g_CRIMINAL_ROLE then return end
 
-			if not o.active then return end
-			-- criminals only
-
-			triggerEvent("onPlayerReachCheckpointInternal", player, 1)
+			triggerEvent("onPlayerReachCheckpointInternal", player.player, 1)
 		end)
 	end
 
@@ -53,9 +53,11 @@ function Exit:new(vans, barricades, walls, exits)
 end
 
 function Exit:disable()
+	if not self.active then return end
+
 	for _, wall in ipairs(self.walls) do
 		setElementCollisionsEnabled(wall, true)
-		setElementAlpha(wall, 200)
+		setElementAlpha(wall, 255)
 	end
 	for _, barricade in ipairs(self.barricades) do
 		setElementCollisionsEnabled(barricade, true)
@@ -78,18 +80,22 @@ function Exit:disable()
 end
 
 function Exit:enable()
+	if self.active then return end
+
 	for _, wall in ipairs(self.walls) do
 		setElementCollisionsEnabled(wall, false)
-		setElementAlpha(wall, 100)
+		setElementAlpha(wall, 150)
 	end
 	for _, barricade in ipairs(self.barricades) do
 		setElementCollisionsEnabled(barricade, false)
 		setElementAlpha(barricade, 0)
 	end
+
 	for _, van in ipairs(self.vans) do
 		setElementCollisionsEnabled(van, false)
 		setElementAlpha(van, 0)
 	end
+
 	for _, e in ipairs(self.exits) do
 		local x, y, z = getElementPosition(e)
 		self.blips[#self.blips + 1] = createBlip(x, y, z)
