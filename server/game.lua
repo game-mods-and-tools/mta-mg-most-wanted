@@ -98,8 +98,7 @@ function preGameSetup()
 	-- randomly select cops and criminals
 	shuffle(players)
 
-	-- local policeCount = math.max(math.floor(#players / 4), 1)
-	local policeCount = math.max(math.floor(#players / 8), 1)
+	local policeCount = math.max(math.floor(#players / 4), 1)
 	if #players == 1 then
 		policeCount = 0
 	end
