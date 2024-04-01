@@ -97,4 +97,6 @@ function Exit:enable()
 	end
 
 	self.active = true
+
+	triggerClientEvent(getRootElement(), g_ESCAPE_ROUTE_APPEARED, resourceRoot)
 end

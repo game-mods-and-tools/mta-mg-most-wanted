@@ -20,6 +20,7 @@ local abandonedJob = "abandonedJob"
 local endGameInfo = "endGameInfo"
 local crimeReported = "crimeReported"
 local endGameInfo = "endGameInfo"
+local escapeReady = "escapeReady"
 local endEndGameInfo = "endEndGameInfo"
 local endEndGameScrollTimer = nil
 
@@ -182,6 +183,12 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	end
 end)
 
+addEvent(g_ESCAPE_ROUTE_APPEARED, true)
+addEventHandler(g_ESCAPE_ROUTE_APPEARED, resourceRoot, function()
+	showText[escapeReady] = true
+	setTimer(function() showText[escapeReady] = false end, 3000, 1)
+end)
+
 addEventHandler("onClientResourceStart", resourceRoot, function()
 	addEventHandler("onClientRender", root, function()
 		local screenWidth, screenHeight = guiGetScreenSize()
@@ -281,6 +288,9 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 					dxDrawText("HAHAHAHA.......STUPID PIGS......YOU ARE ABOUT TO BE TURNED INTO BACON BITS!!!  -BIG PIG", screenWidth - 2 - offset, screenHeight * 0.95 + 2,  screenWidth, screenHeight, tocolor(200, 255, 200, 100), 2, "default", center, top, false, false, false, true)
 				end
 			end
+		elseif showText[escapeReady] then
+			dxDrawBorderedText(0.5,"Received possible#FFDC00 escape routes#C8C8C8!", screenWidth / 2 - screenWidth / 5.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			-- dxDrawBorderedText(0.5,"#FFDC00 escape routes#C8C8C8 are accessible!", screenWidth / 2 - screenWidth / 5.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[pickupJobInfo] then
 			dxDrawBorderedText(0.5,"Wait in place. The money is coming.", screenWidth / 2 - 320, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[extortionJobInfo] then
@@ -302,13 +312,6 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		--	dxDrawBorderedText(0.5,"DELIVERY CANCELLED", screenWidth / 2 - screenWidth / 9, screenHeight * 0.24, 800, screenHeight, tocolor(222, 26, 26, 255), 3, "arial", center, top, false, false, false, true)
 		--	dxDrawBorderedText(0.5,"#DE1A1APLAYERNAMEHERE#D2D2D2 is no longer with us.", screenWidth / 2 - screenWidth / 5, screenHeight * 0.70, 800, screenHeight, tocolor(210, 210, 210, 255), 3, "default-bold", center, top, false, false, false, true)
 		-- end
-
-		--escape route ready
-		--dxDrawBorderedText(0.5,"Received several possible#FFDC00 escape routes#C8C8C8!", screenWidth / 2 - screenWidth / 5.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-		--
-		----escape route: more
-		--dxDrawBorderedText(0.5,"Additional#FFDC00 escape routes#C8C8C8 are accessible!", screenWidth / 2 - screenWidth / 5.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-		--
 		----escape route: escapee (idk if this is rly needed)
 		--dxDrawBorderedText(0.5,"#DFB300PLAYERNAMEHERE#C8C8C8 successfully fled!", screenWidth / 2 - screenWidth / 8, screenHeight * 0.1,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "default-bold", center, top, false, false, false, true)
 		--
