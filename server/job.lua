@@ -182,7 +182,7 @@ function GroupJob:tick()
 	end
 
 	-- slower than normal job but scales with players, needs certain amount of players to progress
-	self.progress = math.min(self.progress + g_JOBS_BY_TYPE[self.type].progressRate / g_SERVER_TICK_RATE * (#players + 1 - g_JOBS_BY_TYPE[self.type].minPlayers), 1)
+	self.progress = math.min(self.progress + math.max(g_JOBS_BY_TYPE[self.type].progressRate / g_SERVER_TICK_RATE * (#players + 1 - g_JOBS_BY_TYPE[self.type].minPlayers), 0), 1)
 	triggerClientEvent(players, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { progress = self.progress, playerCount = #players })
 
 	return self.progress == 1
