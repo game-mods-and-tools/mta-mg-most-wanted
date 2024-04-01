@@ -118,7 +118,7 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCri
 			setTimer(function() destroyElement(blip) end, 5000, 1)
 		end
 
-		if #criminals > 0 then
+		if #reportedCriminals > 0 then
 			showText[crimeReported] = true
 			setTimer(function() showText[crimeReported] = false end, 3000, 1)
 		end
