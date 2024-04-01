@@ -70,10 +70,11 @@ function Player:new(player)
 end
 
 -- return if role successfully set
--- may not be set if there are no more cop cars to replace
+-- may not be set if there are no cop cars
 function Player:setRole(role)
 	if role == g_POLICE_ROLE then
 		for _, copCar in pairs(getElementsByType("vehicle")) do
+			-- should validate that its a police car tbh
 			-- at least 1 cop car to use
 			self.role = role
 
@@ -90,9 +91,8 @@ function Player:setRole(role)
 				setPedDoingGangDriveby(self.player, not isPedDoingGangDriveby(self.player))
 			end)
 
-			destroyElement(copCar)
 			triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
-			
+
 			setPlayerTeam(self.player, policeTeam)
 			return true
 		end
@@ -101,7 +101,7 @@ function Player:setRole(role)
 	else
 		self.role = role
 		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
-		
+
 		setPlayerTeam(self.player, criminalTeam)
 	end
 

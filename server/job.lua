@@ -61,7 +61,7 @@ function Job:finish(criminals, police)
 	local players = self:activePlayers()
 	local reportedPlayers = {}
 	for _, player in ipairs(players) do
-		if math.random() > 0.5 then
+		if math.random() > g_CRIME_REPORT_CHANCE then
 			reportedPlayers[#reportedPlayers + 1] = player
 		end
 	end
@@ -120,7 +120,7 @@ function DeliveryJob:assign(player, players)
 
 	local x, y, z = getElementPosition(endpoint)
 
-	self.bonus = math.min(0.5, getDistanceBetweenPoints3D(self.pos.x, self.pos.y, self.pos.z, x, y, z) / 1200)
+	self.bonus = math.min(g_MAX_DELIVERY_BONUS, getDistanceBetweenPoints3D(self.pos.x, self.pos.y, self.pos.z, x, y, z) / 1200)
 
 	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z }, bonus = bonus })
@@ -144,7 +144,7 @@ function DeliveryJob:finish(criminals, police)
 	local players = self:activePlayers()
 	local reportedPlayers = {}
 	for _, player in ipairs(players) do
-		if math.random() > 0.5 then
+		if math.random() > g_CRIME_REPORT_CHANCE then
 			reportedPlayers[#reportedPlayers + 1] = player
 		end
 	end
