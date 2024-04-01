@@ -69,7 +69,6 @@ function Job:finish(criminals, police)
 	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
 	triggerClientEvent(police, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
 
-
 	self:disable(criminals)
 	self.players = {}
 end
