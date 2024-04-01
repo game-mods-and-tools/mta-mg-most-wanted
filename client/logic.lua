@@ -81,6 +81,9 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	end
 end)
 
+-- suppress race mode error
+addEvent("onClientCall_race", true)
+
 function cleanupJobs()
 	triggerEvent(g_HIDE_PROGRESS_BAR_EVENT	, resourceRoot)
 	honkProgress = 0
