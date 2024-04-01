@@ -15,10 +15,16 @@ g_CRIMINAL_ROLE = "Criminal Role"
 
 g_SHOW_JOB_EVENT = "onShowJob" -- jobId, jobType, jobPos
 g_HIDE_JOB_EVENT = "onHideJob" -- jobId
-g_START_JOB_EVENT = "onStartJob" -- jobId
-g_STOP_JOB_EVENT = "onStopJob" -- jobId
-g_FINISH_JOB_EVENT = "onFinishJob" -- jobId
+g_START_JOB_EVENT = "onStartJob" -- jobId, jobType
+g_STOP_JOB_EVENT = "onStopJob" -- jobId, jobType
+g_FINISH_JOB_EVENT = "onFinishJob" -- jobId (jobType) (reportedplayers) (client only)
 g_JOB_STATUS_UPDATE_EVENT = "onJobStatusUpdate" -- jobId, jobType, data (depends on jobType)
+
+g_MONEY_UPDATE_EVENT = "onMoneyUpdate"
+g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate" -- state
+g_COREGAME_STATE = "coregame"
+g_ENDGAME_STATE = "endgame"
+g_ENDENDGAME_STATE = "endendgame"
 
 g_PICKUP_JOB = {
 	elementType = "pickup_job",
@@ -69,6 +75,3 @@ g_JOBS_BY_TYPE = {
 	[g_EXTORTION_JOB.type] = g_EXTORTION_JOB,
 	[g_GROUP_JOB.type] = g_GROUP_JOB
 }
-
-g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate"
-g_ENDGAME_START_EVENT = "onEndgameStart"

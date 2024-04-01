@@ -20,6 +20,8 @@ local criminalRoleInfo = "criminalRoleInfo"
 local abandonedJob = "abandonedJob"
 local endGameInfo = "endGameInfo"
 local crimeReported = "crimeReported"
+local endGameInfo = "endGameInfo"
+local endEndGameInfo = "endEndGameInfo"
 
 addEvent(g_SHOW_JOB_EVENT, true)
 addEventHandler(g_SHOW_JOB_EVENT, resourceRoot, function(id, type, pos)
@@ -167,16 +169,21 @@ addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 	end
 end)
 
-addEvent(g_GAME_STATE_UPDATE_EVENT, true)
-addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(data)
+addEvent(g_MONEY_UPDATE_EVENT, true)
+addEventHandler(g_MONEY_UPDATE_EVENT, resourceRoot, function(data)
 	money.total = math.floor(data.money)
 	money.quota = math.floor(data.moneyQuota)
 end)
 
-addEvent(g_ENDGAME_START_EVENT, true)
-addEventHandler(g_ENDGAME_START_EVENT, resourceRoot, function()
-	showText[endGameInfo] = true
-	setTimer(function() showText[endGameInfo] = false end, 3000, 1)
+addEvent(g_GAME_STATE_UPDATE_EVENT, true)
+addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
+	if state == g_ENDGAME_STATE then
+		showText[endGameInfo] = true
+		setTimer(function() showText[endGameInfo] = false end, 3000, 1)
+	elseif state == g_ENDENDGAME_STATE then
+		showText[endEndGameInfo] = true
+		setTimer(function() showText[endEndGameInfo] = false end, 3000, 1)
+	end
 end)
 
 addEventHandler("onClientResourceStart", resourceRoot, function()

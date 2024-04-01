@@ -11,7 +11,7 @@ availableJobs = 0
 totalMoneyProgress = 0
 moneyEscapeQuota = 0
 randomMoneyScaler = 1
-endGame = false
+gameState = g_COREGAME_STATE
 
 addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
@@ -39,12 +39,23 @@ end
 
 function maybeUpdateGameState()
 	-- if totalMoneyProgress >= moneyEscapeQuota and not endGame then
-	if not endGame and totalMoneyProgress > moneyEscapeQuota then
-		endGame = true
-		triggerClientEvent(getRootElement(), g_ENDGAME_START_EVENT, resourceRoot)
+	if gameState == g_COREGAME_STATE and totalMoneyProgress > moneyEscapeQuota then
+		gameState = g_ENDGAME_STATE
+		triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, gameState)
 
 		for _, criminal in ipairs(criminals) do
 			createBlipAttachedTo(criminal, 0, 2, 223, 179, 0, 255, 6, 80085)
+		end
+	-- elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota * 2 then
+	elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota + 5 then
+		gameState = g_ENDENDGAME_STATE
+		triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, gameState)
+
+		for _, criminal in ipairs(criminals) do
+			bindKey(criminal, "vehicle_secondary_fire", "down", function()
+				giveWeapon(criminal, 30, 9999, true) -- uzi
+				setPedDoingGangDriveby(criminal, not isPedDoingGangDriveby(criminal))
+			end)
 		end
 	end
 end
@@ -119,7 +130,7 @@ function preGameSetup()
 	-- set up player based limits
 	randomMoneyScaler = 1000 -- random numbers used to scale quota for big $$$
 	moneyEscapeQuota = #criminals * 10
-	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, {
+	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
 		money = 0,
 		moneyQuota = moneyEscapeQuota * randomMoneyScaler
 	})
@@ -188,7 +199,7 @@ function finishJob(job)
 	availableJobs = availableJobs - 1
 	totalMoneyProgress = totalMoneyProgress + job:money()
 
-	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, {
+	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
 		money = totalMoneyProgress * randomMoneyScaler,
 		moneyQuota = moneyEscapeQuota * randomMoneyScaler
 	})
