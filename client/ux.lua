@@ -15,8 +15,7 @@ local deliveryJobInfo = "deliveryJobInfo"
 local extortionJobInfo = "extortionJobInfo"
 local groupJobInfo = "groupJobInfo"
 local groupJobNeedsPeople = "groupJobNeedsPeople" -- value is the current people
-local copRoleInfo = "copeRoleInfo"
-local criminalRoleInfo = "criminalRoleInfo"
+local roleInfo = "roleInfo"
 local abandonedJob = "abandonedJob"
 local endGameInfo = "endGameInfo"
 local crimeReported = "crimeReported"
@@ -160,13 +159,8 @@ addEvent(g_PLAYER_ROLE_SELECTED_EVENT, true)
 addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 	role = rolee
 
-	if role == g_CRIMINAL_ROLE then
-		showText[criminalRoleInfo] = true
-		setTimer(function() showText[criminalRoleInfo] = false end, 5000, 1)
-	elseif role == g_POLICE_ROLE then
-		showText[copRoleInfo] = true
-		setTimer(function() showText[copRoleInfo] = false end, 5000, 1)
-	end
+	showText[roleInfo] = true
+	setTimer(function() showText[roleInfo] = false end, 5000, 1)
 end)
 
 addEvent(g_MONEY_UPDATE_EVENT, true)
@@ -190,12 +184,21 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 	addEventHandler("onClientRender", root, function()
 		local screenWidth, screenHeight = guiGetScreenSize()
 
-		if showText[criminalRoleInfo] then
-			dxDrawBorderedText(0.5,"CRIMINAL", screenWidth / 3 - 100, screenHeight * 0.18,  screenWidth, screenHeight, tocolor(230, 150, 0, 255), 5, "bankgothic")
-			dxDrawBorderedText(0.5,"Complete the various jobs available in the city for money.", screenWidth / 3 - 110, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-			dxDrawBorderedText(0.5,"Once the money quota is reached, it's time to escape.", screenWidth / 3 - 85, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-			--		dxDrawBorderedText(0.5,"The#1EBEF0 Police#D2D2D2 is out to get you. Evade them at all costs!", screenWidth / 3 - 80, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-			dxDrawBorderedText(0.5,"The Police is out to get you. Evade them at all costs!", screenWidth / 3 - 80, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+		-- full screen ui
+		if showText[roleInfo] then
+			if role == g_CRIMINAL_ROLE then
+				dxDrawBorderedText(0.5,"CRIMINAL", screenWidth / 3 - 100, screenHeight * 0.18,  screenWidth, screenHeight, tocolor(230, 150, 0, 255), 5, "bankgothic")
+				dxDrawBorderedText(0.5,"Complete the various jobs available in the city for money.", screenWidth / 3 - 110, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Once the money quota is reached, it's time to escape.", screenWidth / 3 - 85, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+				--		dxDrawBorderedText(0.5,"The#1EBEF0 Police#D2D2D2 is out to get you. Evade them at all costs!", screenWidth / 3 - 80, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"The Police is out to get you. Evade them at all costs!", screenWidth / 3 - 80, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+			elseif role == g_POLICE_ROLE then
+				dxDrawBorderedText(0.5,"POLICE", screenWidth / 3, screenHeight * 0.18,  screenWidth, screenHeight, tocolor(30, 190, 240, 255), 5, "bankgothic")
+				--		dxDrawBorderedText(0.5,"#DFB300Criminals#D2D2D2 are planning to go on a crime spree.", screenWidth / 3 - 40, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Criminals are planning to go on a crime spree.", screenWidth / 3 - 40, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Once they've stolen enough, they will attempt to skip town.", screenWidth / 3 - 130, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Use any force necessary to eliminate them!", screenWidth / 3 - 20, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+			end
 
 			-- perk ui, doesnt do anything
 			-- dxDrawBorderedText(0.5,"PRESS THE NUMBER TO SELECT A PERK", screenWidth / 2 - screenWidth / 6, screenHeight * 0.55,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.3, "sans", center, top, false, false, false, true)
@@ -208,13 +211,11 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 
 			-- guiCreateStaticImage(screenWidth / 2 - 40 + screenWidth / 6, screenHeight * 0.6, 64, 64, "client/hotshot.png", false)
 			-- dxDrawBorderedText(0.5,"3", screenWidth / 2 + screenWidth / 6 - 15, screenHeight * 0.6 + 80,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
-		elseif showText[copRoleInfo] then
-			dxDrawBorderedText(0.5,"POLICE", screenWidth / 3, screenHeight * 0.18,  screenWidth, screenHeight, tocolor(30, 190, 240, 255), 5, "bankgothic")
-			--		dxDrawBorderedText(0.5,"#DFB300Criminals#D2D2D2 are planning to go on a crime spree.", screenWidth / 3 - 40, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-			dxDrawBorderedText(0.5,"Criminals are planning to go on a crime spree.", screenWidth / 3 - 40, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-			dxDrawBorderedText(0.5,"Once they've stolen enough, they will attempt to skip town.", screenWidth / 3 - 130, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-			dxDrawBorderedText(0.5,"Use any force necessary to eliminate them!", screenWidth / 3 - 20, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-		elseif role == g_CRIMINAL_ROLE then
+			return -- dont want to show anything else when "fullscreen" message is showing
+		end
+
+		-- top right ui
+		if role == g_CRIMINAL_ROLE then
 			-- HUD (crim)
 			dxDrawBorderedText(2,"ESCAPE QUOTA", screenWidth * 0.72, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
 			dxDrawBorderedText(2,"$" .. money.quota, screenWidth * 0.72, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
@@ -230,19 +231,33 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			dxDrawBorderedText(2,"$" .. money.total, screenWidth * 0.72, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
 		end
 
+		-- top middle ui
 		if showText[crimeReported] then
 			if role == g_CRIMINAL_ROLE then
 				dxDrawBorderedText(0.5,"YOUR CRIME WAS REPORTED!", screenWidth / 2 - screenWidth / 6, screenHeight * 0.18, 800, screenHeight, tocolor(222, 26, 26, 255), 3, "arial", center, top, false, false, false, true)
 			elseif role == g_POLICE_ROLE then
 				dxDrawBorderedText(0.5,"A #DE1A1Acriminal#D2D2D2 was spotted fleeing a crime!", screenWidth / 2 - screenWidth / 6, screenHeight * 0.75 + 40, 800, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
+		elseif showText[abandonedJob] then
+			dxDrawBorderedText(0.5,"JOB ABANDONED", screenWidth / 2 - screenWidth / 11, screenHeight * 0.2, 800, screenHeight, tocolor(222, 26, 26, 255), 3, "arial", center, top, false, false,
+			false, true)
 		end
 
+		-- slightly under top middle ui
 		if showText[groupJobAppeared] then
 			dxDrawBorderedText(0.5,"A heist is being organised somewhere!", screenWidth / 2 - screenWidth / 6, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 		end
 
-		if showText[pickupJobInfo] then
+		-- bottom middle ui
+		if showText[endGameInfo] then
+			if role == g_CRIMINAL_ROLE then
+				dxDrawBorderedText(0.5,"The money quota has been reached!", screenWidth / 2 - screenWidth / 6, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Evade the#33A5FF police#C8C8C8 until an #2AE500Escape Route#C8C8C8 is ready!", screenWidth / 2 - screenWidth / 4.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			elseif role == g_POLICE_ROLE then
+				dxDrawBorderedText(0.5,"The#838383 criminals#C8C8C8 are trying to escape the city!", screenWidth / 2 - screenWidth / 5, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2 - screenWidth / 4.3, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			end
+		elseif showText[pickupJobInfo] then
 			dxDrawBorderedText(0.5,"Wait in place. The money is coming.", screenWidth / 2 - screenWidth / 6, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[extortionJobInfo] then
 			dxDrawBorderedText(0.5,"Intimidate by honking until you get the money.", screenWidth / 2 - screenWidth / 5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
@@ -259,24 +274,10 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			-- dxDrawBorderedText(0.5,"Get this message to#DE1A1A <PLAYERNAMEHERE>#D2D2D2 to get the money.", screenWidth / 2 - screenWidth / 4, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		end
 
-		if showText[abandonedJob] then
-			dxDrawBorderedText(0.5,"JOB ABANDONED", screenWidth / 2 - screenWidth / 11, screenHeight * 0.2, 800, screenHeight, tocolor(222, 26, 26, 255), 3, "arial", center, top, false, false, false, true)
-		end
-
 		-- if g_DELIVERY_JOB then --delivery: contact job target died - cancelled
 		--	dxDrawBorderedText(0.5,"DELIVERY CANCELLED", screenWidth / 2 - screenWidth / 9, screenHeight * 0.24, 800, screenHeight, tocolor(222, 26, 26, 255), 3, "arial", center, top, false, false, false, true)
 		--	dxDrawBorderedText(0.5,"#DE1A1APLAYERNAMEHERE#D2D2D2 is no longer with us.", screenWidth / 2 - screenWidth / 5, screenHeight * 0.70, 800, screenHeight, tocolor(210, 210, 210, 255), 3, "default-bold", center, top, false, false, false, true)
 		-- end
-
-		if showText[endGameInfo] then
-			if role == g_CRIMINAL_ROLE then
-				dxDrawBorderedText(0.5,"The money quota has been reached!", screenWidth / 2 - screenWidth / 6, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5,"Evade the#33A5FF police#C8C8C8 until an #2AE500Escape Route#C8C8C8 is ready!", screenWidth / 2 - screenWidth / 4.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-			elseif role == g_POLICE_ROLE then
-				dxDrawBorderedText(0.5,"The#838383 criminals#C8C8C8 are trying to escape the city!", screenWidth / 2 - screenWidth / 5, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2 - screenWidth / 4.3, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-			end
-		end
 
 		--escape route ready
 		--dxDrawBorderedText(0.5,"Received several possible#2AE500 Escape Routes#C8C8C8!", screenWidth / 2 - screenWidth / 5.5, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
@@ -288,7 +289,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		--dxDrawBorderedText(0.5,"#DFB300PLAYERNAMEHERE#C8C8C8 successfully fled!", screenWidth / 2 - screenWidth / 8, screenHeight * 0.1,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "default-bold", center, top, false, false, false, true)
 		--
 
-
+		-- under bottom middle ui
 		if showProgressBar then
 			local color = tocolor(255, 255, 255)
 
