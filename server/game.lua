@@ -37,6 +37,19 @@ function startGameLoop()
 		updateJobProgress()
 		maybeUpdateGameState()
 	end, 1000 / g_SERVER_TICK_RATE, 0)
+	
+	trySpawnExitPoint()
+end
+
+function trySpawnExitPoint()
+	for _, group in ipairs(getElementsByType("exit_group")) do
+		local exits = getElementChildren(group, "exit_point")
+		for _, point in ipairs(exits) do
+			local x, y, z = getElementPosition(point)
+			print(x, y, z)
+			createBlip(x, y, z)
+		end
+	end
 end
 
 function maybeUpdateGameState()

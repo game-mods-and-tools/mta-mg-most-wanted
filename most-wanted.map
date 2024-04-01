@@ -241,7 +241,7 @@
     <extortion_job id="extortion_job (72)" interior="0" posX="1150.2366" posY="-1511.0065" posZ="15.40063" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (73)" interior="0" posX="1102.1777" posY="-1502.7114" posZ="15.40063" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (74)" interior="0" posX="844.13245" posY="-1009.3154" posZ="28.36218" rotX="0" rotY="0" rotZ="0"></extortion_job>
-    <extortion_job id="extortion_job (8)" interior="0" posX="618.53577" posY="-1328.6396" posZ="13.27284" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (8)" interior="0" posX="618.70001" posY="-1327.4" posZ="13.3" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (9)" interior="0" posX="903.90881" posY="-1333.636" posZ="13.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <group_job id="group_job (1)" interior="0" posX="1210.4604" posY="-1103.3693" posZ="23.56826" rotX="0" rotY="0" rotZ="0"></group_job>
     <group_job id="group_job (2)" interior="0" posX="1607.6338" posY="-1247.5283" posZ="15.93935" rotX="0" rotY="0" rotZ="0"></group_job>
@@ -250,12 +250,11 @@
     <group_job id="group_job (5)" interior="0" posX="1129.7338" posY="-1455.6295" posZ="14.2488" rotX="0" rotY="0" rotZ="0"></group_job>
     <group_job id="group_job (6)" interior="0" posX="1203.0193" posY="-1737.3202" posZ="12.03353" rotX="0" rotY="0" rotZ="0"></group_job>
     <group_job id="group_job (7)" interior="0" posX="2126.9072" posY="-1138.7362" posZ="23.73217" rotX="0" rotY="0" rotZ="0"></group_job>
-    <object id="object (vgsSairportland06) (1)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="623.4541" posY="-1340.1484" posZ="34.03399" rotX="90" rotY="0" rotZ="7.998"></object>
     <object id="object (vgsSairportland06) (10)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="873.25366" posY="-933.49591" posZ="34.03399" rotX="90" rotY="3.989" rotZ="33.984"></object>
     <object id="object (vgsSairportland06) (11)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="913.88226" posY="-887.21423" posZ="34.03399" rotX="90" rotY="3.783" rotZ="2.186"></object>
     <object id="object (vgsSairportland06) (12)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="989.61774" posY="-886.58002" posZ="34.03399" rotX="90" rotY="3.779" rotZ="2.181"></object>
     <object id="object (vgsSairportland06) (13)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1080.2949" posY="-860.14069" posZ="34.03399" rotX="90" rotY="3.654" rotZ="8.306"></object>
-    <object id="object (vgsSairportland06) (14)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1125.0804" posY="-848.90002" posZ="34.03399" rotX="90" rotY="3.259" rotZ="2.699"></object>
+    <object id="object (vgsSairportland06) (14)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1120.4" posY="-848.40002" posZ="34" rotX="90" rotY="0" rotZ="5.955"></object>
     <object id="object (vgsSairportland06) (15)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1192.2141" posY="-864.03284" posZ="34.03399" rotX="90" rotY="3.181" rotZ="344.773"></object>
     <object id="object (vgsSairportland06) (16)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1254.616" posY="-858.44604" posZ="34.03399" rotX="90" rotY="3.091" rotZ="6.862"></object>
     <object id="object (vgsSairportland06) (17)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1315.3523" posY="-851.49548" posZ="34.03399" rotX="90" rotY="3.026" rotZ="352.922"></object>
@@ -263,12 +262,12 @@
     <object id="object (vgsSairportland06) (19)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1415.1475" posY="-907.94843" posZ="34.03399" rotX="90" rotY="2.859" rotZ="347.076"></object>
     <object id="object (vgsSairportland06) (2)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="579.75293" posY="-1303.2791" posZ="34.03399" rotX="90" rotY="90" rotZ="0"></object>
     <object id="object (vgsSairportland06) (20)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1480.5715" posY="-920.81781" posZ="34.03399" rotX="90" rotY="2.665" rotZ="351.266"></object>
-    <object id="object (vgsSairportland06) (21)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1535.4702" posY="-919.18182" posZ="34.03399" rotX="90" rotY="2.693" rotZ="351.235"></object>
+    <object id="object (vgsSairportland06) (21)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1513.1" posY="-916.20001" posZ="34" rotX="90" rotY="0" rotZ="-6.075"></object>
     <object id="object (vgsSairportland06) (22)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1588.3566" posY="-927.21625" posZ="34.03399" rotX="90" rotY="2.651" rotZ="335.274"></object>
-    <object id="object (vgsSairportland06) (23)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1635.5743" posY="-949.6897" posZ="34.03399" rotX="90" rotY="2.591" rotZ="323.334"></object>
+    <object id="object (vgsSairportland06) (23)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1625.5" posY="-941.90002" posZ="34" rotX="90" rotY="0" rotZ="-34.08"></object>
     <object id="object (vgsSairportland06) (24)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1539.9302" posY="-993.14795" posZ="34.03399" rotX="90" rotY="2.618" rotZ="311.307"></object>
-    <object id="object (vgsSairportland06) (25)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1694.4752" posY="-958.6084" posZ="34.03399" rotX="90" rotY="2.585" rotZ="21.339"></object>
-    <object id="object (vgsSairportland06) (26)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1758.7203" posY="-947.61841" posZ="34.03399" rotX="90" rotY="2.504" rotZ="347.413"></object>
+    <object id="object (vgsSairportland06) (25)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1703.5" posY="-955.79999" posZ="34" rotX="90" rotY="0" rotZ="23.917"></object>
+    <object id="object (vgsSairportland06) (26)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1744.6" posY="-947.40002" posZ="34" rotX="90" rotY="0" rotZ="-10.091"></object>
     <object id="object (vgsSairportland06) (27)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1837.4124" posY="-977.88306" posZ="34.03399" rotX="90" rotY="2.469" rotZ="331.44"></object>
     <object id="object (vgsSairportland06) (28)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1917.4231" posY="-1009.4081" posZ="34.03399" rotX="90" rotY="2.42" rotZ="343.482"></object>
     <object id="object (vgsSairportland06) (29)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1983.0313" posY="-1002.546" posZ="34.03399" rotX="90" rotY="2.385" rotZ="339.514"></object>
@@ -277,51 +276,40 @@
     <object id="object (vgsSairportland06) (31)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2104.9756" posY="-1035.8921" posZ="34.03399" rotX="90" rotY="2.272" rotZ="319.615"></object>
     <object id="object (vgsSairportland06) (32)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2145.9136" posY="-1061.7708" posZ="34.03399" rotX="90" rotY="2.269" rotZ="319.614"></object>
     <object id="object (vgsSairportland06) (33)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2194.584" posY="-1085.6301" posZ="34.03399" rotX="90" rotY="2.269" rotZ="319.614"></object>
-    <object id="object (vgsSairportland06) (34)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2197.8494" posY="-1116.7572" posZ="34.03399" rotX="84" rotY="270" rotZ="325.883"></object>
     <object id="object (vgsSairportland06) (35)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2185.6799" posY="-1159.7217" posZ="34.03399" rotX="83.996" rotY="270" rotZ="359.882"></object>
-    <object id="object (vgsSairportland06) (36)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2184.6846" posY="-1211.3326" posZ="34.03399" rotX="90" rotY="352.105" rotZ="271.774"></object>
     <object id="object (vgsSairportland06) (37)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2123.8967" posY="-1268.2356" posZ="34.03399" rotX="90" rotY="354.232" rotZ="185.768"></object>
-    <object id="object (vgsSairportland06) (38)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2180.2324" posY="-1255.4171" posZ="34.03399" rotX="90" rotY="352.929" rotZ="252.943"></object>
-    <object id="object (vgsSairportland06) (39)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2085.0225" posY="-1310.9423" posZ="34.03399" rotX="90" rotY="355.217" rotZ="268.778"></object>
+    <object id="object (vgsSairportland06) (39)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2085.0225" posY="-1310.9424" posZ="34.03399" rotX="90" rotY="0" rotZ="-96.009"></object>
     <object id="object (vgsSairportland06) (4)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="656.15198" posY="-1163.8218" posZ="34.03399" rotX="90" rotY="8.213" rotZ="35.787"></object>
-    <object id="object (vgsSairportland06) (40)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2034.1559" posY="-1348.6224" posZ="34.03399" rotX="90" rotY="355.803" rotZ="188.187"></object>
     <object id="object (vgsSairportland06) (41)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2042.1172" posY="-1435.0684" posZ="34.03399" rotX="90" rotY="356.495" rotZ="87.49"></object>
-    <object id="object (vgsSairportland06) (42)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="2019.1421" posY="-1505.652" posZ="31.21093" rotX="90" rotY="356.495" rotZ="87.49"></object>
     <object id="object (vgsSairportland06) (43)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1946.2371" posY="-1520.3425" posZ="31.21093" rotX="90" rotY="356.747" rotZ="7.238"></object>
     <object id="object (vgsSairportland06) (44)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1865.7471" posY="-1557.7795" posZ="31.21093" rotX="90" rotY="356.857" rotZ="29.12"></object>
     <object id="object (vgsSairportland06) (45)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1837.7893" posY="-1644.2473" posZ="31.21093" rotX="90" rotY="357.023" rotZ="94.949"></object>
-    <object id="object (vgsSairportland06) (46)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1837.7891" posY="-1729.5283" posZ="31.21093" rotX="90" rotY="357.222" rotZ="92.745"></object>
     <object id="object (vgsSairportland06) (47)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1836.2854" posY="-1805.2495" posZ="31.21093" rotX="90" rotY="357.22" rotZ="92.741"></object>
     <object id="object (vgsSairportland06) (48)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1868.4517" posY="-1862.0122" posZ="31.21093" rotX="90" rotY="357.22" rotZ="92.741"></object>
-    <object id="object (vgsSairportland06) (49)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1834.1702" posY="-1906.746" posZ="31.21093" rotX="90" rotY="357.22" rotZ="92.741"></object>
+    <object id="object (vgsSairportland06) (49)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1846.6" posY="-1893.3" posZ="31.2" rotX="90" rotY="0" rotZ="59.951"></object>
     <object id="object (vgsSairportland06) (5)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="696.73645" posY="-1105.1637" posZ="34.03399" rotX="90" rotY="6.379" rotZ="51.616"></object>
-    <object id="object (vgsSairportland06) (50)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1812.131" posY="-1951.517" posZ="31.21093" rotX="90" rotY="357.296" rotZ="56.666"></object>
+    <object id="object (vgsSairportland06) (50)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1804.6" posY="-1967.3" posZ="31.2" rotX="90" rotY="0" rotZ="53.954"></object>
     <object id="object (vgsSairportland06) (51)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1768.9374" posY="-2014.1323" posZ="31.21093" rotX="90" rotY="357.389" rotZ="356.565"></object>
     <object id="object (vgsSairportland06) (52)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1716.501" posY="-2014.1318" posZ="31.21093" rotX="90" rotY="357.385" rotZ="356.561"></object>
-    <object id="object (vgsSairportland06) (53)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1678.939" posY="-1977.5723" posZ="31.21093" rotX="90" rotY="357.5" rotZ="278.447"></object>
-    <object id="object (vgsSairportland06) (54)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1665.0084" posY="-1921.9957" posZ="31.21093" rotX="90" rotY="357.632" rotZ="180.307"></object>
+    <object id="object (vgsSairportland06) (53)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1679.8" posY="-1988.4" posZ="31.2" rotX="90" rotY="0" rotZ="-84.062"></object>
     <object id="object (vgsSairportland06) (55)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1587.0763" posY="-1921.9961" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
-    <object id="object (vgsSairportland06) (56)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1485.719" posY="-1921.9961" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
     <object id="object (vgsSairportland06) (57)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1389.4475" posY="-1906.6647" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
     <object id="object (vgsSairportland06) (58)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1282.186" posY="-1887.8251" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
     <object id="object (vgsSairportland06) (59)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1151.6259" posY="-1887.8252" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
     <object id="object (vgsSairportland06) (6)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="727.06757" posY="-1036.9095" posZ="34.03399" rotX="90" rotY="5.796" rotZ="40.195"></object>
-    <object id="object (vgsSairportland06) (60)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1060.9419" posY="-1887.8252" posZ="31.21093" rotX="90" rotY="357.627" rotZ="180.302"></object>
     <object id="object (vgsSairportland06) (61)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="994.50848" posY="-1874.0121" posZ="31.21093" rotX="90" rotY="357.661" rotZ="154.268"></object>
     <object id="object (vgsSairportland06) (62)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="902.00409" posY="-1843.1129" posZ="31.21093" rotX="90" rotY="357.696" rotZ="168.228"></object>
     <object id="object (vgsSairportland06) (63)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="826.77655" posY="-1831.3641" posZ="31.21093" rotX="90" rotY="357.724" rotZ="176.197"></object>
-    <object id="object (vgsSairportland06) (64)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="794.3739" posY="-1768.6306" posZ="31.21093" rotX="90" rotY="357.81" rotZ="102.103"></object>
     <object id="object (vgsSairportland06) (65)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="794.37402" posY="-1701.7548" posZ="31.21093" rotX="90" rotY="357.874" rotZ="94.036"></object>
     <object id="object (vgsSairportland06) (66)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="781.86566" posY="-1644.4536" posZ="31.21093" rotX="90" rotY="357.902" rotZ="97.999"></object>
-    <object id="object (vgsSairportland06) (67)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="758.13092" posY="-1582.9799" posZ="31.21093" rotX="90" rotY="358.032" rotZ="283.868"></object>
     <object id="object (vgsSairportland06) (68)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="748.70349" posY="-1523.1353" posZ="31.21093" rotX="90" rotY="358.074" rotZ="259.819"></object>
     <object id="object (vgsSairportland06) (69)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="747.76172" posY="-1456.9443" posZ="31.21093" rotX="90" rotY="358.11" rotZ="299.773"></object>
-    <object id="object (vgsSairportland06) (7)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="773.85779" posY="-1010.7941" posZ="34.03399" rotX="90" rotY="5.089" rotZ="2.899"></object>
+    <object id="object (vgsSairportland06) (7)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="765.40002" posY="-1011.6" posZ="34" rotX="90" rotY="0" rotZ="7.982"></object>
     <object id="object (vgsSairportland06) (70)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="716.60986" posY="-1396.4735" posZ="31.21093" rotX="90" rotY="358.134" rotZ="283.75"></object>
     <object id="object (vgsSairportland06) (71)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="688.23242" posY="-1337.8604" posZ="31.21093" rotX="90" rotY="358.231" rotZ="359.651"></object>
-    <object id="object (vgsSairportland06) (8)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="816.86658" posY="-995.10132" posZ="34.03399" rotX="90" rotY="4.793" rotZ="23.188"></object>
+    <object id="object (vgsSairportland06) (8)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="824.59998" posY="-988.70001" posZ="34" rotX="90" rotY="0" rotZ="27.977"></object>
     <object id="object (vgsSairportland06) (9)" breakable="true" interior="0" alpha="255" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="842.6864" posY="-967.5271" posZ="34.03399" rotX="90" rotY="4.419" rotZ="39.557"></object>
-    <pickup_job id="pickup_job (1)" interior="0" posX="803.75385" posY="-1793.6652" posZ="12.56942" rotX="0" rotY="0" rotZ="267.997"></pickup_job>
+    <pickup_job id="pickup_job (1)" interior="0" posX="810.40002" posY="-1793.2" posZ="12.6" rotX="0" rotY="0" rotZ="-92.005"></pickup_job>
     <pickup_job id="pickup_job (10)" alpha="255" interior="0" posX="1614.5518" posY="-1891.3535" posZ="13.1961" rotX="0" rotY="0" rotZ="252"></pickup_job>
     <pickup_job id="pickup_job (100)" alpha="255" interior="0" posX="1620.6318" posY="-1139.8945" posZ="23.55548" rotX="0" rotY="0" rotZ="334"></pickup_job>
     <pickup_job id="pickup_job (101)" alpha="255" interior="0" posX="1550.4952" posY="-1112.1373" posZ="23.72735" rotX="0" rotY="0" rotZ="280"></pickup_job>
@@ -739,16 +727,122 @@
     <spawnpoint id="spawnpoint (Sultan) (97)" vehicle="560" alpha="255" interior="0" posX="2018.7014" posY="-1277.4279" posZ="23.78995" rotX="0" rotY="0" rotZ="37.979"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (98)" vehicle="560" alpha="255" interior="0" posX="2084.0508" posY="-1261.7672" posZ="23.79763" rotX="0" rotY="0" rotZ="85.974"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (99)" vehicle="560" alpha="255" interior="0" posX="2160.8943" posY="-1163.1387" posZ="23.62098" rotX="0" rotY="0" rotZ="85.974"></spawnpoint>
-    <vehicle id="vehicle (Police LS) (11)" sirens="false" landingGearDown="false" locked="false" plate="IWDXMJV" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1372.3806" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
-    <vehicle id="vehicle (Police LS) (12)" sirens="false" landingGearDown="false" locked="false" plate="LY6LCPK" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4688" posY="-1357.285" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
-    <vehicle id="vehicle (Police LS) (13)" sirens="false" landingGearDown="false" locked="false" plate="HAWMJCB" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1291.1558" posY="-1390.3364" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
-    <vehicle id="vehicle (Police LS) (14)" sirens="false" landingGearDown="false" locked="false" plate="2UHUB8F" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1275.5226" posY="-1309.2051" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
-    <vehicle id="vehicle (Police LS) (2)" sirens="false" landingGearDown="false" locked="false" plate="56FVW7N" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1339.8534" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
-    <vehicle id="vehicle (Police LS) (3)" sirens="false" landingGearDown="false" locked="false" plate="AFDHH2L" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1324.5662" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
-    <vehicle id="vehicle (Police LS) (4)" sirens="false" landingGearDown="false" locked="false" plate="AUO178T" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1283.6743" posY="-1297.0137" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
-    <vehicle id="vehicle (Police LS) (5)" sirens="false" landingGearDown="false" locked="false" plate="DA3CMJB" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4688" posY="-1315.9053" posZ="13.13175" rotX="0" rotY="0" rotZ="180"></vehicle>
-    <vehicle id="vehicle (Police LS) (6)" sirens="false" landingGearDown="false" locked="false" plate="99E4KQS" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4688" posY="-1368.983" posZ="13.13175" rotX="0" rotY="0" rotZ="180"></vehicle>
-    <vehicle id="vehicle (Police LS) (7)" sirens="false" landingGearDown="false" locked="false" plate="KF3GWT9" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1304.405" posY="-1375.9607" posZ="13.54635" rotX="0" rotY="0" rotZ="180"></vehicle>
-    <vehicle id="vehicle (Police LS) (8)" sirens="false" landingGearDown="false" locked="false" plate="4PH60OI" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1315.9628" posY="-1373.4989" posZ="13.54635" rotX="0" rotY="0" rotZ="90"></vehicle>
-    <vehicle id="vehicle (Police LS) (9)" sirens="false" landingGearDown="false" locked="false" plate="ANBX0V9" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1315.9629" posY="-1380.5161" posZ="13.54635" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (11)" sirens="false" landingGearDown="false" locked="false" plate="IWDXMJV" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1372.3806" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (12)" sirens="false" landingGearDown="false" locked="false" plate="LY6LCPK" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4688" posY="-1357.285" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
+    <vehicle id="vehicle (Police LS) (13)" sirens="false" landingGearDown="false" locked="false" plate="HAWMJCB" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1291.1558" posY="-1390.3364" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (14)" sirens="false" landingGearDown="false" locked="false" plate="2UHUB8F" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1275.5226" posY="-1309.2051" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
+    <vehicle id="vehicle (Police LS) (2)" sirens="false" landingGearDown="false" locked="false" plate="56FVW7N" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1339.8534" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (3)" sirens="false" landingGearDown="false" locked="false" plate="AFDHH2L" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1324.5662" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (4)" sirens="false" landingGearDown="false" locked="false" plate="AUO178T" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1283.6743" posY="-1297.0137" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
+    <vehicle id="vehicle (Police LS) (5)" sirens="false" landingGearDown="false" locked="false" plate="DA3CMJB" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4688" posY="-1315.9053" posZ="13.13175" rotX="0" rotY="0" rotZ="180"></vehicle>
+    <vehicle id="vehicle (Police LS) (6)" sirens="false" landingGearDown="false" locked="false" plate="99E4KQS" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4688" posY="-1368.983" posZ="13.13175" rotX="0" rotY="0" rotZ="180"></vehicle>
+    <vehicle id="vehicle (Police LS) (7)" sirens="false" landingGearDown="false" locked="false" plate="KF3GWT9" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1304.405" posY="-1375.9607" posZ="13.54635" rotX="0" rotY="0" rotZ="180"></vehicle>
+    <vehicle id="vehicle (Police LS) (8)" sirens="false" landingGearDown="false" locked="false" plate="4PH60OI" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1315.9628" posY="-1373.4989" posZ="13.54635" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <vehicle id="vehicle (Police LS) (9)" sirens="false" landingGearDown="false" locked="false" plate="ANBX0V9" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1315.9629" posY="-1380.5161" posZ="13.54635" rotX="0" rotY="0" rotZ="90"></vehicle>
+    <exit_group id="exit_group (1)" interior="0" posX="2218.6001" posY="-1118.5" posZ="24.6" rotX="0" rotY="0" rotZ="0">
+        <exit_wall id="exit_wall (1)" interior="0" posX="2071.3" posY="-1356.7" posZ="28.7" rotX="90" rotY="0" rotZ="-180"></exit_wall>
+        <exit_barricade id="exit_barricade (1)" interior="0" posX="2071.6001" posY="-1356.7" posZ="23.7" rotX="0" rotY="0" rotZ="-180"></exit_barricade>
+        <swat_van id="swat_van (1)" interior="0" posX="2069.3" posY="-1367.9" posZ="24.1" rotX="0" rotY="0" rotZ="16"></swat_van>
+        <exit_point id="exit_point (1)" interior="0" posX="2082" posY="-1385" posZ="27.8" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (2)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (2)" interior="0" posX="1826.5" posY="-1915.7" posZ="13.2" rotX="0" rotY="0" rotZ="-170"></exit_barricade>
+        <exit_wall id="exit_wall (2)" interior="0" posX="1831" posY="-1914.4" posZ="30.7" rotX="89.751" rotY="18.001" rotZ="171.999"></exit_wall>
+        <swat_van id="swat_van (2)" interior="0" posX="1825" posY="-1929.1" posZ="13.7" rotX="0" rotY="0" rotZ="-128"></swat_van>
+        <exit_point id="exit_point (2)" interior="0" posX="1863.2" posY="-1935" posZ="17.4" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (3)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (3)" interior="0" posX="2195.6001" posY="-1119.9" posZ="25.2" rotX="0" rotY="0" rotZ="-112.75"></exit_barricade>
+        <exit_wall id="exit_wall (3)" interior="0" posX="2195.6001" posY="-1118.5" posZ="24.6" rotX="90" rotY="0" rotZ="-113.75"></exit_wall>
+        <exit_point id="exit_point (3)" interior="0" posX="2235.1001" posY="-1137.6" posZ="29.6" rotX="0" rotY="0" rotZ="0"></exit_point>
+        <swat_van id="swat_van (3)" interior="0" posX="2214.6001" posY="-1119.3" posZ="25.9" rotX="0" rotY="0" rotZ="-96"></swat_van>
+        <swat_van id="swat_van (4)" interior="0" posX="2206.1001" posY="-1130" posZ="25.9" rotX="0" rotY="0" rotZ="60"></swat_van>
+    </exit_group>
+    <exit_group id="exit_group (4)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (4)" interior="0" posX="1781.9" posY="-952.59998" posZ="43.5" rotX="0.249" rotY="5.5" rotZ="-0.024"></exit_barricade>
+        <exit_wall id="exit_wall (4)" interior="0" posX="1782" posY="-952.40002" posZ="45.6" rotX="90" rotY="0" rotZ="-2"></exit_wall>
+        <exit_point id="exit_point (4)" interior="0" posX="1742.8" posY="-901" posZ="58.2" rotX="0" rotY="0" rotZ="0"></exit_point>
+        <swat_van id="swat_van (5)" interior="0" posX="1773.7" posY="-942.09998" posZ="45.9" rotX="7.519" rotY="1.399" rotZ="27.659"></swat_van>
+    </exit_group>
+    <exit_group id="exit_group (5)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (5)" interior="0" posX="1663.5" posY="-960.59998" posZ="62.5" rotX="0" rotY="0" rotZ="-10"></exit_barricade>
+        <exit_wall id="exit_wall (5)" interior="0" posX="1663.9" posY="-961.20001" posZ="61.7" rotX="90" rotY="0" rotZ="-11"></exit_wall>
+        <exit_point id="exit_point (5)" interior="0" posX="1671.4" posY="-908.90002" posZ="65.9" rotX="0" rotY="0" rotZ="0"></exit_point>
+        <swat_van id="swat_van (6)" interior="0" posX="1674.8" posY="-942.29999" posZ="62.8" rotX="0" rotY="0" rotZ="0"></swat_van>
+        <swat_van id="swat_van (7)" interior="0" posX="1658" posY="-938.90002" posZ="62.8" rotX="0" rotY="0" rotZ="-52"></swat_van>
+    </exit_group>
+    <exit_group id="exit_group (6)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (6)" interior="0" posX="1552.4" posY="-918" posZ="43.6" rotX="0.232" rotY="-0.713" rotZ="-12.999"></exit_barricade>
+        <exit_wall id="exit_wall (6)" interior="0" posX="1551.8" posY="-917.09998" posZ="43.4" rotX="90" rotY="0" rotZ="-12"></exit_wall>
+        <swat_van id="swat_van (8)" interior="0" posX="1562.4" posY="-909.70001" posZ="45.8" rotX="-7.447" rotY="1.289" rotZ="134.089"></swat_van>
+        <exit_point id="exit_point (6)" interior="0" posX="1592.7" posY="-892.09998" posZ="55.4" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (7)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (7)" interior="0" posX="1154" posY="-849.5" posZ="49.1" rotX="0" rotY="0" rotZ="0"></exit_barricade>
+        <exit_wall id="exit_wall (7)" interior="0" posX="1152.8" posY="-852.29999" posZ="49.4" rotX="90" rotY="0" rotZ="0"></exit_wall>
+        <swat_van id="swat_van (9)" interior="0" posX="1154.9" posY="-842.20001" posZ="50.6" rotX="4.5" rotY="0" rotZ="0"></swat_van>
+        <exit_point id="exit_point (7)" interior="0" posX="1154.9" posY="-801.79999" posZ="58.8" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (8)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (8)" interior="0" posX="796.90002" posY="-1010.6" posZ="28.2" rotX="3.75" rotY="0" rotZ="0"></exit_barricade>
+        <exit_wall id="exit_wall (8)" interior="0" posX="794.5" posY="-1011.4" posZ="27.2" rotX="90" rotY="0" rotZ="-0.75"></exit_wall>
+        <swat_van id="swat_van (10)" interior="0" posX="796.59998" posY="-995.90002" posZ="32" rotX="0.73" rotY="11.442" rotZ="-91.118"></swat_van>
+        <exit_point id="exit_point (8)" interior="0" posX="796" posY="-966.5" posZ="41.6" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (9)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (9)" interior="0" posX="630.70001" posY="-1192.5" posZ="17.9" rotX="0" rotY="0" rotZ="30.25"></exit_barricade>
+        <exit_wall id="exit_wall (9)" interior="0" posX="636.09998" posY="-1187.8" posZ="17.1" rotX="90" rotY="0" rotZ="32.25"></exit_wall>
+        <exit_point id="exit_point (9)" interior="0" posX="598.5" posY="-1150.9" posZ="28" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (10)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (10)" interior="0" posX="632.59998" posY="-1335.7" posZ="13.3" rotX="0" rotY="0" rotZ="-180"></exit_barricade>
+        <exit_wall id="exit_wall (10)" interior="0" posX="632" posY="-1335.3" posZ="12.4" rotX="-90" rotY="180" rotZ="-180"></exit_wall>
+        <swat_van id="swat_van (11)" interior="0" posX="633.20001" posY="-1344.5" posZ="13.7" rotX="0" rotY="0" rotZ="-10"></swat_van>
+        <exit_point id="exit_point (10)" interior="0" posX="630.90002" posY="-1377.5" posZ="17.5" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (11)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (11)" interior="0" posX="742.79999" posY="-1587.2" posZ="14" rotX="0" rotY="0" rotZ="90.75"></exit_barricade>
+        <exit_wall id="exit_wall (11)" interior="0" posX="742.40002" posY="-1586" posZ="13.3" rotX="90" rotY="0" rotZ="90"></exit_wall>
+        <swat_van id="swat_van (12)" interior="0" posX="731.5" posY="-1586.2" posZ="14.5" rotX="0" rotY="0" rotZ="80"></swat_van>
+        <exit_point id="exit_point (11)" interior="0" posX="689.59998" posY="-1586.8" posZ="18" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (12)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (12)" interior="0" posX="796" posY="-1776.4" posZ="13" rotX="0" rotY="0" rotZ="91"></exit_barricade>
+        <exit_wall id="exit_wall (12)" interior="0" posX="796.20001" posY="-1775.2" posZ="12.6" rotX="90" rotY="0" rotZ="91"></exit_wall>
+        <swat_van id="swat_van (13)" interior="0" posX="785.29999" posY="-1768.4" posZ="13.4" rotX="0" rotY="0" rotZ="-82"></swat_van>
+        <swat_van id="swat_van (14)" interior="0" posX="785.70001" posY="-1783.1" posZ="13.4" rotX="0" rotY="0" rotZ="78"></swat_van>
+        <exit_point id="exit_point (12)" interior="0" posX="745.79999" posY="-1769.2" posZ="17.4" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (13)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (13)" interior="0" posX="1055" posY="-1934.7" posZ="12.8" rotX="0" rotY="0" rotZ="-180"></exit_barricade>
+        <exit_wall id="exit_wall (13)" interior="0" posX="1053.6" posY="-1934.2" posZ="12" rotX="-90" rotY="180" rotZ="-180"></exit_wall>
+        <swat_van id="swat_van (15)" interior="0" posX="1055.2" posY="-1946.4" posZ="13.2" rotX="0" rotY="0" rotZ="6.25"></swat_van>
+        <exit_point id="exit_point (13)" interior="0" posX="1019.1" posY="-1981.1" posZ="16.8" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (14)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (14)" interior="0" posX="1529.7" posY="-1886.8" posZ="13.4" rotX="0" rotY="0" rotZ="-180"></exit_barricade>
+        <exit_wall id="exit_wall (14)" interior="0" posX="1531.2" posY="-1885.8" posZ="13.1" rotX="-90" rotY="180" rotZ="-180"></exit_wall>
+        <swat_van id="swat_van (16)" interior="0" posX="1530.3" posY="-1894.8" posZ="14.2" rotX="1.442" rotY="0.414" rotZ="163.995"></swat_van>
+        <exit_point id="exit_point (14)" interior="0" posX="1529.8" posY="-1942.2" posZ="22.2" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (15)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (15)" interior="0" posX="1661.3" posY="-1969.4" posZ="23.5" rotX="0" rotY="0" rotZ="-169.25"></exit_barricade>
+        <exit_wall id="exit_wall (15)" interior="0" posX="1664.2" posY="-1969" posZ="22.9" rotX="-90" rotY="180" rotZ="-171"></exit_wall>
+        <swat_van id="swat_van (17)" interior="0" posX="1653" posY="-1982.3" posZ="23.9" rotX="0" rotY="0" rotZ="5.75"></swat_van>
+        <swat_van id="swat_van (18)" interior="0" posX="1669" posY="-1981.7" posZ="23.9" rotX="0" rotY="0" rotZ="172"></swat_van>
+        <exit_point id="exit_point (15)" interior="0" posX="1655.7" posY="-2017.3" posZ="27.4" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (16)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (16)" interior="0" posX="1836.2" posY="-1750.1" posZ="13.2" rotX="0" rotY="0" rotZ="-88.75"></exit_barricade>
+        <exit_wall id="exit_wall (16)" interior="0" posX="1836.7" posY="-1749.5" posZ="15.9" rotX="90" rotY="0" rotZ="-90"></exit_wall>
+        <swat_van id="swat_van (19)" interior="0" posX="1848.6" posY="-1752.1" posZ="13.7" rotX="0" rotY="0" rotZ="142"></swat_van>
+        <exit_point id="exit_point (16)" interior="0" posX="1887.4" posY="-1752.5" posZ="17.4" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
+    <exit_group id="exit_group (17)" interior="0" posX="2070.3442" posY="-1370.5192" posZ="23.31045" rotX="0" rotY="0" rotZ="0">
+        <exit_barricade id="exit_barricade (17)" interior="0" posX="2037.6" posY="-1508.5" posZ="3.3" rotX="0" rotY="0" rotZ="-98"></exit_barricade>
+        <exit_wall id="exit_wall (17)" interior="0" posX="2037.3" posY="-1506.5" posZ="2.3" rotX="90" rotY="0" rotZ="-98"></exit_wall>
+        <swat_van id="swat_van (20)" interior="0" posX="2049.8999" posY="-1518.1" posZ="3.6" rotX="0" rotY="0" rotZ="102"></swat_van>
+        <swat_van id="swat_van (21)" interior="0" posX="2051.6001" posY="-1501.9" posZ="3.6" rotX="0" rotY="0" rotZ="-102"></swat_van>
+        <exit_point id="exit_point (17)" interior="0" posX="2092.6001" posY="-1519.3" posZ="6.8" rotX="0" rotY="0" rotZ="0"></exit_point>
+    </exit_group>
 </map>

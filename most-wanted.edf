@@ -38,4 +38,30 @@
 		<data name="rotation" type="coord3d" default="0,0,0" />
 		<object model="2932" position="0,0,0" editorOnly="true" alpha="0"/>
 	</element>
+	<element name="exit_group" friendlyname="qqqqqExit Group">
+    </element>
+    <element name="exit_wall" friendlyname="yExit Wall">
+        <parent name="group" type="exit_group" default="" />
+        <data name="position" type="coord3d" default="0,0,0" />
+        <data name="rotation" type="coord3d" default="0,0,0" />
+        <object model="8172" position="0,0,0" rotation="90,0,0" alpha="0"/>
+    </element>
+    <element name="exit_barricade" friendlyname="xExit Barricade">
+        <parent name="group" type="exit_group" default="" />
+        <data name="position" type="coord3d" default="0,0,0" />
+        <data name="rotation" type="coord3d" default="0,0,0" />
+        <object model="981" position="0,0,0" rotation="0,0,180" alpha="0"/>
+    </element>
+    <element name="exit_point" friendlyname="zExit Point">
+        <parent name="group" type="exit_group" default="" />
+        <data name="position" type="coord3d" default="0,0,0" />
+        <data name="rotation" type="coord3d" default="0,0,0" />
+        <object model="3435" position="0,0,0" editorOnly="true" alpha="0"/>
+    </element>
+    <element name="swat_van" friendlyname="ySwat Van">
+        <parent name="group" type="exit_group" default="" />
+        <data name="position" type="coord3d" default="0,0,0" />
+        <data name="rotation" type="coord3d" default="0,0,0" />
+        <object model="3471" position="0,0,0" alpha="0"/>
+    </element>
 </def>
