@@ -1,7 +1,61 @@
 Player = {}
 
 local policeTeam = createTeam(g_POLICE_TEAM_NAME)
-local criminalTeam = createTeam("Criminals")
+local criminalNames = {
+	"Forelli Family",
+	"Leone Family",
+	"Ancelotti Family",
+	"Pegorino Crime Family",
+	"Pecorinos",
+	"Gambetti Family",
+	"Messina Family",
+	"McRearys",
+	"Mendez Cartel",
+	"Albanian Mob",
+	"Bulgarin Crime Syndicate",
+	"Red Gecko Tong",
+	"Mountain Cloud Boys",
+	"Da Nang Boys",
+	"Yakuza",
+	"Yardies",
+	"Varrios Los Aztecas",
+	"Grove Street Families",
+	"Vagos",
+	"Colombian Cartel",
+	"The Lost MC",
+	"Angels of Death",
+	"Uptown Riders",
+	"Ballas",
+	"Bloodhound Gang",
+	"Anti-Fleischberg Group",
+	"Tunnel Snakes",
+	"Los Pollos Hermanos",
+	"Trailer Park Mafia",
+	"Hillside Posse",
+	"Jingweon Mafia",
+	"Midtown Gangsters",
+	"Wonsu Nodong",
+	"Dharma Initiative",
+	"E-Corp",
+	"Serious Individuals",
+	"Jax Trust",
+	"Kiketsu Family",
+	"Scavengers",
+	"Tyger Claws",
+	"Voodoo Boys",
+	"Rifa",
+	"Loco Syndicate",
+	"Stetchkov Syndicate",
+	"Blood Feather Triad",
+	"Snake Farmers",
+	"Team Rocket",
+	"Cerberus",
+	"Discord Mods United",
+	"Package Hunters Initiative",
+	"Team SKC",
+	"GTA Community Rebellion"
+}
+local criminalTeam = createTeam(criminalNames[math.random(#criminalNames)])
 
 function Player:new(player)
 	local o = {}
