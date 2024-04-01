@@ -1,5 +1,3 @@
-g_SERVER_TICK_RATE = 5 -- ticks per second, limited by other things
-
 g_SHOW_PERK_SELECTION_AND_EXPLANATION = "show perks and explanations"
 g_START_PERK_SELECTION_AND_EXPLANATION_TIMER = "will close the perk window in some time" -- time
 g_CLOSE_PERK_SELECTION_AND_EXPLANATION = "close the ui"

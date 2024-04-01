@@ -1,6 +1,7 @@
 -- global for debug purposes atm
 players = {}
 jobs = {}
+exits = {}
 
 local playersByClient = {}
 local police = {}
@@ -11,6 +12,8 @@ availableJobs = 0
 totalMoneyProgress = 0
 moneyEscapeQuota = 0
 randomMoneyScaler = 1
+lastExitId = 0
+lastSpawnedExitAt = 0
 gameState = g_COREGAME_STATE
 
 addEvent("onRaceStateChanging")
@@ -33,36 +36,46 @@ function startGameLoop()
 	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, gameState)
 
 	setTimer(function()
+		trySpawnExitPoint()
 		trySpawnJob()
 		updateJobProgress()
 		maybeUpdateGameState()
 	end, 1000 / g_SERVER_TICK_RATE, 0)
-	
-	trySpawnExitPoint()
 end
 
 function trySpawnExitPoint()
-	for _, group in ipairs(getElementsByType("exit_group")) do
-		local exits = getElementChildren(group, "exit_point")
-		for _, point in ipairs(exits) do
-			local x, y, z = getElementPosition(point)
-			print(x, y, z)
-			createBlip(x, y, z)
+	if gameState == g_ENDGAME_STATE or gameState == g_ENDENDGAME_STATE then
+		local now = getRealTime().timestamp
+		if lastSpawnedExitAt < now then
+			lastExitId = lastExitId + 1
+			local nextExit = exits[lastExitId]
+
+			if not nextExit.active then
+				nextExit:enable()
+				setTimer(function()
+					nextExit:disable()
+				end, 30000, 1)
+				lastSpawnedExitAt = now
+			end
+
+			if lastExitId == #exits then
+				lastExitId = 0
+			end
 		end
 	end
 end
 
 function maybeUpdateGameState()
-	-- if totalMoneyProgress >= moneyEscapeQuota and not endGame then
-	if gameState == g_COREGAME_STATE and totalMoneyProgress > moneyEscapeQuota then
+	if gameState == g_COREGAME_STATE and totalMoneyProgress >= moneyEscapeQuota then
+	-- if gameState == g_COREGAME_STATE and totalMoneyProgress > moneyEscapeQuota then
 		gameState = g_ENDGAME_STATE
 		triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, gameState)
 
 		for _, criminal in ipairs(criminals) do
 			createBlipAttachedTo(criminal, 0, 2, 223, 179, 0, 255, 6, 80085)
 		end
-	-- elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota * 2 then
-	elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota + 5 then
+	elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota * 1.5 then
+	-- elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota + 5 then
 		gameState = g_ENDENDGAME_STATE
 		triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, gameState)
 
@@ -76,8 +89,8 @@ function maybeUpdateGameState()
 end
 
 function trySpawnJob()
-	-- if availableJobs > #criminals * 3 then return end
-	if availableJobs > math.floor(#jobs / 1.5) then return end
+	if availableJobs > #criminals * 3 then return end
+	-- if availableJobs > math.floor(#jobs / 1.5) then return end
 
 	lastJobId = lastJobId + 1
 	local nextJob = jobs[lastJobId]
@@ -103,10 +116,22 @@ function updateJobProgress()
 end
 
 function preGameSetup()
-	-- attempt to remove player blips, doesnt work probably
+	-- attempt to remove player blips
 	for _, blip in pairs(getElementsByType("blip")) do
 		destroyElement(blip)
 	end
+
+	-- set up exit points and shuffle
+	for _, group in ipairs(getElementsByType("exit_group")) do
+		local vans = getElementChildren(group, "swat_van")
+		local barricades = getElementChildren(group, "exit_barricade")
+		local walls = getElementChildren(group, "exit_wall")
+		local exitPoints = getElementChildren(group, "exit_point")
+
+		exits[#exits + 1] = Exit:new(vans, barricades, walls, exitPoints)
+	end
+
+	shuffle(exits)
 
 	-- randomly select cops and criminals
 	shuffle(players)
