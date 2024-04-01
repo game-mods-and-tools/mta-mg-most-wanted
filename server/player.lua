@@ -74,27 +74,28 @@ end
 function Player:setRole(role)
 	if role == g_POLICE_ROLE then
 		for _, copCar in pairs(getElementsByType("vehicle", resourceRoot)) do
-			-- should validate that its a police car tbh
-			-- at least 1 cop car to use
-			self.role = role
+			if getElementModel(copCar) == 596 then
+				-- at least 1 cop car to use
+				self.role = role
 
-			-- change player vehicle and tp to cop vehicle position
-			local vehicle = getPedOccupiedVehicle(self.player)
-			setElementModel(vehicle, 596) -- police LS
-			setElementPosition(vehicle, getElementPosition(copCar))
-			setElementRotation(vehicle, getElementRotation(copCar))
-			setVehicleHandling(vehicle, "collisionDamageMultiplier", 0)
-			setVehicleColor(vehicle, 0, 0, 0, 255, 255, 255, 0, 0, 0)
+				-- change player vehicle and tp to cop vehicle position
+				local vehicle = getPedOccupiedVehicle(self.player)
+				setElementModel(vehicle, 596) -- police LS
+				setElementPosition(vehicle, getElementPosition(copCar))
+				setElementRotation(vehicle, getElementRotation(copCar))
+				setVehicleHandling(vehicle, "collisionDamageMultiplier", 0)
+				setVehicleColor(vehicle, 0, 0, 0, 255, 255, 255, 0, 0, 0)
 
-			bindKey(self.player, "vehicle_secondary_fire", "down", function()
-				giveWeapon(self.player, 31, 9999, true) -- uzi
-				setPedDoingGangDriveby(self.player, not isPedDoingGangDriveby(self.player))
-			end)
+				bindKey(self.player, "vehicle_secondary_fire", "down", function()
+					giveWeapon(self.player, 31, 9999, true) -- uzi
+					setPedDoingGangDriveby(self.player, not isPedDoingGangDriveby(self.player))
+				end)
 
-			triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
+				triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 
-			setPlayerTeam(self.player, policeTeam)
-			return true
+				setPlayerTeam(self.player, policeTeam)
+				return true
+			end
 		end
 
 		return false
