@@ -111,6 +111,27 @@ function spawnJob(id)
 	end
 end
 
+
+function finishJob(job)
+	job:finish()
+
+	availableJobs = availableJobs - 1
+	totalMoneyProgress = totalMoneyProgress + job:money()
+
+	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
+		money = totalMoneyProgress * randomMoneyScaler,
+		moneyQuota = moneyEscapeQuota * randomMoneyScaler
+	})
+end
+
+function assignJob(job, player)
+	job:assign(player)
+end
+
+function unassignJob(job, player)
+	job:unassign(player)
+end
+
 function updateJobProgress()
 	for _, job in ipairs(jobs) do
 		local completed = job:tick()
@@ -217,26 +238,6 @@ function preGameSetup()
 	addEventHandler(g_FINISH_JOB_EVENT, getRootElement(), function(id)
 		finishJob(jobs[id])
 	end)
-end
-
-function finishJob(job)
-	job:finish()
-
-	availableJobs = availableJobs - 1
-	totalMoneyProgress = totalMoneyProgress + job:money()
-
-	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
-		money = totalMoneyProgress * randomMoneyScaler,
-		moneyQuota = moneyEscapeQuota * randomMoneyScaler
-	})
-end
-
-function assignJob(job, player)
-	job:assign(player)
-end
-
-function unassignJob(job, player)
-	job:unassign(player)
 end
 
 function shuffle(a)
