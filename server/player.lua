@@ -91,6 +91,8 @@ function Player:setRole(role)
 					setPedDoingGangDriveby(self.player, not isPedDoingGangDriveby(self.player))
 				end)
 
+				destroyElement(copCar) -- so players won't spawn on top of each other
+
 				triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 
 				setPlayerTeam(self.player, policeTeam)
