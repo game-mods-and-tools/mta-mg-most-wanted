@@ -81,7 +81,7 @@ function Exit:enable()
 
 	for _, wall in ipairs(self.walls) do
 		setElementCollisionsEnabled(wall, false)
-		setElementAlpha(wall, 150)
+		setElementAlpha(wall, 0)
 	end
 	for _, barricade in ipairs(self.barricades) do
 		setElementCollisionsEnabled(barricade, false)
