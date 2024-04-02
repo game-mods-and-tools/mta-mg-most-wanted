@@ -63,7 +63,7 @@ function Player:new(player)
 	setmetatable(o, self)
 
 	self.__index = self
-	o.role = g_CRIMINAL_ROLE
+	o.role = nil
 	o.player = player
 	o.delivering = false
 

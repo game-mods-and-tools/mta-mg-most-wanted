@@ -8,8 +8,8 @@ g_PLAYER_SELECTED_PERK_EVENT = "select perk event" -- player, perk
 
 g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
 
-g_POLICE_ROLE = "Police Role"
-g_CRIMINAL_ROLE = "Criminal Role"
+g_POLICE_ROLE = "PoliceRole"
+g_CRIMINAL_ROLE = "CriminalRole"
 g_POLICE_TEAM_NAME = "Cops"
 
 g_SHOW_JOB_EVENT = "onShowJob" -- jobId, jobType, jobPos
