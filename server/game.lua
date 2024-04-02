@@ -4,8 +4,6 @@ jobs = {}
 exits = {}
 
 local g_PlayersByClient = {}
-local police = {}
-local criminals = {}
 local randomMoneyScaler = 1000 -- random numbers used to scale quota for big $$$
 
 lastJobId = 0
@@ -56,11 +54,11 @@ function updateGameState(state)
 	if state == g_ENDGAME_STATE then
 		lastSpawnedExitAt = getRealTime().timestamp
 
-		for _, criminal in ipairs(criminals) do
+		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
 			createBlipAttachedTo(criminal, 0, 2, 223, 179, 0, 255, 6, 80085)
 		end
 	elseif state == g_ENDENDGAME_STATE then
-		for _, criminal in ipairs(criminals) do
+		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
 			bindKey(criminal, "vehicle_secondary_fire", "down", function()
 				giveWeapon(criminal, 30, 9999, true) -- ak47
 				setPedDoingGangDriveby(criminal, not isPedDoingGangDriveby(criminal))
@@ -93,7 +91,7 @@ function spawnExitPoint(id)
 end
 
 function maybeSpawnJob()
-	if availableJobs < #criminals * g_AVAILABLE_JOBS_MULTIPLIER then
+	if availableJobs < countPlayersInTeam(g_CriminalTeam) * g_AVAILABLE_JOBS_MULTIPLIER then
 		if lastSpawnedJobAt < getRealTime().timestamp - (g_DELAY_BETWEEN_JOB_SPAWN / 1000) then
 			lastJobId = lastJobId + 1
 			spawnJob(lastJobId)
@@ -107,7 +105,7 @@ end
 function spawnJob(id)
 	local job = jobs[id]
 	if job:isComplete() then
-		job:enable(criminals)
+		job:enable()
 		availableJobs = availableJobs + 1
 		lastSpawnedJobAt = getRealTime().timestamp
 	end
@@ -146,21 +144,16 @@ function preGameSetup()
 	if #players == 1 then
 		policeCount = 0
 	end
-	local totalPolice = 0
 
 	for i = 1, policeCount do
-		police[#police + 1] = players[i].player
-		local success = players[i]:setRole(g_POLICE_ROLE)
-		if not success then break end
-		totalPolice = totalPolice + 1
+		players[i]:setRole(g_POLICE_ROLE) -- may not succeed if not enough spawn points
 	end
-	for i = totalPolice + 1, #players do
-		criminals[#criminals + 1] = players[i].player
+	for i = countPlayersInTeam(g_PoliceTeam) + 1, #players do
 		players[i]:setRole(g_CRIMINAL_ROLE)
 	end
 
 	-- set up player based limits
-	moneyEscapeQuota = #criminals * 10
+	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10
 	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
 		money = 0,
 		moneyQuota = moneyEscapeQuota * randomMoneyScaler
@@ -227,7 +220,7 @@ function preGameSetup()
 end
 
 function finishJob(job)
-	job:finish(criminals, police)
+	job:finish()
 
 	availableJobs = availableJobs - 1
 	totalMoneyProgress = totalMoneyProgress + job:money()
@@ -239,11 +232,11 @@ function finishJob(job)
 end
 
 function assignJob(job, player)
-	job:assign(player, criminals)
+	job:assign(player)
 end
 
 function unassignJob(job, player)
-	job:unassign(player, criminals)
+	job:unassign(player)
 end
 
 function shuffle(a)

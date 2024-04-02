@@ -1,6 +1,5 @@
 Player = {}
 
-local policeTeam = createTeam(g_POLICE_TEAM_NAME)
 local criminalNames = {
 	"Forelli Family",
 	"Leone Family",
@@ -55,7 +54,9 @@ local criminalNames = {
 	"Team SKC",
 	"GTA Community Rebellion"
 }
-local criminalTeam = createTeam(criminalNames[math.random(#criminalNames)])
+
+g_PoliceTeam = createTeam(g_POLICE_TEAM_NAME)
+g_CriminalTeam = createTeam(criminalNames[math.random(#criminalNames)])
 
 function Player:new(player)
 	local o = {}
@@ -95,7 +96,7 @@ function Player:setRole(role)
 
 				triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 
-				setPlayerTeam(self.player, policeTeam)
+				setPlayerTeam(self.player, g_PoliceTeam)
 				return true
 			end
 		end
@@ -105,7 +106,7 @@ function Player:setRole(role)
 		self.role = role
 		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 
-		setPlayerTeam(self.player, criminalTeam)
+		setPlayerTeam(self.player, g_CriminalTeam)
 	end
 
 	return true
