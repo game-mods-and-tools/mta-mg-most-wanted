@@ -36,7 +36,7 @@ function Exit:new(group)
 				local player, vehicle = toPlayer(element)
 				if not player then return end
 				if not vehicle then return end -- in case of spectator?
-				if player.role ~= g_CRIMINAL_ROLE then return end
+				if getPlayerTeam(player.player) ~= g_CriminalTeam then return end
 
 				triggerEvent("onPlayerReachCheckpointInternal", player.player, 1)
 			end)

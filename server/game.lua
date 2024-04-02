@@ -1,9 +1,8 @@
 -- global for debug purposes atm
-players = {}
 jobs = {}
 exits = {}
+playersByClient = {}
 
-local g_PlayersByClient = {}
 local randomMoneyScaler = 1000 -- random numbers used to scale quota for big $$$
 
 lastJobId = 0
@@ -19,9 +18,7 @@ addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 	if state == "GridCountdown" then
 		for _, player in pairs(getElementsByType("player")) do
-			local p = Player:new(player)
-			players[#players + 1] = p
-			g_PlayersByClient[player] = p
+			playersByClient[player] = Player:new(player)
 		end
 
 		setTimer(function()
@@ -159,6 +156,11 @@ function preGameSetup()
 	shuffle(exits)
 
 	-- randomly select cops and criminals
+	local players = {}
+	for _, player in pairs(playersByClient) do
+		players[#players + 1] = player
+	end
+
 	shuffle(players)
 
 	local policeCount = math.ceil(#players / g_CRIMINALS_PER_COP)
@@ -214,7 +216,7 @@ function preGameSetup()
 			local player, vehicle = toPlayer(element)
 			if not player then return end
 			if not vehicle then return end -- in case of spectator?
-			if player.role ~= g_CRIMINAL_ROLE then return end
+			if getPlayerTeam(player.player) ~= g_CriminalTeam then return end
 
 			local _, _, z = getElementPosition(vehicle)
 			if math.abs(z - job.pos.z) > 5 then return end
@@ -249,7 +251,7 @@ end
 
 function toPlayer(element)
 	if getElementType(element) ~= "vehicle" then return false end
-	return g_PlayersByClient[getVehicleOccupant(element)], element
+	return playersByClient[getVehicleOccupant(element)], element
 end
 
 if g_DEBUG_MODE then
@@ -281,6 +283,11 @@ if g_DEBUG_MODE then
 	addCommandHandler("uj", function(ply, arg, id)
 		print(arg, id)
 		unassignJob(jobs[tonumber(id)])
+	end)
+
+	addCommandHandler("sr", function(ply, arg, r)
+		print(arg, r)
+		playersByClient[ply]:setRole(r)
 	end)
 
 	addCommandHandler("eee", function(ply, arg, ...)
