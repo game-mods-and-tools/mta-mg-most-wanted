@@ -27,10 +27,10 @@ function Job:isAvailable()
 	return self.progress ~= 1 and #self:activePlayers() == 0
 end
 
-function Job:assign(player, players)
+function Job:assign(player)
 	self.players[player.player] = true
 
-	self:disable(players)
+	self:disable()
 	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 end
 
@@ -38,24 +38,24 @@ function Job:isAssignedTo(player)
 	return self.players[player.player]
 end
 
-function Job:unassign(player, players)
+function Job:unassign(player)
 	self.players[player.player] = false
 
 	self.progress = 0
 	triggerClientEvent(player.player, g_STOP_JOB_EVENT, resourceRoot, self.id, self.type)
-	self:enable(players)
+	self:enable()
 end
 
-function Job:enable(players)
+function Job:enable()
 	self.progress = 0
-	triggerClientEvent(players, g_SHOW_JOB_EVENT, resourceRoot, self.id, self.type, self.pos)
+	triggerClientEvent(getPlayersInTeam(g_CriminalTeam), g_SHOW_JOB_EVENT, resourceRoot, self.id, self.type, self.pos)
 end
 
-function Job:disable(players)
-	triggerClientEvent(players, g_HIDE_JOB_EVENT, resourceRoot, self.id)
+function Job:disable()
+	triggerClientEvent(getPlayersInTeam(g_CriminalTeam), g_HIDE_JOB_EVENT, resourceRoot, self.id)
 end
 
-function Job:finish(criminals, police)
+function Job:finish()
 	self.progress = 1
 
 	local players = self:activePlayers()
@@ -67,9 +67,9 @@ function Job:finish(criminals, police)
 	end
 
 	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
-	triggerClientEvent(police, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
+	triggerClientEvent(getPlayersInTeam(g_PoliceTeam), g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
 
-	self:disable(criminals)
+	self:disable()
 	self.players = {}
 end
 
@@ -108,7 +108,7 @@ function DeliveryJob:money()
 	return g_JOBS_BY_TYPE[self.type].jobWeight + self.bonus
 end
 
-function DeliveryJob:assign(player, players)
+function DeliveryJob:assign(player)
 	if player.delivering then return end
 
 	self.deliverer = player
@@ -125,7 +125,7 @@ function DeliveryJob:assign(player, players)
 	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z }, bonus = bonus })
 
-	self:disable(players)
+	self:disable()
 end
 
 function DeliveryJob:unassign(player)
@@ -137,7 +137,7 @@ function DeliveryJob:tick()
 	return false
 end
 
-function DeliveryJob:finish(criminals, police)
+function DeliveryJob:finish()
 	self.progress = 1
 	self.deliverer.delivering = false
 
@@ -150,9 +150,9 @@ function DeliveryJob:finish(criminals, police)
 	end
 
 	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
-	triggerClientEvent(police, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
+	triggerClientEvent(getPlayersInTeam(g_PoliceTeam), g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
 
-	self:disable(criminals)
+	self:disable()
 	self.players = {}
 end
 
@@ -194,12 +194,12 @@ end
 -- also 2 stages but 2nd stage is honking at same location
 ExtortionJob = Job:new()
 
-function ExtortionJob:assign(player, players)
+function ExtortionJob:assign(player)
 	self.players[player.player] = true
 
 	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z } })
-	self:disable(players)
+	self:disable()
 end
 
 function ExtortionJob:tick()
