@@ -294,12 +294,12 @@ if g_DEBUG_MODE then
 
 	addCommandHandler("aj", function(ply, arg, id)
 		print(arg, id)
-		assignJob(jobs[tonumber(id)])
+		assignJob(jobs[tonumber(id)], playersByClient[ply])
 	end)
 
 	addCommandHandler("uj", function(ply, arg, id)
 		print(arg, id)
-		unassignJob(jobs[tonumber(id)])
+		unassignJob(jobs[tonumber(id)], playersByClient[ply])
 	end)
 
 	addCommandHandler("sr", function(ply, arg, r)

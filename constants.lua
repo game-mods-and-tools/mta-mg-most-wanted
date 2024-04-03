@@ -40,6 +40,10 @@ g_PICKUP_JOB = {
 g_DELIVERY_JOB = {
 	elementType = "delivery_job_start",
 	type = "delivery job",
+	subtypes = {
+		ELIMINATION = "elimination",
+		DELIVERY = "delivery",
+	},
 	detectionRadius = 200,
 	zoneRadius = 5,
 	blip = 51,

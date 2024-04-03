@@ -23,16 +23,36 @@ addEvent(g_JOB_STATUS_UPDATE_EVENT, true)
 addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data)
 	if type == g_DELIVERY_JOB.type then
 		triggerEvent(g_SHOW_DELIVERY_TARGET_EVENT, resourceRoot, data.pos)
-		local col = createColCircle(data.pos.x, data.pos.y, g_DELIVERY_TARGET_SIZE)
+		if data.subtype == g_DELIVERY_JOB.subtypes.DELIVERY then
+			local col = createColCircle(data.pos.x, data.pos.y, g_DELIVERY_TARGET_SIZE)
 
-		function finishDelivery(element)
-			if getPedOccupiedVehicle(localPlayer) ~= element then return end
-			removeEventHandler("onClientColShapeHit", col, finishDelivery)
+			function finishDelivery(element)
+				if getPedOccupiedVehicle(localPlayer) ~= element then return end
+				removeEventHandler("onClientColShapeHit", col, finishDelivery)
 
-			triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
-			triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
+				triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
+				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
+			end
+			addEventHandler("onClientColShapeHit", col, finishDelivery)
+		elseif data.subtype == g_DELIVERY_JOB.subtypes.ELIMINATION then
+			local ped = createPed(127, data.pos.x, data.pos.y, data.pos.z)
+			setElementHealth(ped, 30)
+			setElementRotation(ped, data.rot.x, data.rot.y, data.rot.z)
+			setPedAnimation(ped, "dealer", "dealer_deal")
+
+			local firstHit = false
+			addEventHandler("onClientPedWasted", ped, function()
+				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
+			end)
+			addEventHandler("onClientPedDamage", ped, function()
+				setPedControlState(ped, "forwards", true)
+				setPedCameraRotation(ped, getPedCameraRotation(localPlayer) - (45 + math.random() * 90))
+				if not firstHit then
+					firstHit = true
+					triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
+				end
+			end)
 		end
-		addEventHandler("onClientColShapeHit", col, finishDelivery)
 	elseif type == g_EXTORTION_JOB.type then
 		honkProgress = 0
 		timer = setTimer(function()

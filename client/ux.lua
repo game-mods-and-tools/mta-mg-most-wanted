@@ -12,6 +12,7 @@ local showText = {}
 local groupJobAppeared = "groupJobAppeared"
 local pickupJobInfo = "pickupJobInfo"
 local deliveryJobInfo = "deliveryJobInfo"
+local eliminationJobInfo = "eliminationJobInfo"
 local extortionJobInfo = "extortionJobInfo"
 local groupJobInfo = "groupJobInfo"
 local groupJobNeedsPeople = "groupJobNeedsPeople" -- value is the current people
@@ -53,8 +54,6 @@ addEvent(g_START_JOB_EVENT, true)
 addEventHandler(g_START_JOB_EVENT, resourceRoot, function(id, type)
 	if type == g_PICKUP_JOB.type then
 		showText[pickupJobInfo] = true
-	elseif type == g_DELIVERY_JOB.type then
-		showText[deliveryJobInfo] = true
 	elseif type == g_EXTORTION_JOB.type then
 		showText[extortionJobInfo] = true
 	elseif type == g_GROUP_JOB.type then
@@ -69,13 +68,22 @@ addEventHandler(g_STOP_JOB_EVENT, resourceRoot, function(id, type)
 
 	if type == g_PICKUP_JOB.type then
 		showText[pickupJobInfo] = false
-	elseif type == g_DELIVERY_JOB.type then
-		showText[deliveryJobInfo] = false
 	elseif type == g_EXTORTION_JOB.type then
 		showText[extortionJobInfo] = false
 	elseif type == g_GROUP_JOB.type then
 		showText[groupJobInfo] = false
 		showText[groupJobNeedsPeople] = false
+	end
+end)
+
+addEvent(g_JOB_STATUS_UPDATE_EVENT, true)
+addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data)
+	if type == g_DELIVERY_JOB.type then
+		if data.subtype == g_DELIVERY_JOB.subtypes.DELIVERY then
+			showText[deliveryJobInfo] = true
+		elseif data.subtype == g_DELIVERY_JOB.subtypes.ELIMINATION then
+			showText[eliminationJobInfo] = true
+		end
 	end
 end)
 
@@ -106,6 +114,7 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCri
 			showText[pickupJobInfo] = false
 		elseif type == g_DELIVERY_JOB.type then
 			showText[deliveryJobInfo] = false
+			showText[eliminationJobInfo] = false
 		elseif type == g_EXTORTION_JOB.type then
 			showText[extortionJobInfo] = false
 		elseif type == g_GROUP_JOB.type then
@@ -313,6 +322,8 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			-- dxDrawBorderedText(0.5,"Destroy the#DE1A1A evidence#D2D2D2 to get the money.", screenWidth / 2 - screenWidth / 6, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			-- delivery to player
 			-- dxDrawBorderedText(0.5,"Get this message to#DE1A1A <PLAYERNAMEHERE>#D2D2D2 to get the money.", screenWidth / 2 - screenWidth / 4, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+		elseif showText[eliminationJobInfo] then
+			dxDrawBorderedText(0.5,"Eliminate the#DE1A1A snitch#D2D2D2 to get the money.", screenWidth / 2 - 320, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		end
 
 		-- if g_DELIVERY_JOB then --delivery: contact job target died - cancelled
