@@ -25,6 +25,7 @@ g_ESCAPE_ROUTE_APPEARED = "onEscapeRouteAppeared"
 g_COREGAME_STATE = "coregame"
 g_ENDGAME_STATE = "endgame"
 g_ENDENDGAME_STATE = "endendgame"
+g_BADEND_STATE = "badend"
 
 g_PICKUP_JOB = {
 	elementType = "pickup_job",
