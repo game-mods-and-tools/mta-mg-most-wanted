@@ -65,7 +65,7 @@ end)
 addEvent(g_STOP_JOB_EVENT, true)
 addEventHandler(g_STOP_JOB_EVENT, resourceRoot, function(id, type)
 	showText[abandonedJob] = true
-	setTimer(function() showText[abandonedJob] = false end, 1000, 1)
+	setTimer(function() showText[abandonedJob] = false end, 1500, 1)
 
 	if type == g_PICKUP_JOB.type then
 		showText[pickupJobInfo] = false
@@ -162,7 +162,7 @@ addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 	role = rolee
 
 	showText[roleInfo] = true
-	setTimer(function() showText[roleInfo] = false end, 5000, 1)
+	setTimer(function() showText[roleInfo] = false end, 8000, 1)
 end)
 
 addEvent(g_MONEY_UPDATE_EVENT, true)
@@ -278,7 +278,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		-- top middle ui
 		if showText[crimeReported] then
 			if role == g_CRIMINAL_ROLE then
-				dxDrawBorderedText(0.5,"YOUR CRIME WAS REPORTED!", screenWidth / 2 - 320, screenHeight * 0.18, 800, screenHeight, tocolor(222, 26, 26, 255), 3, "arial", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"YOUR CRIME WAS REPORTED! LOCATION REVEALED!", screenWidth / 2 - 520, screenHeight * 0.18, 800, screenHeight, tocolor(222, 26, 26, 255), 3, "arial", center, top, false, false, false, true)
 			elseif role == g_POLICE_ROLE then
 				dxDrawBorderedText(0.5,"A #C87D00criminal#D2D2D2 was spotted fleeing a crime!", screenWidth / 2 - 320, screenHeight * 0.75 + 40, 800, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
