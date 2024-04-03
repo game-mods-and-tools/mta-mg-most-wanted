@@ -44,6 +44,15 @@ function maybeUpdateGameState()
 		updateGameState(g_ENDGAME_STATE)
 	elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota * g_SECRET_ENDING_REQUIREMENT_MULTIPLIER then
 		updateGameState(g_ENDENDGAME_STATE)
+	elseif gameState ~= g_BADEND_STATE then
+		local criminals = getPlayersInTeam(g_CriminalTeam)
+		for _, criminal in ipairs(criminals) do
+			if getElementData(criminal, "state") == "alive" then
+				return
+			end
+		end
+
+		updateGameState(g_BADEND_STATE)
 	end
 end
 
@@ -61,6 +70,14 @@ function updateGameState(state)
 				setPedDoingGangDriveby(criminal, not isPedDoingGangDriveby(criminal))
 			end)
 		end
+	elseif state == g_BADEND_STATE then
+		-- no criminals, so guess its ogre?
+		outputChatBox("There are no more criminals... cops serve no purpose")
+		setTimer(function()
+			for _, cop in ipairs(getPlayersInTeam(g_PoliceTeam)) do
+				killPed(cop, cop)
+			end
+		end, 5000, 1)
 	end
 
 	gameState = state
