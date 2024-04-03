@@ -16,7 +16,7 @@ function Job:new(id, type, x, y, z)
 end
 
 function Job:money()
-	return g_JOBS_BY_TYPE[self.type].jobWeight
+	return g_JOBS_BY_TYPE[self.type].jobWeight + (self.bonus or 0)
 end
 
 function Job:isComplete()
@@ -104,10 +104,6 @@ end
 -- a job with "2" stages that can only be accepted with 1 person
 DeliveryJob = Job:new()
 
-function DeliveryJob:money()
-	return g_JOBS_BY_TYPE[self.type].jobWeight + self.bonus
-end
-
 function DeliveryJob:assign(player)
 	if player.delivering then return end
 
@@ -119,11 +115,24 @@ function DeliveryJob:assign(player)
 	local endpoint = endpoints[math.random(#endpoints)]
 
 	local x, y, z = getElementPosition(endpoint)
+	local rx = getElementData(endpoint, "rotX")
+	local ry = getElementData(endpoint, "rotY")
+	local rz = getElementData(endpoint, "rotZ")
 
 	self.bonus = math.min(g_MAX_DELIVERY_BONUS, getDistanceBetweenPoints3D(self.pos.x, self.pos.y, self.pos.z, x, y, z) / 1200)
 
 	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
-	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { pos = { x = x, y = y, z = z }, bonus = bonus })
+	
+	local subtype = g_JOBS_BY_TYPE[self.type].subtypes.DELIVERY
+	if math.random() > 0.5 then
+		subtype = g_JOBS_BY_TYPE[self.type].subtypes.ELIMINATION
+		self.bonus = self.bonus * 2
+	end
+	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, {
+		pos = { x = x, y = y, z = z },
+		rot = { x = rx, y = ry, z = rz },
+		subtype = subtype
+	})
 
 	self:disable()
 end
