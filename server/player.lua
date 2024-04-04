@@ -66,6 +66,7 @@ function Player:new(player)
 	o.role = nil
 	o.player = player
 	o.delivering = false
+	o.perkId = nil
 
 	return o
 end
@@ -78,6 +79,7 @@ function Player:setRole(role)
 			if getElementModel(copCar) == 596 then
 				-- at least 1 cop car to use
 				self.role = role
+				self.perk = nil
 				setPlayerNametagShowing(self.player, true)
 
 				-- change player vehicle and tp to cop vehicle position
@@ -104,8 +106,9 @@ function Player:setRole(role)
 		end
 
 		return false
-	else
+	elseif role == g_CRIMINAL_ROLE then
 		self.role = role
+		self.perk = nil
 		setPlayerNametagShowing(self.player, false)
 		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 
@@ -116,4 +119,41 @@ function Player:setRole(role)
 	end
 
 	return true
+end
+
+function Player:setPerk(perkId)
+	if self.role ~= g_CRIMINAL_ROLE then return end
+	self.perkId = perkId
+end
+
+function Player:checkPerk()
+	local veh = getPedOccupiedVehicle(self.player)
+
+	if veh then
+		if self.perkId == g_MECHANIC_PERK.id then
+			local vx, vy, vz = getElementVelocity(veh)
+			if vx == 0 and vy == 0 and vz == 0 then
+				setElementHealth(veh, math.min(getElementHealth(veh) + 2), 1000) -- per tick
+			end
+		elseif self.perkId == g_FUGITIVE_PERK.id then
+			if gameState ~= g_COREGAME_STATE and not self.fugitived then
+					setElementAlpha(veh, 0)
+					setElementAlpha(self.player, 0)
+					setVehicleLightState(veh, 0, 1)
+					setVehicleLightState(veh, 1, 1)
+					setTimer(function()
+						if veh then
+							setElementAlpha(veh, 255)
+							setElementAlpha(self.player, 255)
+							setVehicleLightState(veh, 0, 0)
+							setVehicleLightState(veh, 1, 0)
+						end
+					end, g_DELAY_BETWEEN_EXIT_SPAWN * 1.5, 0) -- invisible until exit spawns and then some
+				self.fugitived = true
+			end
+		elseif self.perkId == g_HOTSHOT_PERK.id then
+			setVehicleHandling(veh, "maxVelocity", 450 - getElementHealth(veh) / 4) -- 200 is base, goes from 250 to 450
+			setVehicleHandling(veh, "engineAcceleration", 20 - getElementHealth(veh) / 120) -- 11.2 is base, this goes from ~11.7 to 20
+		end
+	end
 end

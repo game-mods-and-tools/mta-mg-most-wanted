@@ -1,10 +1,19 @@
-g_SHOW_PERK_SELECTION_AND_EXPLANATION = "show perks and explanations"
-g_START_PERK_SELECTION_AND_EXPLANATION_TIMER = "will close the perk window in some time" -- time
-g_CLOSE_PERK_SELECTION_AND_EXPLANATION = "close the ui"
-g_FUGITIVE_PERK = { id = "fugitive perk id", name = "Fugitive", description = "After earning $500, you receive a single use nitro." }
-g_MECHANIC_PERK = { id = "mechanic perk id", name = "Mechanic", description = "When not on a job, stand still to slowly regain health." }
-g_HOTSHOT_PERK = { id = "hotshot perk id", name = "Hotshot", description = "The lower your health, the higher your top speed." }
-g_PLAYER_SELECTED_PERK_EVENT = "select perk event" -- player, perk
+g_FUGITIVE_PERK = {
+	id = "fugitive perk id",
+	name = "Fugitive",
+	description = "After reaching the quota, become temporarily invisible."
+}
+g_MECHANIC_PERK = {
+	id = "mechanic perk id",
+	name = "Mechanic",
+	description = "Stand still to slowly regain health."
+}
+g_HOTSHOT_PERK = {
+	id = "hotshot perk id",
+	name = "Hotshot",
+	description = "The lower your health, the higher your top speed."
+}
+g_PERK_SELECTION_DURATION = 7000
 
 g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
 

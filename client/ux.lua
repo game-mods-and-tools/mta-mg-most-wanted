@@ -172,7 +172,38 @@ addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 	role = rolee
 
 	showText[roleInfo] = true
-	setTimer(function() showText[roleInfo] = false end, 8000, 1)
+	function selectPerk(_, _, i)
+		destroyElement(guiRoot)
+		local screenWidth, screenHeight = guiGetScreenSize()
+		if i == 1 then
+			guiCreateStaticImage(screenWidth / 2 - 40 - screenWidth / 6, screenHeight * 0.6, 64, 64, "client/fugitive_bw.png", false)
+		else
+			guiCreateStaticImage(screenWidth / 2 - 40 - screenWidth / 6, screenHeight * 0.6, 64, 64, "client/fugitive.png", false)
+		end
+		if i == 2 then
+			guiCreateStaticImage(screenWidth / 2 - 40, screenHeight * 0.6, 64, 64, "client/mechanic_bw.png", false)
+		else
+			guiCreateStaticImage(screenWidth / 2 - 40, screenHeight * 0.6, 64, 64, "client/mechanic.png", false)
+		end
+		if i == 3 then
+			guiCreateStaticImage(screenWidth / 2 - 40 + screenWidth / 6, screenHeight * 0.6, 64, 64, "client/hotshot_bw.png", false)
+		else
+			guiCreateStaticImage(screenWidth / 2 - 40 + screenWidth / 6, screenHeight * 0.6, 64, 64, "client/hotshot.png", false)
+		end
+	end
+	if role == g_CRIMINAL_ROLE then
+		selectPerk(0)
+		bindKey("1", "down", selectPerk, 1)
+		bindKey("2", "down", selectPerk, 2)
+		bindKey("3", "down", selectPerk, 3)
+	end
+	setTimer(function()
+		unbindKey("1", "down", selectPerk)
+		unbindKey("2", "down", selectPerk)
+		unbindKey("3", "down", selectPerk)
+		showText[roleInfo] = false
+		destroyElement(guiRoot)
+	end, g_PERK_SELECTION_DURATION, 1)
 end)
 
 addEvent(g_MONEY_UPDATE_EVENT, true)
@@ -248,20 +279,17 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				dxDrawBorderedText(0.5,"CRIMINAL", screenWidth / 2 - 400, screenHeight * 0.18,  screenWidth, screenHeight, tocolor(150, 0 , 200, 255), 5, "bankgothic")
 				dxDrawBorderedText(0.5,"Complete the various jobs available in the city for money.", screenWidth / 2 - 410, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"Once the money quota is reached, it's time to escape.", screenWidth / 2 - 385, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-				--		dxDrawBorderedText(0.5,"The#1EBEF0 Police#D2D2D2 is out to get you. Evade them at all costs!", screenWidth / 2 - 380, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"The police is out to get you. Evade them at all costs!", screenWidth / 2 - 380, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 
 				-- perk ui, doesnt do anything
-				-- dxDrawBorderedText(0.5,"PRESS THE NUMBER TO SELECT A PERK", screenWidth / 2 - screenWidth / 6, screenHeight * 0.55,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.3, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"PRESS THE NUMBER TO SELECT A PERK", screenWidth / 2 - screenWidth / 6, screenHeight * 0.55,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.3, "sans", center, top, false, false, false, true)
 
 				-- guiCreateStaticImage(screenWidth / 2 - 40 - screenWidth / 6, screenHeight * 0.6, 64, 64, "client/fugitive.png", false)
-				-- dxDrawBorderedText(0.5,"1", screenWidth / 2 - screenWidth / 6 - 15, screenHeight * 0.6 + 80,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"1", screenWidth / 2 - screenWidth / 6 - 15, screenHeight * 0.6 + 80,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
 
-				-- guiCreateStaticImage(screenWidth / 2 - 40, screenHeight * 0.6, 64, 64, "client/mechanic.png", false)
-				-- dxDrawBorderedText(0.5,"2", screenWidth / 2 - 15, screenHeight * 0.6 + 80,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"2", screenWidth / 2 - 15, screenHeight * 0.6 + 80,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
 
-				-- guiCreateStaticImage(screenWidth / 2 - 40 + screenWidth / 6, screenHeight * 0.6, 64, 64, "client/hotshot.png", false)
-				-- dxDrawBorderedText(0.5,"3",				screenWidth / 2 + screenWidth / 6 - 15, screenHeight * 0.6 + 80,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"3",				screenWidth / 2 + screenWidth / 6 - 15, screenHeight * 0.6 + 80,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
 			elseif role == g_POLICE_ROLE then
 				dxDrawBorderedText(0.5,"POLICE", screenWidth / 2 - 330, screenHeight * 0.18,  screenWidth, screenHeight, tocolor(30, 190, 240, 255), 5, "bankgothic")
 				--		dxDrawBorderedText(0.5,"#A000D2Criminals#D2D2D2 are planning to go on a crime spree.", screenWidth / 2 - 40, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)

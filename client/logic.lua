@@ -47,6 +47,7 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			addEventHandler("onClientPedDamage", ped, function()
 				setPedControlState(ped, "forwards", true)
 				setPedCameraRotation(ped, getPedCameraRotation(localPlayer) - (45 + math.random() * 90))
+				setPedLookAt(ped, 0, 0, 0, -1, 1000, localPlayer)
 				if not firstHit then
 					firstHit = true
 					triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
@@ -108,46 +109,14 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 			destroyElement(marker)
 			destroyElement(blip)
 
-			local stop = false
-			function fade(interval)
-				if stop then return end
-
-				setCameraFieldOfView("vehicle", 30)
-				setCameraDrunkLevel(255)
-				fadeCamera(false, 1)
-				setTimer(function()
-					local veh = getPedOccupiedVehicle(localPlayer)
-					for i = 1, math.random(1, 5) do
-						local x, y, z = getPositionFromElementOffset(veh, 0, 2 + i, 0)
-						local ped = createPed(math.random(312), x, y, z)
-						if ped then
-							setPedControlState(ped, "forwards", true)
-							setPedCameraRotation(ped, math.random(360))
-						end
-					end
-
-					fadeCamera(true, 1)
-					setTimer(function()
-						fade(math.random(2, 3))
-					end, interval * 1000, 1)
-				end, interval * 1000, 1)
-			end
-
-			local baseInterval = 3
-			fade(baseInterval)
+			fadeCamera(false, 3)
 
 			setTimer(function()
-				stop = true
+				triggerEvent("onClientCall_race", root, "checkpointReached", element)
 				setTimer(function()
-					fadeCamera(false, 1)
-					setTimer(function()
-						triggerEvent("onClientCall_race", root, "checkpointReached", element)
-						setTimer(function()
-							fadeCamera(true, 1)
-						end, 10000, 1)
-					end, 5000, 1)
-				end, 5000, 1)
-			end, 15000, 1)
+					fadeCamera(true, 1)
+				end, 1000, 1)
+			end, 5000, 1)
 		end
 		addEventHandler("onClientColShapeHit", col, copend)
 	end
@@ -163,13 +132,4 @@ function cleanupJobs()
 		killTimer(timer)
 	end
 	timer = nil
-end
-
-
-function getPositionFromElementOffset(element, offX, offY, offZ)
-	local m = getElementMatrix (element)  -- Get the matrix
-	local x = offX * m[1][1] + offY * m[2][1] + offZ * m[3][1] + m[4][1]  -- Apply transform
-	local y = offX * m[1][2] + offY * m[2][2] + offZ * m[3][2] + m[4][2]
-	local z = offX * m[1][3] + offY * m[2][3] + offZ * m[3][3] + m[4][3]
-	return x, y, z
 end
