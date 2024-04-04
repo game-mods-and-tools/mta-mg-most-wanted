@@ -99,7 +99,7 @@ function spawnExitPoint(id)
 end
 
 function maybeSpawnJob()
-	if availableJobs < countPlayersInTeam(g_CriminalTeam) * g_AVAILABLE_JOBS_MULTIPLIER then
+	if availableJobs < countPlayersInTeam(g_CriminalTeam) * g_AVAILABLE_JOBS_MULTIPLIER + 10 then
 		if lastSpawnedJobAt < getRealTime().timestamp - (g_DELAY_BETWEEN_JOB_SPAWN / 1000) then
 			lastJobId = lastJobId + 1
 			spawnJob(lastJobId)
@@ -187,7 +187,7 @@ function preGameSetup()
 	end
 
 	-- set up player based limits
-	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10
+	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10 + 2
 	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
 		money = 0,
 		moneyQuota = moneyEscapeQuota * randomMoneyScaler

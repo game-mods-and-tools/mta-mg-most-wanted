@@ -117,11 +117,13 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 				fadeCamera(false, 1)
 				setTimer(function()
 					local veh = getPedOccupiedVehicle(localPlayer)
-					local x, y, z = getPositionFromElementOffset(veh, 0, 5, 0)
-					local ped = createPed(math.random(312), x, y, z)
-					if ped then
-						setPedControlState(ped, "forwards", true)
-						setPedCameraRotation(ped, math.random(360))
+					for i = 1, math.random(1, 5) do
+						local x, y, z = getPositionFromElementOffset(veh, 0, 2 + i, 0)
+						local ped = createPed(math.random(312), x, y, z)
+						if ped then
+							setPedControlState(ped, "forwards", true)
+							setPedCameraRotation(ped, math.random(360))
+						end
 					end
 
 					fadeCamera(true, 1)
