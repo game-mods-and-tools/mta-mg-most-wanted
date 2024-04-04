@@ -78,6 +78,7 @@ function Player:setRole(role)
 			if getElementModel(copCar) == 596 then
 				-- at least 1 cop car to use
 				self.role = role
+				setPlayerNametagShowing(self.player, true)
 
 				-- change player vehicle and tp to cop vehicle position
 				local vehicle = getPedOccupiedVehicle(self.player)
@@ -105,6 +106,7 @@ function Player:setRole(role)
 		return false
 	else
 		self.role = role
+		setPlayerNametagShowing(self.player, false)
 		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 
 		setPlayerTeam(self.player, g_CriminalTeam)
