@@ -23,10 +23,36 @@ addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 
 		setTimer(function()
 			preGameSetup()
-			startGameLoop()
+			perkSetup(g_PERK_SELECTION_DURATION)
+
+			setTimer(function()
+				startGameLoop()
+			end, g_PERK_SELECTION_DURATION, 1)
 		end, 1000, 1)
 	end
 end)
+
+function perkSetup(perkSelectionDuration)
+	function selectPerk(player, _, _, perkId)
+		playersByClient[player]:setPerk(perkId)
+	end
+
+	for player in pairs(playersByClient) do
+		toggleAllControls(player, false)
+		bindKey(player, "1", "down", selectPerk, g_FUGITIVE_PERK.id)
+		bindKey(player, "2", "down", selectPerk, g_MECHANIC_PERK.id)
+		bindKey(player, "3", "down", selectPerk, g_HOTSHOT_PERK.id)
+	end
+
+	setTimer(function()
+		for player in pairs(playersByClient) do
+			toggleAllControls(player, true)
+			unbindKey(player, "1", "down", selectPerk)
+			unbindKey(player, "2", "down", selectPerk)
+			unbindKey(player, "3", "down", selectPerk)
+		end
+	end, perkSelectionDuration, 1)
+end
 
 function startGameLoop()
 	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, gameState)
@@ -36,7 +62,14 @@ function startGameLoop()
 		maybeSpawnExitPoint()
 		maybeSpawnJob()
 		updateJobProgress()
+		checkPerks()
 	end, 1000 / g_SERVER_TICK_RATE, 0)
+end
+
+function checkPerks()
+	for _, player in pairs(playersByClient) do
+		player:checkPerk()
+	end
 end
 
 function maybeUpdateGameState()
