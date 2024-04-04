@@ -85,6 +85,7 @@ function Player:setRole(role)
 				setElementPosition(vehicle, getElementPosition(copCar))
 				setElementRotation(vehicle, getElementRotation(copCar))
 				setVehicleHandling(vehicle, "collisionDamageMultiplier", 0)
+				setVehicleHandling(vehicle, "acceleration", 27)
 				setVehicleColor(vehicle, 0, 0, 0, 255, 255, 255, 0, 0, 0)
 
 				bindKey(self.player, "vehicle_secondary_fire", "down", function()
@@ -107,6 +108,9 @@ function Player:setRole(role)
 		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 
 		setPlayerTeam(self.player, g_CriminalTeam)
+
+		local clowncar = getPedOccupiedVehicle(self.player)
+		setVehicleHandling(clowncar, "collisionDamageMultiplier", 0.2)
 	end
 
 	return true
