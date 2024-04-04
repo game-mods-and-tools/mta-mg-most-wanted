@@ -72,12 +72,6 @@ function updateGameState(state)
 		end
 	elseif state == g_BADEND_STATE then
 		-- no criminals, so guess its ogre?
-		outputChatBox("There are no more criminals... cops serve no purpose")
-		setTimer(function()
-			for _, cop in ipairs(getPlayersInTeam(g_PoliceTeam)) do
-				killPed(cop, cop)
-			end
-		end, 5000, 1)
 	end
 
 	gameState = state

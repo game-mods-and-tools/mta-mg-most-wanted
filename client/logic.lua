@@ -98,6 +98,56 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 			local vehicle = getPedOccupiedVehicle(cop)
 			setVehicleSirensOn(vehicle, true)
 		end
+	elseif state == g_BADEND_STATE then
+		-- drive to donut shop
+		local marker = createMarker(1026, -1334, 12, "cylinder", 4, 181, 101, 29, 200)
+		local blip = createBlip(1026, -1334, 13, 10)
+		local col = createColCircle(1026, -1334, 4)
+		function copend(element)
+			removeEventHandler("onClientColShapeHit", col, copend)
+			destroyElement(marker)
+			destroyElement(blip)
+
+			local stop = false
+			function fade(interval)
+				if stop then return end
+
+				setCameraFieldOfView("vehicle", 30)
+				setCameraDrunkLevel(255)
+				fadeCamera(false, 1)
+				setTimer(function()
+					local veh = getPedOccupiedVehicle(localPlayer)
+					local x, y, z = getPositionFromElementOffset(veh, 0, 5, 0)
+					local ped = createPed(math.random(312), x, y, z)
+					if ped then
+						setPedControlState(ped, "forwards", true)
+						setPedCameraRotation(ped, math.random(360))
+					end
+
+					fadeCamera(true, 1)
+					setTimer(function()
+						fade(math.random(2, 3))
+					end, interval * 1000, 1)
+				end, interval * 1000, 1)
+			end
+
+			local baseInterval = 3
+			fade(baseInterval)
+
+			setTimer(function()
+				stop = true
+				setTimer(function()
+					fadeCamera(false, 1)
+					setTimer(function()
+						triggerEvent("onClientCall_race", root, "checkpointReached", element)
+						setTimer(function()
+							fadeCamera(true, 1)
+						end, 10000, 1)
+					end, 5000, 1)
+				end, 5000, 1)
+			end, 15000, 1)
+		end
+		addEventHandler("onClientColShapeHit", col, copend)
 	end
 end)
 
@@ -111,4 +161,13 @@ function cleanupJobs()
 		killTimer(timer)
 	end
 	timer = nil
+end
+
+
+function getPositionFromElementOffset(element, offX, offY, offZ)
+	local m = getElementMatrix (element)  -- Get the matrix
+	local x = offX * m[1][1] + offY * m[2][1] + offZ * m[3][1] + m[4][1]  -- Apply transform
+	local y = offX * m[1][2] + offY * m[2][2] + offZ * m[3][2] + m[4][2]
+	local z = offX * m[1][3] + offY * m[2][3] + offZ * m[3][3] + m[4][3]
+	return x, y, z
 end

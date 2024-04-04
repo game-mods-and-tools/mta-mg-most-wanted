@@ -24,6 +24,7 @@ local endGameInfo = "endGameInfo"
 local escapeReady = "escapeReady"
 local endEndGameInfo = "endEndGameInfo"
 local endEndGameScrollTimer = nil
+local badEndGameInfo = "badEndGameInfo"
 
 addEvent(g_SHOW_JOB_EVENT, true)
 addEventHandler(g_SHOW_JOB_EVENT, resourceRoot, function(id, type, pos)
@@ -189,6 +190,9 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 		showText[endEndGameInfo] = true
 		playSound("client/pag.mp3")
 		endEndGameScrollTimer = setTimer(function() showText[endEndGameInfo] = false end, 10000, 1)
+	elseif state == g_BADEND_STATE then
+		showText[badEndGameInfo] = true
+		setTimer(function() showText[badEndGameInfo] = false end, 5000, 1)
 	end
 end)
 
@@ -201,7 +205,6 @@ end)
 addEventHandler("onClientResourceStart", resourceRoot, function()
 	addEventHandler("onClientRender", root, function()
 		local screenWidth, screenHeight = guiGetScreenSize()
-
 		-- pager messages
 		if showText[endEndGameInfo] then
 			local timeLeft, _, totalTime = getTimerDetails(endEndGameScrollTimer)
@@ -265,6 +268,12 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2 - 440, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
 			return
+		elseif showText[badEndGameInfo] then
+			if role == g_POLICE_ROLE then
+				dxDrawBorderedText(0.5,"All#A000D2 criminals#C8C8C8 are gone...", screenWidth / 2 - 260, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Temporary peace has returned to the city.", screenWidth / 2 - 440, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Pick up some #B5651DDonuts#C8C8C8 before you drive back to the #33A5FFstation#C8C8C8...", screenWidth / 2 - 600, screenHeight * 0.35 + 180,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.5, "sans", center, top, false, false, false, true)
+			end
 		end
 
 		-- hud
