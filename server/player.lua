@@ -55,8 +55,8 @@ local criminalNames = {
 	"GTA Community Rebellion"
 }
 
-g_PoliceTeam = createTeam(g_POLICE_TEAM_NAME)
-g_CriminalTeam = createTeam(criminalNames[math.random(#criminalNames)])
+g_PoliceTeam = createTeam(g_POLICE_TEAM_NAME, 30, 190, 240)
+g_CriminalTeam = createTeam(criminalNames[math.random(#criminalNames)], 150, 0 , 200)
 
 function Player:new(player)
 	local o = {}
@@ -101,6 +101,7 @@ function Player:setRole(role)
 				triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
 
 				setPlayerTeam(self.player, g_PoliceTeam)
+				setElementModel(self.player, 285)
 				return true
 			end
 		end
@@ -153,7 +154,7 @@ function Player:checkPerk()
 			end
 		elseif self.perkId == g_HOTSHOT_PERK.id then
 			setVehicleHandling(veh, "maxVelocity", 450 - getElementHealth(veh) / 4) -- 200 is base, goes from 250 to 450
-			setVehicleHandling(veh, "engineAcceleration", 20 - getElementHealth(veh) / 120) -- 11.2 is base, this goes from ~11.7 to 20
+			setVehicleHandling(veh, "engineAcceleration", 19.5 - getElementHealth(veh) / 120) -- 11.2 is base, this goes from ~11.7 to 20
 		end
 	end
 end

@@ -1,4 +1,4 @@
-<def name="most-wanted">
+<def name="MG-MostWantedLosSantos">
 	<element name="pickup_job" friendlyname="Pickup Job">
 		<data name="position" type="coord3d" default="0,0,0" />
 		<data name="rotation" type="coord3d" default="0,0,0" />
@@ -44,7 +44,7 @@
         <parent name="group" type="exit_group" default="" />
         <data name="position" type="coord3d" default="0,0,0" />
         <data name="rotation" type="coord3d" default="0,0,0" />
-        <object model="8172" position="0,0,0" rotation="90,0,0" alpha="0"/>
+        <object model="8172" position="0,0,0" editorOnly="true" rotation="90,0,0" alpha="0"/>
     </element>
     <element name="exit_barricade" friendlyname="xExit Barricade">
         <parent name="group" type="exit_group" default="" />

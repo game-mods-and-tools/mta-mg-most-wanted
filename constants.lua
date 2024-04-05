@@ -13,13 +13,13 @@ g_HOTSHOT_PERK = {
 	name = "Hotshot",
 	description = "The lower your health, the higher your top speed."
 }
-g_PERK_SELECTION_DURATION = 10000
+g_PERK_SELECTION_DURATION = 15000
 
 g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
 
 g_POLICE_ROLE = "PoliceRole"
 g_CRIMINAL_ROLE = "CriminalRole"
-g_POLICE_TEAM_NAME = "Cops"
+g_POLICE_TEAM_NAME = "The Police"
 
 g_SHOW_JOB_EVENT = "onShowJob" -- jobId, jobType, jobPos
 g_HIDE_JOB_EVENT = "onHideJob" -- jobId
@@ -39,12 +39,12 @@ g_BADEND_STATE = "badend"
 g_PICKUP_JOB = {
 	elementType = "pickup_job",
 	type = "pickup job",
-	detectionRadius = 200,
+	detectionRadius = 250,
 	zoneRadius = 5,
 	blip = 52,
-	color = { r = 30, g = 170, b = 0, a = 100 },
+	color = { r = 20, g = 150, b = 0, a = 100 },
 	jobWeight = 1,
-	progressRate = 0.2
+	progressRate = 0.15
 }
 g_DELIVERY_JOB = {
 	elementType = "delivery_job_start",
@@ -53,21 +53,21 @@ g_DELIVERY_JOB = {
 		ELIMINATION = "elimination",
 		DELIVERY = "delivery",
 	},
-	detectionRadius = 200,
+	detectionRadius = 250,
 	zoneRadius = 5,
 	blip = 51,
 	color = { r = 255, g = 0, b = 0, a = 100 },
-	jobWeight = 1 -- and bonus
+	jobWeight = 1.2 -- and bonus
 }
 g_EXTORTION_JOB = {
 	elementType = "extortion_job",
 	type = "extortion job",
-	detectionRadius = 200,
+	detectionRadius = 250,
 	zoneRadius = 5,
 	blip = 55,
 	color = { r = 0, g = 0, b = 160, a = 100 },
 	jobWeight = 1.2,
-	progressRate = 0.03, -- per interval
+	progressRate = 0.025, -- per interval
 	decayRate = 0.05, -- per interval
 	interval = 100 -- in ms
 }
@@ -78,9 +78,9 @@ g_GROUP_JOB = {
 	zoneRadius = 22,
 	blip = 6,
 	color = { r = 255, g = 255, b = 255, a = 100 },
-	jobWeight = 5,
-	progressRate = 0.1,
-	decayRate = 0.05,
+	jobWeight = 3,
+	progressRate = 0.05,
+	decayRate = 0.1,
 	minPlayers = 3
 }
 g_JOBS_BY_TYPE = {
