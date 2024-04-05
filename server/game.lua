@@ -16,7 +16,7 @@ gameState = g_COREGAME_STATE
 
 addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
-	if state == "GridCountdown" then
+	if state == "Running" then
 		setTimer(function()
 			preGameSetup()
 			perkSetup(g_PERK_SELECTION_DURATION)
@@ -24,7 +24,7 @@ addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 			setTimer(function()
 				startGameLoop()
 			end, g_PERK_SELECTION_DURATION, 1)
-		end, 1000, 1)
+		end, 1, 1)
 	end
 end)
 
