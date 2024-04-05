@@ -17,10 +17,6 @@ gameState = g_COREGAME_STATE
 addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 	if state == "GridCountdown" then
-		for _, player in pairs(getElementsByType("player")) do
-			playersByClient[player] = Player:new(player)
-		end
-
 		setTimer(function()
 			preGameSetup()
 			perkSetup(g_PERK_SELECTION_DURATION)
@@ -201,8 +197,12 @@ function preGameSetup()
 
 	-- randomly select cops and criminals
 	local players = {}
-	for _, player in pairs(playersByClient) do
-		players[#players + 1] = player
+	for _, player in pairs(getElementsByType("player")) do
+		playersByClient[player] = Player:new(player)
+		players[#players + 1] = playersByClient[player]
+
+		-- should toggle internal boolean to hide race nametags
+		triggerClientEvent(player, "onClientScreenFadedOut", resourceRoot)
 	end
 
 	shuffle(players)
