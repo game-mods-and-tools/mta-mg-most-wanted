@@ -87,18 +87,19 @@ end)
 addEvent(g_GAME_STATE_UPDATE_EVENT, true)
 addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	if state == g_COREGAME_STATE then
-		local team = getPlayerTeam(localPlayer)
-		local policeTeam = getTeamFromName(g_POLICE_TEAM_NAME)
+		-- keep trying to activate police sirens for criminals
+		setTimer(function()
+			local policeTeam = getTeamFromName(g_POLICE_TEAM_NAME)
+			if getPlayerTeam(localPlayer) == policeTeam then return end
 
-		if team == policeTeam then
-			return
-		end
-
-		local cops = getPlayersInTeam(policeTeam)
-		for _, cop in ipairs(cops) do
-			local vehicle = getPedOccupiedVehicle(cop)
-			setVehicleSirensOn(vehicle, true)
-		end
+			local cops = getPlayersInTeam(policeTeam)
+			for _, cop in ipairs(cops) do
+				local vehicle = getPedOccupiedVehicle(cop)
+				if vehicle and not getVehicleSirensOn(vehicle) then
+					setVehicleSirensOn(vehicle, true)
+				end
+			end
+		end, 1000, 0)
 	elseif state == g_BADEND_STATE then
 		-- drive to donut shop
 		local marker = createMarker(1026, -1334, 12, "cylinder", 4, 181, 101, 29, 200)
