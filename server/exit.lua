@@ -95,7 +95,7 @@ function Exit:enable()
 
 	for _, e in ipairs(self.exits) do
 		local x, y, z = getElementPosition(e)
-		self.blips[#self.blips + 1] = createBlip(x, y, z, 0, 3, 255, 220, 0)
+		self.blips[#self.blips + 1] = createBlip(x, y, z, 0, 2, 255, 220, 0)
 		self.markers[#self.markers + 1] = createMarker(x, y, z, "checkpoint", 8, 255, 220, 0)
 	end
 

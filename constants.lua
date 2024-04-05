@@ -13,7 +13,7 @@ g_HOTSHOT_PERK = {
 	name = "Hotshot",
 	description = "The lower your health, the higher your top speed."
 }
-g_PERK_SELECTION_DURATION = 7000
+g_PERK_SELECTION_DURATION = 10000
 
 g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
 
