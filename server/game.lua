@@ -90,7 +90,7 @@ function updateGameState(state)
 		lastSpawnedExitAt = getRealTime().timestamp
 
 		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
-			createBlipAttachedTo(criminal, 0, 2, 223, 179, 0, 255, 6, 80085)
+			createBlipAttachedTo(criminal, 0, 2, 150, 0, 200, 255, 6, 80085)
 		end
 	elseif state == g_ENDENDGAME_STATE then
 		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
