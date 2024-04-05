@@ -34,7 +34,8 @@ function perkSetup(perkSelectionDuration)
 	end
 
 	for player in pairs(playersByClient) do
-		toggleAllControls(player, false)
+		toggleControl(player, "accelerate", false)
+		toggleControl(player, "brake_reverse", false)
 		bindKey(player, "1", "down", selectPerk, g_FUGITIVE_PERK.id)
 		bindKey(player, "2", "down", selectPerk, g_MECHANIC_PERK.id)
 		bindKey(player, "3", "down", selectPerk, g_HOTSHOT_PERK.id)
@@ -42,7 +43,8 @@ function perkSetup(perkSelectionDuration)
 
 	setTimer(function()
 		for player in pairs(playersByClient) do
-			toggleAllControls(player, true)
+			toggleControl(player, "accelerate", true)
+			toggleControl(player, "brake_reverse", true)
 			unbindKey(player, "1", "down", selectPerk)
 			unbindKey(player, "2", "down", selectPerk)
 			unbindKey(player, "3", "down", selectPerk)
