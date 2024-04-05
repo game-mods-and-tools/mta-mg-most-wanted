@@ -138,18 +138,18 @@ function Player:checkPerk()
 			end
 		elseif self.perkId == g_FUGITIVE_PERK.id then
 			if gameState ~= g_COREGAME_STATE and not self.fugitived then
-					setElementAlpha(veh, 0)
-					setElementAlpha(self.player, 0)
-					setVehicleLightState(veh, 0, 1)
-					setVehicleLightState(veh, 1, 1)
-					setTimer(function()
-						if veh then
-							setElementAlpha(veh, 255)
-							setElementAlpha(self.player, 255)
-							setVehicleLightState(veh, 0, 0)
-							setVehicleLightState(veh, 1, 0)
-						end
-					end, g_DELAY_BETWEEN_EXIT_SPAWN * 1.5, 0) -- invisible until exit spawns and then some
+				setElementAlpha(veh, 0)
+				setElementAlpha(self.player, 0)
+				setVehicleLightState(veh, 0, 1)
+				setVehicleLightState(veh, 1, 1)
+				setTimer(function()
+					if veh then
+						setElementAlpha(veh, 255)
+						setElementAlpha(self.player, 255)
+						setVehicleLightState(veh, 0, 0)
+						setVehicleLightState(veh, 1, 0)
+					end
+				end, g_DELAY_BETWEEN_EXIT_SPAWN * 1.5, 0) -- invisible until exit spawns and then some
 				self.fugitived = true
 			end
 		elseif self.perkId == g_HOTSHOT_PERK.id then
