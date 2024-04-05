@@ -41,18 +41,23 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			setPedAnimation(ped, "dealer", "dealer_deal")
 
 			local firstHit = false
-			addEventHandler("onClientPedWasted", ped, function()
-				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
-			end)
-			addEventHandler("onClientPedDamage", ped, function()
+			function pedRun()
 				setPedControlState(ped, "forwards", true)
-				setPedCameraRotation(ped, getPedCameraRotation(localPlayer) - (45 + math.random() * 90))
+				setPedCameraRotation(ped, getPedCameraRotation(localPlayer))
 				setPedLookAt(ped, 0, 0, 0, -1, 1000, localPlayer)
 				if not firstHit then
 					firstHit = true
 					triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
 				end
-			end)
+			end
+
+			function pedDie()
+				removeEventHandler("onClientPedWasted", ped, pedDie)
+				removeEventHandler("onClientPedDamage", ped, pedRun)
+				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
+			end
+			addEventHandler("onClientPedWasted", ped, pedDie)
+			addEventHandler("onClientPedDamage", ped, pedRun)
 		end
 	elseif type == g_EXTORTION_JOB.type then
 		honkProgress = 0
