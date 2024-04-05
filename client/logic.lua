@@ -41,10 +41,13 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			setPedAnimation(ped, "dealer", "dealer_deal")
 
 			local firstHit = false
+
+			local turnPed = setTimer(function()
+				setPedCameraRotation(ped, math.random(360))
+			end, 100, 0)
 			function pedRun()
 				setPedControlState(ped, "forwards", true)
-				setPedCameraRotation(ped, getPedCameraRotation(localPlayer))
-				setPedLookAt(ped, 0, 0, 0, -1, 1000, localPlayer)
+				-- setPedLookAt(ped, 0, 0, 0, -1, 1000, localPlayer)
 				if not firstHit then
 					firstHit = true
 					triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
@@ -52,6 +55,7 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			end
 
 			function pedDie()
+				killTimer(turnPed)
 				removeEventHandler("onClientPedWasted", ped, pedDie)
 				removeEventHandler("onClientPedDamage", ped, pedRun)
 				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
