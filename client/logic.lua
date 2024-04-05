@@ -133,3 +133,12 @@ function cleanupJobs()
 	end
 	timer = nil
 end
+
+bindKey("4", "down", function()
+    print("4", getElementPosition(localPlayer))
+    for _, ped in ipairs(getElementsByType("ped")) do
+        if getElementModel(ped) == 127 then
+            print("pos", getElementPosition(ped))
+        end
+    end
+end)

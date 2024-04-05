@@ -178,19 +178,22 @@ addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 
 
 		if i == 1 then
-			guiCreateStaticImage(screenWidth / 2 - 40 - 240, screenHeight * 0.7, 64, 64, "client/fugitive.png", false)
+			guiCreateStaticImage(screenWidth / 2 - 55 - 240, screenHeight * 0.7, 96, 96, "client/fugitive.png", false)
+			playSound("client/select.mp3")
 		else
-			guiCreateStaticImage(screenWidth / 2 - 40 - 240, screenHeight * 0.7, 64, 64, "client/fugitive_bw.png", false)
+			guiCreateStaticImage(screenWidth / 2 - 55 - 240, screenHeight * 0.7, 96, 96, "client/fugitive_bw.png", false)
 		end
 		if i == 2 then
-			guiCreateStaticImage(screenWidth / 2 - 40, screenHeight * 0.7, 64, 64, "client/mechanic.png", false)
+			guiCreateStaticImage(screenWidth / 2 - 55, screenHeight * 0.7, 96, 96, "client/mechanic.png", false)
+			playSound("client/select.mp3")
 		else
-			guiCreateStaticImage(screenWidth / 2 - 40, screenHeight * 0.7, 64, 64, "client/mechanic_bw.png", false)
+			guiCreateStaticImage(screenWidth / 2 - 55, screenHeight * 0.7, 96, 96, "client/mechanic_bw.png", false)
 		end
 		if i == 3 then
-			guiCreateStaticImage(screenWidth / 2 - 40 + 240, screenHeight * 0.7, 64, 64, "client/hotshot.png", false)
+			guiCreateStaticImage(screenWidth / 2 - 55 + 240, screenHeight * 0.7, 96, 96, "client/hotshot.png", false)
+			playSound("client/select.mp3")
 		else
-			guiCreateStaticImage(screenWidth / 2 - 40 + 240, screenHeight * 0.7, 64, 64, "client/hotshot_bw.png", false)
+			guiCreateStaticImage(screenWidth / 2 - 55 + 240, screenHeight * 0.7, 96, 96, "client/hotshot_bw.png", false)
 		end
 	end
 	if role == g_CRIMINAL_ROLE then
@@ -283,22 +286,22 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				dxDrawBorderedText(0.5,"The police is out to get you. Evade them at all costs!", screenWidth / 2 - 380, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 
 				-- perk ui
-				dxDrawBorderedText(0.5,"PRESS THE NUMBER TO SELECT A PERK", screenWidth / 2 - screenWidth / 6, screenHeight * 0.6,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.3, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"PRESS THE NUMBER TO SELECT A PERK", screenWidth / 2 - 320, screenHeight * 0.6,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.3, "sans", center, top, false, false, false, true)
 
 				dxDrawBorderedText(0.5, "1", screenWidth / 2 - 15 - 240, screenHeight * 0.7 - 35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5, "FUGITIVE", screenWidth / 2 - 325, screenHeight * 0.7 + 65, screenWidth, screenHeight, tocolor(170, 0 , 220, 255), 2.7, "arial", center, top, false, false, false, false, true)
-				dxDrawBorderedText(0.5, "If quota is reached, turn", screenWidth / 2 - 340, screenHeight * 0.7 + 105, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
-				dxDrawBorderedText(0.5, "undetectable temporarily", screenWidth / 2 - 345, screenHeight * 0.7 + 125, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.4, "FUGITIVE", screenWidth / 2 - 325, screenHeight * 0.7 + 95, screenWidth, screenHeight, tocolor(170, 0 , 220, 255), 2.7, "arial", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.5, "If quota is reached, turn", screenWidth / 2 - 340, screenHeight * 0.7 + 135, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.5, "undetectable temporarily", screenWidth / 2 - 345, screenHeight * 0.7 + 155, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
 
 				dxDrawBorderedText(0.5, "2", screenWidth / 2 - 15, screenHeight * 0.7 - 35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5, "MECHANIC", screenWidth / 2 - 100, screenHeight * 0.7 + 65, screenWidth, screenHeight, tocolor(170, 0 , 220, 255), 2.7, "arial", center, top, false, false, false, false, true)
-				dxDrawBorderedText(0.5, "If not on a job, stand", screenWidth / 2 - 90, screenHeight * 0.7 + 105, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
-				dxDrawBorderedText(0.5, "still to slowly repair", screenWidth / 2 - 85, screenHeight * 0.7 + 125, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.4, "MECHANIC", screenWidth / 2 - 100, screenHeight * 0.7 + 95, screenWidth, screenHeight, tocolor(170, 0 , 220, 255), 2.7, "arial", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.5, "When standing still,", screenWidth / 2 - 85, screenHeight * 0.7 + 135, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.5, "slowly regain health", screenWidth / 2 - 85, screenHeight * 0.7 + 155, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
 
 				dxDrawBorderedText(0.5, "3", screenWidth / 2 - 15 + 240, screenHeight * 0.7 - 35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5, "HOTSHOT", screenWidth / 2 + 150, screenHeight * 0.7 + 65, screenWidth, screenHeight, tocolor(170, 0 , 220, 255), 2.7, "arial", center, top, false, false, false, false, true)
-				dxDrawBorderedText(0.5, "The lower your health,", screenWidth / 2 + 150, screenHeight * 0.7 + 105, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
-				dxDrawBorderedText(0.5, "the higher your top speed", screenWidth / 2 + 140, screenHeight * 0.7 + 125, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.4, "HOTSHOT", screenWidth / 2 + 150, screenHeight * 0.7 + 95, screenWidth, screenHeight, tocolor(170, 0 , 220, 255), 2.7, "arial", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.5, "The lower your health,", screenWidth / 2 + 150, screenHeight * 0.7 + 135, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.5, "the higher your top speed", screenWidth / 2 + 140, screenHeight * 0.7 + 155, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
 
 			elseif role == g_POLICE_ROLE then
 				dxDrawBorderedText(0.5,"POLICE", screenWidth / 2 - 330, screenHeight * 0.18,  screenWidth, screenHeight, tocolor(30, 190, 240, 255), 5, "bankgothic")
@@ -338,7 +341,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		-- top middle ui
 		if showText[crimeReported] then
 			if role == g_CRIMINAL_ROLE then
-				dxDrawBorderedText(0.5,"CRIME REPORTED! LOCATION REVEALED!", screenWidth / 2 - 520, screenHeight * 0.18, 800, screenHeight, tocolor(222, 26, 26, 255), 3, "arial", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"CRIME REPORTED! LOCATION REVEALED!", screenWidth / 2 - 420, screenHeight * 0.18, 800, screenHeight, tocolor(222, 26, 26, 255), 3, "arial", center, top, false, false, false, true)
 			elseif role == g_POLICE_ROLE then
 				dxDrawBorderedText(0.5,"A #B100B4criminal#D2D2D2 was spotted fleeing a crime!", screenWidth / 2 - 320, screenHeight * 0.75 + 40, 800, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end

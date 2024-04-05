@@ -15,7 +15,7 @@ function Exit:new(group)
 
 	for _, e in ipairs(getElementChildren(group)) do
 		local type = getElementType(e)
-		if type == "exit_barriade" then
+		if type == "exit_barricade" then
 			local barricade = createObject(981, getElementPosition(e))
 			setElementRotation(barricade, getElementData(e, "rotX"), getElementData(e, "rotY"), getElementData(e, "rotZ"))
 			o.barricades[#o.barricades + 1] = barricade
@@ -54,7 +54,7 @@ function Exit:disable()
 
 	for _, wall in ipairs(self.walls) do
 		setElementCollisionsEnabled(wall, true)
-		setElementAlpha(wall, 255)
+		setElementAlpha(wall, 0)
 	end
 	for _, barricade in ipairs(self.barricades) do
 		setElementCollisionsEnabled(barricade, true)
