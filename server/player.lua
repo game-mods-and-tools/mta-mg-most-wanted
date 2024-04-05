@@ -92,7 +92,7 @@ function Player:setRole(role)
 				setVehicleColor(vehicle, 0, 0, 0, 255, 255, 255, 0, 0, 0)
 
 				bindKey(self.player, "vehicle_secondary_fire", "down", function()
-					giveWeapon(self.player, 31, 9999, true) -- uzi
+					giveWeapon(self.player, 28, 9999, true) -- uzi
 					setPedDoingGangDriveby(self.player, not isPedDoingGangDriveby(self.player))
 				end)
 
