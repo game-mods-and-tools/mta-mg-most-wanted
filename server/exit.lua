@@ -22,6 +22,7 @@ function Exit:new(group)
 		elseif type == "exit_wall" then
 			local wall = createObject(8172, getElementPosition(e))
 			setElementRotation(wall, getElementData(e, "rotX"), getElementData(e, "rotY"), getElementData(e, "rotZ"))
+			setElementAlpha(wall, 0)
 			o.walls[#o.walls + 1] = wall
 		elseif type == "swat_van" then
 			local van = createVehicle(427, getElementPosition(e))
@@ -54,7 +55,6 @@ function Exit:disable()
 
 	for _, wall in ipairs(self.walls) do
 		setElementCollisionsEnabled(wall, true)
-		setElementAlpha(wall, 0)
 	end
 	for _, barricade in ipairs(self.barricades) do
 		setElementCollisionsEnabled(barricade, true)
