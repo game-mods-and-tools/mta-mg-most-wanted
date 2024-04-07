@@ -30,7 +30,6 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 				if getPedOccupiedVehicle(localPlayer) ~= element then return end
 				removeEventHandler("onClientColShapeHit", col, finishDelivery)
 
-				triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
 				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 			end
 			addEventHandler("onClientColShapeHit", col, finishDelivery)

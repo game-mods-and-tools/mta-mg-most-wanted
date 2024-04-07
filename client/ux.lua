@@ -113,6 +113,7 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCri
 		elseif type == g_DELIVERY_JOB.type then
 			showText[deliveryJobInfo] = false
 			showText[eliminationJobInfo] = false
+			triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
 		elseif type == g_EXTORTION_JOB.type then
 			showText[extortionJobInfo] = false
 		elseif type == g_GROUP_JOB.type then
@@ -142,10 +143,12 @@ end)
 
 addEvent(g_HIDE_DELIVERY_TARGET_EVENT)
 addEventHandler(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot, function()
-	destroyElement(deliveryTarget.marker)
-	destroyElement(deliveryTarget.blip)
+	if deliveryTarget then
+		destroyElement(deliveryTarget.marker)
+		destroyElement(deliveryTarget.blip)
 
-	deliveryTarget = nil
+		deliveryTarget = nil
+	end
 end)
 
 addEvent(g_SHOW_PROGRESS_BAR_EVENT)
