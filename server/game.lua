@@ -16,39 +16,23 @@ addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 	if state == "Running" then
 		setTimer(function()
+			for _, player in ipairs(getElementsByType("player")) do
+				toggleControl(player, "accelerate", false)
+				toggleControl(player, "brake_reverse", false)
+			end
+
 			preGameSetup()
-			perkSetup()
 
 			setTimer(function()
+				for _, player in ipairs(getElementsByType("player")) do
+					toggleControl(player, "accelerate", true)
+					toggleControl(player, "brake_reverse", true)
+				end
 				startGameLoop()
 			end, g_PERK_SELECTION_DURATION, 1)
 		end, 1000, 1) -- no reason for timer but helps with errors in testing
 	end
 end)
-
-function perkSetup()
-	function selectPerk(player, _, _, perkId)
-		playersByClient[player]:setPerk(perkId)
-	end
-
-	for player in pairs(playersByClient) do
-		toggleControl(player, "accelerate", false)
-		toggleControl(player, "brake_reverse", false)
-		bindKey(player, "1", "down", selectPerk, g_FUGITIVE_PERK.id)
-		bindKey(player, "2", "down", selectPerk, g_MECHANIC_PERK.id)
-		bindKey(player, "3", "down", selectPerk, g_HOTSHOT_PERK.id)
-	end
-
-	setTimer(function()
-		for player in pairs(playersByClient) do
-			toggleControl(player, "accelerate", true)
-			toggleControl(player, "brake_reverse", true)
-			unbindKey(player, "1", "down", selectPerk)
-			unbindKey(player, "2", "down", selectPerk)
-			unbindKey(player, "3", "down", selectPerk)
-		end
-	end, g_PERK_SELECTION_DURATION, 1)
-end
 
 function startGameLoop()
 	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, gameState)
