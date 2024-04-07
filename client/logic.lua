@@ -99,17 +99,24 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 		local policeTeam = getTeamFromName(g_POLICE_TEAM_NAME)
 		if getPlayerTeam(localPlayer) == policeTeam then return end
 
-		local cops = getPlayersInTeam(policeTeam)
-		for _, cop in ipairs(cops) do
-			local x, y, z = getElementPosition(cop)
-			local sound = playSound3D("client/siren.mp3", x, y, z, true)
-			setSoundMinDistance(sound, 50)
-			setSoundMaxDistance(sound, 200)
+		function createCopSirens()
 			setTimer(function()
-				local x, y, z = getElementPosition(cop)
-					setElementPosition(sound, x, y, z)
-			end, 100, 0)
+				local cops = getPlayersInTeam(policeTeam)
+				if #cops == 0 then return createCopSirens() end
+
+				for _, cop in ipairs(cops) do
+					local x, y, z = getElementPosition(cop)
+					local sound = playSound3D("client/siren.mp3", x, y, z, true)
+					setSoundMinDistance(sound, 10)
+					setSoundMaxDistance(sound, 150)
+					setTimer(function()
+						local x, y, z = getElementPosition(cop)
+						setElementPosition(sound, x, y, z)
+					end, 100, 0)
+				end
+			end, 1000, 1)
 		end
+		createCopSirens()
 	elseif state == g_BADEND_STATE then
 		triggerEvent("onClientCall_race", root, "checkpointReached", getPedOccupiedVehicle(localPlayer))
 	end
