@@ -1,15 +1,15 @@
 g_FUGITIVE_PERK = {
-	id = "fugitive perk id",
+	id = "fugitivePerkId",
 	name = "Fugitive",
 	description = "After reaching the quota, become temporarily invisible."
 }
 g_MECHANIC_PERK = {
-	id = "mechanic perk id",
+	id = "mechanicPerkId",
 	name = "Mechanic",
 	description = "Stand still to slowly regain health."
 }
 g_HOTSHOT_PERK = {
-	id = "hotshot perk id",
+	id = "hotshotPerkId",
 	name = "Hotshot",
 	description = "The lower your health, the higher your top speed."
 }
@@ -44,7 +44,7 @@ g_PICKUP_JOB = {
 	blip = 52,
 	color = { r = 20, g = 150, b = 0, a = 100 },
 	jobWeight = 1,
-	progressRate = 0.15
+	progressRate = 0.15 -- per second
 }
 g_DELIVERY_JOB = {
 	elementType = "delivery_job_start",
@@ -69,7 +69,7 @@ g_EXTORTION_JOB = {
 	jobWeight = 1.2,
 	progressRate = 0.025, -- per interval
 	decayRate = 0.05, -- per interval
-	interval = 100 -- in ms
+	interval = 100 -- in ms, client side, unrelated to server ticks
 }
 g_GROUP_JOB = {
 	elementType = "group_job",
@@ -79,8 +79,8 @@ g_GROUP_JOB = {
 	blip = 6,
 	color = { r = 255, g = 255, b = 255, a = 100 },
 	jobWeight = 3,
-	progressRate = 0.05,
-	decayRate = 0.1,
+	progressRate = 0.05, -- per second
+	decayRate = 0.1, -- per second
 	minPlayers = 3
 }
 g_JOBS_BY_TYPE = {
