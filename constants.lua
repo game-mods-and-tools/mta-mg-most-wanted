@@ -1,16 +1,20 @@
 g_FUGITIVE_PERK = {
 	id = "fugitivePerkId",
 	name = "Fugitive",
+	duration = 30000, -- ms
 	description = "After reaching the quota, become temporarily invisible."
 }
 g_MECHANIC_PERK = {
 	id = "mechanicPerkId",
 	name = "Mechanic",
+	healRate = 5, -- per second
 	description = "Stand still to slowly regain health."
 }
 g_HOTSHOT_PERK = {
 	id = "hotshotPerkId",
 	name = "Hotshot",
+	velocityRate = 0.2, -- maxVelocity per missing hp
+	accelRate = 0.01, -- engineAcceleration per missing hp
 	description = "The lower your health, the higher your top speed."
 }
 g_PERK_SELECTION_DURATION = 15000
