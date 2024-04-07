@@ -95,7 +95,7 @@ function Job:tick()
 	end
 
 	-- these take 10 intervals of sitting still
-	self.progress = math.min(self.progress + g_JOBS_BY_TYPE[self.type].progressRate / g_SERVER_TICK_RATE, 1)
+	self.progress = math.min(self.progress + g_JOBS_BY_TYPE[self.type].progressRate * g_SERVER_TICK_DELAY / 1000, 1)
 	triggerClientEvent(players, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { progress = self.progress })
 
 	return self.progress == 1
@@ -185,12 +185,13 @@ function GroupJob:tick()
 
 	if self:isComplete() then return false end
 	if #players == 0 then
-		self.progress = math.max(self.progress - g_JOBS_BY_TYPE[self.type].decayRate / g_SERVER_TICK_RATE, 0) -- decay
+		self.progress = math.max(self.progress - g_JOBS_BY_TYPE[self.type].decayRate * g_SERVER_TICK_DELAY / 1000, 0) -- decay
 		return false
 	end
 
 	-- slower than normal job but scales with players, needs certain amount of players to progress
-	self.progress = math.min(self.progress + math.max(g_JOBS_BY_TYPE[self.type].progressRate / g_SERVER_TICK_RATE * (#players + 1 - g_JOBS_BY_TYPE[self.type].minPlayers), 0), 1)
+	local advance = g_JOBS_BY_TYPE[self.type].progressRate  * g_SERVER_TICK_DELAY / 1000
+	self.progress = math.min(self.progress + math.max(advance * (#players + 1 - g_JOBS_BY_TYPE[self.type].minPlayers), 0), 1)
 	triggerClientEvent(players, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, { progress = self.progress, playerCount = #players })
 
 	return self.progress == 1

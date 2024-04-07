@@ -43,7 +43,7 @@ function startGameLoop()
 		maybeSpawnJob()
 		updateJobProgress()
 		checkPerks()
-	end, 1000 / g_SERVER_TICK_RATE, 0)
+	end, g_SERVER_TICK_DELAY, 0)
 end
 
 function checkPerks()
