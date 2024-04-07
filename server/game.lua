@@ -10,7 +10,7 @@ totalMoneyProgress = 0
 moneyEscapeQuota = 0
 lastExitId = 0
 lastSpawnedExitAt = 0
-gameState = g_COREGAME_STATE
+gameState = g_PREGAME_STATE
 
 addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
@@ -35,7 +35,7 @@ addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 end)
 
 function startGameLoop()
-	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, gameState)
+	updateGameState(g_COREGAME_STATE)
 
 	setTimer(function()
 		maybeUpdateGameState()
@@ -57,7 +57,7 @@ function maybeUpdateGameState()
 		updateGameState(g_ENDGAME_STATE)
 	elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota * g_SECRET_ENDING_REQUIREMENT_MULTIPLIER then
 		updateGameState(g_ENDENDGAME_STATE)
-	elseif gameState ~= g_BADEND_STATE then
+	elseif gameState ~= g_NO_CRIMS_STATE then
 		local criminals = getPlayersInTeam(g_CriminalTeam)
 		for _, criminal in ipairs(criminals) do
 			if getElementData(criminal, "state") == "alive" then
@@ -65,7 +65,7 @@ function maybeUpdateGameState()
 			end
 		end
 
-		updateGameState(g_BADEND_STATE)
+		updateGameState(g_NO_CRIMS_STATE)
 	end
 end
 
@@ -83,7 +83,7 @@ function updateGameState(state)
 				setPedDoingGangDriveby(criminal, not isPedDoingGangDriveby(criminal))
 			end)
 		end
-	elseif state == g_BADEND_STATE then
+	elseif state == g_NO_CRIMS_STATE then
 		-- no criminals, so guess its ogre?
 	end
 

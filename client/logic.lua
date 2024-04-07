@@ -116,7 +116,7 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 			end, 1000, 1)
 		end
 		createCopSirens()
-	elseif state == g_BADEND_STATE then
+	elseif state == g_NO_CRIMS_STATE then
 		triggerEvent("onClientCall_race", root, "checkpointReached", getPedOccupiedVehicle(localPlayer))
 	end
 end)

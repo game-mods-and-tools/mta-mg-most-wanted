@@ -35,10 +35,11 @@ g_JOB_STATUS_UPDATE_EVENT = "onJobStatusUpdate" -- jobId, jobType, data (depends
 g_MONEY_UPDATE_EVENT = "onMoneyUpdate"
 g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate" -- state
 g_ESCAPE_ROUTE_APPEARED = "onEscapeRouteAppeared"
+g_PREGAME_STATE = "pregame"
 g_COREGAME_STATE = "coregame"
 g_ENDGAME_STATE = "endgame"
 g_ENDENDGAME_STATE = "endendgame"
-g_BADEND_STATE = "badend"
+g_NO_CRIMS_STATE = "nocrimsgame"
 
 g_PICKUP_JOB = {
 	elementType = "pickup_job",
