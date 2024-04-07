@@ -110,8 +110,23 @@ function Player:setRole(role)
 	elseif role == g_CRIMINAL_ROLE then
 		self.role = role
 		self.perk = nil
+		
+		-- TODO: update car model?
 		setPlayerNametagShowing(self.player, false)
 		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
+
+		-- allow perk selection
+		function selectPerk(player, _, _, perkId)
+			self:setPerk(perkId)
+		end
+		bindKey(self.player, "1", "down", selectPerk, g_FUGITIVE_PERK.id)
+		bindKey(self.player, "2", "down", selectPerk, g_MECHANIC_PERK.id)
+		bindKey(self.player, "3", "down", selectPerk, g_HOTSHOT_PERK.id)
+		setTimer(function()
+			unbindKey(self.player, "1", "down", selectPerk)
+			unbindKey(self.player, "2", "down", selectPerk)
+			unbindKey(self.player, "3", "down", selectPerk)
+		end, g_PERK_SELECTION_DURATION, 1)
 
 		setPlayerTeam(self.player, g_CriminalTeam)
 
@@ -123,7 +138,6 @@ function Player:setRole(role)
 end
 
 function Player:setPerk(perkId)
-	if self.role ~= g_CRIMINAL_ROLE then return end
 	self.perkId = perkId
 end
 
