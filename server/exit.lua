@@ -27,6 +27,7 @@ function Exit:new(group)
 		elseif type == "swat_van" then
 			local van = createVehicle(427, getElementPosition(e))
 			setElementRotation(van, getElementData(e, "rotX"), getElementData(e, "rotY"), getElementData(e, "rotZ"))
+			setVehicleSirensOn(van, true)
 			o.vans[#o.vans + 1] = van
 		elseif type == "exit_point" then
 			local x, y, z = getElementPosition(e)
