@@ -122,6 +122,10 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	end
 end)
 
+addEventHandler("onClientVehicleDamage", root, function(a, w, l, dx, dy, dz, tire)
+	if tire then cancelEvent() end
+end)
+
 -- suppress race mode error
 addEvent("onClientCall_race", true)
 
