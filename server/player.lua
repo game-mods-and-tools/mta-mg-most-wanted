@@ -134,7 +134,7 @@ function Player:checkPerk()
 		if self.perkId == g_MECHANIC_PERK.id then
 			local vx, vy, vz = getElementVelocity(veh)
 			if vx == 0 and vy == 0 and vz == 0 then
-				setElementHealth(veh, math.min(getElementHealth(veh) + 2), 1000) -- per tick
+				setElementHealth(veh, math.min(getElementHealth(veh) + 2, 1000)) -- per tick
 			end
 		elseif self.perkId == g_FUGITIVE_PERK.id then
 			if gameState ~= g_COREGAME_STATE and not self.fugitived then
