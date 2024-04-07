@@ -36,8 +36,7 @@ addEventHandler(g_SHOW_JOB_EVENT, resourceRoot, function(id, type, pos)
 	}
 
 	if type == g_GROUP_JOB.type then
-		showText[groupJobAppeared] = true
-		setTimer(function() showText[groupJobAppeared] = false end, 3000, 1)
+		show(groupJobAppeared, 3000)
 	end
 end)
 
@@ -64,8 +63,7 @@ end)
 
 addEvent(g_STOP_JOB_EVENT, true)
 addEventHandler(g_STOP_JOB_EVENT, resourceRoot, function(id, type)
-	showText[abandonedJob] = true
-	setTimer(function() showText[abandonedJob] = false end, 1500, 1)
+	show(abandonedJob, 1500)
 
 	if type == g_PICKUP_JOB.type then
 		showText[pickupJobInfo] = false
@@ -105,8 +103,7 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCri
 
 		for _, player in pairs(reportedCriminals) do
 			if player == localPlayer then
-				showText[crimeReported] = true
-				setTimer(function() showText[crimeReported] = false end, 3000, 1)
+				show(crimeReported, 3000)
 				break
 			end
 		end
@@ -130,8 +127,7 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCri
 		end
 
 		if #reportedCriminals > 0 then
-			showText[crimeReported] = true
-			setTimer(function() showText[crimeReported] = false end, 3000, 1)
+			show(crimeReported, 3000)
 		end
 	end
 end)
@@ -171,7 +167,8 @@ addEvent(g_PLAYER_ROLE_SELECTED_EVENT, true)
 addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 	role = rolee
 
-	showText[roleInfo] = true
+	show(roleInfo, g_PERK_SELECTION_DURATION)
+
 	function selectPerk(_, _, i)
 		destroyElement(guiRoot)
 		local screenWidth, screenHeight = guiGetScreenSize()
@@ -206,7 +203,6 @@ addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 		unbindKey("1", "down", selectPerk)
 		unbindKey("2", "down", selectPerk)
 		unbindKey("3", "down", selectPerk)
-		showText[roleInfo] = false
 		destroyElement(guiRoot)
 	end, g_PERK_SELECTION_DURATION, 1)
 end)
@@ -220,22 +216,18 @@ end)
 addEvent(g_GAME_STATE_UPDATE_EVENT, true)
 addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	if state == g_ENDGAME_STATE then
-		showText[endGameInfo] = true
-		setTimer(function() showText[endGameInfo] = false end, 8000, 1)
+		show(endGameInfo, 8000)
 	elseif state == g_ENDENDGAME_STATE then
-		showText[endEndGameInfo] = true
 		playSound("client/pag.mp3")
-		endEndGameScrollTimer = setTimer(function() showText[endEndGameInfo] = false end, 10000, 1)
+		endEndGameScrollTimer = show(endEndGameInfo, 10000)
 	elseif state == g_BADEND_STATE then
-		showText[badEndGameInfo] = true
-		setTimer(function() showText[badEndGameInfo] = false end, 8000, 1)
+		show(badEndGameInfo, 8000)
 	end
 end)
 
 addEvent(g_ESCAPE_ROUTE_APPEARED, true)
 addEventHandler(g_ESCAPE_ROUTE_APPEARED, resourceRoot, function()
-	showText[escapeReady] = true
-	setTimer(function() showText[escapeReady] = false end, 3000, 1)
+	show(escapeReady, 3000)
 end)
 
 addEventHandler("onClientResourceStart", resourceRoot, function()
@@ -393,5 +385,12 @@ function dxDrawBorderedText (outline, text, left, top, right, bottom, color, sca
     dxDrawText (text:gsub("#%x%x%x%x%x%x", ""), left - textWidth / 2, top - outline - textHeight / 2, right, bottom - outline, tocolor (0, 0, 0, 225), scale, font, alignX, alignY, clip, wordBreak, postGUI, false, subPixelPositioning, fRotation, fRotationCenterX, fRotationCenterY)
     dxDrawText (text:gsub("#%x%x%x%x%x%x", ""), left - textWidth / 2, top + outline - textHeight / 2, right, bottom + outline, tocolor (0, 0, 0, 225), scale, font, alignX, alignY, clip, wordBreak, postGUI, false, subPixelPositioning, fRotation, fRotationCenterX, fRotationCenterY)
     dxDrawText (text, left - textWidth / 2, top - textHeight / 2, right, bottom, color, scale, font, alignX, alignY, clip, wordBreak, postGUI, colorCoded, subPixelPositioning, fRotation, fRotationCenterX, fRotationCenterY)
+end
+
+function show(key, duration, val)
+	showText[key] = val or true
+	return setTimer(function()
+		showText[key] = false
+	end, duration, 1)
 end
 
