@@ -148,7 +148,7 @@ function Player:checkPerk()
 		if self.perkId == g_MECHANIC_PERK.id then
 			local vx, vy, vz = getElementVelocity(veh)
 			if vx == 0 and vy == 0 and vz == 0 then
-				setElementHealth(veh, math.min(getElementHealth(veh) + 2, 1000)) -- per tick
+				setElementHealth(veh, math.min(getElementHealth(veh) + g_MECHANIC_PERK.healRate * g_SERVER_TICK_DELAY / 1000, 1000)) -- per tick
 			end
 		elseif self.perkId == g_FUGITIVE_PERK.id then
 			if gameState ~= g_COREGAME_STATE and not self.fugitived then
@@ -163,12 +163,12 @@ function Player:checkPerk()
 						setVehicleLightState(veh, 0, 0)
 						setVehicleLightState(veh, 1, 0)
 					end
-				end, g_DELAY_BETWEEN_EXIT_SPAWN * 1.5, 0) -- invisible until exit spawns and then some
+				end, g_FUGITIVE_PERK.duration, 1)
 				self.fugitived = true
 			end
 		elseif self.perkId == g_HOTSHOT_PERK.id then
-			setVehicleHandling(veh, "maxVelocity", 450 - getElementHealth(veh) / 4) -- 200 is base, goes from 250 to 450
-			setVehicleHandling(veh, "engineAcceleration", 19.5 - getElementHealth(veh) / 120) -- 11.2 is base, this goes from ~11.7 to 20
+			setVehicleHandling(veh, "maxVelocity", 200 + (1000 - getElementHealth(veh)) * g_HOTSHOT_PERK.velocityRate) -- 200 is base for vehicle
+			setVehicleHandling(veh, "engineAcceleration", 11.2 + (1000 - getElementHealth(veh)) * g_HOTSHOT_PERK.accelRate) -- 11.2 is base for vehicle
 		end
 	end
 end
