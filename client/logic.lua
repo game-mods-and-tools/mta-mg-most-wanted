@@ -124,6 +124,9 @@ end)
 addEventHandler("onClientVehicleDamage", root, function(a, w, l, dx, dy, dz, tire)
 	if tire then cancelEvent() end
 end)
+addEventHandler("onClientExplosion", root, function(x, y, z, t)
+	if t == 4 then cancelEvent() end
+end)
 
 -- suppress race mode error
 addEvent("onClientCall_race", true)
