@@ -104,7 +104,7 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 			local cops = getPlayersInTeam(policeTeam)
 			for _, cop in ipairs(cops) do
 				local vehicle = getPedOccupiedVehicle(cop)
-				if vehicle and not getVehicleSirensOn(vehicle) then
+				if vehicle then
 					setVehicleSirensOn(vehicle, true)
 				end
 			end
