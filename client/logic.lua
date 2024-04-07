@@ -96,22 +96,20 @@ end)
 addEvent(g_GAME_STATE_UPDATE_EVENT, true)
 addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	if state == g_COREGAME_STATE then
-		-- keep trying to activate police sirens for criminals
-		setTimer(function()
-			local policeTeam = getTeamFromName(g_POLICE_TEAM_NAME)
-			if getPlayerTeam(localPlayer) == policeTeam then return end
+		local policeTeam = getTeamFromName(g_POLICE_TEAM_NAME)
+		if getPlayerTeam(localPlayer) == policeTeam then return end
 
-			local cops = getPlayersInTeam(policeTeam)
-			for _, cop in ipairs(cops) do
-				local vehicle = getPedOccupiedVehicle(cop)
-				if vehicle then
-					local x, y, z = getElementPosition(vehicle)
-					local sound = playSound3D("client/siren.mp3", x, y, z)
-					setSoundMinDistance(sound, 10)
-					setSoundMaxDistance(sound, 100)
-				end
-			end
-		end, 5000, 0)
+		local cops = getPlayersInTeam(policeTeam)
+		for _, cop in ipairs(cops) do
+			local x, y, z = getElementPosition(cop)
+			local sound = playSound3D("client/siren.mp3", x, y, z, true)
+			setSoundMinDistance(sound, 50)
+			setSoundMaxDistance(sound, 200)
+			setTimer(function()
+				local x, y, z = getElementPosition(cop)
+					setElementPosition(sound, x, y, z)
+			end, 100, 0)
+		end
 	elseif state == g_BADEND_STATE then
 		triggerEvent("onClientCall_race", root, "checkpointReached", getPedOccupiedVehicle(localPlayer))
 	end
