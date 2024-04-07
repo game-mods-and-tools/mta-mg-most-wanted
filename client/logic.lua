@@ -110,25 +110,7 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 			end
 		end, 1000, 0)
 	elseif state == g_BADEND_STATE then
-		-- drive to donut shop
-		local marker = createMarker(1026, -1334, 12, "cylinder", 4, 181, 101, 29, 200)
-		local blip = createBlip(1026, -1334, 13, 10)
-		local col = createColCircle(1026, -1334, 4)
-		function copend(element)
-			removeEventHandler("onClientColShapeHit", col, copend)
-			destroyElement(marker)
-			destroyElement(blip)
-
-			fadeCamera(false, 3)
-
-			setTimer(function()
-				triggerEvent("onClientCall_race", root, "checkpointReached", element)
-				setTimer(function()
-					fadeCamera(true, 1)
-				end, 1000, 1)
-			end, 5000, 1)
-		end
-		addEventHandler("onClientColShapeHit", col, copend)
+		triggerEvent("onClientCall_race", root, "checkpointReached", getPedOccupiedVehicle(localPlayer))
 	end
 end)
 
