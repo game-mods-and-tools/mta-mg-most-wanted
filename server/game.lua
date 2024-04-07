@@ -3,8 +3,6 @@ jobs = {}
 exits = {}
 playersByClient = {}
 
-local randomMoneyScaler = 1000 -- random numbers used to scale quota for big $$$
-
 lastJobId = 0
 availableJobs = 0
 lastSpawnedJobAt = 0
@@ -19,7 +17,7 @@ addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 	if state == "Running" then
 		setTimer(function()
 			preGameSetup()
-			perkSetup(g_PERK_SELECTION_DURATION)
+			perkSetup()
 
 			setTimer(function()
 				startGameLoop()
@@ -28,7 +26,7 @@ addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 	end
 end)
 
-function perkSetup(perkSelectionDuration)
+function perkSetup()
 	function selectPerk(player, _, _, perkId)
 		playersByClient[player]:setPerk(perkId)
 	end
@@ -49,7 +47,7 @@ function perkSetup(perkSelectionDuration)
 			unbindKey(player, "2", "down", selectPerk)
 			unbindKey(player, "3", "down", selectPerk)
 		end
-	end, perkSelectionDuration, 1)
+	end, g_PERK_SELECTION_DURATION, 1)
 end
 
 function startGameLoop()
@@ -150,7 +148,6 @@ function spawnJob(id)
 	end
 end
 
-
 function finishJob(job)
 	job:finish()
 
@@ -158,8 +155,8 @@ function finishJob(job)
 	totalMoneyProgress = totalMoneyProgress + job:money()
 
 	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
-		money = totalMoneyProgress * randomMoneyScaler,
-		moneyQuota = moneyEscapeQuota * randomMoneyScaler
+		money = totalMoneyProgress,
+		moneyQuota = moneyEscapeQuota
 	})
 end
 
@@ -215,7 +212,8 @@ function preGameSetup()
 	end
 
 	for i = 1, policeCount do
-		players[i]:setRole(g_POLICE_ROLE) -- may not succeed if not enough spawn points
+		local success = players[i]:setRole(g_POLICE_ROLE) -- may not succeed if not enough spawn points
+		if not success then break end
 	end
 	for i = countPlayersInTeam(g_PoliceTeam) + 1, #players do
 		players[i]:setRole(g_CRIMINAL_ROLE)
@@ -225,7 +223,7 @@ function preGameSetup()
 	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10 + 2
 	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
 		money = 0,
-		moneyQuota = moneyEscapeQuota * randomMoneyScaler
+		moneyQuota = moneyEscapeQuota
 	})
 
 	-- shuffle jobs into order they will spawn in

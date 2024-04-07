@@ -7,6 +7,7 @@ local money = {
 	quota = 0
 }
 local role = g_CRIMINAL_ROLE
+local moneyScaler = 1000
 
 local showText = {}
 local groupJobAppeared = "groupJobAppeared"
@@ -212,8 +213,8 @@ end)
 
 addEvent(g_MONEY_UPDATE_EVENT, true)
 addEventHandler(g_MONEY_UPDATE_EVENT, resourceRoot, function(data)
-	money.total = math.floor(data.money)
-	money.quota = math.floor(data.moneyQuota)
+	money.total = math.floor(data.money * moneyScaler)
+	money.quota = math.floor(data.moneyQuota * moneyScaler)
 end)
 
 addEvent(g_GAME_STATE_UPDATE_EVENT, true)
