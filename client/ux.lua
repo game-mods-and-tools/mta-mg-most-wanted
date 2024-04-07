@@ -224,7 +224,7 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	elseif state == g_ENDENDGAME_STATE then
 		playSound("client/pag.mp3")
 		endEndGameScrollTimer = show(endEndGameInfo, 10000)
-	elseif state == g_BADEND_STATE then
+	elseif state == g_NO_CRIMS_STATE then
 		show(badEndGameInfo, 8000)
 	end
 end)
