@@ -105,10 +105,13 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 			for _, cop in ipairs(cops) do
 				local vehicle = getPedOccupiedVehicle(cop)
 				if vehicle then
-					setVehicleSirensOn(vehicle, true)
+					local x, y, z = getElementPosition(vehicle)
+					local sound = playSound3D("client/siren.mp3", x, y, z)
+					setSoundMinDistance(sound, 10)
+					setSoundMaxDistance(sound, 100)
 				end
 			end
-		end, 1000, 0)
+		end, 5000, 0)
 	elseif state == g_BADEND_STATE then
 		triggerEvent("onClientCall_race", root, "checkpointReached", getPedOccupiedVehicle(localPlayer))
 	end
