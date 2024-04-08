@@ -21,7 +21,7 @@ local criminalNames = {
 	"Grove Street Families",
 	"Vagos",
 	"Colombian Cartel",
-	"The Lost MC",
+	"Lost MC",
 	"Angels of Death",
 	"Uptown Riders",
 	"Ballas",
@@ -50,9 +50,10 @@ local criminalNames = {
 	"Team Rocket",
 	"Cerberus",
 	"Discord Mods United",
-	"Package Hunters Initiative",
+	"Package Hunters Collective",
 	"Team SKC",
-	"GTA Community Rebellion"
+	"GTA Community Rebellion",
+	"Streetwannabes"
 }
 
 g_PoliceTeam = createTeam(g_POLICE_TEAM_NAME, 30, 190, 240)
