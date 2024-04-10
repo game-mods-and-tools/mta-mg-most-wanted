@@ -111,7 +111,7 @@ function Player:setRole(role)
 	elseif role == g_CRIMINAL_ROLE then
 		self.role = role
 		self.perk = nil
-		
+
 		-- TODO: update car model?
 		setPlayerNametagShowing(self.player, false)
 		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
@@ -143,6 +143,8 @@ function Player:setPerk(perkId)
 end
 
 function Player:checkPerk()
+	if not self.player then return end -- in case someone dcs or something idk
+
 	local veh = getPedOccupiedVehicle(self.player)
 
 	if veh then
