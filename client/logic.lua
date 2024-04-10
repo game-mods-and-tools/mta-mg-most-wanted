@@ -109,6 +109,10 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 					setSoundMinDistance(sound, 10)
 					setSoundMaxDistance(sound, 150)
 					setTimer(function()
+						if not isElement(cop) then
+							destroyElement(sound)
+							return
+						end
 						local x, y, z = getElementPosition(cop)
 						setElementPosition(sound, x, y, z)
 					end, 100, 0)
