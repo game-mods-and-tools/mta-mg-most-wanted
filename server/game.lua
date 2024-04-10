@@ -207,7 +207,7 @@ function preGameSetup()
 	end
 
 	-- set up player based limits
-	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10 + 2
+	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10 + 0.152
 	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
 		money = 0,
 		moneyQuota = moneyEscapeQuota

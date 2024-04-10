@@ -48,7 +48,7 @@ g_PICKUP_JOB = {
 	zoneRadius = 5,
 	blip = 52,
 	color = { r = 20, g = 150, b = 0, a = 100 },
-	jobWeight = 1,
+	jobWeight = 0.879,
 	progressRate = 0.15 -- per second
 }
 g_DELIVERY_JOB = {
@@ -62,7 +62,7 @@ g_DELIVERY_JOB = {
 	zoneRadius = 5,
 	blip = 51,
 	color = { r = 255, g = 0, b = 0, a = 100 },
-	jobWeight = 1.2 -- and bonus
+	jobWeight = 1.213 -- and bonus
 }
 g_EXTORTION_JOB = {
 	elementType = "extortion_job",
@@ -71,7 +71,7 @@ g_EXTORTION_JOB = {
 	zoneRadius = 5,
 	blip = 55,
 	color = { r = 0, g = 0, b = 160, a = 100 },
-	jobWeight = 1.2,
+	jobWeight = 1.061,
 	progressRate = 0.025, -- per interval
 	decayRate = 0.05, -- per interval
 	interval = 100 -- in ms, client side, unrelated to server ticks
@@ -83,7 +83,7 @@ g_GROUP_JOB = {
 	zoneRadius = 22,
 	blip = 6,
 	color = { r = 255, g = 255, b = 255, a = 100 },
-	jobWeight = 3,
+	jobWeight = 6.865,
 	progressRate = 0.05, -- per second
 	decayRate = 0.1, -- per second
 	minPlayers = 3
