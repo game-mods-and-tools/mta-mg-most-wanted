@@ -38,8 +38,11 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			setElementHealth(ped, 30)
 			setElementRotation(ped, data.rot.x, data.rot.y, data.rot.z)
 			setPedAnimation(ped, "dealer", "dealer_deal")
-
+			
 			local firstHit = false
+			local pedPositioner = setTimer(function()
+				setElementPosition(ped, data.pos.x, data.pos.y, data.pos.z)
+			end, 1000, 0)
 
 			local turnPed = setTimer(function()
 				setPedCameraRotation(ped, math.random(360))
@@ -49,6 +52,7 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 				-- setPedLookAt(ped, 0, 0, 0, -1, 1000, localPlayer)
 				if not firstHit then
 					firstHit = true
+					killTimer(pedPositioner)
 					triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
 				end
 			end
