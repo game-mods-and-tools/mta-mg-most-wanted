@@ -58,6 +58,7 @@ local criminalNames = {
 
 g_PoliceTeam = createTeam(g_POLICE_TEAM_NAME, 30, 190, 240)
 g_CriminalTeam = createTeam(criminalNames[math.random(#criminalNames)], 150, 0 , 200)
+setTeamFriendlyFire(g_PoliceTeam, false) -- does this work for vehicles
 
 function Player:new(player)
 	local o = {}
@@ -143,7 +144,7 @@ function Player:setPerk(perkId)
 end
 
 function Player:checkPerk()
-	if not self.player then return end -- in case someone dcs or something idk
+	if not isElement(self.player) then return end -- in case someone dcs or something idk
 
 	local veh = getPedOccupiedVehicle(self.player)
 
