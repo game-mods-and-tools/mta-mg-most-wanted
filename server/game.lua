@@ -14,16 +14,19 @@ gameState = g_PREGAME_STATE
 
 addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
-	if state == "Running" then
+	if state == "GridCountdown" then
 		setTimer(function()
-			for _, player in ipairs(getElementsByType("player")) do
-				toggleControl(player, "accelerate", false)
-				toggleControl(player, "brake_reverse", false)
-			end
+			local forceFreeze = setTimer(function()
+				for _, player in ipairs(getElementsByType("player")) do
+					toggleControl(player, "accelerate", false)
+					toggleControl(player, "brake_reverse", false)
+				end
+			end, 10, 0)
 
 			preGameSetup()
 
 			setTimer(function()
+				killTimer(forceFreeze)
 				for _, player in ipairs(getElementsByType("player")) do
 					toggleControl(player, "accelerate", true)
 					toggleControl(player, "brake_reverse", true)
