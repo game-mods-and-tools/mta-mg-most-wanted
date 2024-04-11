@@ -38,8 +38,7 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			setElementHealth(ped, 30)
 			setElementRotation(ped, data.rot.x, data.rot.y, data.rot.z)
 			setPedAnimation(ped, "dealer", "dealer_deal")
-			
-			local firstHit = false
+
 			local pedPositioner = setTimer(function()
 				setElementPosition(ped, data.pos.x, data.pos.y, data.pos.z)
 			end, 1000, 0)
@@ -47,12 +46,19 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			local turnPed = setTimer(function()
 				setPedCameraRotation(ped, math.random(360))
 			end, 100, 0)
-			function pedRun()
+
+			function pedTouched(ele)
+				if ele == ped then
+					killTimer(pedPositioner)
+					removeEventHandler("onClientVehicleCollision", getPedOccupiedVehicle(localPlayer), pedTouched)
+				end
+			end
+
+			local firstHit = false
+			function pedHit()
 				setPedControlState(ped, "forwards", true)
-				-- setPedLookAt(ped, 0, 0, 0, -1, 1000, localPlayer)
 				if not firstHit then
 					firstHit = true
-					killTimer(pedPositioner)
 					triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
 				end
 			end
@@ -60,11 +66,12 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			function pedDie()
 				killTimer(turnPed)
 				removeEventHandler("onClientPedWasted", ped, pedDie)
-				removeEventHandler("onClientPedDamage", ped, pedRun)
+				removeEventHandler("onClientPedDamage", ped, pedHit)
 				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 			end
 			addEventHandler("onClientPedWasted", ped, pedDie)
-			addEventHandler("onClientPedDamage", ped, pedRun)
+			addEventHandler("onClientPedDamage", ped, pedHit)
+			addEventHandler("onClientVehicleCollision", getPedOccupiedVehicle(localPlayer), pedTouched)
 		end
 	elseif type == g_EXTORTION_JOB.type then
 		honkProgress = 0
