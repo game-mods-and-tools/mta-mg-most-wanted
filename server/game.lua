@@ -79,7 +79,7 @@ function updateGameState(state)
 		-- unbind criminal keys?
 	elseif state == g_ENDGAME_STATE then
 		g_CopWeaponId = 31 -- m4
-		lastSpawnedExitAt = getRealTime().timestamp
+		lastSpawnedExitAt = getRealTime().timestamp + 30 -- hack to add extra 30 seconds to first spawn
 
 		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
 			if getElementData(criminal, "state") == "alive" then
@@ -105,6 +105,11 @@ end
 function maybeSpawnExitPoint()
 	if gameState == g_ENDGAME_STATE or gameState == g_ENDENDGAME_STATE then
 		if lastSpawnedExitAt < getRealTime().timestamp - (g_DELAY_BETWEEN_EXIT_SPAWN / 1000) then
+			lastExitId = lastExitId + 1
+			spawnExitPoint(lastExitId)
+			if lastExitId == #exits then
+				lastExitId = 0
+			end
 			lastExitId = lastExitId + 1
 			spawnExitPoint(lastExitId)
 			if lastExitId == #exits then
