@@ -59,6 +59,7 @@ local criminalNames = {
 g_PoliceTeam = createTeam(g_POLICE_TEAM_NAME, 30, 190, 240)
 g_CriminalTeam = createTeam(criminalNames[math.random(#criminalNames)], 150, 0 , 200)
 setTeamFriendlyFire(g_PoliceTeam, false) -- does this work for vehicles
+g_CopWeaponId = 29 -- mp5
 
 function Player:new(player)
 	local o = {}
@@ -94,7 +95,8 @@ function Player:setRole(role)
 				setVehicleColor(vehicle, 0, 0, 0, 255, 255, 255, 0, 0, 0)
 
 				bindKey(self.player, "vehicle_secondary_fire", "down", function()
-					giveWeapon(self.player, 29, 9999, true) -- mp5
+					takeAllWeapons(self.player)
+					giveWeapon(self.player, g_CopWeaponId, 9999, true) -- mp5
 					setPedDoingGangDriveby(self.player, not isPedDoingGangDriveby(self.player))
 				end)
 

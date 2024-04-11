@@ -73,7 +73,12 @@ function maybeUpdateGameState()
 end
 
 function updateGameState(state)
-	if state == g_ENDGAME_STATE then
+	if state == g_COREGAME_STATE then
+		g_CopWeaponId = 29 -- mp5
+		-- remove blips?
+		-- unbind criminal keys?
+	elseif state == g_ENDGAME_STATE then
+		g_CopWeaponId = 31 -- m4
 		lastSpawnedExitAt = getRealTime().timestamp
 
 		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
@@ -84,6 +89,7 @@ function updateGameState(state)
 	elseif state == g_ENDENDGAME_STATE then
 		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
 			bindKey(criminal, "vehicle_secondary_fire", "down", function()
+				takeAllWeapons(criminal)
 				giveWeapon(criminal, 30, 9999, true) -- ak47
 				setPedDoingGangDriveby(criminal, not isPedDoingGangDriveby(criminal))
 			end)
