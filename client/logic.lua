@@ -73,6 +73,17 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			addEventHandler("onClientPedDamage", ped, pedHit)
 			addEventHandler("onClientVehicleCollision", getPedOccupiedVehicle(localPlayer), pedTouched)
 		end
+	elseif type == g_HARVEST_JOB.type then
+		triggerEvent(g_SHOW_DELIVERY_TARGET_EVENT, resourceRoot, data.pos)
+		local col = createColCircle(data.pos.x, data.pos.y, g_DELIVERY_TARGET_SIZE)
+
+		function finishDelivery(element)
+			if getPedOccupiedVehicle(localPlayer) ~= element then return end
+			removeEventHandler("onClientColShapeHit", col, finishDelivery)
+
+			triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
+		end
+		addEventHandler("onClientColShapeHit", col, finishDelivery)
 	elseif type == g_EXTORTION_JOB.type then
 		honkProgress = 0
 		timer = setTimer(function()

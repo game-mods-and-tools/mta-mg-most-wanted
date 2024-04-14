@@ -11,6 +11,7 @@ moneyEscapeQuota = 0
 lastExitId = 0
 lastSpawnedExitAt = 0
 gameState = g_PREGAME_STATE
+harvestJobCount = 0
 
 addEvent("onRaceStateChanging")
 addEventHandler("onRaceStateChanging", getRootElement(), function(state)
@@ -168,6 +169,15 @@ function unassignJob(job, player)
 	job:unassign(player)
 end
 
+function spawnHarvestJob(player)
+	local x, y, z = getElementPosition(player)
+	harvestJobCount = harvestJobCount + 1
+	local job = HarvestJob:new(-harvestJobCount, "harvest job", x, y, z)
+	job:setup()
+	job:enable()
+	jobs[-harvestJobCount] = job -- using negatives so it doesnt interfere with other jobs
+end
+
 function updateJobProgress()
 	for _, job in ipairs(jobs) do
 		local completed = job:tick()
@@ -254,29 +264,7 @@ function preGameSetup()
 		end
 
 		jobs[#jobs + 1] = job
-
-		local col = createColCircle(job.pos.x, job.pos.y, g_JOBS_BY_TYPE[job.type].zoneRadius)
-		addEventHandler("onColShapeHit", col, function(element)
-			local player, vehicle = toPlayer(element)
-			if not player then return end
-			if not vehicle then return end -- in case of spectator?
-			if getPlayerTeam(player.player) ~= g_CriminalTeam then return end
-
-			local _, _, z = getElementPosition(vehicle)
-			if math.abs(z - job.pos.z) > 5 then return end
-
-			if not job:isAvailable() then return end
-
-			assignJob(job, player)
-		end)
-		addEventHandler("onColShapeLeave", col, function(element)
-			local player = toPlayer(element)
-			if not player then return end
-			if not job:isAssignedTo(player) then return end
-			-- can't check Z but don't care?
-
-			unassignJob(job, player)
-		end)
+		job:setup()
 	end
 
 	-- start listening for client side completion of jobs (honk job, delivery job)
@@ -312,6 +300,10 @@ if g_DEBUG_MODE then
 	addCommandHandler("sj", function(ply, arg, id)
 		print(arg, id)
 		spawnJob(tonumber(id))
+	end)
+
+	addCommandHandler("shj", function(ply, arg, id)
+		spawnHarvestJob(ply)
 	end)
 
 	addCommandHandler("fj", function(ply, arg, id)

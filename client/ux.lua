@@ -120,6 +120,8 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCri
 		elseif type == g_GROUP_JOB.type then
 			showText[groupJobInfo] = false
 			showText[groupJobNeedsPeople] = false
+		elseif type == g_HARVEST_JOB.type then
+			triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
 		end
 	elseif role == g_POLICE_ROLE then
 		-- lets police track criminals when they finish a job
