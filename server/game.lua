@@ -272,6 +272,14 @@ function preGameSetup()
 	addEventHandler(g_FINISH_JOB_EVENT, getRootElement(), function(id)
 		finishJob(jobs[id])
 	end)
+
+	-- harvest jobs spawn whenever anyone disappears no matter what team
+	addEventHandler("onPlayerQuit", getRootElement(), function()
+		spawnHarvestJob(source)
+	end)
+	addEventHandler("onPlayerWasted", getRootElement(), function()
+		spawnHarvestJob(source)
+	end)
 end
 
 function shuffle(a)
