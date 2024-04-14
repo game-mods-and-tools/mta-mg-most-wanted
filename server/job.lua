@@ -196,8 +196,14 @@ end
 
 HarvestJob = DeliveryJob:new()
 
-function HarvestJob:setup()
+function HarvestJob:enable()
+	self.progress = 0
+	triggerClientEvent(getPlayersInTeam(g_CriminalTeam), g_SHOW_JOB_EVENT, resourceRoot, self.id, self.type, self.pos, self.forPlayer)
+end
+
+function HarvestJob:setup(player)
 	self:addCollisionChecks()
+	self.forPlayer = getPlayerName(player) or "Someone"
 	self.ped = createPed(1, self.pos.x, self.pos.y, self.pos.z)
 	killPed(self.ped)
 end

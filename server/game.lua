@@ -173,7 +173,7 @@ function spawnHarvestJob(player)
 	local x, y, z = getElementPosition(player)
 	harvestJobCount = harvestJobCount + 1
 	local job = HarvestJob:new(-harvestJobCount, "harvest job", x, y, z)
-	job:setup()
+	job:setup(player)
 	job:enable()
 	jobs[-harvestJobCount] = job -- using negatives so it doesnt interfere with other jobs
 end
