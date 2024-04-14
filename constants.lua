@@ -88,9 +88,19 @@ g_GROUP_JOB = {
 	decayRate = 0.1, -- per second
 	minPlayers = 3
 }
+g_HARVEST_JOB = {
+	elementType = "invalid_element",
+	type = "harvest job",
+	detectionRadius = 500,
+	zoneRadius = 5,
+	blip = 21,
+	color = { r = 160, g = 0, b = 210, a = 100 },
+	jobWeight = 8 -- compared to 10 per player, this basically finishes the dead player's contribution (even more if they did jobs already)
+}
 g_JOBS_BY_TYPE = {
 	[g_PICKUP_JOB.type] = g_PICKUP_JOB,
 	[g_DELIVERY_JOB.type] = g_DELIVERY_JOB,
 	[g_EXTORTION_JOB.type] = g_EXTORTION_JOB,
-	[g_GROUP_JOB.type] = g_GROUP_JOB
+	[g_GROUP_JOB.type] = g_GROUP_JOB,
+	[g_HARVEST_JOB.type] = g_HARVEST_JOB
 }

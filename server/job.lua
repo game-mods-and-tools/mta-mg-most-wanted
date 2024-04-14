@@ -15,6 +15,35 @@ function Job:new(id, type, x, y, z)
 	return o
 end
 
+function Job:setup()
+	self:addCollisionChecks()
+end
+
+function Job:addCollisionChecks()
+	local col = createColCircle(self.pos.x, self.pos.y, g_JOBS_BY_TYPE[self.type].zoneRadius)
+	addEventHandler("onColShapeHit", col, function(element)
+		local player, vehicle = toPlayer(element)
+		if not player then return end
+		if not vehicle then return end -- in case of spectator?
+		if getPlayerTeam(player.player) ~= g_CriminalTeam then return end
+
+		local _, _, z2 = getElementPosition(vehicle)
+		if math.abs(z2 - self.pos.z) > 5 then return end
+
+		if not self:isAvailable() then return end
+
+		self:assign(player)
+	end)
+	addEventHandler("onColShapeLeave", col, function(element)
+		local player = toPlayer(element)
+		if not player then return end
+		if not self:isAssignedTo(player) then return end
+		-- can't check Z but don't care?
+
+		self:unassign(player)
+	end)
+end
+
 function Job:money()
 	return g_JOBS_BY_TYPE[self.type].jobWeight + (self.bonus or 0)
 end
@@ -122,7 +151,7 @@ function DeliveryJob:assign(player)
 	self.bonus = math.min(g_MAX_DELIVERY_BONUS, getDistanceBetweenPoints3D(self.pos.x, self.pos.y, self.pos.z, x, y, z) / 1200)
 
 	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
-	
+
 	local subtype = g_JOBS_BY_TYPE[self.type].subtypes.DELIVERY
 	if math.random() > 0.5 then
 		subtype = g_JOBS_BY_TYPE[self.type].subtypes.ELIMINATION
@@ -163,6 +192,44 @@ function DeliveryJob:finish()
 
 	self:disable()
 	self.players = {}
+end
+
+HarvestJob = DeliveryJob:new()
+
+function HarvestJob:setup()
+	self:addCollisionChecks()
+	self.ped = createPed(1, self.pos.x, self.pos.y, self.pos.z)
+	killPed(self.ped)
+end
+
+function HarvestJob:assign(player)
+	if player.delivering then return end
+
+	destroyElement(self.ped)
+
+	self.deliverer = player
+	self.deliverer.delivering = true
+	self.players[player.player] = true
+
+	-- hospital location
+	x = 1184.970703125
+	y = -1323.982421875
+	z = 13.147170066833
+
+	rx = 0
+	ry = 0
+	rz = 0
+
+	self.bonus = math.min(g_MAX_DELIVERY_BONUS, getDistanceBetweenPoints3D(self.pos.x, self.pos.y, self.pos.z, x, y, z) / 1200)
+
+	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
+
+	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, {
+		pos = { x = x, y = y, z = z },
+		rot = { x = rx, y = ry, z = rz }
+	})
+
+	self:disable()
 end
 
 -- sit and wait... in a group job
