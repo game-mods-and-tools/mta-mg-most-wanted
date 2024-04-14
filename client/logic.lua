@@ -1,6 +1,7 @@
 local honkProgress = 0
 local honking = false
-local timer = nil
+local honkTimer = nil
+local organTimers = nil
 
 bindKey("horn", "down", function()
 	honking = true
@@ -80,13 +81,46 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 		function finishDelivery(element)
 			if getPedOccupiedVehicle(localPlayer) ~= element then return end
 			removeEventHandler("onClientColShapeHit", col, finishDelivery)
+			
+			triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
 
-			triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
+			local screenWidth, screenHeight = guiGetScreenSize()
+			local collectedOrgans = 0
+			organTimers = {}
+			for _, organ in ipairs({
+				"client/org_brain.png",
+				"client/org_eyeball.png",
+				"client/org_heart.png",
+				"client/org_kidleft.png",
+				"client/org_kidright.png",
+				"client/org_liver.png",
+				"client/org_lung.png",
+				"client/org_test.png",
+			}) do
+				local window = guiCreateWindow(math.random() * (screenWidth / 2 - 75) + screenWidth / 4, math.random() * (screenHeight / 2 - 75) + screenHeight / 4, 150, 150, "Click to collect", false)
+				guiCreateStaticImage(25, 25, 100, 100, organ, false, window)
+
+				function grabOrgan()
+					if isElement(window) then
+						removeEventHandler("onClientGUIClick", window, grabOrgan)
+						destroyElement(window)
+						collectedOrgans = collectedOrgans + 1
+						if collectedOrgans == 8 then
+							triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
+						end
+					end
+				end
+				addEventHandler("onClientGUIClick", window, grabOrgan)
+				organTimers[#organTimers + 1] = setTimer(function()
+					grabOrgan()
+				end, 5000, 1)
+			end
+			showCursor(true, false)
 		end
 		addEventHandler("onClientColShapeHit", col, finishDelivery)
 	elseif type == g_EXTORTION_JOB.type then
 		honkProgress = 0
-		timer = setTimer(function()
+		honkTimer = setTimer(function()
 			if honkProgress >= 1 then
 				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 			end
@@ -158,10 +192,17 @@ end)
 addEvent("onClientCall_race", true)
 
 function cleanupJobs()
-	triggerEvent(g_HIDE_PROGRESS_BAR_EVENT	, resourceRoot)
+	triggerEvent(g_HIDE_PROGRESS_BAR_EVENT, resourceRoot)
 	honkProgress = 0
-	if isTimer(timer) then
-		killTimer(timer)
+	if isTimer(honkTimer) then
+		killTimer(honkTimer)
 	end
-	timer = nil
+	honkTimer = nil
+	for _, timer in ipairs(organTimers) do
+		if isTimer(timer) then
+			killTimer(timer)
+		end
+	end
+	organTimers = {}
+	showCursor(false, false)
 end

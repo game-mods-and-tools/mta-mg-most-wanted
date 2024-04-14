@@ -23,6 +23,14 @@
     <file src="client/pag.mp3" />
     <file src="client/select.mp3" />
     <file src="client/siren.mp3" />
+	<file src="client/org_brain.png" />
+	<file src="client/org_eyeball.png" />
+	<file src="client/org_heart.png" />
+	<file src="client/org_kidleft.png" />
+	<file src="client/org_kidright.png" />
+	<file src="client/org_liver.png" />
+	<file src="client/org_lung.png" />
+	<file src="client/org_test.png" />
     
     <info gamemodes="race" type="map" name="[MG] Most Wanted: Los Santos" author="Big Pig" version="0.0.5" edf:definition="MG-MostWantedLosSantos.edf"></info>
     <map src="MG-MostWantedLosSantos.map" dimension="0"></map>
