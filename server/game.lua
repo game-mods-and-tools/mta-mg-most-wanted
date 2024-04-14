@@ -78,7 +78,7 @@ function updateGameState(state)
 		-- remove blips?
 		-- unbind criminal keys?
 	elseif state == g_ENDGAME_STATE then
-		g_CopWeaponId = 31 -- m4
+		-- g_CopWeaponId = 31 -- m4
 		lastSpawnedExitAt = getRealTime().timestamp + 30 -- hack to add extra 30 seconds to first spawn
 
 		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
