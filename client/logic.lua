@@ -35,6 +35,7 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			addEventHandler("onClientColShapeHit", col, finishDelivery)
 		elseif data.subtype == g_DELIVERY_JOB.subtypes.ELIMINATION then
 			local ped = createPed(127, data.pos.x, data.pos.y, data.pos.z)
+			local blip = nil
 			setElementHealth(ped, 30)
 			setElementRotation(ped, data.rot.x, data.rot.y, data.rot.z)
 			setPedAnimation(ped, "dealer", "dealer_deal")
@@ -59,12 +60,14 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 				setPedControlState(ped, "forwards", true)
 				if not firstHit then
 					firstHit = true
+					blip = createBlipAttachedTo(ped, 60)
 					triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
 				end
 			end
 
 			function pedDie()
 				killTimer(turnPed)
+				destroyElement(blip)
 				removeEventHandler("onClientPedWasted", ped, pedDie)
 				removeEventHandler("onClientPedDamage", ped, pedHit)
 				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
