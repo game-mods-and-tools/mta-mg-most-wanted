@@ -6,16 +6,19 @@ local money = {
 	total = 0,
 	quota = 0
 }
+local deadPlayer = nil
 local role = g_CRIMINAL_ROLE
 local moneyScaler = 1000
 
 local showText = {}
 local groupJobAppeared = "groupJobAppeared"
+local harvestJobAppeared = "harvestJobAppeared"
 local pickupJobInfo = "pickupJobInfo"
 local deliveryJobInfo = "deliveryJobInfo"
 local eliminationJobInfo = "eliminationJobInfo"
 local extortionJobInfo = "extortionJobInfo"
 local groupJobInfo = "groupJobInfo"
+local harvestJobInfo = "harvestJobInfo"
 local groupJobNeedsPeople = "groupJobNeedsPeople" -- value is the current people
 local roleInfo = "roleInfo"
 local abandonedJob = "abandonedJob"
@@ -28,7 +31,7 @@ local endEndGameScrollTimer = nil
 local badEndGameInfo = "badEndGameInfo"
 
 addEvent(g_SHOW_JOB_EVENT, true)
-addEventHandler(g_SHOW_JOB_EVENT, resourceRoot, function(id, type, pos)
+addEventHandler(g_SHOW_JOB_EVENT, resourceRoot, function(id, type, pos, data)
 	local job = g_JOBS_BY_TYPE[type]
 
 	currentJobs[id] = {
@@ -38,6 +41,9 @@ addEventHandler(g_SHOW_JOB_EVENT, resourceRoot, function(id, type, pos)
 
 	if type == g_GROUP_JOB.type then
 		show(groupJobAppeared, 3000)
+	elseif type == g_HARVEST_JOB.type then
+		deadPlayer = data
+		show(harvestJobAppeared, 5000)
 	end
 end)
 
@@ -84,6 +90,8 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 		elseif data.subtype == g_DELIVERY_JOB.subtypes.ELIMINATION then
 			showText[eliminationJobInfo] = true
 		end
+	elseif type == g_HARVEST_JOB.type then
+			showText[harvestJobInfo] = true
 	end
 end)
 
@@ -342,7 +350,9 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		end
 
 		-- slightly under top middle ui
-		if showText[groupJobAppeared] then
+		if showText[harvestJobAppeared] then
+			dxDrawBorderedText(0.5, deadPlayer .. " #C8C8C8has died, but might still be useful...", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2.8, "arial", center, top, false, false, false, true)
+		elseif showText[groupJobAppeared] then
 			dxDrawBorderedText(0.5,"A heist is being organised somewhere!", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 		end
 
@@ -353,6 +363,9 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			elseif role == g_POLICE_ROLE then
 				dxDrawBorderedText(0.5,"An#FFDC00 escape route#C8C8C8 has been reported!", screenWidth / 2, screenHeight * 0.75 + 40 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
+		elseif showText[harvestJobInfo] then
+			dxDrawBorderedText(0.5,"Looks like some of it is still in decent condition, probably.", screenWidth / 2, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			dxDrawBorderedText(0.5,"Drop the body off at the#DE1A1A crooked doctor#D2D2D2 at the hospital.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[pickupJobInfo] then
 			dxDrawBorderedText(0.5,"Wait in place. The money is coming.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[extortionJobInfo] then
