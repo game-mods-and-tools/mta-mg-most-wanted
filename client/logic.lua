@@ -1,7 +1,6 @@
 local honkProgress = 0
 local honking = false
 local honkTimer = nil
-local organTimers = nil
 
 bindKey("horn", "down", function()
 	honking = true
@@ -82,11 +81,10 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			if getPedOccupiedVehicle(localPlayer) ~= element then return end
 			removeEventHandler("onClientColShapeHit", col, finishDelivery)
 			
-			triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
+			triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 
+			local organs = 0
 			local screenWidth, screenHeight = guiGetScreenSize()
-			local collectedOrgans = 0
-			organTimers = {}
 			for _, organ in ipairs({
 				"client/org_brain.png",
 				"client/org_eyeball.png",
@@ -97,23 +95,23 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 				"client/org_lung.png",
 				"client/org_test.png",
 			}) do
-				local window = guiCreateWindow(math.random() * (screenWidth / 2 - 75) + screenWidth / 4, math.random() * (screenHeight / 2 - 75) + screenHeight / 4, 150, 150, "Click to collect", false)
+				local window = guiCreateWindow(math.random() * (screenWidth - 150), math.random() * (screenHeight - 150), 150, 150, "Click to collect", false)
 				guiCreateStaticImage(25, 25, 100, 100, organ, false, window)
 
 				function grabOrgan()
 					if isElement(window) then
 						removeEventHandler("onClientGUIClick", window, grabOrgan)
 						destroyElement(window)
-						collectedOrgans = collectedOrgans + 1
-						if collectedOrgans == 8 then
-							triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
-						end
+					end
+					organs = organs + 1
+					if organs > 7 then
+						showCursor(false, false)
 					end
 				end
 				addEventHandler("onClientGUIClick", window, grabOrgan)
-				organTimers[#organTimers + 1] = setTimer(function()
+				setTimer(function()
 					grabOrgan()
-				end, 5000, 1)
+				end, 7500, 1)
 			end
 			showCursor(true, false)
 		end
@@ -198,11 +196,4 @@ function cleanupJobs()
 		killTimer(honkTimer)
 	end
 	honkTimer = nil
-	for _, timer in ipairs(organTimers) do
-		if isTimer(timer) then
-			killTimer(timer)
-		end
-	end
-	organTimers = {}
-	showCursor(false, false)
 end

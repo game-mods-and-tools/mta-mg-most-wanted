@@ -129,6 +129,7 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCri
 			showText[groupJobInfo] = false
 			showText[groupJobNeedsPeople] = false
 		elseif type == g_HARVEST_JOB.type then
+			showText[harvestJobInfo] = false
 			triggerEvent(g_HIDE_DELIVERY_TARGET_EVENT, resourceRoot)
 		end
 	elseif role == g_POLICE_ROLE then
