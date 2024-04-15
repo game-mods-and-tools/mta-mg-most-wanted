@@ -83,7 +83,7 @@ g_GROUP_JOB = {
 	zoneRadius = 22,
 	blip = 6,
 	color = { r = 255, g = 255, b = 255, a = 100 },
-	jobWeight = 9.975,
+	jobWeight = 11.197,
 	progressRate = 0.05, -- per second
 	decayRate = 0.1, -- per second
 	minPlayers = 3
@@ -95,7 +95,7 @@ g_HARVEST_JOB = {
 	zoneRadius = 5,
 	blip = 21,
 	color = { r = 160, g = 0, b = 210, a = 100 },
-	jobWeight = 1.137 -- per organ clicked (6 organs), total should help with the dead players quota
+	jobWeight = 1.167 -- per organ clicked (6 organs), total should help with the dead players quota
 }
 g_JOBS_BY_TYPE = {
 	[g_PICKUP_JOB.type] = g_PICKUP_JOB,
