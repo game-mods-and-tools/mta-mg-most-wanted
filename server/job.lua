@@ -204,7 +204,7 @@ end
 function HarvestJob:setup(player)
 	self:addCollisionChecks()
 	self.forPlayer = getPlayerName(player) or "Someone"
-	self.ped = createPed(1, self.pos.x, self.pos.y, self.pos.z)
+	self.ped = createPed(111, self.pos.x, self.pos.y, self.pos.z)
 	killPed(self.ped)
 end
 

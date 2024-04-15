@@ -83,39 +83,51 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 		function finishDelivery(element)
 			if getPedOccupiedVehicle(localPlayer) ~= element then return end
 			removeEventHandler("onClientColShapeHit", col, finishDelivery)
-			
+
 			triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 
-			local organs = 0
+			local organCount = 0
 			local screenWidth, screenHeight = guiGetScreenSize()
-			for _, organ in ipairs({
+			local width = 0.15
+			local height = width / (screenHeight / screenWidth)
+			local startX = (1 - width * 3) / 2
+			local startY = (1 - height * 2) / 2
+
+			local organs = {
 				"client/org_brain.png",
 				"client/org_eyeball.png",
-				"client/org_heart.png",
 				"client/org_kidleft.png",
+				"client/org_heart.png",
 				"client/org_kidright.png",
-				"client/org_liver.png",
 				"client/org_lung.png",
 				"client/org_test.png",
-			}) do
-				local window = guiCreateWindow(math.random() * (screenWidth - 150), math.random() * (screenHeight - 150), 150, 150, "Click to collect", false)
-				guiCreateStaticImage(25, 25, 100, 100, organ, false, window)
+				"client/org_liver.png",
+			}
+			for i = 0, 5 do
+				local organ = organs[math.random(#organs)]
+				local window = guiCreateWindow(startX + width * (i % 3), startY + height * math.floor(i / 3), width, height, "Click to collect", true)
+				local image = guiCreateStaticImage(0, 0.1, 1, 1, organ, true, window)
+				guiSetEnabled(image, false) -- prevent clicks from targeting image instead
 
-				function grabOrgan()
-					if isElement(window) then
-						removeEventHandler("onClientGUIClick", window, grabOrgan)
-						destroyElement(window)
-					end
-					organs = organs + 1
-					if organs > 7 then
-						showCursor(false, false)
+				-- idk whats up with window
+				function grabOrgan(windowOrButton)
+					local gui = isElement(windowOrButton) and windowOrButton or source
+					if isElement(gui) then
+						removeEventHandler("onClientGUIClick", gui, grabOrgan)
+						destroyElement(gui)
+						organCount = organCount + 1
+						if organCount == 6 then
+							showCursor(false, false)
+						end
 					end
 				end
 				addEventHandler("onClientGUIClick", window, grabOrgan)
+
 				setTimer(function()
-					grabOrgan()
+					grabOrgan(window)
 				end, 7500, 1)
 			end
+
 			showCursor(true, false)
 		end
 		addEventHandler("onClientColShapeHit", col, finishDelivery)
