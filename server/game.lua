@@ -287,12 +287,6 @@ function preGameSetup()
 	addEventHandler("onPlayerWasted", getRootElement(), function()
 		spawnHarvestJob(source)
 	end)
-	addEventHandler("onClientNotifySpectate", getRootElement(), function(enabled)
-		-- probably afk forcer, shouldnt be able to unspectate due to no respawn
-		if enabled then
-			spawnHarvestJob(source)
-		end
-	end)
 end
 
 function shuffle(a)
