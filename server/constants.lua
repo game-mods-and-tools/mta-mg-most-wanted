@@ -1,4 +1,4 @@
-g_SERVER_TICK_DELAY = 333 -- ms per tick
+g_SERVER_TICK_DELAY = 150 -- ms per tick
 g_DEBUG_MODE = false
 
 g_SECRET_ENDING_REQUIREMENT_MULTIPLIER = 1.5
