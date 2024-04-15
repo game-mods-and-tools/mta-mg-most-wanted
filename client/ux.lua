@@ -43,7 +43,7 @@ addEventHandler(g_SHOW_JOB_EVENT, resourceRoot, function(id, type, pos, data)
 		show(groupJobAppeared, 3000)
 	elseif type == g_HARVEST_JOB.type then
 		deadPlayer = data
-		show(harvestJobAppeared, 5000)
+		show(harvestJobAppeared, 3000)
 	end
 end)
 
@@ -108,11 +108,11 @@ end)
 addEvent(g_FINISH_JOB_EVENT, true)
 addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCriminals)
 	if role == g_CRIMINAL_ROLE then
-		playSound("client/lodsofemone.wav")
+		playSound("client/lodsofemone.mp3")
 
 		for _, player in pairs(reportedCriminals) do
 			if player == localPlayer then
-				show(crimeReported, 3000)
+				show(crimeReported, 3500)
 				break
 			end
 		end
@@ -140,7 +140,7 @@ addEventHandler(g_FINISH_JOB_EVENT, resourceRoot, function(id, type, reportedCri
 		end
 
 		if #reportedCriminals > 0 then
-			show(crimeReported, 4000)
+			show(crimeReported, 5000)
 		end
 	end
 end)
@@ -260,9 +260,9 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 					dxDrawText("WOULD YOU LOOK AT THAT......YOU HAVE FARMED LOS SANTOS THOROUGHLY WELL......GO SLAUGHTER SOME PIGS!!!  -BIG PIG", screenWidth - 2 - offset, screenHeight * 0.95 + 2,  screenWidth, screenHeight, tocolor(200, 255, 200, 100), 2, "default", center, top, false, false, false, true)
 				elseif role == g_POLICE_ROLE then
 					local offset = (screenWidth + 1200) * (totalTime - timeLeft) / totalTime
-					dxDrawText("HAHAHAHA.......STUPID PIGS......YOU ARE ABOUT TO BE TURNED INTO BACON BITS!!!  -BIG PIG", screenWidth - offset, screenHeight * 0.95,  screenWidth, screenHeight, tocolor(40, 255, 10, 250), 2, "default", center, top, false, false, false, true)
-					dxDrawText("HAHAHAHA.......STUPID PIGS......YOU ARE ABOUT TO BE TURNED INTO BACON BITS!!!  -BIG PIG", screenWidth + 2 - offset, screenHeight * 0.95 + 2,  screenWidth, screenHeight, tocolor(200, 255, 200, 100), 2, "default", center, top, false, false, false, true)
-					dxDrawText("HAHAHAHA.......STUPID PIGS......YOU ARE ABOUT TO BE TURNED INTO BACON BITS!!!  -BIG PIG", screenWidth - 2 - offset, screenHeight * 0.95 + 2,  screenWidth, screenHeight, tocolor(200, 255, 200, 100), 2, "default", center, top, false, false, false, true)
+					dxDrawText("HAHAHAHAHA.......STUPID GREASY PIGS......YOU ARE ABOUT TO BE TURNED INTO BACON BITS!!!  -BIG PIG", screenWidth - offset, screenHeight * 0.95,  screenWidth, screenHeight, tocolor(40, 255, 10, 250), 2, "default", center, top, false, false, false, true)
+					dxDrawText("HAHAHAHAHA.......STUPID GREASY PIGS......YOU ARE ABOUT TO BE TURNED INTO BACON BITS!!!  -BIG PIG", screenWidth + 2 - offset, screenHeight * 0.95 + 2,  screenWidth, screenHeight, tocolor(200, 255, 200, 100), 2, "default", center, top, false, false, false, true)
+					dxDrawText("HAHAHAHAHA.......STUPID GREASY PIGS......YOU ARE ABOUT TO BE TURNED INTO BACON BITS!!!  -BIG PIG", screenWidth - 2 - offset, screenHeight * 0.95 + 2,  screenWidth, screenHeight, tocolor(200, 255, 200, 100), 2, "default", center, top, false, false, false, true)
 				end
 			end
 		end
@@ -326,10 +326,10 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		-- hud
 		if role == g_CRIMINAL_ROLE then
 			-- HUD (crim)
-			dxDrawBorderedText(2,"ESCAPE QUOTA", screenWidth * 0.75, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"$" .. money.quota, screenWidth * 0.75, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"TOTAL MONEY", screenWidth * 0.75, screenHeight * 0.22 + 55, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"$" .. money.total, screenWidth * 0.75, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			dxDrawBorderedText(2,"ESCAPE QUOTA", screenWidth * 0.77, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			dxDrawBorderedText(2,"$" .. money.quota, screenWidth * 0.77, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			dxDrawBorderedText(2,"TOTAL MONEY", screenWidth * 0.77, screenHeight * 0.22 + 55, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			dxDrawBorderedText(2,"$" .. money.total, screenWidth * 0.77, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
 
 		elseif role == g_POLICE_ROLE then
 			-- HUD (cop)
@@ -352,7 +352,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 
 		-- slightly under top middle ui
 		if showText[harvestJobAppeared] then
-			dxDrawBorderedText(0.5, deadPlayer .. " #C8C8C8has died, but might still be useful...", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2.8, "arial", center, top, false, false, false, true)
+			dxDrawBorderedText(0.5, deadPlayer .. " #C8C8C8died, but their corpse might be useful...", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 		elseif showText[groupJobAppeared] then
 			dxDrawBorderedText(0.5,"A heist is being organised somewhere!", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 		end
@@ -365,7 +365,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				dxDrawBorderedText(0.5,"An#FFDC00 escape route#C8C8C8 has been reported!", screenWidth / 2, screenHeight * 0.75 + 40 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
 		elseif showText[harvestJobInfo] then
-			dxDrawBorderedText(0.5,"Looks like some of it is still in decent condition, probably.", screenWidth / 2, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			dxDrawBorderedText(0.5,"Some stuff is still in decent condition, probably.", screenWidth / 2, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			dxDrawBorderedText(0.5,"Drop the body off at the#DE1A1A crooked doctor#D2D2D2 at the hospital.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[pickupJobInfo] then
 			dxDrawBorderedText(0.5,"Wait in place. The money is coming.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)

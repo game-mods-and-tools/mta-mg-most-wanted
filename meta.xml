@@ -13,26 +13,38 @@
     <script src="client/logic.lua" type="client"></script>
     <script src="client/ux.lua" type="client"></script>
     
+    <file src="client/lodsofemone.mp3" />
+    <file src="client/pag.mp3" />
+    <file src="client/siren.mp3" />
+    
     <file src="client/fugitive.png" />
     <file src="client/mechanic.png" />
     <file src="client/hotshot.png" />
     <file src="client/fugitive_bw.png" />
     <file src="client/mechanic_bw.png" />
     <file src="client/hotshot_bw.png" />
-    <file src="client/lodsofemone.wav" />
-    <file src="client/pag.mp3" />
     <file src="client/select.mp3" />
-    <file src="client/siren.mp3" />
+
     <file src="client/org_brain.png" />
-    <file src="client/org_eyeball.png" />
+    <file src="client/org_eyeleft.png" />
+    <file src="client/org_eyeright.png" />
     <file src="client/org_heart.png" />
     <file src="client/org_kidleft.png" />
     <file src="client/org_kidright.png" />
     <file src="client/org_liver.png" />
     <file src="client/org_lung.png" />
+    <file src="client/org_marrow.png" />
+    <file src="client/org_pancreas.png" />
     <file src="client/org_test.png" />
-    
-    <info gamemodes="race" type="map" name="[MG] Most Wanted: Los Santos" author="Big Pig" version="0.0.5" edf:definition="MG-MostWantedLosSantos.edf"></info>
+    <file src="client/snippy.mp3" />
+
+    <file src="client/blip_delivery.png" />
+    <file src="client/blip_extortion.png" />
+    <file src="client/blip_harvest.png" />
+    <file src="client/blip_heist.png" />
+    <file src="client/blip_pickup.png" />
+
+    <info gamemodes="race" type="map" name="[MG] Most Wanted: Los Santos" author="Big Pig" version="0.0.7" edf:definition="MG-MostWantedLosSantos.edf"></info>
     <map src="MG-MostWantedLosSantos.map" dimension="0"></map>
     <settings>
         <setting name="#skins" value="[ 111 ]"></setting>
