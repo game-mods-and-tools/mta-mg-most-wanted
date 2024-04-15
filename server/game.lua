@@ -87,7 +87,7 @@ function updateGameState(state)
 		-- unbind criminal keys?
 	elseif state == g_ENDGAME_STATE then
 		-- g_CopWeaponId = 31 -- m4
-		lastSpawnedExitAt = getRealTime().timestamp + 30 -- hack to add extra 30 seconds to first spawn
+		lastSpawnedExitAt = getRealTime().timestamp + 15 -- hack to add extra 30 seconds to first spawn
 
 		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
 			if getElementData(criminal, "state") == "alive" then
@@ -237,7 +237,7 @@ function preGameSetup()
 	end
 
 	-- set up player based limits
-	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10 + 0.152
+	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10
 	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
 		money = 0,
 		moneyQuota = moneyEscapeQuota

@@ -49,7 +49,7 @@ g_PICKUP_JOB = {
 	blip = 52,
 	color = { r = 20, g = 150, b = 0, a = 100 },
 	jobWeight = 0.879,
-	progressRate = 0.15 -- per second
+	progressRate = 0.25 -- per second
 }
 g_DELIVERY_JOB = {
 	elementType = "delivery_job_start",
@@ -72,7 +72,7 @@ g_EXTORTION_JOB = {
 	blip = 55,
 	color = { r = 0, g = 0, b = 160, a = 100 },
 	jobWeight = 1.061,
-	progressRate = 0.025, -- per interval
+	progressRate = 0.03, -- per interval
 	decayRate = 0.05, -- per interval
 	interval = 100 -- in ms, client side, unrelated to server ticks
 }
@@ -83,7 +83,7 @@ g_GROUP_JOB = {
 	zoneRadius = 22,
 	blip = 6,
 	color = { r = 255, g = 255, b = 255, a = 100 },
-	jobWeight = 6.865,
+	jobWeight = 9.975,
 	progressRate = 0.05, -- per second
 	decayRate = 0.1, -- per second
 	minPlayers = 3
@@ -91,11 +91,11 @@ g_GROUP_JOB = {
 g_HARVEST_JOB = {
 	elementType = "invalid_element",
 	type = "harvest job",
-	detectionRadius = 500,
+	detectionRadius = 150,
 	zoneRadius = 5,
 	blip = 21,
 	color = { r = 160, g = 0, b = 210, a = 100 },
-	jobWeight = 8 -- compared to 10 per player, this basically finishes the dead player's contribution (even more if they did jobs already)
+	jobWeight = 5.833 -- compared to 10 per player, this basically finishes the dead player's contribution (even more if they did jobs already)
 }
 g_JOBS_BY_TYPE = {
 	[g_PICKUP_JOB.type] = g_PICKUP_JOB,

@@ -88,24 +88,27 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 
 			local organCount = 0
 			local screenWidth, screenHeight = guiGetScreenSize()
-			local width = 0.15
+			local width = 0.10
 			local height = width / (screenHeight / screenWidth)
 			local startX = (1 - width * 3) / 2
 			local startY = (1 - height * 2) / 2
 
 			local organs = {
 				"client/org_brain.png",
-				"client/org_eyeball.png",
+				"client/org_eyeleft.png",
+				"client/org_eyeright.png",
 				"client/org_kidleft.png",
 				"client/org_heart.png",
 				"client/org_kidright.png",
 				"client/org_lung.png",
 				"client/org_test.png",
 				"client/org_liver.png",
+				"client/org_pancreas.png",
+				"client/org_marrow.png",
 			}
 			for i = 0, 5 do
 				local organ = organs[math.random(#organs)]
-				local window = guiCreateWindow(startX + width * (i % 3), startY + height * math.floor(i / 3), width, height, "Click to collect", true)
+				local window = guiCreateWindow(startX + width * (i % 3), startY + height * math.floor(i / 3), width, height, "Click to harvest", true)
 				local image = guiCreateStaticImage(0, 0.1, 1, 1, organ, true, window)
 				guiSetEnabled(image, false) -- prevent clicks from targeting image instead
 
@@ -121,11 +124,11 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 						end
 					end
 				end
-				addEventHandler("onClientGUIClick", window, grabOrgan)
+				addEventHandler("onClientGUIClick", image, grabOrgan)
 
 				setTimer(function()
 					grabOrgan(window)
-				end, 7500, 1)
+				end, 10000, 1)
 			end
 
 			showCursor(true, false)
