@@ -218,15 +218,13 @@ function HarvestJob:assign(player)
 	self.players[player.player] = true
 
 	-- hospital location
-	x = 1184.970703125
-	y = -1323.982421875
-	z = 13.147170066833
+	local x = 1184.970703125
+	local y = -1323.982421875
+	local z = 13.147170066833
 
-	rx = 0
-	ry = 0
-	rz = 0
-
-	self.bonus = math.min(g_MAX_DELIVERY_BONUS, getDistanceBetweenPoints3D(self.pos.x, self.pos.y, self.pos.z, x, y, z) / 1200)
+	local rx = 0
+	local ry = 0
+	local rz = 0
 
 	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 

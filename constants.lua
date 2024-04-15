@@ -95,7 +95,7 @@ g_HARVEST_JOB = {
 	zoneRadius = 5,
 	blip = 21,
 	color = { r = 160, g = 0, b = 210, a = 100 },
-	jobWeight = 5.833 -- compared to 10 per player, this basically finishes the dead player's contribution (even more if they did jobs already)
+	jobWeight = 1.137 -- per organ clicked (6 organs), total should help with the dead players quota
 }
 g_JOBS_BY_TYPE = {
 	[g_PICKUP_JOB.type] = g_PICKUP_JOB,

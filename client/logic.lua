@@ -84,8 +84,6 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			if getPedOccupiedVehicle(localPlayer) ~= element then return end
 			removeEventHandler("onClientColShapeHit", col, finishDelivery)
 
-			triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
-
 			local organCount = 0
 			local screenWidth, screenHeight = guiGetScreenSize()
 			local width = 0.10
@@ -119,6 +117,8 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 						removeEventHandler("onClientGUIClick", gui, grabOrgan)
 						destroyElement(gui)
 						organCount = organCount + 1
+						playSound("client/snippy.mp3")
+						triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 						if organCount == 6 then
 							showCursor(false, false)
 						end

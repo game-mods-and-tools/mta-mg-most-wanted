@@ -159,7 +159,9 @@ end
 function finishJob(job)
 	job:finish()
 
-	availableJobs = availableJobs - 1
+	if job.type ~= g_HARVEST_JOB.type then
+		availableJobs = availableJobs - 1
+	end
 	totalMoneyProgress = totalMoneyProgress + job:money()
 
 	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
