@@ -70,6 +70,7 @@ function Player:new(player)
 	o.player = player
 	o.delivering = false
 	o.perkId = nil
+	o.died = false
 
 	return o
 end

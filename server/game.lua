@@ -179,6 +179,11 @@ function unassignJob(job, player)
 end
 
 function spawnHarvestJob(player)
+	if not playersByClient[player] then return end
+	if playersByClient[player].died then return end
+
+	playersByClient[player].died = true
+
 	local x, y, z = getElementPosition(player)
 	harvestJobCount = harvestJobCount + 1
 	local job = HarvestJob:new(-harvestJobCount, "harvest job", x, y, z)
