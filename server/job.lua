@@ -134,7 +134,10 @@ end
 DeliveryJob = Job:new()
 
 function DeliveryJob:assign(player)
-	if player.delivering then return end
+	if player.delivering then
+		triggerClientEvent(player.player, g_JOB_ALREADY_IN_PROGRESS_EVENT, resourceRoot)
+		return
+	end
 
 	self.deliverer = player
 	self.deliverer.delivering = true
@@ -209,7 +212,10 @@ function HarvestJob:setup(player)
 end
 
 function HarvestJob:assign(player)
-	if player.delivering then return end
+	if player.delivering then
+		triggerClientEvent(player.player, g_JOB_ALREADY_IN_PROGRESS_EVENT, resourceRoot)
+		return
+	end
 
 	destroyElement(self.ped)
 
