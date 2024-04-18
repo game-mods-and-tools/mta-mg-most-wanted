@@ -1,7 +1,7 @@
 g_FUGITIVE_PERK = {
 	id = "fugitivePerkId",
 	name = "Fugitive",
-	duration = 3000, -- ms
+	duration = 30000, -- ms
 	description = "After reaching the quota, become temporarily invisible."
 }
 g_MECHANIC_PERK = {
@@ -17,7 +17,7 @@ g_HOTSHOT_PERK = {
 	accelRate = 0.01, -- engineAcceleration per missing hp
 	description = "The lower your health, the higher your top speed."
 }
-g_PERK_SELECTION_DURATION = 3000
+g_PERK_SELECTION_DURATION = 15000
 
 g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
 
