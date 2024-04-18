@@ -327,6 +327,7 @@ if g_DEBUG_MODE then
 
 	addCommandHandler("shj", function(ply, arg, id)
 		spawnHarvestJob(ply)
+		playersByClient[ply].died = false
 	end)
 
 	addCommandHandler("fj", function(ply, arg, id)
