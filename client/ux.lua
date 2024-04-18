@@ -302,8 +302,8 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 
 				dxDrawBorderedText(0.5, "1", screenWidth / 2 - 240, screenHeight * 0.7 - 35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.4, "FUGITIVE", screenWidth / 2 - 240, screenHeight * 0.7 + 130, screenWidth, screenHeight, tocolor(170, 0 , 220, 255), 2.7, "arial", center, top, false, false, false, false, true)
-				dxDrawBorderedText(0.5, "If quota is reached, turn", screenWidth / 2 - 240, screenHeight * 0.7 + 165, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
-				dxDrawBorderedText(0.5, "undetectable temporarily", screenWidth / 2 - 240, screenHeight * 0.7 + 185, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.5, "Turn invisible with", screenWidth / 2 - 240, screenHeight * 0.7 + 165, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
+				dxDrawBorderedText(0.5, "handbrake while driving", screenWidth / 2 - 240, screenHeight * 0.7 + 185, screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.3, "sans", center, top, false, false, false, false, true)
 
 				dxDrawBorderedText(0.5, "2", screenWidth / 2, screenHeight * 0.7 - 35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.4, "MECHANIC", screenWidth / 2, screenHeight * 0.7 + 130, screenWidth, screenHeight, tocolor(170, 0 , 220, 255), 2.7, "arial", center, top, false, false, false, false, true)

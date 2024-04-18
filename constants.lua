@@ -1,8 +1,11 @@
 g_FUGITIVE_PERK = {
 	id = "fugitivePerkId",
 	name = "Fugitive",
-	duration = 30000, -- ms
-	description = "After reaching the quota, become temporarily invisible."
+	maxAlpha = 200,
+	minAlpha = 5,
+	transitionTime = 500, -- ms
+	minSpeed = 0.2, -- total velocity
+	description = "Slowly turn invisible with handbreak while driving."
 }
 g_MECHANIC_PERK = {
 	id = "mechanicPerkId",
