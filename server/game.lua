@@ -293,6 +293,7 @@ function preGameSetup()
 	end)
 	addEventHandler("onPlayerWasted", getRootElement(), function()
 		spawnHarvestJob(source)
+		triggerClientEvent(source, "onClientScreenFadedIn", resourceRoot)
 	end)
 end
 
