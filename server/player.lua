@@ -158,20 +158,20 @@ function Player:checkPerk()
 				setElementHealth(veh, math.min(getElementHealth(veh) + g_MECHANIC_PERK.healRate * g_SERVER_TICK_DELAY / 1000, 1000)) -- per tick
 			end
 		elseif self.perkId == g_FUGITIVE_PERK.id then
-			if gameState ~= g_COREGAME_STATE and not self.fugitived then
-				setElementAlpha(veh, 0)
+			if getElementAlpha(self.player) ~= 0  then
 				setElementAlpha(self.player, 0)
 				setVehicleLightState(veh, 0, 1)
 				setVehicleLightState(veh, 1, 1)
-				setTimer(function()
-					if veh then
-						setElementAlpha(veh, 255)
-						setElementAlpha(self.player, 255)
-						setVehicleLightState(veh, 0, 0)
-						setVehicleLightState(veh, 1, 0)
-					end
-				end, g_FUGITIVE_PERK.duration, 1)
-				self.fugitived = true
+				setVehicleLightState(veh, 2, 1)
+				setVehicleLightState(veh, 3, 1)
+			end
+			local vx, vy, vz = getElementVelocity(veh)
+			local speed = math.sqrt(vx ^2 + vy ^2 + vz ^2)
+			local rate = (g_FUGITIVE_PERK.maxAlpha - g_FUGITIVE_PERK.minAlpha) / (g_FUGITIVE_PERK.transitionTime / g_SERVER_TICK_DELAY)
+			if speed > g_FUGITIVE_PERK.minSpeed and getControlState(self.player, "handbrake") then
+				setElementAlpha(veh, math.max(getElementAlpha(veh) - rate, g_FUGITIVE_PERK.minAlpha))
+			else
+				setElementAlpha(veh, math.min(getElementAlpha(veh) + rate / 2, g_FUGITIVE_PERK.maxAlpha))
 			end
 		elseif self.perkId == g_HOTSHOT_PERK.id then
 			setVehicleHandling(veh, "maxVelocity", 200 + (1000 - getElementHealth(veh)) * g_HOTSHOT_PERK.velocityRate) -- 200 is base for vehicle
