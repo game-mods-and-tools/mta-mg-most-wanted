@@ -168,32 +168,37 @@ addEvent(g_GAME_STATE_UPDATE_EVENT, true)
 addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	if state == g_COREGAME_STATE then
 		local policeTeam = getTeamFromName(g_POLICE_TEAM_NAME)
-		if getPlayerTeam(localPlayer) == policeTeam then return end
+		if getPlayerTeam(localPlayer) == policeTeam then
+			local cops = getPlayersInTeam(policeTeam)
+			for _, cop in ipairs(cops) do
+				createBlipAttachedTo(cop, 0, 2, 30, 190, 240, 255, 6, 80085)
+			end
+		else
+			function createCopSirens()
+				setTimer(function()
+					local cops = getPlayersInTeam(policeTeam)
+					if #cops == 0 then return createCopSirens() end
 
-		function createCopSirens()
-			setTimer(function()
-				local cops = getPlayersInTeam(policeTeam)
-				if #cops == 0 then return createCopSirens() end
-
-				for _, cop in ipairs(cops) do
-					local x, y, z = getElementPosition(cop)
-					local sound = playSound3D("client/siren.mp3", x, y, z, true)
-					setSoundMinDistance(sound, 10)
-					setSoundMaxDistance(sound, 150)
-					setTimer(function()
-						if not isElement(cop) then
-							if isElement(sound) then
-								destroyElement(sound)
-							end
-							return
-						end
+					for _, cop in ipairs(cops) do
 						local x, y, z = getElementPosition(cop)
-						setElementPosition(sound, x, y, z)
-					end, 100, 0)
-				end
-			end, 1000, 1)
+						local sound = playSound3D("client/siren.mp3", x, y, z, true)
+						setSoundMinDistance(sound, 10)
+						setSoundMaxDistance(sound, 150)
+						setTimer(function()
+							if not isElement(cop) then
+								if isElement(sound) then
+									destroyElement(sound)
+								end
+								return
+							end
+							local x, y, z = getElementPosition(cop)
+							setElementPosition(sound, x, y, z)
+						end, 100, 0)
+					end
+				end, 1000, 1)
+			end
+			createCopSirens()
 		end
-		createCopSirens()
 	elseif state == g_NO_CRIMS_STATE then
 		triggerEvent("onClientCall_race", root, "checkpointReached", getPedOccupiedVehicle(localPlayer))
 	end
