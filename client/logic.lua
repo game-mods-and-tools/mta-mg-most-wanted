@@ -1,13 +1,5 @@
 local honkProgress = 0
-local honking = false
 local honkTimer = nil
-
-bindKey("horn", "down", function()
-	honking = true
-end)
-bindKey("horn", "up", function()
-	honking = false
-end)
 
 addEvent(g_STOP_JOB_EVENT, true)
 addEventHandler(g_STOP_JOB_EVENT, resourceRoot, function(id)
@@ -141,7 +133,7 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 			end
 
-			if honking then
+			if getControlState(localPlayer, "horn") then
 				honkProgress = math.min(honkProgress + g_EXTORTION_JOB.progressRate, 1)
 			else
 				honkProgress = math.max(honkProgress - g_EXTORTION_JOB.decayRate, 0)
