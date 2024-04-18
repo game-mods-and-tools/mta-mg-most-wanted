@@ -31,6 +31,7 @@ g_START_JOB_EVENT = "onStartJob" -- jobId, jobType
 g_STOP_JOB_EVENT = "onStopJob" -- jobId, jobType
 g_FINISH_JOB_EVENT = "onFinishJob" -- jobId (jobType) (reportedplayers) (client only)
 g_JOB_STATUS_UPDATE_EVENT = "onJobStatusUpdate" -- jobId, jobType, data (depends on jobType)
+g_JOB_ALREADY_IN_PROGRESS_EVENT = "onJobAlreadyInProgress"
 
 g_MONEY_UPDATE_EVENT = "onMoneyUpdate"
 g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate" -- state

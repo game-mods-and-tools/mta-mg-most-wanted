@@ -22,6 +22,7 @@ local harvestJobInfo = "harvestJobInfo"
 local groupJobNeedsPeople = "groupJobNeedsPeople" -- value is the current people
 local roleInfo = "roleInfo"
 local abandonedJob = "abandonedJob"
+local jobAlreadyInProgress = "jobAlreadyInProgress"
 local endGameInfo = "endGameInfo"
 local crimeReported = "crimeReported"
 local endGameInfo = "endGameInfo"
@@ -29,6 +30,11 @@ local escapeReady = "escapeReady"
 local endEndGameInfo = "endEndGameInfo"
 local endEndGameScrollTimer = nil
 local badEndGameInfo = "badEndGameInfo"
+
+addEvent(g_JOB_ALREADY_IN_PROGRESS_EVENT, true)
+addEventHandler(g_JOB_ALREADY_IN_PROGRESS_EVENT, resourceRoot, function()
+	show(jobAlreadyInProgress, 1500)
+end)
 
 addEvent(g_SHOW_JOB_EVENT, true)
 addEventHandler(g_SHOW_JOB_EVENT, resourceRoot, function(id, type, pos, data)
@@ -364,6 +370,8 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			elseif role == g_POLICE_ROLE then
 				dxDrawBorderedText(0.5,"An#FFDC00 escape route#C8C8C8 has been reported!", screenWidth / 2, screenHeight * 0.75 + 40 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
+		elseif showText[jobAlreadyInProgress] then
+			dxDrawBorderedText(0.5,"Complete your current#DE1A1A job#D2D2D2 first.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[harvestJobInfo] then
 			dxDrawBorderedText(0.5,"Looks like some things are still in decent condition, probably.", screenWidth / 2, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			dxDrawBorderedText(0.5,"Drop the body off at the#DE1A1A crooked doctor#D2D2D2 at the hospital.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
