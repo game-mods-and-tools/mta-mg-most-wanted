@@ -51,7 +51,7 @@ g_PICKUP_JOB = {
 	detectionRadius = 250,
 	zoneRadius = 5,
 	blip = 52,
-	color = { r = 20, g = 150, b = 0, a = 100 },
+	color = { r = 10, g = 130, b = 0, a = 100 },
 	jobWeight = 0.879,
 	progressRate = 0.25 -- per second
 }
@@ -87,7 +87,7 @@ g_GROUP_JOB = {
 	zoneRadius = 22,
 	blip = 6,
 	color = { r = 255, g = 255, b = 255, a = 100 },
-	jobWeight = 11.197,
+	jobWeight = 11.797,
 	progressRate = 0.05, -- per second
 	decayRate = 0.1, -- per second
 	minPlayers = 3
@@ -95,11 +95,11 @@ g_GROUP_JOB = {
 g_HARVEST_JOB = {
 	elementType = "invalid_element",
 	type = "harvest job",
-	detectionRadius = 150,
+	detectionRadius = 165,
 	zoneRadius = 5,
 	blip = 21,
 	color = { r = 160, g = 0, b = 210, a = 100 },
-	jobWeight = 1.167 -- per organ clicked (6 organs), total should help with the dead players quota
+	jobWeight = 1.104 -- per organ clicked (6 organs), total should help with the dead players quota
 }
 g_JOBS_BY_TYPE = {
 	[g_PICKUP_JOB.type] = g_PICKUP_JOB,

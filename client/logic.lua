@@ -87,14 +87,15 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 				"client/org_brain.png",
 				"client/org_eyeleft.png",
 				"client/org_eyeright.png",
-				"client/org_kidleft.png",
 				"client/org_heart.png",
+				"client/org_intestines.png",
+				"client/org_kidleft.png",
 				"client/org_kidright.png",
-				"client/org_lung.png",
-				"client/org_test.png",
 				"client/org_liver.png",
-				"client/org_pancreas.png",
+				"client/org_lung.png",
 				"client/org_marrow.png",
+				"client/org_pancreas.png",
+				"client/org_test.png",
 			}
 			for i = 0, 5 do
 				local organ = organs[math.random(#organs)]
