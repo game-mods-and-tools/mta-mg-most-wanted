@@ -9,6 +9,7 @@ local money = {
 local deadPlayer = nil
 local role = g_CRIMINAL_ROLE
 local moneyScaler = 1000
+local uiTimer = nil
 
 local showText = {}
 local groupJobAppeared = "groupJobAppeared"
@@ -20,6 +21,7 @@ local extortionJobInfo = "extortionJobInfo"
 local groupJobInfo = "groupJobInfo"
 local harvestJobInfo = "harvestJobInfo"
 local groupJobNeedsPeople = "groupJobNeedsPeople" -- value is the current people
+local applyInfo = "applyInfo"
 local roleInfo = "roleInfo"
 local abandonedJob = "abandonedJob"
 local jobAlreadyInProgress = "jobAlreadyInProgress"
@@ -184,11 +186,34 @@ addEventHandler(g_UPDATE_PROGRESS_BAR_EVENT, resourceRoot, function(data)
 	progressBarProgress = data.progress
 end)
 
+addEvent(g_PLAYER_APPLY_FOR_POLICE_EVENT, true)
+addEventHandler(g_PLAYER_APPLY_FOR_POLICE_EVENT, resourceRoot, function()
+	local prefer = true
+	function togglePolicePreference()
+		prefer = not prefer
+		destroyElement(guiRoot)
+
+		local screenWidth, screenHeight = guiGetScreenSize()
+		if prefer then
+			guiCreateStaticImage(screenWidth / 2 - 130, screenHeight * 0.6, 240, 240, "client/iwannabeacop.png", false)
+		else
+			guiCreateStaticImage(screenWidth / 2 - 130, screenHeight * 0.6, 240, 240, "client/iwannabeacop_bw.png", false)
+		end
+		playSound("client/select.mp3")
+	end
+	togglePolicePreference() -- to false which is what server thinks
+	bindKey("space", "down", togglePolicePreference)
+
+	uiTimer = show(applyInfo, g_POLICE_APPLICATION_DURATION, true, function()
+		unbindKey("space", "down", togglePolicePreference)
+		destroyElement(guiRoot)
+		uiTimer = nil
+	end)
+end)
+
 addEvent(g_PLAYER_ROLE_SELECTED_EVENT, true)
 addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 	role = rolee
-
-	show(roleInfo, g_PERK_SELECTION_DURATION)
 
 	function selectPerk(_, _, i)
 		destroyElement(guiRoot)
@@ -215,17 +240,19 @@ addEventHandler(g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, function(rolee)
 		end
 	end
 	if role == g_CRIMINAL_ROLE then
-		selectPerk(0)
+		selectPerk(nil, nil, 0)
 		bindKey("1", "down", selectPerk, 1)
 		bindKey("2", "down", selectPerk, 2)
 		bindKey("3", "down", selectPerk, 3)
 	end
-	setTimer(function()
+
+	uiTimer = show(roleInfo, g_PERK_SELECTION_DURATION, true, function()
 		unbindKey("1", "down", selectPerk)
 		unbindKey("2", "down", selectPerk)
 		unbindKey("3", "down", selectPerk)
 		destroyElement(guiRoot)
-	end, g_PERK_SELECTION_DURATION, 1)
+		uiTimer = nil
+	end)
 end)
 
 addEvent(g_MONEY_UPDATE_EVENT, true)
@@ -273,6 +300,15 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			end
 		end
 
+		-- random multi-purpose timer counter display
+		if uiTimer and isTimer(uiTimer) then
+			local timeLeft = getTimerDetails(uiTimer)
+			if timeLeft then
+				-- relative to CRIMINAL/POLICE text minus some
+				dxDrawBorderedText(0.5,tostring(math.ceil(timeLeft / 1000)), screenWidth / 2, screenHeight * 0.18 - 75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.5, "sans", center, top, false, false, false, true)
+			end
+		end
+
 		-- fullscreen ui
 		if showText[badEndGameInfo] then
 			if role == g_POLICE_ROLE then
@@ -294,6 +330,11 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
 			return
+		elseif showText[applyInfo] then
+				dxDrawBorderedText(0.5,"Not criminally-minded?", screenWidth / 2, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Apply for a job at the#33A5FF LSPD#C8C8C8 by pressing space NOW!", screenWidth / 2, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "[SPACEBAR]", screenWidth / 2, screenHeight * 0.6 + 240,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "bankgothic", center, top, false, false, false, true)
+				return
 		elseif showText[roleInfo] then
 			if role == g_CRIMINAL_ROLE then
 				dxDrawBorderedText(0.5,"CRIMINAL", screenWidth / 2, screenHeight * 0.18,  screenWidth, screenHeight, tocolor(150, 0 , 200, 255), 5, "bankgothic")
@@ -419,10 +460,11 @@ function dxDrawBorderedText (outline, text, left, top, right, bottom, color, sca
     dxDrawText (text, left - textWidth / 2, top - textHeight / 2, right, bottom, color, scale, font, alignX, alignY, clip, wordBreak, postGUI, colorCoded, subPixelPositioning, fRotation, fRotationCenterX, fRotationCenterY)
 end
 
-function show(key, duration, val)
+function show(key, duration, val, cleanup)
 	showText[key] = val or true
 	return setTimer(function()
 		showText[key] = false
+		if cleanup then cleanup() end
 	end, duration, 1)
 end
 
