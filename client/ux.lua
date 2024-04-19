@@ -286,6 +286,10 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				dxDrawBorderedText(0.5,"Evade the#33A5FF police#C8C8C8 until an #FFDC00escape route#C8C8C8 is ready!", screenWidth / 2, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"There's also still more crimes to commit with your fellow #A000D2criminals#C8C8C8.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			elseif role == g_POLICE_ROLE then
+				dxDrawBorderedText(1,"CHIEF of POLICE:", screenWidth / 2, screenHeight * 0.2,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Usage of M4 ASSAULT RIFLE approved.", screenWidth / 2, screenHeight * 0.2 + 40,  screenWidth, screenHeight, tocolor(30, 190, 240, 255), 3.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"EFFECTIVE IMMEDIATELY!", screenWidth / 2, screenHeight * 0.2 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+
 				dxDrawBorderedText(0.5,"The#A000D2 criminals#C8C8C8 are trying to escape the city!", screenWidth / 2, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5,"Stop them before they circumvent our roadblocks!", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
@@ -366,9 +370,9 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		-- bottom middle ui
 		if showText[escapeReady] then
 			if role == g_CRIMINAL_ROLE then
-				dxDrawBorderedText(0.5,"Received possible#FFDC00 escape route#C8C8C8!", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Received possible#FFDC00 escape routes#C8C8C8!", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			elseif role == g_POLICE_ROLE then
-				dxDrawBorderedText(0.5,"An#FFDC00 escape route#C8C8C8 has been reported!", screenWidth / 2, screenHeight * 0.75 + 40 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Some#FFDC00 escape routes#C8C8C8 has been reported!", screenWidth / 2, screenHeight * 0.75 + 40 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
 		elseif showText[jobAlreadyInProgress] then
 			dxDrawBorderedText(0.5,"Complete your current#DE1A1A job#D2D2D2 first.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
