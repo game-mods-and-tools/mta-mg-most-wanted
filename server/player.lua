@@ -71,6 +71,18 @@ function Player:new(player)
 	o.delivering = false
 	o.perkId = nil
 	o.died = false
+	o.wantPolice = false
+
+	triggerClientEvent(o.player, g_PLAYER_APPLY_FOR_POLICE_EVENT, resourceRoot, role)
+
+	-- check role preference
+	function togglePolicePreference()
+		o.wantPolice = not o.wantPolice
+	end
+	bindKey(o.player, "space", "down", togglePolicePreference)
+	setTimer(function()
+		unbindKey(o.player, "space", "down", togglePolicePreference)
+	end, g_POLICE_APPLICATION_DURATION, 1)
 
 	return o
 end
@@ -83,7 +95,7 @@ function Player:setRole(role)
 			if getElementModel(copCar) == 596 then
 				-- at least 1 cop car to use
 				self.role = role
-				self.perk = nil
+				self.perkId = nil
 				setPlayerNametagShowing(self.player, true)
 
 				-- change player vehicle and tp to cop vehicle position
@@ -114,7 +126,7 @@ function Player:setRole(role)
 		return false
 	elseif role == g_CRIMINAL_ROLE then
 		self.role = role
-		self.perk = nil
+		self.perkId = nil
 
 		-- TODO: update car model?
 		setPlayerNametagShowing(self.player, false)

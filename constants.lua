@@ -20,8 +20,10 @@ g_HOTSHOT_PERK = {
 	accelRate = 0.01, -- engineAcceleration per missing hp
 	description = "The lower your health, the higher your top speed."
 }
-g_PERK_SELECTION_DURATION = 15000
+g_POLICE_APPLICATION_DURATION = 6000
+g_PERK_SELECTION_DURATION = 10000
 
+g_PLAYER_APPLY_FOR_POLICE_EVENT = "onPlayerAskedForApplication"
 g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
 
 g_POLICE_ROLE = "PoliceRole"

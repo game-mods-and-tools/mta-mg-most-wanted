@@ -24,16 +24,16 @@ addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 				end
 			end, 10, 0)
 
-			preGameSetup()
-
-			setTimer(function()
-				killTimer(forceFreeze)
-				for _, player in ipairs(getElementsByType("player")) do
-					toggleControl(player, "accelerate", true)
-					toggleControl(player, "brake_reverse", true)
-				end
-				startGameLoop()
-			end, g_PERK_SELECTION_DURATION, 1)
+			preGameSetup(function()
+				setTimer(function()
+					killTimer(forceFreeze)
+					for _, player in ipairs(getElementsByType("player")) do
+						toggleControl(player, "accelerate", true)
+						toggleControl(player, "brake_reverse", true)
+					end
+					startGameLoop()
+				end, g_PERK_SELECTION_DURATION, 1)
+			end)
 		end, 1000, 1) -- no reason for timer but helps with errors in testing
 	end
 end)
@@ -202,7 +202,7 @@ function updateJobProgress()
 	end
 end
 
-function preGameSetup()
+function preGameSetup(callback)
 	-- attempt to remove player blips
 	for _, blip in pairs(getElementsByType("blip")) do
 		destroyElement(blip)
@@ -228,73 +228,103 @@ function preGameSetup()
 		triggerClientEvent(player, "onClientScreenFadedOut", resourceRoot)
 	end
 
-	shuffle(players)
+	-- wait for police applications
+	setTimer(function()
+		-- look for police candidates
+		shuffle(players)
 
-	local policeCount = math.ceil(#players / g_CRIMINALS_PER_COP)
-	if #players == 1 then
-		policeCount = 0
-	end
-
-	for i = 1, policeCount do
-		local success = players[i]:setRole(g_POLICE_ROLE) -- may not succeed if not enough spawn points
-		if not success then break end
-	end
-	for i = countPlayersInTeam(g_PoliceTeam) + 1, #players do
-		players[i]:setRole(g_CRIMINAL_ROLE)
-	end
-
-	-- set up player based limits
-	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10
-	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
-		money = 0,
-		moneyQuota = moneyEscapeQuota
-	})
-
-	-- shuffle jobs into order they will spawn in
-	local jobElements = {}
-	for _, job in ipairs({
-		g_PICKUP_JOB,
-		g_GROUP_JOB,
-		g_DELIVERY_JOB,
-		g_EXTORTION_JOB
-	}) do
-		for _, element in ipairs(getElementsByType(job.elementType, resourceRoot)) do
-			jobElements[#jobElements + 1] = { element = element, job = job }
-		end
-	end
-
-	shuffle(jobElements)
-
-	for id, element in ipairs(jobElements) do
-		local job = nil
-		if element.job == g_DELIVERY_JOB then
-			job = DeliveryJob:new(id, element.job.type, getElementPosition(element.element))
-		elseif element.job == g_GROUP_JOB then
-			job = GroupJob:new(id, element.job.type, getElementPosition(element.element))
-		elseif element.job == g_EXTORTION_JOB then
-			job = ExtortionJob:new(id, element.job.type, getElementPosition(element.element))
-		else
-			job = Job:new(id, element.job.type, getElementPosition(element.element))
+		local policeCount = math.ceil(#players / g_CRIMINALS_PER_COP)
+		if #players == 1 then
+			policeCount = 0
 		end
 
-		jobs[#jobs + 1] = job
-		job:setup()
-	end
+		-- assign police roles to people who want them
+		for _, player in ipairs(players) do
+			if policeCount == 0 then break end
+			if player.wantPolice then
+				local success = player:setRole(g_POLICE_ROLE)
+				if not success then break end
+				policeCount = policeCount - 1
+			end
+		end
 
-	-- start listening for client side completion of jobs (honk job, delivery job)
-	addEvent(g_FINISH_JOB_EVENT, true)
-	addEventHandler(g_FINISH_JOB_EVENT, getRootElement(), function(id)
-		finishJob(jobs[id])
-	end)
+		-- if not enough police, start assigning and ignore preferences
+		if policeCount > 0 then
+			for _, player in ipairs(players) do
+				if policeCount == 0 then break end
+				if player.role == nil then
+					local success = player:setRole(g_POLICE_ROLE) -- may not succeed if not enough spawn points
+					if not success then break end
+					policeCount = policeCount - 1
+				end
+			end
+		end
 
-	-- harvest jobs spawn whenever anyone disappears no matter what team
-	addEventHandler("onPlayerQuit", getRootElement(), function()
-		spawnHarvestJob(source)
-	end)
-	addEventHandler("onPlayerWasted", getRootElement(), function()
-		spawnHarvestJob(source)
-		triggerClientEvent(source, "onClientScreenFadedIn", resourceRoot)
-	end)
+		-- set everyone who doesn't have a role yet to criminal
+		for _, player in ipairs(players) do
+			if player.role == nil then
+				player:setRole(g_CRIMINAL_ROLE)
+			end
+		end
+
+		-- set up player based limits
+		moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10
+		triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
+			money = 0,
+			moneyQuota = moneyEscapeQuota
+		})
+
+		-- shuffle jobs into order they will spawn in
+		local jobElements = {}
+		for _, job in ipairs({
+			g_PICKUP_JOB,
+			g_GROUP_JOB,
+			g_DELIVERY_JOB,
+			g_EXTORTION_JOB
+		}) do
+			for _, element in ipairs(getElementsByType(job.elementType, resourceRoot)) do
+				jobElements[#jobElements + 1] = { element = element, job = job }
+			end
+		end
+
+		shuffle(jobElements)
+
+		for id, element in ipairs(jobElements) do
+			local job = nil
+			if element.job == g_DELIVERY_JOB then
+				job = DeliveryJob:new(id, element.job.type, getElementPosition(element.element))
+			elseif element.job == g_GROUP_JOB then
+				job = GroupJob:new(id, element.job.type, getElementPosition(element.element))
+			elseif element.job == g_EXTORTION_JOB then
+				job = ExtortionJob:new(id, element.job.type, getElementPosition(element.element))
+			else
+				job = Job:new(id, element.job.type, getElementPosition(element.element))
+			end
+
+			jobs[#jobs + 1] = job
+			job:setup()
+		end
+
+		-- start listening for client side completion of jobs (honk job, delivery job)
+		addEvent(g_FINISH_JOB_EVENT, true)
+		addEventHandler(g_FINISH_JOB_EVENT, getRootElement(), function(id)
+			finishJob(jobs[id])
+		end)
+
+		-- harvest jobs spawn whenever anyone disappears no matter what team
+		addEventHandler("onPlayerQuit", getRootElement(), function()
+			spawnHarvestJob(source)
+		end)
+		addEventHandler("onPlayerWasted", getRootElement(), function()
+			spawnHarvestJob(source)
+			triggerClientEvent(source, "onClientScreenFadedIn", resourceRoot)
+		end)
+
+
+		callback()
+		-- extra ms to help avoid destroying criminal perk ui
+		-- after police preference ui
+	end, g_POLICE_APPLICATION_DURATION + 100, 1)
 end
 
 function shuffle(a)
