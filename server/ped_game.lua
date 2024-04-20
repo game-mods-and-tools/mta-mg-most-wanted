@@ -19,12 +19,12 @@ local function startPedRequestListener()
 		copFindBlips = {}
 		for _, cop in ipairs(cops) do
 			local x, y, z = getElementPosition(cop)
-			local detection = getElementsWithinRange(x, y, z, 25)
+			local detection = getElementsWithinRange(x, y, z, 50)
 			for _, thing in ipairs(detection) do
 				if getElementType(thing) == "vehicle" then
 					local player = getVehicleOccupant(thing)
 					if player and getPlayerTeam(player) == g_CriminalTeam then
-						copFindBlips[#copFindBlips + 1] = createBlipAttachedTo(thing, 0, 2)
+						copFindBlips[#copFindBlips + 1] = createBlipAttachedTo(thing, 0, 2, 150, 0, 200, 255, 6, 80085)
 					end
 				end
 			end
