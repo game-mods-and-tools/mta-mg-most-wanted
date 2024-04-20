@@ -21,7 +21,7 @@ g_HOTSHOT_PERK = {
 	description = "The lower your health, the higher your top speed."
 }
 g_POLICE_APPLICATION_DURATION = 6000
-g_PERK_SELECTION_DURATION = 10000
+g_PERK_SELECTION_DURATION = 12000
 
 g_PLAYER_APPLY_FOR_POLICE_EVENT = "onPlayerAskedForApplication"
 g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
@@ -37,6 +37,9 @@ g_STOP_JOB_EVENT = "onStopJob" -- jobId, jobType
 g_FINISH_JOB_EVENT = "onFinishJob" -- jobId (jobType) (reportedplayers) (client only)
 g_JOB_STATUS_UPDATE_EVENT = "onJobStatusUpdate" -- jobId, jobType, data (depends on jobType)
 g_JOB_ALREADY_IN_PROGRESS_EVENT = "onJobAlreadyInProgress"
+
+g_SPAWN_PLAYER_PED_EVENT = "onPlayerPedSpawned"
+g_REQUEST_SPAWN_PED_EVENT = "onPedRequested"
 
 g_MONEY_UPDATE_EVENT = "onMoneyUpdate"
 g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate" -- state
