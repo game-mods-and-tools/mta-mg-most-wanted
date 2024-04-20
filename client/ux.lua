@@ -375,19 +375,21 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 		end
 
 		-- hud
-		if role == g_CRIMINAL_ROLE then
-			-- HUD (crim)
-			dxDrawBorderedText(2,"ESCAPE QUOTA", screenWidth * 0.77, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"$" .. money.quota, screenWidth * 0.77, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"TOTAL MONEY", screenWidth * 0.77, screenHeight * 0.22 + 55, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"$" .. money.total, screenWidth * 0.77, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+		if money.quota > 0 then
+			if role == g_CRIMINAL_ROLE then
+				-- HUD (crim)
+				dxDrawBorderedText(2,"ESCAPE QUOTA", screenWidth * 0.77, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+				dxDrawBorderedText(2,"$" .. money.quota, screenWidth * 0.77, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+				dxDrawBorderedText(2,"TOTAL MONEY", screenWidth * 0.77, screenHeight * 0.22 + 55, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+				dxDrawBorderedText(2,"$" .. money.total, screenWidth * 0.77, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
 
-		elseif role == g_POLICE_ROLE then
-			-- HUD (cop)
-			dxDrawBorderedText(2,"ESTIMATED QUOTA", screenWidth * 0.75, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"$" .. money.quota, screenWidth * 0.75, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"MONEY STOLEN", screenWidth * 0.75, screenHeight * 0.22 + 55, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-			dxDrawBorderedText(2,"$" .. money.total, screenWidth * 0.75, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			elseif role == g_POLICE_ROLE then
+				-- HUD (cop)
+				dxDrawBorderedText(2,"ESTIMATED QUOTA", screenWidth * 0.75, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+				dxDrawBorderedText(2,"$" .. money.quota, screenWidth * 0.75, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+				dxDrawBorderedText(2,"MONEY STOLEN", screenWidth * 0.75, screenHeight * 0.22 + 55, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+				dxDrawBorderedText(2,"$" .. money.total, screenWidth * 0.75, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			end
 		end
 
 		-- top middle ui
