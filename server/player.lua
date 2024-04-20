@@ -73,18 +73,23 @@ function Player:new(player)
 	o.died = false
 	o.wantPolice = false
 
-	triggerClientEvent(o.player, g_PLAYER_APPLY_FOR_POLICE_EVENT, resourceRoot, role)
+	o:askForRolePreference()
+	return o
+end
+
+-- allows players to choose if they want to be cops or not
+function Player:askForRolePreference()
+	-- brings up some ui with matching effects
+	triggerClientEvent(self.player, g_PLAYER_APPLY_FOR_POLICE_EVENT, resourceRoot, role)
 
 	-- check role preference
 	function togglePolicePreference()
-		o.wantPolice = not o.wantPolice
+		self.wantPolice = not self.wantPolice
 	end
-	bindKey(o.player, "space", "down", togglePolicePreference)
+	bindKey(self.player, "space", "down", togglePolicePreference)
 	setTimer(function()
-		unbindKey(o.player, "space", "down", togglePolicePreference)
+		unbindKey(self.player, "space", "down", togglePolicePreference)
 	end, g_POLICE_APPLICATION_DURATION, 1)
-
-	return o
 end
 
 -- return if role successfully set
@@ -96,7 +101,8 @@ function Player:setRole(role)
 				-- at least 1 cop car to use
 				self.role = role
 				self.perkId = nil
-				setPlayerNametagShowing(self.player, true)
+				setPlayerTeam(self.player, g_PoliceTeam)
+				setElementModel(self.player, 285)
 
 				-- change player vehicle and tp to cop vehicle position
 				local vehicle = getPedOccupiedVehicle(self.player)
@@ -106,19 +112,17 @@ function Player:setRole(role)
 				setVehicleHandling(vehicle, "collisionDamageMultiplier", 0)
 				setVehicleHandling(vehicle, "acceleration", 27)
 				setVehicleColor(vehicle, 0, 0, 0, 255, 255, 255, 0, 0, 0)
+				destroyElement(copCar) -- so players won't spawn on top of each other
 
+				-- give cops a weapon key
 				bindKey(self.player, "vehicle_secondary_fire", "down", function()
 					takeAllWeapons(self.player)
 					giveWeapon(self.player, g_CopWeaponId, 9999, true) -- mp5
 					setPedDoingGangDriveby(self.player, not isPedDoingGangDriveby(self.player))
 				end)
 
-				destroyElement(copCar) -- so players won't spawn on top of each other
-
+				-- show role info
 				triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
-
-				setPlayerTeam(self.player, g_PoliceTeam)
-				setElementModel(self.player, 285)
 				return true
 			end
 		end
@@ -127,11 +131,10 @@ function Player:setRole(role)
 	elseif role == g_CRIMINAL_ROLE then
 		self.role = role
 		self.perkId = nil
+		setPlayerTeam(self.player, g_CriminalTeam)
 
-		-- TODO: update car model?
-		setPlayerNametagShowing(self.player, false)
+		-- brings up role description AND perk UI selection
 		triggerClientEvent(self.player, g_PLAYER_ROLE_SELECTED_EVENT, resourceRoot, role)
-
 		-- allow perk selection
 		function selectPerk(player, _, _, perkId)
 			self:setPerk(perkId)
@@ -144,8 +147,6 @@ function Player:setRole(role)
 			unbindKey(self.player, "2", "down", selectPerk)
 			unbindKey(self.player, "3", "down", selectPerk)
 		end, g_PERK_SELECTION_DURATION, 1)
-
-		setPlayerTeam(self.player, g_CriminalTeam)
 
 		local clowncar = getPedOccupiedVehicle(self.player)
 		setVehicleHandling(clowncar, "collisionDamageMultiplier", 0.2)
