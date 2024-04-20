@@ -27,6 +27,13 @@ local function runWithDelaysInBetween(...)
 	end
 end
 
+local function updateMoney()
+	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
+		money = totalMoneyProgress,
+		moneyQuota = moneyEscapeQuota
+	})
+end
+
 local function finishJob(job)
 	job:finish()
 
@@ -34,11 +41,8 @@ local function finishJob(job)
 		availableJobs = availableJobs - 1
 	end
 	totalMoneyProgress = totalMoneyProgress + job:money()
-
-	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
-		money = totalMoneyProgress,
-		moneyQuota = moneyEscapeQuota
-	})
+	
+	updateMoney()
 end
 
 local function assignJob(job, player)
@@ -297,10 +301,7 @@ local function playerSetup()
 
 	-- set up player based limits
 	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10
-	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
-		money = 0,
-		moneyQuota = moneyEscapeQuota
-	})
+	updateMoney()
 
 	-- harvest jobs spawn whenever anyone disappears no matter what team
 	addEventHandler("onPlayerQuit", getRootElement(), function()
