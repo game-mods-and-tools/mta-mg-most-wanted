@@ -1,86 +1,55 @@
 -- global for debug purposes atm
-jobs = {}
-exits = {}
-playersByClient = {}
+local jobs = {}
+local exits = {}
+local playersByClient = {}
+local players = {}
 
-lastJobId = 0
-availableJobs = 0
-lastSpawnedJobAt = 0
-totalMoneyProgress = 0
-moneyEscapeQuota = 0
-lastExitId = 0
-lastSpawnedExitAt = 0
-gameState = g_PREGAME_STATE
-harvestJobCount = 0
+local lastJobId = 0
+local availableJobs = 0
+local lastSpawnedJobAt = 0
+local totalMoneyProgress = 0
+local moneyEscapeQuota = 0
+local lastExitId = 0
+local lastSpawnedExitAt = 0
+local gameState = g_PREGAME_STATE
+local harvestJobCount = 0
 
-addEvent("onRaceStateChanging")
-addEventHandler("onRaceStateChanging", getRootElement(), function(state)
-	if state == "GridCountdown" then
-		setTimer(function()
-			local forceFreeze = setTimer(function()
-				for _, player in ipairs(getElementsByType("player")) do
-					toggleControl(player, "accelerate", false)
-					toggleControl(player, "brake_reverse", false)
-				end
-			end, 10, 0)
-
-			preGameSetup(function()
-				setTimer(function()
-					killTimer(forceFreeze)
-					for _, player in ipairs(getElementsByType("player")) do
-						toggleControl(player, "accelerate", true)
-						toggleControl(player, "brake_reverse", true)
-					end
-					startGameLoop()
-				end, g_PERK_SELECTION_DURATION, 1)
-			end)
-		end, 1000, 1) -- no reason for timer but helps with errors in testing
-	end
-end)
-
-function startGameLoop()
-	updateGameState(g_COREGAME_STATE)
-
-	setTimer(function()
-		local start = os.clock()
-		maybeUpdateGameState()
-		maybeSpawnExitPoint()
-		maybeSpawnJob()
-		updateJobProgress()
-		checkPerks()
-		local stop = os.clock()
-		local over = math.floor((stop - start) * 1000 - g_SERVER_TICK_DELAY)
-		if over > 0 then
-			-- things aren't updating as fast as expected
-			outputDebugString("game tick delayed by " .. over .. "ms", 2)
-		end
-	end, g_SERVER_TICK_DELAY, 0)
-end
-
-function checkPerks()
-	for _, player in pairs(playersByClient) do
-		player:checkPerk()
+local function runWithDelaysInBetween(...)
+	local args = {...}
+	-- initial delay for testing environment
+	local totalDelay = 500
+	-- there's probably some fancy way to nest timers but whatever
+	for i = 1, #args, 2 do
+		-- args[odd] is a fn
+		-- args[even] is delay
+		setTimer(args[i], totalDelay, 1)
+		totalDelay = totalDelay + args[i + 1]
 	end
 end
 
-function maybeUpdateGameState()
-	if gameState == g_COREGAME_STATE and totalMoneyProgress >= moneyEscapeQuota then
-		updateGameState(g_ENDGAME_STATE)
-	elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota * g_SECRET_ENDING_REQUIREMENT_MULTIPLIER then
-		updateGameState(g_ENDENDGAME_STATE)
-	elseif gameState ~= g_NO_CRIMS_STATE then
-		local criminals = getPlayersInTeam(g_CriminalTeam)
-		for _, criminal in ipairs(criminals) do
-			if getElementData(criminal, "state") == "alive" then
-				return
-			end
-		end
+local function finishJob(job)
+	job:finish()
 
-		updateGameState(g_NO_CRIMS_STATE)
+	if job.type ~= g_HARVEST_JOB.type then
+		availableJobs = availableJobs - 1
 	end
+	totalMoneyProgress = totalMoneyProgress + job:money()
+
+	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
+		money = totalMoneyProgress,
+		moneyQuota = moneyEscapeQuota
+	})
 end
 
-function updateGameState(state)
+local function assignJob(job, player)
+	job:assign(player)
+end
+
+local function unassignJob(job, player)
+	job:unassign(player)
+end
+
+local function updateGameState(state)
 	if state == g_COREGAME_STATE then
 		g_CopWeaponId = 29 -- mp5
 		-- remove blips?
@@ -110,7 +79,32 @@ function updateGameState(state)
 	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, state)
 end
 
-function maybeSpawnExitPoint()
+local function maybeUpdateGameState()
+	if gameState == g_COREGAME_STATE and totalMoneyProgress >= moneyEscapeQuota then
+		updateGameState(g_ENDGAME_STATE)
+	elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota * g_SECRET_ENDING_REQUIREMENT_MULTIPLIER then
+		updateGameState(g_ENDENDGAME_STATE)
+	elseif gameState ~= g_NO_CRIMS_STATE then
+		local criminals = getPlayersInTeam(g_CriminalTeam)
+		for _, criminal in ipairs(criminals) do
+			if getElementData(criminal, "state") == "alive" then
+				return
+			end
+		end
+
+		updateGameState(g_NO_CRIMS_STATE)
+	end
+end
+
+local function spawnExitPoint(id)
+	local exitPoint = exits[id]
+	if not exitPoint.active then
+		exitPoint:enable()
+		lastSpawnedExitAt = getRealTime().timestamp
+	end
+end
+
+local function maybeSpawnExitPoint()
 	if gameState == g_ENDGAME_STATE or gameState == g_ENDENDGAME_STATE then
 		if lastSpawnedExitAt < getRealTime().timestamp - (g_DELAY_BETWEEN_EXIT_SPAWN / 1000) then
 			lastExitId = lastExitId + 1
@@ -127,15 +121,17 @@ function maybeSpawnExitPoint()
 	end
 end
 
-function spawnExitPoint(id)
-	local exitPoint = exits[id]
-	if not exitPoint.active then
-		exitPoint:enable()
-		lastSpawnedExitAt = getRealTime().timestamp
+local function spawnJob(id)
+	-- outputDebugString("spawning job: " .. id)
+	local job = jobs[id]
+	if job:isComplete() then
+		job:enable()
+		availableJobs = availableJobs + 1
+		lastSpawnedJobAt = getRealTime().timestamp
 	end
 end
 
-function maybeSpawnJob()
+local function maybeSpawnJob()
 	if availableJobs < countPlayersInTeam(g_CriminalTeam) * g_AVAILABLE_JOBS_MULTIPLIER + 10 then
 		if lastSpawnedJobAt < getRealTime().timestamp - (g_DELAY_BETWEEN_JOB_SPAWN / 1000) then
 			lastJobId = lastJobId + 1
@@ -147,52 +143,14 @@ function maybeSpawnJob()
 	end
 end
 
-function spawnJob(id)
-	local job = jobs[id]
-	if job:isComplete() then
-		job:enable()
-		availableJobs = availableJobs + 1
-		lastSpawnedJobAt = getRealTime().timestamp
+local function updatePerksStatus()
+	for _, player in pairs(playersByClient) do
+		player:checkPerk()
 	end
 end
 
-function finishJob(job)
-	job:finish()
 
-	if job.type ~= g_HARVEST_JOB.type then
-		availableJobs = availableJobs - 1
-	end
-	totalMoneyProgress = totalMoneyProgress + job:money()
-
-	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
-		money = totalMoneyProgress,
-		moneyQuota = moneyEscapeQuota
-	})
-end
-
-function assignJob(job, player)
-	job:assign(player)
-end
-
-function unassignJob(job, player)
-	job:unassign(player)
-end
-
-function spawnHarvestJob(player)
-	if not playersByClient[player] then return end
-	if playersByClient[player].died then return end
-
-	playersByClient[player].died = true
-
-	local x, y, z = getElementPosition(player)
-	harvestJobCount = harvestJobCount + 1
-	local job = HarvestJob:new(-harvestJobCount, "harvest job", x, y, z)
-	job:setup(player)
-	job:enable()
-	jobs[-harvestJobCount] = job -- using negatives so it doesnt interfere with other jobs
-end
-
-function updateJobProgress()
+local function updateJobProgress()
 	for _, job in ipairs(jobs) do
 		local completed = job:tick()
 
@@ -202,7 +160,42 @@ function updateJobProgress()
 	end
 end
 
-function preGameSetup(callback)
+local function startGameLoop()
+	updateGameState(g_COREGAME_STATE)
+
+	setTimer(function()
+		local start = os.clock()
+		maybeUpdateGameState()
+		maybeSpawnExitPoint()
+		maybeSpawnJob()
+		updateJobProgress()
+		updatePerksStatus()
+		local stop = os.clock()
+		local over = math.floor((stop - start) * 1000 - g_SERVER_TICK_DELAY)
+		if over > 0 then
+			-- things aren't updating as fast as expected
+			outputDebugString("game tick delayed by " .. over .. "ms", 2)
+		end
+	end, g_SERVER_TICK_DELAY, 0)
+end
+
+local function spawnHarvestJob(player)
+	if not playersByClient[player] then return end
+	if playersByClient[player].died then return end
+
+	playersByClient[player].died = true
+
+	local x, y, z = getElementPosition(player)
+	harvestJobCount = harvestJobCount + 1
+	 -- using negatives so it doesnt interfere with other jobs
+	local id = -harvestJobCount
+	local job = HarvestJob:new(id, "harvest job", x, y, z)
+	job:setup(player)
+	job:enable()
+	jobs[id] = job
+end
+
+local function preGameSetup(callback)
 	-- attempt to remove player blips
 	for _, blip in pairs(getElementsByType("blip")) do
 		destroyElement(blip)
@@ -218,8 +211,44 @@ function preGameSetup(callback)
 
 	shuffle(exits)
 
-	-- randomly select cops and criminals
-	local players = {}
+	-- shuffle jobs into order they will spawn in
+	local jobElements = {}
+	for _, job in ipairs({
+		g_PICKUP_JOB,
+		g_GROUP_JOB,
+		g_DELIVERY_JOB,
+		g_EXTORTION_JOB
+	}) do
+		for _, element in ipairs(getElementsByType(job.elementType, resourceRoot)) do
+			jobElements[#jobElements + 1] = { element = element, job = job }
+		end
+	end
+
+	shuffle(jobElements)
+
+	for id, element in ipairs(jobElements) do
+		local job = nil
+		if element.job == g_DELIVERY_JOB then
+			job = DeliveryJob:new(id, element.job.type, getElementPosition(element.element))
+		elseif element.job == g_GROUP_JOB then
+			job = GroupJob:new(id, element.job.type, getElementPosition(element.element))
+		elseif element.job == g_EXTORTION_JOB then
+			job = ExtortionJob:new(id, element.job.type, getElementPosition(element.element))
+		else
+			job = Job:new(id, element.job.type, getElementPosition(element.element))
+		end
+
+		jobs[#jobs + 1] = job
+		job:setup()
+	end
+
+	-- start listening for client side completion of jobs (honk job, delivery job)
+	addEvent(g_FINISH_JOB_EVENT, true)
+	addEventHandler(g_FINISH_JOB_EVENT, getRootElement(), function(id)
+		finishJob(jobs[id])
+	end)
+
+	-- set up player objects, this will give them a chance to select cop preference
 	for _, player in pairs(getElementsByType("player")) do
 		playersByClient[player] = Player:new(player)
 		players[#players + 1] = playersByClient[player]
@@ -227,117 +256,98 @@ function preGameSetup(callback)
 		-- should toggle internal boolean to hide race nametags
 		triggerClientEvent(player, "onClientScreenFadedOut", resourceRoot)
 	end
+end
 
-	-- wait for police applications
-	setTimer(function()
-		-- look for police candidates
-		shuffle(players)
+local function playerSetup()
+	shuffle(players)
 
-		local policeCount = math.ceil(#players / g_CRIMINALS_PER_COP)
-		if #players == 1 then
-			policeCount = 0
+	local policeCount = math.ceil(#players / g_CRIMINALS_PER_COP)
+	if #players == 1 then
+		policeCount = 0
+	end
+
+	-- assign police roles to people who want them
+	for _, player in ipairs(players) do
+		if policeCount == 0 then break end
+		if player.wantPolice then
+			local success = player:setRole(g_POLICE_ROLE)
+			if not success then break end
+			policeCount = policeCount - 1
 		end
+	end
 
-		-- assign police roles to people who want them
+	-- if not enough police, start assigning and ignore preferences
+	if policeCount > 0 then
 		for _, player in ipairs(players) do
 			if policeCount == 0 then break end
-			if player.wantPolice then
-				local success = player:setRole(g_POLICE_ROLE)
+			if player.role == nil then
+				local success = player:setRole(g_POLICE_ROLE) -- may not succeed if not enough spawn points
 				if not success then break end
 				policeCount = policeCount - 1
 			end
 		end
-
-		-- if not enough police, start assigning and ignore preferences
-		if policeCount > 0 then
-			for _, player in ipairs(players) do
-				if policeCount == 0 then break end
-				if player.role == nil then
-					local success = player:setRole(g_POLICE_ROLE) -- may not succeed if not enough spawn points
-					if not success then break end
-					policeCount = policeCount - 1
-				end
-			end
-		end
-
-		-- set everyone who doesn't have a role yet to criminal
-		for _, player in ipairs(players) do
-			if player.role == nil then
-				player:setRole(g_CRIMINAL_ROLE)
-			end
-		end
-
-		-- set up player based limits
-		moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10
-		triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
-			money = 0,
-			moneyQuota = moneyEscapeQuota
-		})
-
-		-- shuffle jobs into order they will spawn in
-		local jobElements = {}
-		for _, job in ipairs({
-			g_PICKUP_JOB,
-			g_GROUP_JOB,
-			g_DELIVERY_JOB,
-			g_EXTORTION_JOB
-		}) do
-			for _, element in ipairs(getElementsByType(job.elementType, resourceRoot)) do
-				jobElements[#jobElements + 1] = { element = element, job = job }
-			end
-		end
-
-		shuffle(jobElements)
-
-		for id, element in ipairs(jobElements) do
-			local job = nil
-			if element.job == g_DELIVERY_JOB then
-				job = DeliveryJob:new(id, element.job.type, getElementPosition(element.element))
-			elseif element.job == g_GROUP_JOB then
-				job = GroupJob:new(id, element.job.type, getElementPosition(element.element))
-			elseif element.job == g_EXTORTION_JOB then
-				job = ExtortionJob:new(id, element.job.type, getElementPosition(element.element))
-			else
-				job = Job:new(id, element.job.type, getElementPosition(element.element))
-			end
-
-			jobs[#jobs + 1] = job
-			job:setup()
-		end
-
-		-- start listening for client side completion of jobs (honk job, delivery job)
-		addEvent(g_FINISH_JOB_EVENT, true)
-		addEventHandler(g_FINISH_JOB_EVENT, getRootElement(), function(id)
-			finishJob(jobs[id])
-		end)
-
-		-- harvest jobs spawn whenever anyone disappears no matter what team
-		addEventHandler("onPlayerQuit", getRootElement(), function()
-			spawnHarvestJob(source)
-		end)
-		addEventHandler("onPlayerWasted", getRootElement(), function()
-			spawnHarvestJob(source)
-			triggerClientEvent(source, "onClientScreenFadedIn", resourceRoot)
-		end)
-
-
-		callback()
-		-- extra ms to help avoid destroying criminal perk ui
-		-- after police preference ui
-	end, g_POLICE_APPLICATION_DURATION + 100, 1)
-end
-
-function shuffle(a)
-	for i = #a, 2, -1 do
-		local j = math.random(i)
-		a[i], a[j] = a[j], a[i]
 	end
+
+	-- set everyone who doesn't have a role yet to criminal
+	for _, player in ipairs(players) do
+		if player.role == nil then
+			player:setRole(g_CRIMINAL_ROLE)
+		end
+	end
+
+	-- set up player based limits
+	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10
+	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
+		money = 0,
+		moneyQuota = moneyEscapeQuota
+	})
+
+	-- harvest jobs spawn whenever anyone disappears no matter what team
+	addEventHandler("onPlayerQuit", getRootElement(), function()
+		spawnHarvestJob(source)
+	end)
+	addEventHandler("onPlayerWasted", getRootElement(), function()
+		spawnHarvestJob(source)
+		triggerClientEvent(source, "onClientScreenFadedIn", resourceRoot)
+	end)
 end
 
-function toPlayer(element)
-	if getElementType(element) ~= "vehicle" then return false end
-	return playersByClient[getVehicleOccupant(element)], element
-end
+addEvent("onRaceStateChanging")
+addEventHandler("onRaceStateChanging", getRootElement(), function(state)
+	if state == "GridCountdown" then
+		local forceFreezeTimer = nil
+
+		runWithDelaysInBetween(
+			function()
+				-- freeze players
+				forceFreezeTimer = setTimer(function()
+					for _, player in ipairs(getElementsByType("player")) do
+						toggleControl(player, "accelerate", false)
+						toggleControl(player, "brake_reverse", false)
+					end
+				end, 10, 0)
+			end,
+			500, -- random delay
+			preGameSetup,
+			-- extra ms to prevent police app ui cleanup
+			-- from messing with perk selection ui
+			g_POLICE_APPLICATION_DURATION + 300,
+			playerSetup,
+			g_PERK_SELECTION_DURATION,
+			function()
+				-- unfreeze players
+				killTimer(forceFreezeTimer)
+				for _, player in ipairs(getElementsByType("player")) do
+					toggleControl(player, "accelerate", true)
+					toggleControl(player, "brake_reverse", true)
+				end
+				-- start game
+				startGameLoop()
+			end,
+			0
+		)
+	end
+end)
 
 if g_DEBUG_MODE then
 	addCommandHandler("ugs", function(ply, arg, s)
@@ -384,4 +394,16 @@ if g_DEBUG_MODE then
 		print(...)
 		loadstring(...)()
 	end)
+end
+
+function shuffle(a)
+	for i = #a, 2, -1 do
+		local j = math.random(i)
+		a[i], a[j] = a[j], a[i]
+	end
+end
+
+function toPlayer(element)
+	if getElementType(element) ~= "vehicle" then return false end
+	return playersByClient[getVehicleOccupant(element)], element
 end
