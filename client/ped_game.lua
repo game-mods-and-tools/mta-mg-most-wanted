@@ -1,5 +1,6 @@
 local spawned = false
 local playerPed = nil
+local focusPed = false
 local toggleKey = next(getBoundKeys("enter_exit")) or "enter_exit"
 local function canSpawnAsPedCondition()
 	local state = getElementData(localPlayer, "state")
@@ -9,26 +10,18 @@ local function canSpawnAsPedCondition()
 		state == "dead"
 	)
 end
-local function stopSpectating()
-	-- auto means the player position ingame wont be saved
-	triggerEvent("onClientCall_race", root, "Spectate.stop", "auto")
-end
-local function startSpectating()
-	-- auto means the player position ingame wont be saved
-	triggerEvent("onClientCall_race", root, "Spectate.start", "auto")
-end
--- force camera target until ped
-function forceTarget()
-	if playerPed and getCameraTarget() ~= playerPed then
-		setCameraTarget(playerPed)
-		setTimer(forceTarget, 10, 1)
-	end
-end
 
 addEvent(g_PED_GAME_READY_EVENT, true)
 addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 	addEvent(g_SPAWN_PLAYER_PED_EVENT, true)
 	addEventHandler(g_SPAWN_PLAYER_PED_EVENT, resourceRoot, function(ped)
+		-- the spectate workaround logic is messed up
+		-- this makes sure that the client is considered spectating so it can
+		-- be cancelled. if not spectating, then the server may lock the
+		-- camera in a way that I haven't figured out
+		triggerEvent("onClientCall_race", root, "Spectate.start", "auto")
+		triggerEvent("onClientCall_race", root, "MovePlayerAway.start")
+
 		-- bind keys to ped
 		local controls = {
 			"forwards",
@@ -50,12 +43,14 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			end
 		end
 
-
-		forceTarget()
-
 		-- match camera rotation
 		setTimer(function()
 			setPedCameraRotation(ped, getPedCameraRotation(localPlayer))
+			if focusPed and getCameraTarget() ~= playerPed then
+				triggerEvent("onClientCall_race", root, "Spectate.stop", "auto")
+				triggerEvent("onClientCall_race", root, "MovePlayerAway.stop")
+				setCameraTarget(ped)
+			end
 		end, 10, 0)
 
 		addEventHandler("onClientPedDamage", ped, function()
@@ -69,17 +64,16 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 	bindKey(toggleKey, "down", function()
 		if canSpawnAsPedCondition() then
 			spawned = true
-
-			stopSpectating()
+			focusPed = true
 
 			-- should trigger ped spawn event which sets target to ped
 			triggerServerEvent(g_REQUEST_SPAWN_PED_EVENT, resourceRoot)
 		elseif playerPed then
-			if getCameraTarget(localPlayer) ~= playerPed then
-				stopSpectating()
-				forceTarget()
-			elseif getCameraTarget(localPlayer) == playerPed then
-				startSpectating()
+			focusPed = not focusPed
+			if focusPed then
+				triggerEvent("onClientCall_race", root, "Spectate.stop", "auto")
+			else
+				triggerEvent("onClientCall_race", root, "Spectate.start", "auto")
 			end
 		end
 	end)
@@ -92,10 +86,10 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			dxDrawBorderedText(0.5, "#C8C8C8and seek out #A000D2criminals #C8C8C8 on foot", screenWidth / 2, screenHeight * 0.3 + 50,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 			dxDrawBorderedText(0.5, "#C8C8C8you only have 1 life...", screenWidth / 2, screenHeight * 0.3 + 100,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 		elseif playerPed then
-			if getCameraTarget(localPlayer) == playerPed and isPedDead(playerPed) then
-				dxDrawBorderedText(0.5,"ur dead", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
+			if focusPed and isPedDead(playerPed) then
+				dxDrawBorderedText(0.5, "ur dead", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
 			else
-				dxDrawBorderedText(0.5,"#C8C8C8" .. toggleKey .. " to toggle between cop and spectator", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"toggle with " .. toggleKey, screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
 			end
 		end
 	end)
