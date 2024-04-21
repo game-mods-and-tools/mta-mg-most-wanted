@@ -92,7 +92,11 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			dxDrawBorderedText(0.5, "#C8C8C8and seek out #A000D2criminals #C8C8C8 on foot", screenWidth / 2, screenHeight * 0.3 + 50,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 			dxDrawBorderedText(0.5, "#C8C8C8you only have 1 life...", screenWidth / 2, screenHeight * 0.3 + 100,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 		elseif playerPed then
-			dxDrawBorderedText(0.5,"#C8C8C8" .. toggleKey .. " to toggle between cop and spectator", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
+			if getCameraTarget(localPlayer) == playerPed and isPedDead(playerPed) then
+				dxDrawBorderedText(0.5,"ur dead", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
+			else
+				dxDrawBorderedText(0.5,"#C8C8C8" .. toggleKey .. " to toggle between cop and spectator", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
+			end
 		end
 	end)
 end)
