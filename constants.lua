@@ -38,6 +38,7 @@ g_FINISH_JOB_EVENT = "onFinishJob" -- jobId (jobType) (reportedplayers) (client 
 g_JOB_STATUS_UPDATE_EVENT = "onJobStatusUpdate" -- jobId, jobType, data (depends on jobType)
 g_JOB_ALREADY_IN_PROGRESS_EVENT = "onJobAlreadyInProgress"
 
+g_PED_GAME_READY_EVENT = "onPedGameReady"
 g_SPAWN_PLAYER_PED_EVENT = "onPlayerPedSpawned"
 g_REQUEST_SPAWN_PED_EVENT = "onPedRequested"
 
