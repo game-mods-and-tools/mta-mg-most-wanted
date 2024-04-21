@@ -299,6 +299,13 @@ local function playerSetup()
 			player:setRole(g_CRIMINAL_ROLE)
 		end
 	end
+	
+	-- remove remaining invisible cop vehicle placeholders
+	for _, copCar in pairs(getElementsByType("vehicle", resourceRoot)) do
+		if getElementModel(copCar) == 596 then
+			destroyElement(copCar)
+		end
+	end
 
 	-- set up player based limits
 	moneyEscapeQuota = countPlayersInTeam(g_CriminalTeam) * 10
