@@ -40,9 +40,3 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 		startPedRequestListener()
 	end
 end)
-
-addEventHandler("onPlayerJoin", resourceRoot, function()
-	if loaded then
-		triggerClientEvent(source, g_PED_GAME_READY_EVENT, resourceRoot)
-	end
-end)
