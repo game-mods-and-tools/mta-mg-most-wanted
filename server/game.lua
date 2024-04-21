@@ -10,6 +10,7 @@ local lastSpawnedJobAt = 0
 local totalMoneyProgress = 0
 local moneyEscapeQuota = 0
 local lastExitId = 0
+local exitsSpawned = 0
 local lastSpawnedExitAt = 0
 local gameState = g_PREGAME_STATE
 local harvestJobCount = 0
@@ -106,22 +107,23 @@ local function spawnExitPoint(id)
 	if not exitPoint.active then
 		exitPoint:enable()
 		lastSpawnedExitAt = getRealTime().timestamp
+		exitsSpawned = exitsSpawned + 1
 	end
 end
 
 local function maybeSpawnExitPoint()
-	if gameState == g_ENDGAME_STATE or gameState == g_ENDENDGAME_STATE then
-		if lastSpawnedExitAt < getRealTime().timestamp - (g_DELAY_BETWEEN_EXIT_SPAWN / 1000) then
-			lastExitId = lastExitId + 1
-			spawnExitPoint(lastExitId)
-			if lastExitId == #exits then
-				lastExitId = 0
-			end
-			lastExitId = lastExitId + 1
-			spawnExitPoint(lastExitId)
-			if lastExitId == #exits then
-				lastExitId = 0
-			end
+	if gameState == g_ENDGAME_STATE or gameState == g_ENDENDGAME_STATE and
+		lastSpawnedExitAt < getRealTime().timestamp - (g_DELAY_BETWEEN_EXIT_SPAWN / 1000) and
+		exitsSpawned < g_MAX_EXITS_AVAILABLE then
+		lastExitId = lastExitId + 1
+		spawnExitPoint(lastExitId)
+		if lastExitId == #exits then
+			lastExitId = 0
+		end
+		lastExitId = lastExitId + 1
+		spawnExitPoint(lastExitId)
+		if lastExitId == #exits then
+			lastExitId = 0
 		end
 	end
 end
@@ -137,13 +139,13 @@ local function spawnJob(id)
 end
 
 local function maybeSpawnJob()
-	if availableJobs < countPlayersInTeam(g_CriminalTeam) * g_AVAILABLE_JOBS_MULTIPLIER + 10 then
-		if lastSpawnedJobAt < getRealTime().timestamp - (g_DELAY_BETWEEN_JOB_SPAWN / 1000) then
-			lastJobId = lastJobId + 1
-			spawnJob(lastJobId)
-			if lastJobId == #jobs then
-				lastJobId = 0
-			end
+	if availableJobs < countPlayersInTeam(g_CriminalTeam) * g_AVAILABLE_JOBS_MULTIPLIER + 10 and
+		availableJobs < g_MAX_JOBS_AVAILABLE and
+		lastSpawnedJobAt < getRealTime().timestamp - (g_DELAY_BETWEEN_JOB_SPAWN / 1000) then
+		lastJobId = lastJobId + 1
+		spawnJob(lastJobId)
+		if lastJobId == #jobs then
+			lastJobId = 0
 		end
 	end
 end
