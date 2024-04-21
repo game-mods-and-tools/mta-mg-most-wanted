@@ -81,6 +81,7 @@ local function updateGameState(state)
 
 	gameState = state
 	triggerClientEvent(getRootElement(), g_GAME_STATE_UPDATE_EVENT, resourceRoot, state)
+	triggerEvent(g_GAME_STATE_UPDATE_EVENT, resourceRoot, state)
 end
 
 local function maybeUpdateGameState()
