@@ -8,6 +8,7 @@ local function startPedRequestListener()
 		local extortionJobs = getElementsByType("extortion_job", resourceRoot)
 		local randomExtortion = extortionJobs[math.random(#extortionJobs)]
 		local ped = createPed(281, 1272.4, -1337, 13) -- police station
+		setElementSyncer(ped, client, true)
 		peds[#peds + 1] = ped
 
 		triggerClientEvent(client, g_SPAWN_PLAYER_PED_EVENT, resourceRoot, ped)
