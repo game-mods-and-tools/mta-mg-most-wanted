@@ -84,22 +84,22 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 			local startY = (1 - height * 2) / 2
 
 			local organs = {
-				"client/org_brain.png",
-				"client/org_eyeleft.png",
-				"client/org_eyeright.png",
-				"client/org_heart.png",
-				"client/org_intestines.png",
-				"client/org_kidleft.png",
-				"client/org_kidright.png",
-				"client/org_liver.png",
-				"client/org_lung.png",
-				"client/org_marrow.png",
-				"client/org_pancreas.png",
-				"client/org_test.png",
+				"client/resources/org_brain.png",
+				"client/resources/org_eyeleft.png",
+				"client/resources/org_eyeright.png",
+				"client/resources/org_heart.png",
+				"client/resources/org_intestines.png",
+				"client/resources/org_kidleft.png",
+				"client/resources/org_kidright.png",
+				"client/resources/org_liver.png",
+				"client/resources/org_lung.png",
+				"client/resources/org_marrow.png",
+				"client/resources/org_pancreas.png",
+				"client/resources/org_test.png",
 			}
 			for i = 0, 5 do
 				local organ = organs[math.random(#organs)]
-				local window = guiCreateWindow(startX + width * (i % 3), startY + height * math.floor(i / 3), width, height, "Click to harvest", true)
+				local window = guiCreateWindow(startX + width * (i % 3), startY + height * math.floor(i / 3), width, height, "CLICK TO HARVEST", true)
 				local image = guiCreateStaticImage(0, 0.1, 1, 1, organ, true, window)
 				guiSetEnabled(image, false) -- prevent clicks from targeting image instead
 
@@ -110,7 +110,7 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 						removeEventHandler("onClientGUIClick", gui, grabOrgan)
 						destroyElement(gui)
 						organCount = organCount + 1
-						playSound("client/snippy.mp3")
+						playSound("client/resources/snippy.mp3")
 						triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 						if organCount == 6 then
 							showCursor(false, false)
@@ -174,7 +174,7 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 
 					for _, cop in ipairs(cops) do
 						local x, y, z = getElementPosition(cop)
-						local sound = playSound3D("client/siren.mp3", x, y, z, true)
+						local sound = playSound3D("client/resources/siren.mp3", x, y, z, true)
 						setSoundMinDistance(sound, 10)
 						setSoundMaxDistance(sound, 150)
 						setTimer(function()

@@ -28,6 +28,10 @@
     <file src="client/resources/iwannabeacop.png" />
     <file src="client/resources/iwannabeacop_bw.png" />
     <file src="client/resources/select.mp3" />
+    <file src="client/resources/select_fug.mp3" />
+    <file src="client/resources/select_hot.mp3" />
+    <file src="client/resources/select_mech.mp3" />
+    <file src="client/resources/apply.mp3" />
 
     <file src="client/resources/org_brain.png" />
     <file src="client/resources/org_eyeleft.png" />
@@ -43,7 +47,7 @@
     <file src="client/resources/org_test.png" />
     <file src="client/resources/snippy.mp3" />
 
-    <info gamemodes="race" type="map" name="[MG] Most Wanted: Los Santos" author="Big Pig" version="1.0" edf:definition="MG-MostWantedLosSantos.edf"></info>
+    <info gamemodes="race" type="map" name="[MG] Most Wanted: Los Santos" author="Big Pig" version="1.1" edf:definition="MG-MostWantedLosSantos.edf"></info>
     <map src="MG-MostWantedLosSantos.map" dimension="0"></map>
     <settings>
         <setting name="#skins" value="[ 111 ]"></setting>
