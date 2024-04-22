@@ -77,6 +77,10 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			end
 		end
 	end)
+	
+	bindKey("o", "down", function()
+		setElementHealth(getPedOccupiedVehicle(localPlayer), 1)
+	end)
 
 	addEventHandler("onClientRender", root, function()
 		local screenWidth, screenHeight = guiGetScreenSize()
