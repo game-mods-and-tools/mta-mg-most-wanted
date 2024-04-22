@@ -35,11 +35,13 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 		for _, control in ipairs(controls) do
 			for key in pairs(getBoundKeys(control)) do
 				bindKey(key, "down", function()
-					setPedControlState(ped, control, true)
+					triggerServerEvent(g_PED_CONTROL_UPDATE, resourceRoot, playerPed, control, true)
+					setControlState(playerPed, control, true)
 				end)
 
 				bindKey(key, "up", function()
-					setPedControlState(ped, control, false)
+					triggerServerEvent(g_PED_CONTROL_UPDATE, resourceRoot, playerPed, control, false)
+					setControlState(playerPed, control, false)
 				end)
 			end
 		end
@@ -60,6 +62,13 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 		end)
 
 		playerPed = ped
+	end)
+
+	addEvent(g_PED_CONTROL_UPDATE, true)
+	addEventHandler(g_PED_CONTROL_UPDATE, resourceRoot, function(ped, control, status)
+		if ped ~= playerPed then
+			setPedControlState(ped, control, status)
+		end
 	end)
 
 	bindKey(toggleKey, "down", function()

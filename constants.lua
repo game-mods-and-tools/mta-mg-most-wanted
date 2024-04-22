@@ -41,6 +41,7 @@ g_JOB_ALREADY_IN_PROGRESS_EVENT = "onJobAlreadyInProgress"
 g_PED_GAME_READY_EVENT = "onPedGameReady"
 g_SPAWN_PLAYER_PED_EVENT = "onPlayerPedSpawned"
 g_REQUEST_SPAWN_PED_EVENT = "onPedRequested"
+g_PED_CONTROL_UPDATE = "onPedControlUpdate"
 
 g_MONEY_UPDATE_EVENT = "onMoneyUpdate"
 g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate" -- state
