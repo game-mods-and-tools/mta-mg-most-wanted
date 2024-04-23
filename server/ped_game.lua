@@ -21,6 +21,11 @@ local function startPedRequestListener()
 		triggerClientEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, ped, control, status)
 	end)
 
+	addEvent(g_PED_ANIMATION_EVENT, true)
+	addEventHandler(g_PED_ANIMATION_EVENT, resourceRoot, function(ped, block, anim)
+		triggerClientEvent(g_PED_ANIMATION_EVENT, resourceRoot, ped, block, anim)
+	end)
+
 	setTimer(function()
 		for _, blip in ipairs(pedFindBlips) do
 			destroyElement(blip)

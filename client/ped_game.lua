@@ -71,6 +71,11 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 		end
 	end)
 
+	addEvent(g_PED_ANIMATION_EVENT, true)
+	addEventHandler(g_PED_ANIMATION_EVENT, resourceRoot, function(ped, block, anim)
+		setPedAnimation(ped, block, anim, -1, false, true, true, false)
+	end)
+
 	bindKey(toggleKey, "down", function()
 		if canSpawnAsPedCondition() then
 			spawned = true
