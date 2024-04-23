@@ -112,9 +112,9 @@ local function spawnExitPoint(id)
 end
 
 local function maybeSpawnExitPoint()
-	if gameState == g_ENDGAME_STATE or gameState == g_ENDENDGAME_STATE and
-		lastSpawnedExitAt < getRealTime().timestamp - (g_DELAY_BETWEEN_EXIT_SPAWN / 1000) and
-		exitsSpawned < g_MAX_EXITS_AVAILABLE then
+	if (gameState == g_ENDGAME_STATE or gameState == g_ENDENDGAME_STATE) and
+		(lastSpawnedExitAt < getRealTime().timestamp - (g_DELAY_BETWEEN_EXIT_SPAWN / 1000) and
+		exitsSpawned < g_MAX_EXITS_AVAILABLE) then
 		lastExitId = lastExitId + 1
 		spawnExitPoint(lastExitId)
 		if lastExitId == #exits then
