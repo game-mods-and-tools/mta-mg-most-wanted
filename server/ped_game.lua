@@ -15,9 +15,10 @@ local function startPedRequestListener()
 		triggerClientEvent(client, g_SPAWN_PLAYER_PED_EVENT, resourceRoot, ped)
 	end)
 
-	addEvent(g_PED_CONTROL_UPDATE, true)
-	addEventHandler(g_PED_CONTROL_UPDATE, resourceRoot, function(ped, control, status)
-		triggerClientEvent(g_PED_CONTROL_UPDATE, resourceRoot, ped, control, status)
+	-- forward control state information to everyone
+	addEvent(g_PED_CONTROL_UPDATE_EVENT, true)
+	addEventHandler(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, function(ped, control, status)
+		triggerClientEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, ped, control, status)
 	end)
 
 	setTimer(function()
