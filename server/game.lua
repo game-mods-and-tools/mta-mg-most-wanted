@@ -171,14 +171,14 @@ local function startGameLoop()
 	updateGameState(g_COREGAME_STATE)
 
 	setTimer(function()
-		local start = os.clock()
+		local start = getTickCount()
 		maybeUpdateGameState()
 		maybeSpawnExitPoint()
 		maybeSpawnJob()
 		updateJobProgress()
 		updatePerksStatus()
-		local stop = os.clock()
-		local over = math.floor((stop - start) * 1000 - g_SERVER_TICK_DELAY)
+		local stop = getTickCount()
+		local over = math.floor((stop - start) - g_SERVER_TICK_DELAY)
 		if over > 0 then
 			-- things aren't updating as fast as expected
 			outputDebugString("game tick delayed by " .. over .. "ms", 2)
