@@ -46,6 +46,18 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			end
 		end
 
+		-- ped emotes
+		local emotes = {
+			["1"] = {"ped", "endchat_03" },
+			["2"] = {"ped", "fucku" },
+			["3"] = {"dancing", "dan_down_a" }
+		}
+		for key, anim in pairs(emotes) do
+			bindKey(key, "down", function()
+				triggerServerEvent(g_PED_ANIMATION_EVENT, resourceRoot, playerPed, anim[1], anim[2])
+			end)
+		end
+
 		-- match camera rotation
 		setTimer(function()
 			setPedCameraRotation(ped, getPedCameraRotation(localPlayer))
