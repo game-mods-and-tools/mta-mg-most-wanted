@@ -35,13 +35,17 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 		for _, control in ipairs(controls) do
 			for key in pairs(getBoundKeys(control)) do
 				bindKey(key, "down", function()
-					triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, true)
-					setControlState(playerPed, control, true)
+					if not isPedDead(playerPed) then
+						triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, true)
+						setControlState(playerPed, control, true)
+					end
 				end)
 
 				bindKey(key, "up", function()
-					triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, false)
-					setControlState(playerPed, control, false)
+					if not isPedDead(playerPed) then
+						triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, false)
+						setControlState(playerPed, control, false)
+					end
 				end)
 			end
 		end
@@ -54,7 +58,10 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 		}
 		for key, anim in pairs(emotes) do
 			bindKey(key, "down", function()
-				triggerServerEvent(g_PED_ANIMATION_EVENT, resourceRoot, playerPed, anim[1], anim[2])
+				if not isPedDead(playerPed) then
+					triggerServerEvent(g_PED_ANIMATION_EVENT, resourceRoot, playerPed, anim[1], anim[2])
+					setPedAnimation(playerPed, anim[1], anim[2], -1, false, true, true, false)
+				end
 			end)
 		end
 
@@ -85,7 +92,9 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 
 	addEvent(g_PED_ANIMATION_EVENT, true)
 	addEventHandler(g_PED_ANIMATION_EVENT, resourceRoot, function(ped, block, anim)
-		setPedAnimation(ped, block, anim, -1, false, true, true, false)
+		if ped ~= playerPed then
+			setPedAnimation(ped, block, anim, -1, false, true, true, false)
+		end
 	end)
 
 	bindKey(toggleKey, "down", function()
