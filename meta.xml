@@ -47,7 +47,7 @@
     <file src="client/resources/org_test.png" />
     <file src="client/resources/snippy.mp3" />
 
-    <info gamemodes="race" type="map" name="[MG] Most Wanted: Los Santos" author="Big Pig" version="1.1" edf:definition="MG-MostWantedLosSantos.edf"></info>
+    <info gamemodes="race" type="map" name="[MG] Most Wanted: Los Santos" author="Big Pig" version="1.2" edf:definition="MG-MostWantedLosSantos.edf"></info>
     <map src="MG-MostWantedLosSantos.map" dimension="0"></map>
     <settings>
         <setting name="#skins" value="[ 111 ]"></setting>

@@ -36,7 +36,7 @@
     <delivery_job_end id="delivery_job_end (4)" job_id="0" interior="0" posX="1982.7949" posY="-1278.5312" posZ="23.39421" rotX="0" rotY="0" rotZ="85.995"></delivery_job_end>
     <delivery_job_end id="delivery_job_end (40)" job_id="0" interior="0" posX="991.70001" posY="-1533.0699" posZ="13.15" rotX="0" rotY="0" rotZ="-174.001"></delivery_job_end>
     <delivery_job_end id="delivery_job_end (41)" job_id="0" interior="0" posX="1128.66" posY="-1880.1" posZ="13.12" rotX="0" rotY="0" rotZ="-86.001"></delivery_job_end>
-    <delivery_job_end id="delivery_job_end (42)" job_id="0" interior="0" posX="1234.8199" posY="-1611.62" posZ="13.12" rotX="0" rotY="0" rotZ="-94.005"></delivery_job_end>
+    <delivery_job_end id="delivery_job_end (42)" job_id="0" interior="0" posX="1235.34" posY="-1649.9399" posZ="11.37" rotX="0" rotY="0" rotZ="-54.006"></delivery_job_end>
     <delivery_job_end id="delivery_job_end (43)" job_id="0" interior="0" posX="1340.48" posY="-1772.25" posZ="13.12" rotX="0" rotY="0" rotZ="57.997"></delivery_job_end>
     <delivery_job_end id="delivery_job_end (44)" job_id="0" interior="0" posX="1391.5273" posY="-1897.8555" posZ="13.07192" rotX="0" rotY="0" rotZ="179.995"></delivery_job_end>
     <delivery_job_end id="delivery_job_end (45)" job_id="0" interior="0" posX="1450.5947" posY="-1843.3027" posZ="13.12077" rotX="0" rotY="0" rotZ="95.999"></delivery_job_end>
@@ -142,7 +142,7 @@
     <delivery_job_start id="delivery_job_start (65)" job_id="0" interior="0" posX="775.09778" posY="-1511.5516" posZ="12.55469" rotX="0" rotY="0" rotZ="254"></delivery_job_start>
     <delivery_job_start id="delivery_job_start (66)" job_id="0" interior="0" posX="840.47974" posY="-1626.0397" posZ="12.54688" rotX="0" rotY="0" rotZ="0"></delivery_job_start>
     <delivery_job_start id="delivery_job_start (67)" job_id="0" interior="0" posX="957.72266" posY="-1806.3992" posZ="13.16614" rotX="0" rotY="0" rotZ="354"></delivery_job_start>
-    <delivery_job_start id="delivery_job_start (68)" job_id="0" interior="0" posX="1290.3843" posY="-1600.1798" posZ="12.54688" rotX="0" rotY="0" rotZ="272"></delivery_job_start>
+    <delivery_job_start id="delivery_job_start (68)" job_id="0" interior="0" posX="1237.71" posY="-1611.83" posZ="12.55" rotX="0" rotY="0" rotZ="-127.095"></delivery_job_start>
     <delivery_job_start id="delivery_job_start (69)" job_id="0" interior="0" posX="1405.1675" posY="-1501.0338" posZ="12.56368" rotX="0" rotY="0" rotZ="164"></delivery_job_start>
     <delivery_job_start id="delivery_job_start (7)" job_id="0" interior="0" posX="1720.5088" posY="-1701.0137" posZ="12.5" rotX="0" rotY="0" rotZ="94"></delivery_job_start>
     <delivery_job_start id="delivery_job_start (70)" job_id="0" interior="0" posX="1389.2928" posY="-1439.663" posZ="12.55469" rotX="0" rotY="0" rotZ="268"></delivery_job_start>
@@ -218,7 +218,7 @@
     <extortion_job id="extortion_job (51)" interior="0" posX="934.33484" posY="-1719.1671" posZ="13.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (52)" interior="0" posX="1160.0219" posY="-1581.9675" posZ="13.14705" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (53)" interior="0" posX="1246.7783" posY="-1564.6772" posZ="13.18938" rotX="0" rotY="0" rotZ="0"></extortion_job>
-    <extortion_job id="extortion_job (54)" interior="0" posX="1318.1432" posY="-1711.365" posZ="13.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (54)" interior="0" posX="1318.1436" posY="-1711.3652" posZ="13.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (55)" interior="0" posX="1351.0013" posY="-1754.8097" posZ="12.95772" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (56)" interior="0" posX="1265.9006" posY="-1857.3715" posZ="13.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (57)" interior="0" posX="1334.9341" posY="-1513.8816" posZ="13.15063" rotX="0" rotY="0" rotZ="0"></extortion_job>
@@ -374,7 +374,7 @@
     <pickup_job id="pickup_job (187)" interior="0" posX="940.91193" posY="-1752.0936" posZ="13.02168" rotX="0" rotY="0" rotZ="68"></pickup_job>
     <pickup_job id="pickup_job (188)" interior="0" posX="940.3479" posY="-1646.8409" posZ="13.02154" rotX="0" rotY="0" rotZ="0"></pickup_job>
     <pickup_job id="pickup_job (189)" interior="0" posX="1081.0338" posY="-1817.0205" posZ="13.09775" rotX="0" rotY="0" rotZ="0"></pickup_job>
-    <pickup_job id="pickup_job (19)" alpha="255" interior="0" posX="1319.6312" posY="-1635.2062" posZ="13.1961" rotX="0" rotY="0" rotZ="0"></pickup_job>
+    <pickup_job id="pickup_job (19)" alpha="255" interior="0" posX="1318.3101" posY="-1671.78" posZ="13.2" rotX="0" rotY="0" rotZ="0"></pickup_job>
     <pickup_job id="pickup_job (190)" interior="0" posX="1029.8871" posY="-1735.6359" posZ="13.02168" rotX="0" rotY="0" rotZ="180"></pickup_job>
     <pickup_job id="pickup_job (191)" interior="0" posX="1178.9641" posY="-1858.1904" posZ="13.03328" rotX="0" rotY="0" rotZ="288"></pickup_job>
     <pickup_job id="pickup_job (192)" interior="0" posX="1214.7715" posY="-1821.8756" posZ="13.06871" rotX="0" rotY="0" rotZ="78"></pickup_job>
@@ -564,36 +564,36 @@
     <pickup_job id="pickup_job (97)" alpha="255" interior="0" posX="1428.916" posY="-1325.4834" posZ="13.21296" rotX="0" rotY="0" rotZ="96"></pickup_job>
     <pickup_job id="pickup_job (98)" interior="0" posX="1494.4326" posY="-1243.7051" posZ="14.22336" rotX="0" rotY="0" rotZ="280"></pickup_job>
     <pickup_job id="pickup_job (99)" alpha="255" interior="0" posX="1691.9365" posY="-1203.3613" posZ="19.54766" rotX="0" rotY="0" rotZ="84"></pickup_job>
-    <spawnpoint id="spawnpoint (Sultan) (76)" vehicle="560" alpha="255" interior="0" posX="783.02454" posY="-1341.8319" posZ="13.33651" rotX="0" rotY="0" rotZ="95.997"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (3)" vehicle="560" alpha="255" interior="0" posX="1075.6758" posY="-1849.7656" posZ="13.19596" rotX="0" rotY="0" rotZ="90"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (83)" vehicle="560" alpha="255" interior="0" posX="1803.3752" posY="-1913.6531" posZ="13.20064" rotX="0" rotY="0" rotZ="90"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (10)" vehicle="560" alpha="255" interior="0" posX="1972.5343" posY="-1150.3129" posZ="25.63331" rotX="0" rotY="0" rotZ="0"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (4)" vehicle="560" alpha="255" interior="0" posX="1567.45" posY="-1850.09" posZ="13.19" rotX="0" rotY="0" rotZ="178.191"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (27)" vehicle="560" alpha="255" interior="0" posX="1155.93604" posY="-928.89581" posZ="42.84" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (45)" vehicle="560" alpha="255" interior="0" posX="809.71753" posY="-1040.7476" posZ="24.71217" rotX="0" rotY="0" rotZ="107.996"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (42)" vehicle="560" alpha="255" interior="0" posX="1563.2095" posY="-1012.6183" posZ="23.71123" rotX="0" rotY="0" rotZ="180"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (5)" vehicle="560" alpha="255" interior="0" posX="1620.61" posY="-1606.46" posZ="13.35" rotX="0" rotY="0" rotZ="0"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (6)" vehicle="560" alpha="255" interior="0" posX="1989.4413" posY="-1355.5913" posZ="23.59637" rotX="0" rotY="0" rotZ="0"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (7)" vehicle="560" alpha="255" interior="0" posX="1778.3417" posY="-1911.4208" posZ="13.19308" rotX="0" rotY="0" rotZ="270"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (8)" vehicle="560" alpha="255" interior="0" posX="2148.8562" posY="-1138.3427" posZ="25.30913" rotX="0" rotY="0" rotZ="270"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (9)" vehicle="560" alpha="255" interior="0" posX="2161.3813" posY="-1187.4773" posZ="23.6241" rotX="0" rotY="0" rotZ="90"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (11)" vehicle="560" alpha="255" interior="0" posX="1616.6515" posY="-1128.1105" posZ="23.71123" rotX="0" rotY="0" rotZ="90"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (12)" vehicle="560" alpha="255" interior="0" posX="1378.71" posY="-1820.5699" posZ="13.35" rotX="0" rotY="0" rotZ="-115.439"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (13)" vehicle="560" alpha="255" interior="0" posX="1657.5747" posY="-1107.2936" posZ="23.71123" rotX="0" rotY="0" rotZ="270"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (14)" vehicle="560" alpha="255" interior="0" posX="956.47437" posY="-1271.7316" posZ="15.21893" rotX="0" rotY="0" rotZ="90"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (15)" vehicle="560" alpha="255" interior="0" posX="746.98309" posY="-1084.0486" posZ="22.34857" rotX="0" rotY="0" rotZ="90"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (16)" vehicle="560" alpha="255" interior="0" posX="1014.6071" posY="-1347.1576" posZ="13.17292" rotX="0" rotY="0" rotZ="90"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (17)" vehicle="560" alpha="255" interior="0" posX="1006.0946" posY="-1367.5226" posZ="13.13343" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (76)" vehicle="560" alpha="255" interior="0" posX="783.02441" posY="-1341.832" posZ="13.33651" rotX="0" rotY="0" rotZ="95.993"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (3)" vehicle="560" alpha="255" interior="0" posX="1098.2" posY="-1760.87" posZ="13.16" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (83)" vehicle="560" alpha="255" interior="0" posX="1803.375" posY="-1913.6533" posZ="13.20064" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (10)" vehicle="560" alpha="255" interior="0" posX="1972.5342" posY="-1150.3125" posZ="25.63331" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (4)" vehicle="560" alpha="255" interior="0" posX="782.31" posY="-1601.6" posZ="13.26" rotX="0" rotY="0" rotZ="-89.076"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (27)" vehicle="560" alpha="255" interior="0" posX="1078.99" posY="-950.97998" posZ="42.44" rotX="0" rotY="0" rotZ="99.077"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (45)" vehicle="560" alpha="255" interior="0" posX="811.40997" posY="-1045.0699" posZ="24.71" rotX="0" rotY="0" rotZ="104.359"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (42)" vehicle="560" alpha="255" interior="0" posX="1563.21" posY="-1012.6182" posZ="23.71123" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (5)" vehicle="560" alpha="255" interior="0" posX="1620.6104" posY="-1606.46" posZ="13.35" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (6)" vehicle="560" alpha="255" interior="0" posX="1989.4414" posY="-1355.5908" posZ="23.59637" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (7)" vehicle="560" alpha="255" interior="0" posX="1778.3418" posY="-1911.4209" posZ="13.19308" rotX="0" rotY="0" rotZ="-90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (8)" vehicle="560" alpha="255" interior="0" posX="2148.8564" posY="-1138.3428" posZ="25.30913" rotX="0" rotY="0" rotZ="-90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (9)" vehicle="560" alpha="255" interior="0" posX="2161.3818" posY="-1187.4775" posZ="23.6241" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (11)" vehicle="560" alpha="255" interior="0" posX="1616.6514" posY="-1128.1104" posZ="23.71123" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (12)" vehicle="560" alpha="255" interior="0" posX="1378.71" posY="-1820.5703" posZ="13.35" rotX="0" rotY="0" rotZ="-115.444"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (13)" vehicle="560" alpha="255" interior="0" posX="1657.5752" posY="-1107.2939" posZ="23.71123" rotX="0" rotY="0" rotZ="-90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (14)" vehicle="560" alpha="255" interior="0" posX="956.47461" posY="-1271.7314" posZ="15.21893" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (15)" vehicle="560" alpha="255" interior="0" posX="746.9834" posY="-1084.0488" posZ="22.34857" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (16)" vehicle="560" alpha="255" interior="0" posX="813.75" posY="-1319.9399" posZ="13.36" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (17)" vehicle="560" alpha="255" interior="0" posX="893.10999" posY="-1658.66" posZ="13.35" rotX="0" rotY="0" rotZ="-179.982"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (18)" vehicle="560" alpha="255" interior="0" posX="1086.8654" posY="-1382.3994" posZ="13.58623" rotX="0" rotY="0" rotZ="180"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (19)" vehicle="560" alpha="255" interior="0" posX="1044.1494" posY="-1548.5878" posZ="13.35294" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (20)" vehicle="560" alpha="255" interior="0" posX="888.21991" posY="-1669.2089" posZ="13.35185" rotX="0" rotY="0" rotZ="0"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (21)" vehicle="560" alpha="255" interior="0" posX="1194.1062" posY="-1558.1064" posZ="13.18779" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (20)" vehicle="560" alpha="255" interior="0" posX="883.98999" posY="-1669.21" posZ="13.35" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (21)" vehicle="560" alpha="255" interior="0" posX="1147.54" posY="-1696.9399" posZ="13.59" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (22)" vehicle="560" alpha="255" interior="0" posX="807.91724" posY="-1755.1489" posZ="13.1921" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (23)" vehicle="560" alpha="255" interior="0" posX="1062.2948" posY="-1746.1979" posZ="13.25942" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (23)" vehicle="560" alpha="255" interior="0" posX="1284.77" posY="-1670.71" posZ="13.35" rotX="0" rotY="0" rotZ="-172.717"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (24)" vehicle="560" alpha="255" interior="0" posX="1062.1354" posY="-1766.7155" posZ="13.18191" rotX="0" rotY="0" rotZ="270"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (25)" vehicle="560" alpha="255" interior="0" posX="1097.9585" posY="-1757.9858" posZ="13.16022" rotX="0" rotY="0" rotZ="90"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (25)" vehicle="560" alpha="255" interior="0" posX="1075.8101" posY="-1849.7" posZ="13.2" rotX="0" rotY="0" rotZ="90"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (26)" vehicle="560" alpha="255" interior="0" posX="1108.1145" posY="-1026.1976" posZ="31.73764" rotX="0" rotY="0" rotZ="172"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (2)" vehicle="560" alpha="255" interior="0" posX="902.86426" posY="-1408.0869" posZ="12.96572" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (2)" vehicle="560" alpha="255" interior="0" posX="914.98999" posY="-1473.9399" posZ="13.19" rotX="0" rotY="0" rotZ="-180"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (28)" vehicle="560" alpha="255" interior="0" posX="1211.6537" posY="-893.15424" posZ="42.72593" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (29)" vehicle="560" alpha="255" interior="0" posX="1338.1517" posY="-914.45831" posZ="35.76318" rotX="0" rotY="0" rotZ="179.995"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (30)" vehicle="560" alpha="255" interior="0" posX="2148.0562" posY="-1194.2301" posZ="23.63551" rotX="0" rotY="0" rotZ="270"></spawnpoint>
@@ -630,15 +630,15 @@
     <spawnpoint id="spawnpoint (Sultan) (63)" vehicle="560" alpha="255" interior="0" posX="857.77557" posY="-1661.5726" posZ="13.35676" rotX="0" rotY="0" rotZ="261.999"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (64)" vehicle="560" alpha="255" interior="0" posX="870.42609" posY="-1678.7007" posZ="13.35185" rotX="0" rotY="0" rotZ="180"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (65)" vehicle="560" alpha="255" interior="0" posX="782.0083" posY="-1619.7184" posZ="13.18779" rotX="0" rotY="0" rotZ="270"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (66)" vehicle="560" alpha="255" interior="0" posX="782.60071" posY="-1605.3386" posZ="13.18779" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (66)" vehicle="560" alpha="255" interior="0" posX="1375.8101" posY="-1887.08" posZ="13.3" rotX="0" rotY="0" rotZ="5.464"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (67)" vehicle="560" alpha="255" interior="0" posX="849.02777" posY="-1620.8568" posZ="13.34365" rotX="0" rotY="0" rotZ="12"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (68)" vehicle="560" alpha="255" interior="0" posX="920.0813" posY="-1504.1539" posZ="13.17586" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (68)" vehicle="560" alpha="255" interior="0" posX="915.13" posY="-1556.11" posZ="13.18" rotX="0" rotY="0" rotZ="-180"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (69)" vehicle="560" alpha="255" interior="0" posX="939.75586" posY="-1390.2407" posZ="13.25716" rotX="0" rotY="0" rotZ="270"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (70)" vehicle="560" alpha="255" interior="0" posX="956.77777" posY="-1476.2577" posZ="13.35185" rotX="0" rotY="0" rotZ="202"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (71)" vehicle="560" alpha="255" interior="0" posX="992.71521" posY="-1435.5811" posZ="13.35185" rotX="0" rotY="0" rotZ="186"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (72)" vehicle="560" alpha="255" interior="0" posX="1000.6923" posY="-1436.4705" posZ="13.35185" rotX="0" rotY="0" rotZ="171.995"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (73)" vehicle="560" alpha="255" interior="0" posX="974.20758" posY="-1305.3008" posZ="13.18779" rotX="0" rotY="0" rotZ="185.999"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (74)" vehicle="560" alpha="255" interior="0" posX="943.43213" posY="-1327.9884" posZ="13.18779" rotX="0" rotY="0" rotZ="270"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (74)" vehicle="560" alpha="255" interior="0" posX="781.77002" posY="-1366.54" posZ="13.34" rotX="0" rotY="0" rotZ="90"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (75)" vehicle="560" alpha="255" interior="0" posX="802.76459" posY="-1262.4816" posZ="13.45928" rotX="0" rotY="0" rotZ="12"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (77)" vehicle="560" alpha="255" interior="0" posX="806.3244" posY="-1494.2291" posZ="13.37376" rotX="0" rotY="0" rotZ="81.993"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (78)" vehicle="560" alpha="255" interior="0" posX="1807.5643" posY="-1716.5426" posZ="13.35182" rotX="0" rotY="0" rotZ="111.993"></spawnpoint>
@@ -654,7 +654,7 @@
     <spawnpoint id="spawnpoint (Sultan) (89)" vehicle="560" alpha="255" interior="0" posX="1604.4508" posY="-1469.1083" posZ="13.37277" rotX="0" rotY="0" rotZ="350"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (90)" vehicle="560" alpha="255" interior="0" posX="1469.7258" posY="-1296.6169" posZ="13.24452" rotX="0" rotY="0" rotZ="89.997"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (91)" vehicle="560" alpha="255" interior="0" posX="1440.2124" posY="-1331.1621" posZ="13.36601" rotX="0" rotY="0" rotZ="276"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (92)" vehicle="560" alpha="255" interior="0" posX="1456.7655" posY="-1459.2749" posZ="13.1669" rotX="0" rotY="0" rotZ="359.999"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (92)" vehicle="560" alpha="255" interior="0" posX="1536.12" posY="-1448.6" posZ="13.19" rotX="0" rotY="0" rotZ="-35.464"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (93)" vehicle="560" alpha="255" interior="0" posX="1586.1287" posY="-1411.8296" posZ="13.41382" rotX="0" rotY="0" rotZ="261.995"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (94)" vehicle="560" alpha="255" interior="0" posX="1586.5049" posY="-1417.1656" posZ="13.41382" rotX="0" rotY="0" rotZ="283.991"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (95)" vehicle="560" alpha="255" interior="0" posX="1692.1757" posY="-1443.5769" posZ="13.18779" rotX="0" rotY="0" rotZ="269.986"></spawnpoint>
@@ -679,7 +679,7 @@
     <spawnpoint id="spawnpoint (Sultan) (114)" vehicle="560" alpha="255" interior="0" posX="1005.5239" posY="-1459.2014" posZ="13.35185" rotX="0" rotY="0" rotZ="357.974"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (115)" vehicle="560" alpha="255" interior="0" posX="1045.3412" posY="-1468.4414" posZ="13.48334" rotX="0" rotY="0" rotZ="197.973"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (116)" vehicle="560" alpha="255" interior="0" posX="1369.2434" posY="-1885.3937" posZ="13.32634" rotX="0" rotY="0" rotZ="349.968"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (117)" vehicle="560" alpha="255" interior="0" posX="1377.3044" posY="-1886.337" posZ="13.28553" rotX="0" rotY="0" rotZ="3.964"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (117)" vehicle="560" alpha="255" interior="0" posX="1567.09" posY="-1850.35" posZ="13.19" rotX="0" rotY="0" rotZ="-177.84"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (118)" vehicle="560" alpha="255" interior="0" posX="1526.4198" posY="-1845.1697" posZ="13.35185" rotX="0" rotY="0" rotZ="351.964"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (119)" vehicle="560" alpha="255" interior="0" posX="1521.2815" posY="-1845.5316" posZ="13.35185" rotX="0" rotY="0" rotZ="3.961"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (120)" vehicle="560" alpha="255" interior="0" posX="1590.9399" posY="-1870.04" posZ="13.19" rotX="0" rotY="0" rotZ="90"></spawnpoint>
@@ -691,7 +691,7 @@
     <spawnpoint id="spawnpoint (Sultan) (126)" vehicle="560" alpha="255" interior="0" posX="1807.9846" posY="-1283.4441" posZ="13.4217" rotX="0" rotY="0" rotZ="21.949"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (127)" vehicle="560" alpha="255" interior="0" posX="1853.3658" posY="-1277.8315" posZ="13.19537" rotX="0" rotY="0" rotZ="357.945"></spawnpoint>
     <spawnpoint id="spawnpoint (Sultan) (128)" vehicle="560" alpha="255" interior="0" posX="1834.79" posY="-1310.8644" posZ="13.39554" rotX="0" rotY="0" rotZ="185.94"></spawnpoint>
-    <spawnpoint id="spawnpoint (Sultan) (129)" vehicle="560" interior="0" posX="1366.1172" posY="-1056.4863" posZ="26.06527" rotX="0" rotY="0" rotZ="0"></spawnpoint>
+    <spawnpoint id="spawnpoint (Sultan) (129)" vehicle="560" interior="0" posX="1374.75" posY="-959.88" posZ="33.9" rotX="0" rotY="0" rotZ="-4.546"></spawnpoint>
     <vehicle id="vehicle (Police LS) (11)" sirens="false" landingGearDown="false" locked="false" plate="IWDXMJV" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1281.9863" posY="-1372.3806" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
     <vehicle id="vehicle (Police LS) (12)" sirens="false" landingGearDown="false" locked="false" plate="LY6LCPK" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1265.4688" posY="-1357.285" posZ="13.13175" rotX="0" rotY="0" rotZ="0"></vehicle>
     <vehicle id="vehicle (Police LS) (13)" sirens="false" landingGearDown="false" locked="false" plate="HAWMJCB" paintjob="3" dimension="0" interior="0" health="1000" alpha="0" model="596" collisions="false" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1291.1558" posY="-1390.3364" posZ="13.13175" rotX="0" rotY="0" rotZ="90"></vehicle>
@@ -919,7 +919,6 @@
     <object id="object (helix_barrier) (6)" breakable="false" interior="0" alpha="255" dimension="0" model="981" scale="1" doublesided="false" collisions="true" frozen="false" posX="741.28998" posY="-1400.0699" posZ="13.18" rotX="0" rotY="0" rotZ="92.737"></object>
     <object id="object (helix_barrier) (7)" breakable="false" interior="0" alpha="255" dimension="0" model="981" scale="1" doublesided="false" collisions="true" frozen="false" posX="577.78003" posY="-1324.5699" posZ="13.13" rotX="0" rotY="0" rotZ="106.374"></object>
     <object id="object (helix_barrier) (8)" breakable="false" interior="0" alpha="255" dimension="0" model="981" scale="1" doublesided="false" collisions="true" frozen="false" posX="563.03998" posY="-1236.02" posZ="16.95" rotX="0" rotY="0" rotZ="103.647"></object>
-    <object id="object (subwaygate) (1)" breakable="false" interior="0" alpha="255" dimension="0" model="971" scale="1" doublesided="false" collisions="true" frozen="false" posX="1662.24" posY="-996.62" posZ="66.32" rotX="0" rotY="0" rotZ="0"></object>
     <object id="object (vgsSairportland06) (1)" breakable="true" interior="0" alpha="0" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="1242.0601" posY="-852.52002" posZ="65.73" rotX="0" rotY="89.396" rotZ="-89.13"></object>
     <object id="object (vgsSairportland06) (100)" breakable="true" interior="0" alpha="0" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="843.87" posY="-966.02002" posZ="31.97" rotX="90" rotY="0" rotZ="-111.455"></object>
     <object id="object (vgsSairportland06) (101)" breakable="true" interior="0" alpha="0" dimension="0" model="8171" scale="1" doublesided="true" collisions="true" frozen="false" posX="893.5" posY="-890.83984" posZ="50.81" rotX="0" rotY="90.099" rotZ="-178.319"></object>
@@ -1033,10 +1032,12 @@
     <group_job id="group_job (8)" interior="0" posX="1776.67" posY="-1355.4301" posZ="14.67" rotX="0" rotY="0" rotZ="0"></group_job>
     <vehicle id="vehicle (Police LS) (25)" sirens="true" landingGearDown="false" locked="false" plate="T4QYPRK" paintjob="3" dimension="0" interior="0" health="5000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="1425.84" posY="-1909.92" posZ="13.57" rotX="0.133" rotY="6.356" rotZ="80.963"></vehicle>
     <vehicle id="vehicle (Police LS) (26)" sirens="true" landingGearDown="false" locked="false" plate="T4QYPRK" paintjob="3" dimension="0" interior="0" health="5000" alpha="255" model="596" collisions="true" frozen="false" color="0,0,0,245,245,245,0,0,0,0,0,0" posX="885.09998" posY="-939.12" posZ="40.89" rotX="0" rotY="0" rotZ="160.074"></vehicle>
-    <object id="object (subwaygate) (2)" breakable="false" interior="0" alpha="255" dimension="0" model="971" scale="1" doublesided="false" collisions="true" posX="828.59003" posY="-1343.03" posZ="13.63" rotX="0" rotY="0" rotZ="-90"></object>
+    <object id="object (subwaygate) (2)" breakable="false" interior="0" alpha="255" dimension="0" model="971" scale="1" doublesided="false" collisions="true" frozen="false" posX="828.59003" posY="-1343.03" posZ="13.63" rotX="0" rotY="0" rotZ="-90"></object>
     <delivery_job_start id="delivery_job_start (94)" job_id="0" alpha="255" interior="0" posX="1726.15" posY="-1379.3199" posZ="12.55" rotX="0" rotY="0" rotZ="118.352"></delivery_job_start>
     <delivery_job_end id="delivery_job_end (82)" job_id="0" alpha="255" interior="0" posX="1681.74" posY="-1460.4399" posZ="13.12" rotX="0" rotY="0" rotZ="-0.359"></delivery_job_end>
     <extortion_job id="extortion_job (75)" alpha="255" interior="0" posX="1694.3199" posY="-1520.49" posZ="13.23" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (76)" alpha="255" interior="0" posX="1578.67" posY="-1586.76" posZ="13.4" rotX="0" rotY="0" rotZ="0"></extortion_job>
     <extortion_job id="extortion_job (77)" alpha="255" interior="0" posX="2111.6499" posY="-1080.53" posZ="24.77" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <extortion_job id="extortion_job (78)" alpha="255" interior="0" posX="1318.47" posY="-1635.08" posZ="13.15" rotX="0" rotY="0" rotZ="0"></extortion_job>
+    <pickup_job id="pickup_job (304)" alpha="255" interior="0" posX="1290.9301" posY="-1599.02" posZ="13.02" rotX="0" rotY="0" rotZ="0"></pickup_job>
 </map>

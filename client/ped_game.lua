@@ -48,8 +48,8 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 
 		-- ped emotes
 		local emotes = {
-			["1"] = {"ped", "endchat_03" },
-			["2"] = {"ped", "fucku" },
+			["1"] = {"ped", "fucku" },
+			["2"] = {"ped", "endchat_03" },
 			["3"] = {"dancing", "dan_down_a" }
 		}
 		for key, anim in pairs(emotes) do
@@ -109,25 +109,30 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 
 	addEventHandler("onClientRender", root, function()
 		local screenWidth, screenHeight = guiGetScreenSize()
-		dxDrawBorderedText(0.5,"A NEARBY PEDESTRIAN IS REVEALING YOUR LOCATION!", screenWidth / 2, screenHeight * 0.22, screenWidth, screenHeight, tocolor(222, 26, 26, 255), 2.5, "arial", center, top, false, false, false, true)
+--		dxDrawBorderedText(0.5,"A NEARBY PEDESTRIAN IS REVEALING YOUR LOCATION!", screenWidth / 2, screenHeight * 0.22, screenWidth, screenHeight, tocolor(222, 26, 26, 255), 2.5, "arial", center, top, false, false, false, true)
 
 
 		if canSpawnAsPedCondition() then
-			dxDrawBorderedText(0.5, "#C8C8C8Press " .. toggleKey .. " to spawn as a pedestrian.", screenWidth / 2, screenHeight * 0.9,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2, "arial", center, top, false, false, false, true)
+			dxDrawBorderedText(0.5, "#C8C8C8Press " .. toggleKey .. " to spawn as a pedestrian.", screenWidth / 2, screenHeight * 0.9,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 1.9, "arial", center, top, false, false, false, true)
 		elseif playerPed then
-			if focusPed then
-				dxDrawBorderedText(0.5, "Press " .. toggleKey .. " to return to spectator.", screenWidth / 2, screenHeight * 0.9,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "arial", center, top, false, false, false, true)
+			if focusPed and not isPedDead(playerPed) then
+				dxDrawBorderedText(0.5, "Press " .. toggleKey .. " to return to spectator.", screenWidth / 2, screenHeight * 0.9,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.9, "arial", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "Your pedestrian will remain vulnerable!", screenWidth / 2, screenHeight * 0.9 + 25,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "arial", center, top, false, false, false, true)
+
+				dxDrawBorderedText(0.5, "Any player close to you will have their location revealed on the radar to everyone.", screenWidth / 2, screenHeight * 0.98 - 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "arial", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "Be careful! If you are killed, you will not be able to respawn!", screenWidth / 2, screenHeight * 0.98 - 20,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "arial", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "(press 1 to flip the bird, press 2 to wave, press 3 to show your moves)", screenWidth / 2, screenHeight * 0.98,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "arial", center, top, false, false, false, true)
 			else
-				dxDrawBorderedText(0.5,"Press " .. toggleKey .. " to return to pedestrian.", screenWidth / 2, screenHeight * 0.9,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2, "arial", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "Press " .. toggleKey .. " to return to pedestrian.", screenWidth / 2, screenHeight * 0.9,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.9, "arial", center, top, false, false, false, true)
 			end
 
 			if isPedDead(playerPed) then
-				dxDrawBorderedText(0.5, "Oh dear, you are dead! Better luck next time.", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "Oh dear, you are dead!", screenWidth / 2, screenHeight * 0.5,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "Better luck next time.", screenWidth / 2, screenHeight * 0.5 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "sans", center, top, false, false, false, true)
 			else
-				dxDrawBorderedText(0.5,"If you are killed, you can not respawn!", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.5, "sans", center, top, false, false, false, true)
+
 			end
 
-			dxDrawBorderedText(0.5,"Any player close to you will be revealed on the radar to everyone.", screenWidth / 2, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.5, "sans", center, top, false, false, false, true)
 		end
 	end)
 end)

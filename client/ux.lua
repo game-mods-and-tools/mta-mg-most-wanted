@@ -196,10 +196,10 @@ addEventHandler(g_PLAYER_APPLY_FOR_POLICE_EVENT, resourceRoot, function()
 		local screenWidth, screenHeight = guiGetScreenSize()
 		if prefer then
 			guiCreateStaticImage(screenWidth / 2 - 120, screenHeight * 0.6, 240, 240, "client/resources/iwannabeacop.png", false)
+			playSound("client/resources/apply.mp3")
 		else
 			guiCreateStaticImage(screenWidth / 2 - 120, screenHeight * 0.6, 240, 240, "client/resources/iwannabeacop_bw.png", false)
 		end
-		playSound("client/resources/apply.mp3")
 	end
 	togglePolicePreference() -- to false which is what server thinks
 	bindKey("space", "down", togglePolicePreference)
@@ -305,7 +305,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			local timeLeft = getTimerDetails(uiTimer)
 			if timeLeft then
 				-- relative to CRIMINAL/POLICE text minus some
-				dxDrawBorderedText(0.5,tostring(math.ceil(timeLeft / 1000)), screenWidth / 2, screenHeight * 0.18 - 75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,tostring(math.ceil(timeLeft / 1000)), screenWidth / 2, screenHeight * 0.18 - 120,  screenWidth, screenHeight, tocolor(222, 26, 26, 255), 4, "sans", center, top, false, false, false, true)
 			end
 		end
 
@@ -332,8 +332,8 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			return
 		elseif showText[applyInfo] then
 				dxDrawBorderedText(0.5, "Not criminally-minded?", screenWidth / 2, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5, "Apply for a job at the#33A5FF LSPD#C8C8C8 by pressing space NOW!", screenWidth / 2, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.5, "sans", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5, "[SPACEBAR]", screenWidth / 2, screenHeight * 0.6 + 240,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "bankgothic", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "Apply for a job at the#33A5FF LSPD#C8C8C8 by pressing space NOW!", screenWidth / 2, screenHeight * 0.35 + 55,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.8, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "SPACEBAR", screenWidth / 2, screenHeight * 0.6 + 245,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "bankgothic", center, top, false, false, false, true)
 				return
 		elseif showText[roleInfo] then
 			if role == g_CRIMINAL_ROLE then
@@ -368,8 +368,8 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 					vehicleSecondaryFireKey = key
 					break
 				end
-				dxDrawBorderedText(0.5, "Deploy your firearm by pressing " .. vehicleSecondaryFireKey, screenWidth / 2, screenHeight * 0.35 + 120,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5, "Use any force necessary to eliminate them!", screenWidth / 2, screenHeight * 0.35 + 170,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "Deploy your firearm by pressing " .. vehicleSecondaryFireKey, screenWidth / 2, screenHeight * 0.35 + 140,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "Use any force necessary to eliminate them!", screenWidth / 2, screenHeight * 0.35 + 190,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 			end
 			return
 		end
@@ -405,7 +405,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 
 		-- slightly under top middle ui
 		if showText[harvestJobAppeared] then
-			dxDrawBorderedText(0.5, deadPlayer .. " #C8C8C8died, but their corpse might be useful...", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2.8, "arial", center, top, false, false, false, true)
+			dxDrawBorderedText(0.5, deadPlayer .. " #C8C8C8died, but their corpse might be useful...", screenWidth / 2, screenHeight * 0.32,  screenWidth, screenHeight, tocolor(160, 0, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 		elseif showText[groupJobAppeared] then
 			dxDrawBorderedText(0.5,"A heist is being organised somewhere!", screenWidth / 2, screenHeight * 0.3,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "arial", center, top, false, false, false, true)
 		end
