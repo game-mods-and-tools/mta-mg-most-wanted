@@ -8,6 +8,7 @@ local function startPedRequestListener()
 		local extortionJobs = getElementsByType("extortion_job", resourceRoot)
 		local randomExtortion = extortionJobs[math.random(#extortionJobs)]
 		local ped = createPed(281, 1272.4, -1337, 13) -- police station
+		setElementHealth(ped, 100)
 		setElementSyncer(ped, client, true)
 		peds[#peds + 1] = ped
 
@@ -25,15 +26,17 @@ local function startPedRequestListener()
 		end
 		pedFindBlips = {}
 		for _, cop in ipairs(peds) do
-			local x, y, z = getElementPosition(cop)
-			local detection = getElementsWithinRange(x, y, z, 50, "vehicle")
-			for _, vehicle in ipairs(detection) do
-				local player = getVehicleOccupant(vehicle)
-				if player then
-					if getPlayerTeam(player) == g_CriminalTeam then
-						pedFindBlips[#pedFindBlips + 1] = createBlipAttachedTo(vehicle, 0, 2, 150, 0, 200, 255, 6, 80085)
-					else
-						pedFindBlips[#pedFindBlips + 1] = createBlipAttachedTo(vehicle, 0, 2, 30, 190, 240, 255, 6, 80085)
+			if isPedDead(cop) then
+				local x, y, z = getElementPosition(cop)
+				local detection = getElementsWithinRange(x, y, z, 50, "vehicle")
+				for _, vehicle in ipairs(detection) do
+					local player = getVehicleOccupant(vehicle)
+					if player then
+						if getPlayerTeam(player) == g_CriminalTeam then
+							pedFindBlips[#pedFindBlips + 1] = createBlipAttachedTo(vehicle, 0, 2, 150, 0, 200, 255, 6, 80085)
+						else
+							pedFindBlips[#pedFindBlips + 1] = createBlipAttachedTo(vehicle, 0, 2, 30, 190, 240, 255, 6, 80085)
+						end
 					end
 				end
 			end
