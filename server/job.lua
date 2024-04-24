@@ -223,20 +223,27 @@ function HarvestJob:assign(player)
 	self.deliverer.delivering = true
 	self.players[player.player] = true
 
-	-- hospital location
-	local x = 1184.970703125
-	local y = -1323.982421875
-	local z = 13.147170066833
+	-- set to closest end
+	local endpoints = getElementsByType("harvest_job_end")
+	local minDistance = 999999 -- probably fine
+	local endpoint = nil
+	local px, py, pz = getElementPosition(player)
+	for _, possibleEndpoint in ipairs(endpoints) do
+		local nx, ny, nz = getElementPosition(possibleEndpoint)
+		local newDistance = getDistanceBetweenPoints3D(nx, ny, nz, px, py, pz)
+		if newDistance < minDistance then
+			endpoint = possibleEndpoint
+			minDistance = newDistance
+		end
+	end
 
-	local rx = 0
-	local ry = 0
-	local rz = 0
+	local x, y, z = getElementPosition(endpoint)
 
 	triggerClientEvent(player.player, g_START_JOB_EVENT, resourceRoot, self.id, self.type)
 
 	triggerClientEvent(player, g_JOB_STATUS_UPDATE_EVENT, resourceRoot, self.id, self.type, {
 		pos = { x = x, y = y, z = z },
-		rot = { x = rx, y = ry, z = rz }
+		rot = { x = 0, y = 0, z = 0 }
 	})
 
 	self:disable()
