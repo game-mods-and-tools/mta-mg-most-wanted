@@ -143,7 +143,7 @@ function DeliveryJob:assign(player)
 	self.deliverer.delivering = true
 	self.players[player.player] = true
 
-	local endpoints = getElementsByType("delivery_job_end")
+	local endpoints = getElementsByType("delivery_job_end", mapRoot)
 	local endpoint = endpoints[math.random(#endpoints)]
 
 	local x, y, z = getElementPosition(endpoint)
@@ -224,7 +224,7 @@ function HarvestJob:assign(player)
 	self.players[player.player] = true
 
 	-- set to closest end
-	local endpoints = getElementsByType("harvest_job_end")
+	local endpoints = getElementsByType("harvest_job_end", mapRoot)
 	local minDistance = 999999 -- probably fine
 	local endpoint = nil
 	local px, py, pz = getElementPosition(player)

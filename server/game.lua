@@ -209,11 +209,9 @@ local function preGameSetup(callback)
 	end
 
 	-- set up exit points and shuffle
-	for _, group in ipairs(getElementsByType("exit_group", resourceRoot)) do
+	for _, group in ipairs(getElementsByType("exit_group", mapRoot)) do
 		-- not sure what the duplicates are
-		if #getElementChildren(group) > 0 then
-			exits[#exits + 1] = Exit:new(group)
-		end
+		exits[#exits + 1] = Exit:new(group)
 	end
 
 	shuffle(exits)
@@ -226,7 +224,7 @@ local function preGameSetup(callback)
 		g_DELIVERY_JOB,
 		g_EXTORTION_JOB
 	}) do
-		for _, element in ipairs(getElementsByType(job.elementType, resourceRoot)) do
+		for _, element in ipairs(getElementsByType(job.elementType, mapRoot)) do
 			jobElements[#jobElements + 1] = { element = element, job = job }
 		end
 	end
@@ -303,7 +301,7 @@ local function playerSetup()
 	end
 	
 	-- remove remaining invisible cop vehicle placeholders
-	for _, copCar in pairs(getElementsByType("vehicle", resourceRoot)) do
+	for _, copCar in pairs(getElementsByType("vehicle", mapRoot)) do
 		if getElementModel(copCar) == 596 then
 			destroyElement(copCar)
 		end

@@ -101,7 +101,7 @@ end
 -- may not be set if there are no cop cars
 function Player:setRole(role)
 	if role == g_POLICE_ROLE then
-		for _, copCar in pairs(getElementsByType("vehicle", resourceRoot)) do
+		for _, copCar in pairs(getElementsByType("vehicle", mapRoot)) do
 			if getElementModel(copCar) == 596 then
 				-- at least 1 cop car to use
 				self.role = role
