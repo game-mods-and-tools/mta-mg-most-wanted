@@ -175,8 +175,8 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 					for _, cop in ipairs(cops) do
 						local x, y, z = getElementPosition(cop)
 						local sound = playSound3D("client/resources/siren.mp3", x, y, z, true)
-						setSoundMinDistance(sound, 10)
-						setSoundMaxDistance(sound, 150)
+						setSoundMinDistance(sound, 20)
+						setSoundMaxDistance(sound, 200)
 						setTimer(function()
 							if not isElement(cop) then
 								if isElement(sound) then
