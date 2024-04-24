@@ -10,7 +10,7 @@ g_FUGITIVE_PERK = {
 g_MECHANIC_PERK = {
 	id = "mechanicPerkId",
 	name = "Mechanic",
-	healRate = 5, -- per second
+	healRate = 10, -- per second
 	description = "Stand still to slowly regain health."
 }
 g_HOTSHOT_PERK = {
