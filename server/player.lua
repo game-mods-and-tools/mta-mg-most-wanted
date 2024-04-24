@@ -61,6 +61,11 @@ g_CriminalTeam = createTeam(criminalNames[math.random(#criminalNames)], 150, 0 ,
 setTeamFriendlyFire(g_PoliceTeam, false) -- does this work for vehicles
 g_CopWeaponId = 29 -- mp5
 
+-- idk which skill is right
+setWeaponProperty(29, "poor", "damage", 20)
+setWeaponProperty(29, "std", "damage", 20)
+setWeaponProperty(29, "pro", "damage", 20)
+
 function Player:new(player)
 	local o = {}
 	setmetatable(o, self)

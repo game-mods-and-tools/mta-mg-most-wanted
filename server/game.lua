@@ -268,7 +268,7 @@ end
 local function playerSetup()
 	shuffle(players)
 
-	local policeCount = math.ceil(#players / g_CRIMINALS_PER_COP)
+	local policeCount = math.min(g_MAX_COPS, math.ceil(#players / g_CRIMINALS_PER_COP))
 	if #players == 1 then
 		policeCount = 0
 	end
