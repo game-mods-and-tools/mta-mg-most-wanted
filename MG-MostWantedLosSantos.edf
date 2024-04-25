@@ -23,10 +23,10 @@
 		<data name="rotation" type="coord3d" default="0,0,0" />
 		<object model="4" position="0,0,0" editorOnly="true" alpha="0"/>
 	</element>
-	<element name="destruction_job" friendlyname="Destruction Job">
+	<element name="harvest_job_end" friendlyname="zzzzzzHarvest Job End">
 		<data name="position" type="coord3d" default="0,0,0" />
 		<data name="rotation" type="coord3d" default="0,0,0" />
-		<object model="3632" position="0,0,0" editorOnly="true" alpha="0"/>
+		<object model="3633" position="0,0,0" editorOnly="true" alpha="0"/>
 	</element>
 	<element name="extortion_job" friendlyname="Extortion Job">
 		<data name="position" type="coord3d" default="0,0,0" />

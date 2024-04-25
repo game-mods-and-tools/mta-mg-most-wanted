@@ -86,3 +86,129 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 		startPedRequestListener()
 	end
 end)
+
+
+--hay1 z-3" breakable="true"  posX="1318.8164" posY="-1328.918" posZ="78"
+--hay2 z-3" breakable="true"  posX="1314.7813" posY="-1328.902" posZ="57"
+--hay3 x+3" breakable="true"  posX="1314.7813" posY="-1328.901" posZ="48"
+--hay4 z-3" breakable="true"  posX="1314.7813" posY="-1320.879" posZ="48"
+--hay5 z+3" breakable="true"  posX="1318.7979" posY="-1320.879" posZ="63"
+--hay6 x-4" breakable="true"  posX="1322.8242" posY="-1320.879" posZ="72"
+--hay7 z-3" breakable="true"  posX="1318.8115" posY="-1324.904" posZ="45"
+
+
+-- ped easter egg hay climb
+function pedHayClimb()
+    hay1 = createObject(3374, 1318.8164, -1328.918, 78, 0, 0, 0)
+    hay2 = createObject(3374, 1314.7813, -1328.902, 57, 0, 0, 0)
+    hay3 = createObject(3374, 1314.7813, -1328.901, 48, 0, 0, 0)
+    hay4 = createObject(3374, 1314.7813, -1320.879, 48, 0, 0, 0)
+    hay5 = createObject(3374, 1318.7979, -1320.879, 63, 0, 0, 0)
+	hay6 = createObject(3374, 1322.8242, -1320.879, 72, 0, 0, 0)
+    hay7 = createObject(3374, 1318.8115, -1324.904, 45, 0, 0, 0)
+	hay8 = createObject(3374, 1322.8203, -1328.918, 54, 0, 0, 0)
+	hay9 = createObject(3374, 1314.7832, -1320.878, 75, 0, 0, 0)
+	hay10 = createObject(3374, 1322.8210, -1324.901, 48, 0, 0, 0)
+	moveHay1(1)
+	moveHay2(1)
+	moveHay3(1)
+	moveHay4(1)
+	moveHay5(1)
+	moveHay6(1)
+	moveHay7(1)
+	moveHay8(1)
+	moveHay9(1)
+	moveHay10(1)
+end
+addEventHandler("onResourceStart", resourceRoot, pedHayClimb)
+
+function moveHay1(point)
+    if point == 1 then
+        moveObject(hay1, 4000, 1318.8164, -1328.918, 75)
+        setTimer(moveHay1, 4000 + 4250, 1, 2)
+    elseif point == 2 then
+        moveObject(hay1, 4000, 1318.8164, -1328.918, 78)
+        setTimer(moveHay1, 4000 + 6160, 1, 1)
+    end
+end
+function moveHay2(point)
+    if point == 1 then
+        moveObject(hay2, 4000, 1314.7813, -1328.902, 57)
+        setTimer(moveHay2, 4000 + 3330, 1, 2)
+    elseif point == 2 then
+        moveObject(hay2, 4000, 1314.7813, -1328.902, 57)
+        setTimer(moveHay2, 4000 + 5110, 1, 1)
+    end
+end
+function moveHay3(point)
+    if point == 1 then
+        moveObject(hay3, 4000, 1318.7813, -1328.901, 48)
+        setTimer(moveHay3, 4000 + 7590, 1, 2)
+    elseif point == 2 then
+        moveObject(hay3, 4000, 1314.7813, -1328.901, 48)
+        setTimer(moveHay3, 4000 + 10850, 1, 1)
+    end
+end
+function moveHay4(point)
+    if point == 1 then
+        moveObject(hay4, 4000, 1314.7813, -1320.879, 45)
+        setTimer(moveHay4, 4000 + 4800, 1, 2)
+    elseif point == 2 then
+        moveObject(hay4, 4000, 1314.7813, -1320.879, 48)
+        setTimer(moveHay4, 4000 + 9710, 1, 1)
+    end
+end
+function moveHay5(point)
+    if point == 1 then
+        moveObject(hay5, 4000, 1318.7979, -1320.879, 66)
+        setTimer(moveHay5, 4000 + 8220, 1, 2)
+    elseif point == 2 then
+        moveObject(hay5, 4000, 1318.7979, -1320.879, 63)
+        setTimer(moveHay5, 4000 + 5550, 1, 1)
+    end
+end
+function moveHay6(point)
+    if point == 1 then
+        moveObject(hay6, 4000, 1318.8242, -1320.879, 72)
+        setTimer(moveHay6, 4000 + 8660, 1, 2)
+    elseif point == 2 then
+        moveObject(hay6, 4000, 1322.8242, -1320.879, 72)
+        setTimer(moveHay6, 4000 + 5690, 1, 1)
+    end
+end
+function moveHay7(point)
+    if point == 1 then
+        moveObject(hay7, 4000, 1318.8115, -1324.904, 42)
+        setTimer(moveHay7, 4000 + 5250, 1, 2)
+    elseif point == 2 then
+        moveObject(hay7, 4000, 1318.8115, -1324.904, 45)
+        setTimer(moveHay7, 4000 + 6160, 1, 1)
+    end
+end
+function moveHay8(point)
+    if point == 1 then
+        moveObject(hay8, 4000, 1318.8203, -1328.918, 54)
+        setTimer(moveHay8, 4000 + 5150, 1, 2)
+    elseif point == 2 then
+        moveObject(hay8, 4000, 1322.8203, -1328.918, 54)
+        setTimer(moveHay8, 4000 + 5770, 1, 1)
+    end
+end
+function moveHay9(point)
+    if point == 1 then
+        moveObject(hay9, 4000, 1318.7832, -1320.878, 75)
+        setTimer(moveHay9, 4000 + 8830, 1, 2)
+    elseif point == 2 then
+        moveObject(hay9, 4000, 1314.7832, -1320.878, 75)
+        setTimer(moveHay9, 4000 + 7350, 1, 1)
+    end
+end
+function moveHay10(point)
+    if point == 1 then
+        moveObject(hay10, 4000, 1322.8210, -1320.901, 48)
+        setTimer(moveHay10, 4000 + 12110, 1, 2)
+    elseif point == 2 then
+        moveObject(hay10, 4000, 1322.8210, -1324.901, 48)
+        setTimer(moveHay10, 4000 + 5690, 1, 1)
+    end
+end

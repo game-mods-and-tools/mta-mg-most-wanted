@@ -368,7 +368,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			return
 		elseif showText[applyInfo] then
 				dxDrawBorderedText(0.5, "Not criminally-minded?", screenWidth / 2, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3, "sans", center, top, false, false, false, true)
-				dxDrawBorderedText(0.5, "Apply for a job at the#33A5FF LSPD#C8C8C8 by pressing space NOW!", screenWidth / 2, screenHeight * 0.35 + 55,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.8, "sans", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5, "Attempt to apply to the#33A5FF LSPD#C8C8C8 by pressing space NOW!", screenWidth / 2, screenHeight * 0.35 + 55,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 3.8, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5, "SPACEBAR", screenWidth / 2, screenHeight * 0.6 + 245,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "bankgothic", center, top, false, false, false, true)
 				return
 		elseif showText[roleInfo] then
@@ -451,13 +451,13 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 			if role == g_CRIMINAL_ROLE then
 				dxDrawBorderedText(0.5,"Received possible#FFDC00 escape routes#C8C8C8!", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			elseif role == g_POLICE_ROLE then
-				dxDrawBorderedText(0.5,"Some#FFDC00 escape routes#C8C8C8 has been reported!", screenWidth / 2, screenHeight * 0.75 + 40 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+				dxDrawBorderedText(0.5,"Some#FFDC00 escape routes#C8C8C8 have been reported!", screenWidth / 2, screenHeight * 0.75 + 40 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 			end
 		elseif showText[jobAlreadyInProgress] then
 			dxDrawBorderedText(0.5,"Complete your current#DE1A1A job#D2D2D2 first.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[harvestJobInfo] then
 			dxDrawBorderedText(0.5,"Looks like some things are still in decent condition, probably.", screenWidth / 2, screenHeight * 0.75,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
-			dxDrawBorderedText(0.5,"Drop the body off at the#DE1A1A crooked doctor#D2D2D2 at the hospital.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
+			dxDrawBorderedText(0.5,"Drop the body off at the#DE1A1A crooked doctor#D2D2D2 nearby.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[pickupJobInfo] then
 			dxDrawBorderedText(0.5,"Wait in place. The money is coming.", screenWidth / 2, screenHeight * 0.75 + 40,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.8, "default-bold", center, top, false, false, false, true)
 		elseif showText[extortionJobInfo] then
