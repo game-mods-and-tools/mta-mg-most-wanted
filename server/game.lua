@@ -129,7 +129,6 @@ local function maybeSpawnExitPoint()
 end
 
 local function spawnJob(id)
-	-- outputDebugString("spawning job: " .. id)
 	local job = jobs[id]
 	if job:isComplete() then
 		job:enable()
@@ -302,7 +301,7 @@ local function playerSetup()
 	
 	-- remove remaining invisible cop vehicle placeholders
 	for _, copCar in pairs(getElementsByType("vehicle", mapRoot)) do
-		if getElementModel(copCar) == 596 then
+		if getElementModel(copCar) == 596 and not next(getVehicleOccupants(copCar)) then
 			destroyElement(copCar)
 		end
 	end

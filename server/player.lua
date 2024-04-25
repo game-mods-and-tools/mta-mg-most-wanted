@@ -117,6 +117,8 @@ function Player:setRole(role)
 				setVehicleHandling(vehicle, "collisionDamageMultiplier", 0)
 				setVehicleHandling(vehicle, "acceleration", 27)
 				setVehicleColor(vehicle, 0, 0, 0, 255, 255, 255, 0, 0, 0)
+				-- harder to flip, 0 and 0.3 from getVehicleHandling, z is originally -0.1
+				setVehicleHandling(vehicle, "centerOfMass", { 0, 0.3, -1 })
 				destroyElement(copCar) -- so players won't spawn on top of each other
 
 				-- give cops a weapon key
