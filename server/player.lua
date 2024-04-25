@@ -187,11 +187,12 @@ function Player:checkPerk()
 			end
 			local vx, vy, vz = getElementVelocity(veh)
 			local speed = math.sqrt(vx ^2 + vy ^2 + vz ^2)
-			local rate = (g_FUGITIVE_PERK.maxAlpha - g_FUGITIVE_PERK.minAlpha) / (g_FUGITIVE_PERK.transitionTime / g_SERVER_TICK_DELAY)
 			if speed > g_FUGITIVE_PERK.minSpeed and getControlState(self.player, "handbrake") then
+				local rate = (g_FUGITIVE_PERK.maxAlpha - g_FUGITIVE_PERK.minAlpha) / (g_FUGITIVE_PERK.phaseOutTime / g_SERVER_TICK_DELAY)
 				setElementAlpha(veh, math.max(getElementAlpha(veh) - rate, g_FUGITIVE_PERK.minAlpha))
 			else
-				setElementAlpha(veh, math.min(getElementAlpha(veh) + rate / 2, g_FUGITIVE_PERK.maxAlpha))
+				local rate = (g_FUGITIVE_PERK.maxAlpha - g_FUGITIVE_PERK.minAlpha) / (g_FUGITIVE_PERK.phaseInTime / g_SERVER_TICK_DELAY)
+				setElementAlpha(veh, math.min(getElementAlpha(veh) + rate, g_FUGITIVE_PERK.maxAlpha))
 			end
 		elseif self.perkId == g_HOTSHOT_PERK.id then
 			setVehicleHandling(veh, "maxVelocity", 200 + (1000 - getElementHealth(veh)) * g_HOTSHOT_PERK.velocityRate) -- 200 is base for vehicle

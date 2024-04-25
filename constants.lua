@@ -3,7 +3,8 @@ g_FUGITIVE_PERK = {
 	name = "Fugitive",
 	maxAlpha = 200,
 	minAlpha = 5,
-	transitionTime = 500, -- ms
+	phaseOutTime = 500, -- ms
+	phaseInTime = 3000, -- ms
 	minSpeed = 0.2, -- total velocity
 	description = "Slowly turn invisible with handbreak while driving."
 }
