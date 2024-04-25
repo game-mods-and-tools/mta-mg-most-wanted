@@ -21,39 +21,6 @@ g_HOTSHOT_PERK = {
 	accelRate = 0.01, -- engineAcceleration per missing hp
 	description = "The lower your health, the higher your top speed."
 }
-g_POLICE_APPLICATION_DURATION = 5800
-g_PERK_SELECTION_DURATION = 11800
-
-g_PLAYER_APPLY_FOR_POLICE_EVENT = "onPlayerAskedForApplication"
-g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
-
-g_POLICE_ROLE = "PoliceRole"
-g_CRIMINAL_ROLE = "CriminalRole"
-g_POLICE_TEAM_NAME = "The Police"
-
-g_SHOW_JOB_EVENT = "onShowJob" -- jobId, jobType, jobPos
-g_HIDE_JOB_EVENT = "onHideJob" -- jobId
-g_START_JOB_EVENT = "onStartJob" -- jobId, jobType
-g_STOP_JOB_EVENT = "onStopJob" -- jobId, jobType
-g_FINISH_JOB_EVENT = "onFinishJob" -- jobId (jobType) (reportedplayers) (client only)
-g_JOB_STATUS_UPDATE_EVENT = "onJobStatusUpdate" -- jobId, jobType, data (depends on jobType)
-g_JOB_ALREADY_IN_PROGRESS_EVENT = "onJobAlreadyInProgress"
-
-g_PED_GAME_READY_EVENT = "onPedGameReady"
-g_SPAWN_PLAYER_PED_EVENT = "onPlayerPedSpawned"
-g_REQUEST_SPAWN_PED_EVENT = "onPedRequested"
-g_PED_CONTROL_UPDATE_EVENT = "onPedControlUpdate"
-g_PED_ANIMATION_EVENT = "onPedAnimation"
-
-g_MONEY_UPDATE_EVENT = "onMoneyUpdate"
-g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate" -- state
-g_ESCAPE_ROUTE_APPEARED = "onEscapeRouteAppeared"
-g_PREGAME_STATE = "pregame"
-g_COREGAME_STATE = "coregame"
-g_ENDGAME_STATE = "endgame"
-g_ENDENDGAME_STATE = "endendgame"
-g_NO_CRIMS_STATE = "nocrimsgame"
-
 g_PICKUP_JOB = {
 	elementType = "pickup_job",
 	type = "pickup job",
@@ -118,3 +85,36 @@ g_JOBS_BY_TYPE = {
 	[g_GROUP_JOB.type] = g_GROUP_JOB,
 	[g_HARVEST_JOB.type] = g_HARVEST_JOB
 }
+
+g_POLICE_APPLICATION_DURATION = 5800
+g_PERK_SELECTION_DURATION = 11800
+
+g_PLAYER_APPLY_FOR_POLICE_EVENT = "onPlayerAskedForApplication"
+g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
+
+g_POLICE_ROLE = "PoliceRole"
+g_CRIMINAL_ROLE = "CriminalRole"
+g_POLICE_TEAM_NAME = "The Police"
+
+g_SHOW_JOB_EVENT = "onShowJob" -- jobId, jobType, jobPos
+g_HIDE_JOB_EVENT = "onHideJob" -- jobId
+g_START_JOB_EVENT = "onStartJob" -- jobId, jobType
+g_STOP_JOB_EVENT = "onStopJob" -- jobId, jobType
+g_FINISH_JOB_EVENT = "onFinishJob" -- jobId (jobType) (reportedplayers) (client only)
+g_JOB_STATUS_UPDATE_EVENT = "onJobStatusUpdate" -- jobId, jobType, data (depends on jobType)
+g_JOB_ALREADY_IN_PROGRESS_EVENT = "onJobAlreadyInProgress"
+
+g_PED_GAME_READY_EVENT = "onPedGameReady"
+g_SPAWN_PLAYER_PED_EVENT = "onPlayerPedSpawned"
+g_REQUEST_SPAWN_PED_EVENT = "onPedRequested"
+g_PED_CONTROL_UPDATE_EVENT = "onPedControlUpdate"
+g_PED_ANIMATION_EVENT = "onPedAnimation"
+
+g_MONEY_UPDATE_EVENT = "onMoneyUpdate"
+g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate" -- state
+g_ESCAPE_ROUTE_APPEARED = "onEscapeRouteAppeared"
+g_PREGAME_STATE = "pregame"
+g_COREGAME_STATE = "coregame"
+g_ENDGAME_STATE = "endgame"
+g_ENDENDGAME_STATE = "endendgame"
+g_NO_CRIMS_STATE = "nocrimsgame"
