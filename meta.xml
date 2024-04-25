@@ -3,7 +3,6 @@
 
     <script src="constants.lua" type="shared" />
 
-    <script src="server/constants.lua" type="server"></script>
     <script src="server/job.lua" type="server"></script>
     <script src="server/player.lua" type="server"></script>
     <script src="server/exit.lua" type="server"></script>

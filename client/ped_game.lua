@@ -23,6 +23,21 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 		triggerEvent("onClientCall_race", root, "Spectate.start", "auto")
 		triggerEvent("onClientCall_race", root, "MovePlayerAway.start")
 
+		-- destroy all things that might exist from previous role
+		-- sure if endgame is reached there will be more blips again, but unimportant
+		for _, e in ipairs(getElementsByType("marker", resourceRoot)) do
+			destroyElement(e)
+		end
+
+		for _, e in ipairs(getElementsByType("blip", resourceRoot)) do
+			destroyElement(e)
+		end
+
+		for _, e in ipairs(getElementsByType("colshape", resourceRoot)) do
+			-- does this also clean up the listeners? who knows but idc
+			destroyElement(e)
+		end
+
 		-- bind keys to ped
 		local controls = {
 			"forwards",
@@ -52,9 +67,9 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 
 		-- ped emotes
 		local emotes = {
-			["1"] = {"ped", "fucku" },
-			["2"] = {"ped", "endchat_03" },
-			["3"] = {"dancing", "dan_down_a" }
+			["1"] = { "ped", "fucku" },
+			["2"] = { "ped", "endchat_03" },
+			["3"] = { "dancing", "dan_down_a" }
 		}
 		for key, anim in pairs(emotes) do
 			bindKey(key, "down", function()

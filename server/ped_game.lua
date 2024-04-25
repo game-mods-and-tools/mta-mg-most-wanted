@@ -28,6 +28,7 @@ local function startPedRequestListener()
 		setElementSyncer(ped, client, true)
 		peds[#peds + 1] = ped
 
+		setPlayerTeam(client, g_PedTeam)
 		triggerClientEvent(client, g_SPAWN_PLAYER_PED_EVENT, resourceRoot, ped)
 	end)
 

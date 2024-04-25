@@ -109,6 +109,7 @@ g_PLAYER_ROLE_SELECTED_EVENT = "onPlayerRoleSelected" -- role
 g_POLICE_ROLE = "PoliceRole"
 g_CRIMINAL_ROLE = "CriminalRole"
 g_POLICE_TEAM_NAME = "The Police"
+g_PED_TEAM_NAME = "Innocent Bystanders"
 
 g_SHOW_JOB_EVENT = "onShowJob" -- jobId, jobType, jobPos
 g_HIDE_JOB_EVENT = "onHideJob" -- jobId

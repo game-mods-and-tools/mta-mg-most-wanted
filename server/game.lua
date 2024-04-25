@@ -138,6 +138,7 @@ local function spawnJob(id)
 end
 
 local function maybeSpawnJob()
+	-- note that the team number can change if people go ped
 	if availableJobs < countPlayersInTeam(g_CriminalTeam) * g_AVAILABLE_JOBS_MULTIPLIER + 10 and
 		availableJobs < g_MAX_JOBS_AVAILABLE and
 		lastSpawnedJobAt < getRealTime().timestamp - (g_DELAY_BETWEEN_JOB_SPAWN / 1000) then

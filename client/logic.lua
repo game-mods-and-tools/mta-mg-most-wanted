@@ -13,6 +13,8 @@ end)
 
 addEvent(g_JOB_STATUS_UPDATE_EVENT, true)
 addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data)
+	if getPlayerTeam(localPlayer) == getTeamFromName(g_PED_TEAM_NAME) then return end
+
 	if type == g_DELIVERY_JOB.type then
 		triggerEvent(g_SHOW_DELIVERY_TARGET_EVENT, resourceRoot, data.pos)
 		if data.subtype == g_DELIVERY_JOB.subtypes.DELIVERY then
@@ -159,6 +161,8 @@ end)
 
 addEvent(g_GAME_STATE_UPDATE_EVENT, true)
 addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
+	if getPlayerTeam(localPlayer) == getTeamFromName(g_PED_TEAM_NAME) then return end
+
 	if state == g_COREGAME_STATE then
 		local policeTeam = getTeamFromName(g_POLICE_TEAM_NAME)
 		if getPlayerTeam(localPlayer) == policeTeam then
@@ -170,6 +174,7 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 			function createCopSirens()
 				setTimer(function()
 					local cops = getPlayersInTeam(policeTeam)
+					-- because cops may not be loaded yet
 					if #cops == 0 then return createCopSirens() end
 
 					for _, cop in ipairs(cops) do
@@ -178,7 +183,7 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 						setSoundMinDistance(sound, 20)
 						setSoundMaxDistance(sound, 200)
 						setTimer(function()
-							if not isElement(cop) then
+							if not isElement(cop) or isPedDead(cop) then
 								if isElement(sound) then
 									destroyElement(sound)
 								end
