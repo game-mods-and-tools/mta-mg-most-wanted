@@ -134,7 +134,7 @@ addEventHandler(g_JOB_STATUS_UPDATE_EVENT, resourceRoot, function(id, type, data
 				triggerServerEvent(g_FINISH_JOB_EVENT, resourceRoot, id)
 			end
 
-			if getControlState(localPlayer, "horn") then
+			if getPedControlState(localPlayer, "horn") then
 				honkProgress = math.min(honkProgress + g_EXTORTION_JOB.progressRate, 1)
 			else
 				honkProgress = math.max(honkProgress - g_EXTORTION_JOB.decayRate, 0)
