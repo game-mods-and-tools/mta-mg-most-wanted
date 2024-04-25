@@ -227,7 +227,7 @@ function HarvestJob:assign(player)
 	local endpoints = getElementsByType("harvest_job_end", mapRoot)
 	local minDistance = 999999 -- probably fine
 	local endpoint = nil
-	local px, py, pz = getElementPosition(player)
+	local px, py, pz = getElementPosition(player.player)
 	for _, possibleEndpoint in ipairs(endpoints) do
 		local nx, ny, nz = getElementPosition(possibleEndpoint)
 		local newDistance = getDistanceBetweenPoints3D(nx, ny, nz, px, py, pz)
@@ -247,6 +247,27 @@ function HarvestJob:assign(player)
 	})
 
 	self:disable()
+end
+
+function HarvestJob:finish()
+	self.progress = 1
+	self.deliverer.delivering = false
+
+	local players = self:activePlayers()
+	local reportedPlayers = {}
+	for _, player in ipairs(players) do
+		if math.random() > g_CRIME_REPORT_CHANCE then
+			reportedPlayers[#reportedPlayers + 1] = player
+		end
+	end
+
+	self.deliverer:heal(g_JOBS_BY_TYPE[self.type].healRate)
+
+	triggerClientEvent(players, g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
+	triggerClientEvent(getPlayersInTeam(g_PoliceTeam), g_FINISH_JOB_EVENT, resourceRoot, self.id, self.type, reportedPlayers)
+
+	self:disable()
+	self.players = {}
 end
 
 -- sit and wait... in a group job

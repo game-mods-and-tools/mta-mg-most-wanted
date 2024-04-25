@@ -108,6 +108,7 @@ g_HARVEST_JOB = {
 	zoneRadius = 5,
 	blip = 21,
 	color = { r = 160, g = 0, b = 210, a = 100 },
+	healRate = 50, -- per organ clicked (6)
 	jobWeight = 1.104 -- per organ clicked (6 organs), total should help with the dead players quota
 }
 g_JOBS_BY_TYPE = {

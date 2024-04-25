@@ -175,7 +175,7 @@ function Player:checkPerk()
 		if self.perkId == g_MECHANIC_PERK.id then
 			local vx, vy, vz = getElementVelocity(veh)
 			if vx == 0 and vy == 0 and vz == 0 then
-				setElementHealth(veh, math.min(getElementHealth(veh) + g_MECHANIC_PERK.healRate * g_SERVER_TICK_DELAY / 1000, 1000)) -- per tick
+				self:heal(g_MECHANIC_PERK.healRate * g_SERVER_TICK_DELAY / 1000) -- per tick
 			end
 		elseif self.perkId == g_FUGITIVE_PERK.id then
 			if getElementAlpha(self.player) ~= 0  then
@@ -198,5 +198,15 @@ function Player:checkPerk()
 			setVehicleHandling(veh, "maxVelocity", 200 + (1000 - getElementHealth(veh)) * g_HOTSHOT_PERK.velocityRate) -- 200 is base for vehicle
 			setVehicleHandling(veh, "engineAcceleration", 11.2 + (1000 - getElementHealth(veh)) * g_HOTSHOT_PERK.accelRate) -- 11.2 is base for vehicle
 		end
+	end
+end
+
+function Player:heal(amount)
+	if not isElement(self.player) then return end -- in case someone dcs or something idk
+
+	local veh = getPedOccupiedVehicle(self.player)
+
+	if veh then
+		setElementHealth(veh, math.min(getElementHealth(veh) + amount, 1000))
 	end
 end
