@@ -59,13 +59,12 @@ local criminalNames = {
 g_PoliceTeam = createTeam(g_POLICE_TEAM_NAME, 30, 190, 240)
 g_CriminalTeam = createTeam(criminalNames[math.random(#criminalNames)], 150, 0 , 200)
 g_PedTeam = createTeam(g_PED_TEAM_NAME)
-setTeamFriendlyFire(g_PoliceTeam, false) -- does this work for vehicles
 g_CopWeaponId = 29 -- mp5
 
 -- idk which skill is right
-setWeaponProperty(29, "poor", "damage", 20)
-setWeaponProperty(29, "std", "damage", 20)
-setWeaponProperty(29, "pro", "damage", 20)
+setWeaponProperty(29, "poor", "damage", 15)
+setWeaponProperty(29, "std", "damage", 15)
+setWeaponProperty(29, "pro", "damage", 15)
 
 function Player:new(player)
 	local o = {}
