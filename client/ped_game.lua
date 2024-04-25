@@ -45,12 +45,14 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			"left",
 			"right",
 			"sprint",
-			"jump"
+			"jump",
+			"fire"
 		}
 		for _, control in ipairs(controls) do
 			for key in pairs(getBoundKeys(control)) do
 				bindKey(key, "down", function()
 					if not isPedDead(playerPed) then
+						if control == "fire" and getPedWeapon(playerPed) == 0 then return end
 						triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, true)
 						setControlState(playerPed, control, true)
 					end
@@ -58,6 +60,7 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 
 				bindKey(key, "up", function()
 					if not isPedDead(playerPed) then
+						if control == "fire" and getPedWeapon(playerPed) == 0 then return end
 						triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, false)
 						setControlState(playerPed, control, false)
 					end

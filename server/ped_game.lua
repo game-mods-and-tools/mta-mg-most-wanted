@@ -79,11 +79,26 @@ local function startPedRequestListener()
 	triggerClientEvent(getRootElement(), g_PED_GAME_READY_EVENT, resourceRoot)
 end
 
+local function startPickupListener()
+	-- should only be 1 pickup anyways
+	for _, element in ipairs(getElementsByType("pickup", mapRoot)) do
+		local x, y, z = getElementPosition(element)
+		local colShape = createColSphere(x, y, z, 1)
+		addEventHandler("onColShapeHit", colShape, function(hitElement)
+			if getElementType(hitElement) == "ped" then
+				giveWeapon(hitElement, 10, 1, true)
+				setElementPosition(hitElement, 1248, -1337, 15)
+			end
+		end)
+	end
+end
+
 addEvent(g_GAME_STATE_UPDATE_EVENT)
 addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 	if state == g_COREGAME_STATE and loaded == false then
 		loaded = true
 		startPedRequestListener()
+		startPickupListener()
 	end
 end)
 

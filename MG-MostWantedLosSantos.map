@@ -1082,7 +1082,4 @@
     <object id="object (SW_haybreak02) (124)" breakable="false" interior="0" alpha="255" dimension="0" model="3374" scale="1" doublesided="false" collisions="true" posX="1322.82361" posY="-1324.90369" posZ="69" rotX="0" rotY="0" rotZ="0"></object>
     <object id="object (SW_haybreak02) (128)" breakable="false" interior="0" alpha="255" dimension="0" model="3374" scale="1" doublesided="false" collisions="true" posX="1318.8199" posY="-1324.9" posZ="79.99" rotX="0" rotY="0" rotZ="0"></object>
     <pickup id="pickup (Dildo) (1)" type="10" interior="0" amount="100" respawn="30000" dimension="0" alpha="255" posX="1318.89" posY="-1324.9301" posZ="82.5" rotX="0" rotY="0" rotZ="0"></pickup>
-    <pickup id="pickup (Dildo) (1)" type="10" interior="0" amount="100" respawn="30000" dimension="0" alpha="255" posX="1318.89" posY="-1324.9301" posZ="82.5" rotX="0" rotY="0" rotZ="0"></pickup>
-    <object id="object (odrampbit) (2)" breakable="false" interior="0" alpha="255" dimension="0" model="5816" scale="1" doublesided="false" collisions="true" frozen="false" posX="1282.41" posY="-1342.2" posZ="19.52" rotX="0" rotY="0" rotZ="152.734"></object>
-    <object id="object (odrampbit) (3)" breakable="false" interior="0" alpha="255" dimension="0" model="5816" scale="1" doublesided="false" collisions="true" frozen="false" posX="1294.54" posY="-1332.35" posZ="31.43" rotX="0" rotY="0" rotZ="-130.897"></object>
 </map>
