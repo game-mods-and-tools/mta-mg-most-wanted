@@ -26,6 +26,9 @@ local function startPedRequestListener()
 		local ped = createPed(16, 1248, -1337, 15) -- park opposite police station
 		setElementHealth(ped, 60)
 		setElementSyncer(ped, client, true)
+		for _, p in ipairs(peds) do
+			setElementCollisionsEnabled(ped, p, false)
+		end
 		peds[#peds + 1] = ped
 
 		setPlayerTeam(client, g_PedTeam)
