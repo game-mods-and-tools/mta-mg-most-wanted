@@ -52,20 +52,24 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			for key in pairs(getBoundKeys(control)) do
 				bindKey(key, "down", function()
 					if not isPedDead(playerPed) then
-						setControlState(playerPed, control, true)
 						if control == "fire" then
 							if getPedWeapon(playerPed) == 0 then return end
+							setControlState(playerPed, control, true)
 							triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, true)
+						else
+							setControlState(playerPed, control, true)
 						end
 					end
 				end)
 
 				bindKey(key, "up", function()
 					if not isPedDead(playerPed) then
-						setControlState(playerPed, control, false)
 						if control == "fire" then
 							if getPedWeapon(playerPed) == 0 then return end
+							setControlState(playerPed, control, false)
 							triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, false)
+						else
+							setControlState(playerPed, control, false)
 						end
 					end
 				end)
