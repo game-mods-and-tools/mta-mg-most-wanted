@@ -163,7 +163,7 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			if focusPed then
 				dxDrawBorderedText(0.5, "Press " .. toggleKey .. " to return to spectator.", screenWidth / 2, screenHeight - 130,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.9, "arial", center, top, false, false, false, true)
 				if not isPedDead(playerPed) then
-					dxDrawBorderedText(0.5, "Your pedestrian will remain vulnerable!", screenWidth / 2, screenHeight - 85,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "arial", center, top, false, false, false, true)
+					dxDrawBorderedText(0.5, "Your pedestrian will remain vulnerable!", screenWidth / 2, screenHeight - 110,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "arial", center, top, false, false, false, true)
 					dxDrawBorderedText(0.5, "Any player close to you will have their location revealed on the radar to everyone.", screenWidth / 2, screenHeight - 55,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "arial", center, top, false, false, false, true)
 					dxDrawBorderedText(0.5, "Be careful! If you are killed, you will not be able to respawn!", screenWidth / 2, screenHeight - 35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "arial", center, top, false, false, false, true)
 					dxDrawBorderedText(0.5, "(press 1 to flip the bird, press 2 to wave, press 3 to show your moves)", screenWidth / 2, screenHeight - 15,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.2, "arial", center, top, false, false, false, true)
