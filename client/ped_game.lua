@@ -54,10 +54,10 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 					if not isPedDead(playerPed) then
 						if control == "fire" then
 							if getPedWeapon(playerPed) == 0 then return end
-							setControlState(playerPed, control, true)
+							setPedControlState(playerPed, control, true)
 							triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, true)
 						else
-							setControlState(playerPed, control, true)
+							setPedControlState(playerPed, control, true)
 						end
 					end
 				end)
@@ -66,10 +66,10 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 					if not isPedDead(playerPed) then
 						if control == "fire" then
 							if getPedWeapon(playerPed) == 0 then return end
-							setControlState(playerPed, control, false)
+							setPedControlState(playerPed, control, false)
 							triggerServerEvent(g_PED_CONTROL_UPDATE_EVENT, resourceRoot, playerPed, control, false)
 						else
-							setControlState(playerPed, control, false)
+							setPedControlState(playerPed, control, false)
 						end
 					end
 				end)
