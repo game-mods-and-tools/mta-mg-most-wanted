@@ -47,6 +47,13 @@ local function startPedRequestListener()
 		end
 	end)
 
+	addEvent(g_PED_MOVEMENT_EVENT, true)
+	addEventHandler(g_PED_MOVEMENT_EVENT, resourceRoot, function(ped, pos, rot)
+		if canSendPedUpdate(ped) then
+			triggerClientEvent(g_PED_MOVEMENT_EVENT, resourceRoot, ped, pos, rot)
+		end
+	end)
+
 	setTimer(function()
 		-- cleanup ped blips
 		for _, blip in ipairs(pedFindBlips) do
@@ -71,7 +78,7 @@ local function startPedRequestListener()
 				end
 
 				-- allow more actions every interval, currently 3 per second with generous cap
-				pedUpdateLimits[ped] = math.max(0, (pedUpdateLimits[ped] or 1) - 3)
+				pedUpdateLimits[ped] = math.max(0, (pedUpdateLimits[ped] or 1) - 5)
 			end
 		end
 	end, 1000, 0)

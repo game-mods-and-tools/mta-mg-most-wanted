@@ -98,7 +98,21 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			-- for now peds only have 1 life with default hp
 		end)
 
+		addEventHandler("onClientPedStep", ped, function(left)
+			if left then
+				triggerServerEvent(g_PED_MOVEMENT_EVENT, resourceRoot, playerPed, {getElementPosition(playerPed)}, {getElementRotation(playerPed)})
+			end
+		end)
+
 		playerPed = ped
+	end)
+
+	addEvent(g_PED_MOVEMENT_EVENT, true)
+	addEventHandler(g_PED_MOVEMENT_EVENT, resourceRoot, function(ped, pos, rot)
+		if ped ~= playerPed then
+			setElementPosition(ped, unpack(pos))
+			setElementRotation(ped, unpack(rot))
+		end
 	end)
 
 	addEvent(g_PED_CONTROL_UPDATE_EVENT, true)

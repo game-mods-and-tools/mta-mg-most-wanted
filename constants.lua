@@ -124,6 +124,7 @@ g_SPAWN_PLAYER_PED_EVENT = "onPlayerPedSpawned"
 g_REQUEST_SPAWN_PED_EVENT = "onPedRequested"
 g_PED_CONTROL_UPDATE_EVENT = "onPedControlUpdate"
 g_PED_ANIMATION_EVENT = "onPedAnimation"
+g_PED_MOVEMENT_EVENT = "onPedMovement"
 
 g_MONEY_UPDATE_EVENT = "onMoneyUpdate"
 g_GAME_STATE_UPDATE_EVENT = "onGameStateUpdate" -- state
