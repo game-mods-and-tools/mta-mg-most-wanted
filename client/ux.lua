@@ -399,11 +399,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 				dxDrawBorderedText(0.5, "POLICE", screenWidth / 2, screenHeight * 0.18,  screenWidth, screenHeight, tocolor(30, 190, 240, 255), 5, "bankgothic")
 				dxDrawBorderedText(0.5, "Criminals are planning to go on a crime spree.", screenWidth / 2, screenHeight * 0.35,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5, "Once they've stolen enough, they will attempt to skip town.", screenWidth / 2, screenHeight * 0.35 + 50,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
-				local vehicleSecondaryFireKey = "vehicle_secondary_fire"
-				for key in pairs(getBoundKeys("vehicle_secondary_fire")) do
-					vehicleSecondaryFireKey = key
-					break
-				end
+				local vehicleSecondaryFireKey = next(getBoundKeys("vehicle_secondary_fire")) or "vehicle_secondary_fire"
 				dxDrawBorderedText(0.5, "Deploy your firearm by pressing " .. vehicleSecondaryFireKey, screenWidth / 2, screenHeight * 0.35 + 140,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 				dxDrawBorderedText(0.5, "Use any force necessary to eliminate them!", screenWidth / 2, screenHeight * 0.35 + 190,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 2.5, "sans", center, top, false, false, false, true)
 			end
