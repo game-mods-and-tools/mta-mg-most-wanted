@@ -91,13 +91,25 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			end)
 		end
 
-		-- match camera rotation
+		-- various checks to keep things ok
 		setTimer(function()
+			-- match camera rotation
 			setPedCameraRotation(ped, getPedCameraRotation(localPlayer))
+			
+			-- constantly check if not focused
 			if focusPed and getCameraTarget() ~= playerPed then
 				triggerEvent("onClientCall_race", root, "Spectate.stop", "auto")
 				triggerEvent("onClientCall_race", root, "MovePlayerAway.stop")
 				setCameraTarget(ped)
+			end
+			
+			-- stopping spectate unfreezes the vehicle and it starts falling
+			-- so just keep resetting its position when it falls too far idk
+			local veh = getPedOccupiedVehicle(localPlayer)
+			if not veh then return end
+			local x, y, z = getElementPosition(veh)
+			if z < 31000 then
+				setElementPosition(veh, x, y, 40000)
 			end
 		end, 10, 0)
 
