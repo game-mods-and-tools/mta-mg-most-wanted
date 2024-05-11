@@ -12,6 +12,9 @@ local function canSpawnAsPedCondition()
 	)
 end
 
+local remainingQuota = nil
+local moneyScaler = 100
+
 addEvent(g_PED_GAME_READY_EVENT, true)
 addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 	addEvent(g_SPAWN_PLAYER_PED_EVENT, true)
@@ -95,14 +98,14 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 		setTimer(function()
 			-- match camera rotation
 			setPedCameraRotation(ped, getPedCameraRotation(localPlayer))
-			
+
 			-- constantly check if not focused
 			if focusPed and getCameraTarget() ~= playerPed then
 				triggerEvent("onClientCall_race", root, "Spectate.stop", "auto")
 				triggerEvent("onClientCall_race", root, "MovePlayerAway.stop")
 				setCameraTarget(ped)
 			end
-			
+
 			-- stopping spectate unfreezes the vehicle and it starts falling
 			-- so just keep resetting its position when it falls too far idk
 			local veh = getPedOccupiedVehicle(localPlayer)
@@ -168,6 +171,10 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 		end
 	end)
 
+	addEventHandler(g_MONEY_UPDATE_EVENT, resourceRoot, function(data)
+		remainingQuota = math.max(0, math.floor((data.moneyQuota - data.money) * moneyScaler))
+	end)
+
 	addEventHandler("onClientRender", root, function()
 		local screenWidth, screenHeight = guiGetScreenSize()
 --		dxDrawBorderedText(0.5,"A NEARBY PEDESTRIAN IS REVEALING YOUR LOCATION!", screenWidth / 2, screenHeight * 0.22, screenWidth, screenHeight, tocolor(222, 26, 26, 255), 2.5, "arial", center, top, false, false, false, true)
@@ -190,6 +197,13 @@ addEventHandler(g_PED_GAME_READY_EVENT, resourceRoot, function()
 			else
 				dxDrawBorderedText(0.5, "Press " .. toggleKey .. " to return to pedestrian.", screenWidth / 2, screenHeight - 130,  screenWidth, screenHeight, tocolor(210, 210, 210, 255), 1.9, "arial", center, top, false, false, false, true)
 			end
+		end
+
+		if getPlayerTeam(localPlayer) ~= getTeamFromName(g_PED_TEAM_NAME) then return end
+
+		if remainingQuota then
+			dxDrawBorderedText(2, "RETIREMENT SAVINGS", screenWidth * 0.75, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			dxDrawBorderedText(2, "$" .. remainingQuota, screenWidth * 0.75, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
 		end
 	end)
 end)
