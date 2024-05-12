@@ -1019,6 +1019,8 @@
     <object id="object (DockBarr1_LA) (55)" breakable="false" interior="0" alpha="255" dimension="0" model="3578" scale="1" doublesided="false" collisions="true" frozen="false" posX="1791.36" posY="-1966.45" posZ="13.18" rotX="0" rotY="0" rotZ="25.453"></object>
     <group_job id="group_job (8)" interior="0" posX="1776.67" posY="-1355.4301" posZ="14.67" rotX="0" rotY="0" rotZ="0"></group_job>
     <object id="object (subwaygate) (2)" breakable="false" interior="0" alpha="255" dimension="0" model="971" scale="1" doublesided="false" collisions="true" frozen="false" posX="828.59003" posY="-1343.03" posZ="13.63" rotX="0" rotY="0" rotZ="-90"></object>
+    <object id="object (subwaygate) (3)" breakable="false" interior="0" alpha="255" dimension="0" model="971" scale="1" doublesided="false" collisions="true" posX="1678.8" posY="-1773.2" posZ="6.8" rotX="0" rotY="0" rotZ="-90"></object>
+    <object id="object (subwaygate) (4)" breakable="false" interior="0" alpha="255" dimension="0" model="971" scale="1" doublesided="false" collisions="true" posX="1678.9" posY="-1781.7" posZ="6.8" rotX="0" rotY="0" rotZ="-90"></object>
     <delivery_job_start id="delivery_job_start (94)" job_id="0" alpha="255" interior="0" posX="1726.15" posY="-1379.3199" posZ="12.55" rotX="0" rotY="0" rotZ="118.352"></delivery_job_start>
     <delivery_job_end id="delivery_job_end (82)" job_id="0" alpha="255" interior="0" posX="1681.74" posY="-1460.4399" posZ="13.12" rotX="0" rotY="0" rotZ="-0.359"></delivery_job_end>
     <extortion_job id="extortion_job (75)" alpha="255" interior="0" posX="1694.3199" posY="-1520.49" posZ="13.23" rotX="0" rotY="0" rotZ="0"></extortion_job>
