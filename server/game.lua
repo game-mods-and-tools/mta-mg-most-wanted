@@ -373,6 +373,8 @@ addEventHandler("onRaceStateChanging", getRootElement(), function(state)
 						toggleControl(player, "brake_reverse", false)
 					end
 				end, 10, 0)
+
+				call(getResourceFromName("scoreboard"), "addScoreboardColumn", "money")
 			end,
 			500, -- random delay
 			preGameSetup,

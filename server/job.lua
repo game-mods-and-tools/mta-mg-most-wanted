@@ -90,6 +90,8 @@ function Job:finish()
 	local players = self:activePlayers()
 	local reportedPlayers = {}
 	for _, player in ipairs(players) do
+		givePlayerMoney(player, self:money() * 10)
+		setElementData(player, "money", getPlayerMoney(player) .. "k")
 		if math.random() > g_CRIME_REPORT_CHANCE then
 			reportedPlayers[#reportedPlayers + 1] = player
 		end
@@ -185,6 +187,8 @@ function DeliveryJob:finish()
 	local players = self:activePlayers()
 	local reportedPlayers = {}
 	for _, player in ipairs(players) do
+		givePlayerMoney(player, self:money() * 10)
+		setElementData(player, "money", getPlayerMoney(player) .. "k")
 		if math.random() > g_CRIME_REPORT_CHANCE then
 			reportedPlayers[#reportedPlayers + 1] = player
 		end
@@ -256,6 +260,8 @@ function HarvestJob:finish()
 	local players = self:activePlayers()
 	local reportedPlayers = {}
 	for _, player in ipairs(players) do
+		givePlayerMoney(player, self:money() * 10)
+		setElementData(player, "money", getPlayerMoney(player) .. "k")
 		if math.random() > g_CRIME_REPORT_CHANCE then
 			reportedPlayers[#reportedPlayers + 1] = player
 		end

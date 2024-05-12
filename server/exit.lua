@@ -41,6 +41,7 @@ function Exit:new(group)
 				if getPlayerTeam(player.player) ~= g_CriminalTeam then return end
 
 				triggerEvent("onPlayerReachCheckpointInternal", player.player, 1)
+				triggerEvent("onPlayerFinish", player.player, nil, -getPlayerMoney(player.player) * 60000)
 			end)
 			o.exits[#o.exits + 1] = e
 		end
