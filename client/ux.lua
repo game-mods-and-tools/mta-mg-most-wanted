@@ -4,12 +4,14 @@ local showProgressBar = false
 local progressBarProgress = 0
 local money = {
 	total = 0,
+	handicap = 0,
 	quota = 0
 }
 local deadPlayer = nil
 local role = g_CRIMINAL_ROLE
 local moneyScaler = 1000
 local uiTimer = nil
+local endGameStartedAt = nil
 
 local showText = {}
 local groupJobAppeared = "groupJobAppeared"
@@ -289,6 +291,7 @@ addEventHandler(g_MONEY_UPDATE_EVENT, resourceRoot, function(data)
 
 	money.total = math.floor(data.money * moneyScaler)
 	money.quota = math.floor(data.moneyQuota * moneyScaler)
+	money.handicap = math.floor(data.moneyHandicap * moneyScaler)
 end)
 
 addEvent(g_GAME_STATE_UPDATE_EVENT, true)
@@ -297,6 +300,7 @@ addEventHandler(g_GAME_STATE_UPDATE_EVENT, resourceRoot, function(state)
 
 	if state == g_ENDGAME_STATE then
 		show(endGameInfo, 8000)
+		endGameStartedAt = getRealTime().timestamp
 	elseif state == g_ENDENDGAME_STATE then
 		playSound("client/resources/pag.mp3")
 		endEndGameScrollTimer = show(endEndGameInfo, 10000)
@@ -408,20 +412,35 @@ addEventHandler("onClientResourceStart", resourceRoot, function()
 
 		-- hud
 		if money.quota > 0 then
-			if role == g_CRIMINAL_ROLE then
-				-- HUD (crim)
-				dxDrawBorderedText(2, "ESCAPE QUOTA", screenWidth * 0.75, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-				dxDrawBorderedText(2, "$" .. money.quota, screenWidth * 0.75, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-				dxDrawBorderedText(2, "TOTAL MONEY", screenWidth * 0.75, screenHeight * 0.22 + 55, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-				dxDrawBorderedText(2, "$" .. money.total, screenWidth * 0.75, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			local width = 300
+			local leftEdge = screenWidth * 0.75 - width / 2
+			local topEdge = screenHeight * 0.22
 
-			elseif role == g_POLICE_ROLE then
-				-- HUD (cop)
-				dxDrawBorderedText(2, "ESTIMATED QUOTA", screenWidth * 0.75, screenHeight * 0.22, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-				dxDrawBorderedText(2, "$" .. money.quota, screenWidth * 0.75, screenHeight * 0.22 + 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-				dxDrawBorderedText(2, "MONEY STOLEN", screenWidth * 0.75, screenHeight * 0.22 + 55, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
-				dxDrawBorderedText(2, "$" .. money.total, screenWidth * 0.75, screenHeight * 0.22 + 75, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			local crimWidth = math.min(g_SECRET_ENDING_REQUIREMENT_MULTIPLIER, money.total / money.quota) * width / g_SECRET_ENDING_REQUIREMENT_MULTIPLIER
+			local handicapWidth = math.min(1, money.handicap / money.quota) * width / g_SECRET_ENDING_REQUIREMENT_MULTIPLIER
+			local policeWidth = width - width / g_SECRET_ENDING_REQUIREMENT_MULTIPLIER
+			local threshold = leftEdge + width - policeWidth - handicapWidth
+
+			if endGameStartedAt then
+				policeWidth = policeWidth * math.max(0, 1 - (getRealTime().timestamp - endGameStartedAt) / (g_FIRST_EXIT_SPAWN_DELAY / 1000))
+				threshold = leftEdge + math.min(crimWidth, width / g_SECRET_ENDING_REQUIREMENT_MULTIPLIER)
 			end
+
+			dxDrawBorderedText(2, "CRIME-O-METER", leftEdge + width / 2, topEdge - 20, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.9, "bankgothic", center, top, false, false, false, true)
+			dxDrawRectangle(leftEdge - 4, topEdge, width + 8, 27, tocolor(0, 0, 0))
+			dxDrawRectangle(leftEdge, topEdge + 4, crimWidth, 10, tocolor(170, 0 , 220))
+			dxDrawRectangle(threshold, topEdge + 14, handicapWidth, 10, tocolor(255, 220, 00))
+			dxDrawRectangle(threshold + handicapWidth, topEdge + 14, policeWidth, 10, tocolor(30, 190, 240))
+
+			dxDrawRectangle(threshold, topEdge, 3, 29, tocolor(190, 222, 222))
+			if endGameStartedAt then
+				dxDrawBorderedText(2, "escape", threshold, topEdge + 40, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.5, "bankgothic", center, top, false, false, false, true)
+			else
+				dxDrawBorderedText(2, "target", threshold, topEdge + 40, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.5, "bankgothic", center, top, false, false, false, true)
+			end
+
+			dxDrawRectangle(leftEdge + width, topEdge, 3, 29, tocolor(190, 222, 222))
+			dxDrawBorderedText(2, "??", leftEdge + width, topEdge + 40, screenWidth, screenHeight, tocolor(190, 222, 222, 255), 0.5, "bankgothic", center, top, false, false, false, true)
 		end
 
 		-- top middle ui

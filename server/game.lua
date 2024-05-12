@@ -7,6 +7,7 @@ local players = {}
 local lastJobId = 0
 local availableJobs = 0
 local lastSpawnedJobAt = 0
+local totalMoneyHandicap = 0
 local totalMoneyProgress = 0
 local moneyEscapeQuota = 0
 local lastExitId = 0
@@ -14,6 +15,7 @@ local exitsSpawned = 0
 local lastSpawnedExitAt = 0
 local gameState = g_PREGAME_STATE
 local harvestJobCount = 0
+local gameStartedAt = nil
 
 local function runWithDelaysInBetween(...)
 	local args = {...}
@@ -29,8 +31,11 @@ local function runWithDelaysInBetween(...)
 end
 
 local function updateMoney()
+	totalMoneyHandicap = math.max(totalMoneyHandicap, 0)
+
 	triggerClientEvent(getRootElement(), g_MONEY_UPDATE_EVENT, resourceRoot, {
 		money = totalMoneyProgress,
+		moneyHandicap = totalMoneyHandicap,
 		moneyQuota = moneyEscapeQuota
 	})
 end
@@ -42,7 +47,11 @@ local function finishJob(job)
 		availableJobs = availableJobs - 1
 	end
 	totalMoneyProgress = totalMoneyProgress + job:money()
-	
+
+	if gameState == g_ENDGAME_STATE then
+		totalMoneyHandicap = totalMoneyHandicap - job:money()
+	end
+
 	updateMoney()
 end
 
@@ -61,13 +70,22 @@ local function updateGameState(state)
 		-- unbind criminal keys?
 	elseif state == g_ENDGAME_STATE then
 		g_CopWeaponId = 31 -- m4
-		lastSpawnedExitAt = getRealTime().timestamp + 25 -- hack to add extra time to first spawn
+
+		lastSpawnedExitAt = getRealTime().timestamp + (g_FIRST_EXIT_SPAWN_DELAY - g_DELAY_BETWEEN_EXIT_SPAWN) / 1000
 
 		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
 			if getElementData(criminal, "state") == "alive" then
 				createBlipAttachedTo(criminal, 0, 2, 150, 0, 200, 255, 6, 80085)
 			end
 		end
+
+		setTimer(function ()
+			for _, cop in ipairs(getPlayersInTeam(g_PoliceTeam)) do
+				if getElementData(cop, "state") == "alive" then
+					createBlipAttachedTo(cop, 0, 2, 30, 190, 240, 255, 6, 80085)
+				end
+			end
+		end, g_FIRST_EXIT_SPAWN_DELAY, 1)
 	elseif state == g_ENDENDGAME_STATE then
 		for _, criminal in ipairs(getPlayersInTeam(g_CriminalTeam)) do
 			bindKey(criminal, "vehicle_secondary_fire", "down", function()
@@ -86,7 +104,7 @@ local function updateGameState(state)
 end
 
 local function maybeUpdateGameState()
-	if gameState == g_COREGAME_STATE and totalMoneyProgress >= moneyEscapeQuota then
+	if gameState == g_COREGAME_STATE and totalMoneyProgress + totalMoneyHandicap >= moneyEscapeQuota then
 		updateGameState(g_ENDGAME_STATE)
 	elseif gameState == g_ENDGAME_STATE and totalMoneyProgress >= moneyEscapeQuota * g_SECRET_ENDING_REQUIREMENT_MULTIPLIER then
 		updateGameState(g_ENDENDGAME_STATE)
@@ -115,6 +133,13 @@ local function maybeSpawnExitPoint()
 	if (gameState == g_ENDGAME_STATE or gameState == g_ENDENDGAME_STATE) and
 		(lastSpawnedExitAt < getRealTime().timestamp - (g_DELAY_BETWEEN_EXIT_SPAWN / 1000) and
 		exitsSpawned < g_MAX_EXITS_AVAILABLE) then
+
+		if totalMoneyHandicap > 0 then
+			totalMoneyHandicap = totalMoneyHandicap - moneyEscapeQuota * (g_SECRET_ENDING_REQUIREMENT_MULTIPLIER - 1) * (g_SERVER_TICK_DELAY / g_FIRST_EXIT_SPAWN_DELAY)
+			updateMoney()
+			return
+		end
+
 		lastExitId = lastExitId + 1
 		spawnExitPoint(lastExitId)
 		if lastExitId == #exits then
@@ -167,8 +192,20 @@ local function updateJobProgress()
 	end
 end
 
+local function checkCriminalPitySystem()
+	if gameState == g_COREGAME_STATE then
+		local elapsed = getRealTime().timestamp - gameStartedAt
+		local curve = 1.005
+		-- (0, 0)
+		-- (g_MAX_COREGAME_LENGTH / 1000, moneyEscapeQuota)
+		totalMoneyHandicap = moneyEscapeQuota * (math.pow(curve, elapsed) - 1) / (math.pow(curve, g_MAX_COREGAME_LENGTH / 1000) - 1)
+		updateMoney()
+	end
+end
+
 local function startGameLoop()
 	updateGameState(g_COREGAME_STATE)
+	gameStartedAt = getRealTime().timestamp
 
 	setTimer(function()
 		local start = getTickCount()
@@ -177,6 +214,7 @@ local function startGameLoop()
 		maybeSpawnJob()
 		updateJobProgress()
 		updatePerksStatus()
+		checkCriminalPitySystem()
 		local stop = getTickCount()
 		local over = math.floor((stop - start) - g_SERVER_TICK_DELAY)
 		if over > 0 then
@@ -299,7 +337,7 @@ local function playerSetup()
 			player:setRole(g_CRIMINAL_ROLE)
 		end
 	end
-	
+
 	-- remove remaining invisible cop vehicle placeholders
 	for _, copCar in pairs(getElementsByType("vehicle", mapRoot)) do
 		if getElementModel(copCar) == 596 and not next(getVehicleOccupants(copCar)) then
