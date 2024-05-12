@@ -186,7 +186,7 @@ function Player:checkPerk()
 				setVehicleLightState(veh, 3, 1)
 			end
 			local vx, vy, vz = getElementVelocity(veh)
-			local speed = math.sqrt(vx ^2 + vy ^2 + vz ^2)
+			local speed = math.sqrt(vx * vx + vy * vy + vz * vz)
 			if speed > g_FUGITIVE_PERK.minSpeed and getControlState(self.player, "handbrake") then
 				local rate = (g_FUGITIVE_PERK.maxAlpha - g_FUGITIVE_PERK.minAlpha) / (g_FUGITIVE_PERK.phaseOutTime / g_SERVER_TICK_DELAY)
 				setElementAlpha(veh, math.max(getElementAlpha(veh) - rate, g_FUGITIVE_PERK.minAlpha))
@@ -206,7 +206,7 @@ function Player:heal(amount)
 
 	local veh = getPedOccupiedVehicle(self.player)
 
-	if veh then
+	if veh and getElementHealth(veh) > 1 then
 		setElementHealth(veh, math.min(getElementHealth(veh) + amount, 1000))
 	end
 end

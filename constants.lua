@@ -1,8 +1,8 @@
 g_FUGITIVE_PERK = {
 	id = "fugitivePerkId",
 	name = "Fugitive",
-	maxAlpha = 200,
-	minAlpha = 5,
+	maxAlpha = 255,
+	minAlpha = 0,
 	phaseOutTime = 500, -- ms
 	phaseInTime = 3000, -- ms
 	minSpeed = 0.2, -- total velocity
